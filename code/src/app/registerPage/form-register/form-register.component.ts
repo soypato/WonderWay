@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './form-register.component.css'
 })
 export class FormRegisterComponent {
-
+  
 }
