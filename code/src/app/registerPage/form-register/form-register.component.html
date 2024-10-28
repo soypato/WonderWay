@@ -1,1 +1,47 @@
-<p>form-register works!</p>
+<div class="background-container"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Crear una cuenta</h1>
+            <p class="card-description">Regístrate para comenzar tu aventura de viajes</p>
+        </div>
+        <div class="card-content">
+            <form id="registro-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <div class="input-icon">
+                        <i class="icon-user">👤</i>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <div class="input-icon">
+                        <i class="icon-plane">✈️</i>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-icon">
+                        <i class="icon-lock">🔒</i>
+                        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar contraseña</label>
+                    <div class="input-icon">
+                        <i class="icon-lock">🔒</i>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Registrarse</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <p class="text-center">
+                ¿Ya tienes una cuenta? <a href="/login" class="link">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+</div>
