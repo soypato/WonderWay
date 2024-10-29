@@ -1,0 +1,8 @@
+.main-parent-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+.main-child-container
+{
+    grid-area: 2 /2;
+}
