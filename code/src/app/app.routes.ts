@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FormLoginComponent } from './loginPage/form-login/form-login.component';
-import { FormRegisterComponent } from './registerPage/form-register/form-register.component';
+import { RegisterComponent } from './registerPage/form-register/form-register.component';
 
 export const routes: Routes = [
     {
@@ -14,7 +14,7 @@ export const routes: Routes = [
     },
     {
         path: 'register',
-        component: FormRegisterComponent
+        component: RegisterComponent
     },
     {
         path: '**', // el resto: AL FINAL POR FAVOR

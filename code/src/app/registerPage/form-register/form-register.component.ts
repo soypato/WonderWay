@@ -1,32 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-register',
-  standalone: true,
+  selector: 'app-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
+  standalone: true,
   imports: [ReactiveFormsModule] 
 })
-export class FormRegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      name: ['', [Validators.required]],                       // Control para el nombre
-      email: ['', [Validators.required, Validators.email]],   //  para el correo electrónico
-      password: ['', [Validators.required, Validators.minLength(6)]], //  para la contraseña
-    });
+  constructor(private formBuilder: FormBuilder) {
+    this.registerForm = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required],
+    }, { validator: this.passwordMatchValidator });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
-  onSubmit(): void {
+  passwordMatchValidator(form: FormGroup) {
+    return form.get('password')?.value === form.get('confirmPassword')?.value 
+      ? null : { mismatch: true };
+  }
+
+  onSubmit() {
     if (this.registerForm.valid) {
-      console.log('Formulario de registro enviado', this.registerForm.value);
-      // LOGICA PARA EL REGISTRO, QUE VAYA ACA
+      // Manejo del envío del formulario
     } else {
-      console.log('Formulario no válido');
+      this.registerForm.markAllAsTouched(); // Marca todos los campos como tocados
     }
   }
 }
