@@ -135,3 +135,9 @@ label {
         border-radius: 0;
     }
 }
+
+.button-main:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño en hover */
+    transition: background-color 0.3s, transform 0.3s; /* Suavizar la transición */
+}
