@@ -1,0 +1,20 @@
+Todo lo que sean estilos globales: index.css
+Todo lo que sean estilos particulares del componente: en el css de cada componente
+
+Para los botones: agregamos la clase: button-main
+Para los colores: las variables están en el index.css
+
+Los colores son:
+#0c5163
+#6ab8bf
+#9fced3
+
+Todos los componentes que sean responsive, en el HTML hagamos:
+
+<div class="main-parent-container">
+    <div class="main-child-container">
+		// AQUÍ LA INFORMACIÓN
+	</div>
+</div>
+
+Y el CSS lo acomoda.
