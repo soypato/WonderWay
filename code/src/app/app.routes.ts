@@ -3,6 +3,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FormLoginComponent } from './loginPage/form-login/form-login.component';
 import { FormRegisterComponent } from './registerPage/form-register/form-register.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RegisterComponent } from './registerPage/form-register/form-register.component';
+
 
 export const routes: Routes = [
     {
@@ -15,7 +17,7 @@ export const routes: Routes = [
     },
     {
         path: 'register',
-        component: FormRegisterComponent
+        component: RegisterComponent
     },
     {
         path: 'about',
