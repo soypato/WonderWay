@@ -2,22 +2,14 @@
 <h1>Funciona</h1>
 
 
-
-<!--
- <div class="profile-container">
-
+<div class="profile-container">
     <h1>Mi Perfil</h1>
     <div class="profile-info" *ngIf="user">
-        <img [src]="user.picture.large" alt="Foto de Perfil" class="profile-photo"/>
-        <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-        <p>Email: {{ user.email }}</p>
-        <p>Teléfono: {{ user.phone }}</p>
+      <h2>Nombre: {{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Rol: {{ user.role }}</p>
+      <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
     </div>
-    <div *ngIf="!user">
-        <p>Cargando perfil...</p> 
-    </div>
-
-</div> 
--->
+  </div>
 
 
