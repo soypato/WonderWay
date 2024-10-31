@@ -1,58 +1,52 @@
-
-h1, h2
-{
-    text-align: center;
+.main-parent-container {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    color: #f7f2f2; 
 }
 
-h1
-{
+.main-parent-container::before {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    position: absolute; /* Posiciona el pseudo-elemento sobre el contenedor */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/travel-1767532_1920.webp'); /* Ruta de la imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7); /* Aplica el efecto de brillo a la imagen */
+    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+}
+
+/* Encabezados */
+h1, h2 {
+    text-align: center;
+    font-weight: 600;
+}
+
+h1 {
     font-size: 5.3rem;
 }
 
-h2
-{
+h2 {
     font-size: 2.2rem;
     line-height: 1.3; /* Aumentar el espacio entre líneas */
     margin-bottom: 2rem; /* Separación inferior para el título secundario */
 }
-/* Este es el flex de los botones. Va aqui porque es de la homepage nada más
-En cambio, los botones son universales a todo el sistema, por una cuestión de
-lógica de branding de la "marca */
 
-
-#buttons-call-to-action
-{
+/* Botones */
+#buttons-call-to-action {
     margin-top: 2rem;
     text-align: center;
     display: flex;
     gap: 1.5rem;
-    /* display: flex; y 100% de width a cada lado por lo que tiene asignado cada btn */
-
 }
-
-
-#landing-landscape
-{
-    margin-top: 2rem;
-   
-}
-
 
 .button-main:hover {
     background-color: var(--color-button-hover);
     transform: scale(1.05); /* Aumentar ligeramente el tamaño en hover */
     transition: background-color 0.3s, transform 0.3s; /* Suavizar la transición */
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -7,6 +7,7 @@
     --color-body-bg: #f7f2f2;       /* Color de fondo del body */
     --color-button-hover: #0b3f4c;  /* Color de fondo del botón al hacer hover */
     --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
+
 }
 
 /* Reset y configuración básica */
@@ -28,23 +29,24 @@ body {
     margin-bottom: 2rem;
 }
 
+footer{
+    margin: 0;
+    padding: 0;
+
+}
+
 /* Estilos de texto */
 h1 {
     font-size: 4rem;
 }
 
-
 /* Fondo de pantalla completo */
 .main-parent-container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    background-image: url('/img/travel-1767532_1920.webp'); /* Ruta de la imagen */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
-    color: white;
 }
+
 
 .main-child-container
 {
@@ -59,6 +61,9 @@ h1 {
     text-decoration: none;
     font-size: 2rem;
     width: 100%;
+    justify-content: center;  
+    align-items: center;
+    display: flex; /* Para centrar el texto en disp moviles */
 }
 
 .button-main:hover {
