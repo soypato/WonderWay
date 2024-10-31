@@ -21,7 +21,7 @@ export const routes: Routes = [
     },
     {
         path: 'about',
-        component: ProfileComponent
+        component: AboutUsComponent
     },
     {
         path: 'profile', 
