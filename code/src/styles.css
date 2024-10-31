@@ -1,8 +1,11 @@
 /* Variables */
 :root {
+    --color-primary: #0c5163;     /* Color principal */
+    --color-secondary: #6ab8bf;   /* Color secundario */
+    --color-tertiary: #9fced3;     /* Color terciario */
+
     --color-body-bg: #f7f2f2;       /* Color de fondo del body */
-    --color-button-bg: #3d80bb;   /* Color de fondo del botón principal */
-    --color-button-hover: #2489d7;  /* Color de fondo del botón al hacer hover */
+    --color-button-hover: #0b3f4c;  /* Color de fondo del botón al hacer hover */
     --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
 }
 
@@ -34,7 +37,7 @@ h1 {
 .button-main {
     color: #fff;
     border-radius: 1rem;
-    background-color: var(--color-button-bg);
+    background-color: var(--color-primary);
     padding: 1rem;
     text-decoration: none;
     font-size: 2rem;
