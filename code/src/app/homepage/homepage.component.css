@@ -6,3 +6,16 @@
 {
     grid-area: 2 /2;
 }
+
+/* Este es el flex de los botones. Va aqui porque es de la homepage nada más
+En cambio, los botones son universales a todo el sistema, por una cuestión de
+lógica de branding de la "marca */
+
+#buttons-call-to-action
+{
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    /* display: flex; y 100% de width a cada lado por lo que tiene asignado cada btn */
+}
