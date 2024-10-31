@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
   standalone: true,
   imports: [ReactiveFormsModule] 
 })
-export class RegisterComponent implements OnInit {
+export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -17,21 +17,28 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
-    }, { validator: this.passwordMatchValidator });
+    }, { validators: FormRegisterComponent.passwordMatchValidator });
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  passwordMatchValidator(form: FormGroup) {
-    return form.get('password')?.value === form.get('confirmPassword')?.value 
-      ? null : { mismatch: true };
+  static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+    
+    if (!password || !confirmPassword) {
+      return null;
+    }
+
+    return password.value === confirmPassword.value ? null : { mismatch: true };
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.registerForm.valid) {
-      // Manejo del envío del formulario
+      console.log('Formulario válido:', this.registerForm.value);
     } else {
-      this.registerForm.markAllAsTouched(); // Marca todos los campos como tocados
+      console.log('Formulario inválido');
+      this.registerForm.markAllAsTouched();
     }
   }
 }
