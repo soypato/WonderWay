@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -6,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractContro
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule] 
+  imports: [ReactiveFormsModule, NgIf] 
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
@@ -21,11 +22,6 @@ export class FormRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
-  /* La función primero verifica que ambos campos (password y confirmPassword) existan.
-  Luego, compara el valor de cada uno.
-  Si son iguales, no hay problema, devuelve null.
-  Si no son iguales, devuelve { mismatch: true }, indicando un error de coincidencia de contraseñas. */
 
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');

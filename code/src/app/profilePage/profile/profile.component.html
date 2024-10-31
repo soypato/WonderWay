@@ -1,0 +1,15 @@
+
+<h1>Funciona</h1>
+
+
+<div class="profile-container">
+    <h1>Mi Perfil</h1>
+    <div class="profile-info" *ngIf="user">
+      <h2>Nombre: {{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Rol: {{ user.role }}</p>
+      <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
+    </div>
+  </div>
+
+
