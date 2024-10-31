@@ -10,6 +10,15 @@ h1, h2
 {
     text-align: center;
 }
+
+h1
+{
+    font-size: 5.2rem;
+}
+h2
+{
+    font-size: 2.2rem;
+}
 /* Este es el flex de los botones. Va aqui porque es de la homepage nada más
 En cambio, los botones son universales a todo el sistema, por una cuestión de
 lógica de branding de la "marca */
