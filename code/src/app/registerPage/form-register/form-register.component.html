@@ -1,4 +1,4 @@
-<div class="background-container"></div>
+<!-- <div class="background-container"></div>
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -106,4 +106,21 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<h2>User List</h2>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+    <button (click)="deleteUser(user.id)">Delete</button>
+  </li>
+</ul>
+
+<h3>Add New User</h3>
+<form (submit)="addUser({name: name.value, email: email.value})">
+  <input type="text" #name placeholder="Name" required>
+  <input type="email" #email placeholder="Email" required>
+  <input type="text" #password placeholder="password" required>
+  <button type="submit">Add</button>
+</form>
