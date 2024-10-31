@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -6,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractContro
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule] 
+  imports: [ReactiveFormsModule, NgIf] 
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
