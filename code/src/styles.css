@@ -57,7 +57,7 @@ h1 {
 
 /* Estilos de imagen */
 .landscape-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: var(--border-radius-image);
 }
