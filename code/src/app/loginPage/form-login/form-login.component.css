@@ -8,8 +8,9 @@ body {
     margin: 0;
 }
 
+
 .background-container {
-    position: absolute;
+    position: fixed; /* En lugar de absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -18,8 +19,9 @@ body {
     background-size: cover;
     background-position: center;
     filter: brightness(0.7);
-    z-index: -1;
+    z-index: -1; /* Para asegurar que esté detrás del contenido */
 }
+
 
 .container {
     width: 100%;
