@@ -1,15 +1,14 @@
-
-<h1>Funciona</h1>
-
-
-<div class="profile-container">
-    <h1>Mi Perfil</h1>
-    <div class="profile-info" *ngIf="user">
-      <h2>Nombre: {{ user.name }}</h2>
-      <p>Email: {{ user.email }}</p>
-      <p>Rol: {{ user.role }}</p>
-      <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
+<div class="main-parent-container">
+  <div class="profile-container main-child-container">
+      <h1>Mi Perfil</h1>
+      <div class="profile-info" *ngIf="user">
+        <h2>Nombre: {{ user.name }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Rol: {{ user.role }}</p>
+        <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
+      </div>
+      <button href="" class="button-main">Editar perfil</button>
+      <!-- Esto cuando tengan ya la URL de edición -->
     </div>
-  </div>
-
+</div>  
 
