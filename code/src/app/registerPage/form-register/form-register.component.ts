@@ -21,6 +21,11 @@ export class FormRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  
+  /* La función primero verifica que ambos campos (password y confirmPassword) existan.
+  Luego, compara el valor de cada uno.
+  Si son iguales, no hay problema, devuelve null.
+  Si no son iguales, devuelve { mismatch: true }, indicando un error de coincidencia de contraseñas. */
 
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
