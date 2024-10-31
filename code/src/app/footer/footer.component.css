@@ -1,9 +1,12 @@
 footer {
     display: flex;
+    padding: 1rem;
+    font-size: 1.5rem;
     flex-direction: column;
     position: relative;
     bottom: 0;
     width: 100%;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
 .container {
