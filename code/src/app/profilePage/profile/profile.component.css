@@ -1,0 +1,14 @@
+.profile-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-photo {
+    width: 150px; /* Ajusta según tu diseño */
+    height: 150px;
+    border-radius: 50%; /* Hace la imagen redonda */
+}
+
+.profile-info {
+    margin-top: 20px;
+}
