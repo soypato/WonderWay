@@ -25,10 +25,6 @@ body {
     background-color: var(--color-body-bg);
 }
 
-.navbar {
-    margin-bottom: 2rem;
-}
-
 footer{
     margin: 0;
     padding: 0;
