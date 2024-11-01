@@ -105,4 +105,10 @@ ul li {
     }
 }
 
-
+.team-member > img
+{
+    max-width: 100%;
+    max-height: 50%;
+    border-radius: 10rem;
+    margin-bottom: 2rem;
+}
