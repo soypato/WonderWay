@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
-import { FormLoginComponent } from './loginPage/form-login/form-login.component';
-import { FormRegisterComponent } from './registerPage/form-register/form-register.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ProfileComponent } from './profilePage/profile/profile.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
+import { FormRegisterComponent } from './components/form-register/form-register.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 export const routes: Routes = [
