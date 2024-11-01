@@ -5,7 +5,9 @@
         <h2>Nombre: {{ user.name }}</h2>
         <p>Email: {{ user.email }}</p>
         <p>Rol: {{ user.role }}</p>
-        <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
+        <div *ngIf="user.role != 'admin'">
+          <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
+        </div>
       </div>
       <a href="#" class="button-main">Editar perfil</a>
       <!-- Esto cuando tengan ya la URL de edición -->
