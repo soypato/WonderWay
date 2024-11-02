@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -6,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractContro
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule] 
+  imports: [ReactiveFormsModule,CommonModule]
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
@@ -16,7 +17,7 @@ export class FormRegisterComponent implements OnInit {
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     }, { validators: FormRegisterComponent.passwordMatchValidator });
   }
 
@@ -25,7 +26,7 @@ export class FormRegisterComponent implements OnInit {
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
-    
+
     if (!password || !confirmPassword) {
       return null;
     }

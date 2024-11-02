@@ -1,9 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container">
+
+      <div class="navbar-profile">
+        <a href="/" id="profileIcon" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- Imagen de perfil como ícono -->
+          <img src="ruta-a-tu-imagen-perfil.jpg" alt="Perfil" class="profile-icon" />
+        </a>
+        <!-- Menú desplegable-->
+
+        <ul class="dropdown-menu" aria-labelledby="profileIcon" >
+          <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+          <li><a class="dropdown-item" href="/configuracion">Configuración</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="">Cerrar sesión</a></li>
+          <!--  cerrar sesion debe des logearte mandatea  homepage-->
+            <!-- hay que definir si dejamos esto o lo fletamos -->
+        </ul>
+      </div>
+
+
       <a class="navbar-brand" href="/">Wonder Way</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
       </button>
+
+
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -30,7 +51,12 @@
                 <a class="nav-link" href="/about">
                     <i class="fas fa-pen nav-icon"></i>Sobre nosotros
                 </a>
-            </li>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/modifyprofile">
+                    <i class="fas fa-pen nav-icon"></i>Modificar perfil
+                </a>
+              </li>
           </ul>
 
       </div>

@@ -1,0 +1,66 @@
+<div class="background-container"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title" id="form-title">Iniciar sesión</h1>
+            <p class="card-description">Ingresa a tu cuenta para explorar nuevos destinos</p>
+        </div>
+        <div class="card-content">
+            <form [formGroup]="modifyProfileForm" (ngSubmit)="onSubmit()" id="modifyPf-Form" aria-labelledby="form-title">
+
+<!--modify name--> <!--  tengo que hacer uno de estos dic class x cada campo a modifica (name mail pass)-->
+              <div class="form-group">
+                <label for="email">Nombre</label>
+                <div class="input-icon">
+                  <input
+                  type="text"
+                  id="name"
+                  formControlName="text",
+                  placeholder="tu@email.com"
+                  aria-describedby="emailHelp"
+                  >
+                </div>
+                <div id="emailHelp" class="sr-only">Ingresa tu nuevo correo electrónico.</div>
+                <div *ngIf="modifyProfileForm.get('email')?.invalid"
+                class="error-message"
+                role="alert"
+                aria-live="assertive">
+                Correo electrónico no válido.
+              </div>
+            </div>
+<!--modify email-->
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-icon">
+                <i class="icon-lock" aria-hidden="true">🔒</i>
+                <input
+                type="password"
+                id="password"
+                formControlName="password"
+                required
+                aria-required="true"
+                aria-describedby="passwordHelp"
+                >
+              </div>
+              <div id="passwordHelp" class="sr-only">Ingresa tu contraseña.</div>
+              <div *ngIf="modifyProfileForm.get('password')?.invalid && modifyProfileForm.get('password')?.touched"
+              class="error-message"
+              role="alert"
+              aria-live="assertive">
+              La contraseña es obligatoria.
+            </div>
+          </div>
+<!--modify pass-->
+
+
+          <button type="submit" class="button-main" [attr.aria-disabled]="modifyProfileForm.invalid"
+          [disabled]="modifyProfileForm.invalid">
+          Iniciar sesión
+          </button>
+        </form>
+      </div>
+      <div class="card-footer">
+        <a href="/profile" class="button">Aplicar Cambios</a>
+      </div>
+    </div>
+</div>

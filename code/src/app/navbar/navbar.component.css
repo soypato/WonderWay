@@ -7,6 +7,17 @@
     justify-content: space-between;
 }
 
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu{
+  text-align: center;
+}
+
 .navbar-custom {
     background: linear-gradient(135deg, #0c5163 0%, #6ab8bf 100%);
     padding: 1rem;
