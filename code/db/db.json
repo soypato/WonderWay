@@ -22,7 +22,7 @@
       "email": "pato@probando.com",
       "password": "123123123",
       "role": "usuario",
-      "active": false
+      "active": true
     },
     {
       "id": "8cc9",

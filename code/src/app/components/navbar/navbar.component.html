@@ -12,34 +12,44 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/tours">
+                  <a  *ngIf="currentUser" class="nav-link" href="/tours">
                        <i class="fas fa-map-marked-alt nav-icon"></i>Tours
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/restaurantes">
+                  <a  *ngIf="currentUser" class="nav-link" href="/restaurantes">
                       <i class="fas fa-utensils nav-icon"></i>Restaurantes
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/vuelos">
+                  <a  *ngIf="currentUser" class="nav-link" href="/vuelos">
                       <i class="fas fa-plane nav-icon"></i>Vuelos
                   </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">
-                    <i class="fas fa-pen nav-icon"></i>Sobre nosotros
-                </a>
-              </li>
-              <li class="nav-item">
-                <a *ngIf="currentUser" class="nav-link" href="/profile">
-                    <i class="fas fa-user nav-icon"></i>Mi Perfil
-                </a>
-            </li>
-          </ul>
-
-      </div>
-  </div>
+                  <a *ngIf="currentUser" class="nav-link" href="/profile">
+                      <i class="fas fa-user nav-icon"></i>Mi Perfil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!currentUser" class="nav-link" href="/login">
+                        <i class="fas fa-user nav-icon"></i>Iniciar Sesión
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!currentUser" class="nav-link" href="/register">
+                        <i class="fas fa-user nav-icon"></i>Registrarse
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">
+                      <i class="fas fa-pen nav-icon"></i>Sobre nosotros
+                  </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
 </nav>
 
 <!-- Necesario para los íconos y funcionalidad de Bootstrap -->
