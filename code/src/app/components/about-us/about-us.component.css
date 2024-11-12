@@ -1,0 +1,113 @@
+.main-parent-container {
+    background-image: url('/img/travel-1767532_1920.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f7f2f2;
+    filter: brightness(0.8); /* Leve oscurecimiento */
+    padding: 40px 20px; /* Espaciado interno */
+    text-align: center; /* Centramos el texto */
+}
+
+.main-child-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    max-width: 800px; /* Ancho máximo */
+    margin: 0 auto; /* Centramos el contenedor */
+    position: relative; /* Posicionamiento relativo */
+    overflow-y: auto; /* Ocultamos el contenido que se desborde */
+    /*_*/
+}
+
+h1 {
+    font-size: 2.8rem; /* Tamaño de fuente */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: var(--color-primary); /* Color del encabezado */
+}
+
+h2 {
+    font-size: 2rem; /* Tamaño de fuente para subtítulos */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    color: var(--color-primary); /* Color del encabezado */
+}
+
+h3 {
+    color: var(--color-primary); 
+    font-size: 1.5rem; /* Tamaño ajustado */
+    margin: 10px 0; /* Espaciado superior e inferior */
+}
+
+
+p {
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 15px; /* Espacio entre párrafos */
+    font-size: 1.7rem;
+    color: #444; /* Color del texto */
+}
+
+ul {
+    list-style-type: none; /* Quitar puntos de la lista */
+    padding: 0; /* Quitar padding */
+    margin: 0 0 15px 0; /* Margen inferior */
+}
+
+ul li {
+    font-size: 1.5rem; /* Tamaño de fuente para elementos de lista */
+    margin: 5px 0; /* Espaciado entre elementos de lista */
+}
+
+.team {
+    display: flex; /* Mostrar miembros en fila */
+    justify-content: center; /* Centrar horizontalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se muevan a la siguiente línea */
+    gap: 20px; /* Espacio entre miembros */
+    margin: 30px 0; /* Espacio superior e inferior */
+}
+
+.team-member {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra para los miembros del equipo */
+    width: 200px; /* Ancho fijo para los miembros */
+    text-align: center;
+    transition: transform 0.3s; /* Suavizar la transición */
+}
+
+.team-member:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Tamaño de fuente para subtítulos más pequeño */
+    }
+
+    p {
+        font-size: 1rem; /* Tamaño de fuente de párrafos más pequeño */
+    }
+
+    .team-member {
+        width: 150px; /* Ajustar ancho para pantallas pequeñas */
+    }
+
+    .main-child-container {
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+}
+
+.team-member > img
+{
+    max-width: 100%;
+    max-height: 50%;
+    border-radius: 10rem;
+    margin-bottom: 2rem;
+}

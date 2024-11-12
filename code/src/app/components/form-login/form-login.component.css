@@ -1,14 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
 
 .background-container {
     position: fixed; /* En lugar de absolute */
@@ -16,22 +5,22 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../../assets/Paisaje_1.webp');
+    background-image: url('../../../assets/Paisaje_2.webp');
     background-size: cover;
     background-position: center;
     filter: brightness(0.7);
     z-index: -1; /* Para asegurar que esté detrás del contenido */
 }
 
+
 .container {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    z-index: 1;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -79,7 +68,6 @@ label {
     font-size: 16px;
 }
 
-.input-icon .icon-user,
 .input-icon .icon-plane,
 .input-icon .icon-lock {
     position: absolute;
@@ -126,12 +114,8 @@ label {
     color: #666;
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    .card {
-        border-radius: 0;
-    }
+.button-main:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño en hover */
+    transition: background-color 0.3s, transform 0.3s; /* Suavizar la transición */
 }
