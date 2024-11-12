@@ -15,6 +15,22 @@
       "password": "12345678",
       "role": "usuario",
       "active": true
+    },
+    {
+      "id": "38ac",
+      "name": "Pato",
+      "email": "pato@probando.com",
+      "password": "123123123",
+      "role": "usuario",
+      "active": true
+    },
+    {
+      "id": "8cc9",
+      "name": "asdas",
+      "email": "juan2mciardi@gmail.com",
+      "password": "123123123",
+      "role": "usuario",
+      "active": true
     }
   ]
 }
