@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { CurrentUser } from '../../services/current-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,31 +11,20 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./profile.component.css'] 
 })
 
-export class ProfileComponent  {
+export class ProfileComponent implements OnInit {
   
   user: any; // Aquí guardaremos la información del usuario
+  currentUserService = inject(CurrentUser);
+  ngOnInit(): void {
+    this.user = this.currentUserService.getUsuario();
+  }
 
+  logout() : void
+  {
+    this.currentUserService.logout();
+  }
 
   constructor(private userService: UserService) {}
-
-
-  // ngOnInit(): void {
-  //    this.loadUserProfile();
-  // }
-
-
-
-// //  loadUserProfile(): void {
-// //   this.userService.getUserProfile().subscribe(
-// //     response => {
-// //       this.user = response[0]; // Accediendo al primer usuario del array
-// //       console.log('Perfil del usuario cargado:', this.user);
-// //     },
-// //     error => {
-// //       console.error('Error al cargar el perfil del usuario:', error); // Manejo de errores
-// //     }
-// //   );
-// }
 
 
 
