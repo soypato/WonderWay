@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-form-login',
@@ -11,6 +12,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 })
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;
+  serviceUser = inject(UserService); 
 
   constructor(private fb: FormBuilder) {
      this.loginForm = this.fb.group({
@@ -24,7 +26,6 @@ export class FormLoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log('Formulario enviado', this.loginForm.value);
-      // LOGICA DE LOGIN ACA
     } else {
       console.log('Formulario no válido');
     }
