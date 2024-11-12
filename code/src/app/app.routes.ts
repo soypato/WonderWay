@@ -4,6 +4,8 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PublicGuard } from './guards/public.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -13,11 +15,13 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        component: FormLoginComponent
+        component: FormLoginComponent,
+        canActivate: [PublicGuard]
     },
     {
         path: 'register',
-        component: FormRegisterComponent
+        component: FormRegisterComponent,
+        canActivate: [PublicGuard]
     },
     {
         path: 'about',
@@ -25,7 +29,8 @@ export const routes: Routes = [
     },
     {
         path: 'profile', 
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: '**', // el resto: AL FINAL POR FAVOR
