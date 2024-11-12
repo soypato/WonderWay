@@ -16,22 +16,22 @@ export class ModifyProfileComponent implements OnInit {
      this.modifyProfileForm = this.fb.group({
       name: ['',[Validators.name]],
       email: ['', [Validators.email]],
-      password: ['', [Validators.required]],
-      confirmpassword:['',Validators.required]
+      newPass: ['', [Validators.required , Validators.minLength(8)]],
+      confirmNewPass:['',Validators.required]
     },{ validators: ModifyProfileComponent.passwordMatchValidator });
   }
 
   ngOnInit(): void {}
 
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
+    const newPass = control.get('newpassword');
+    const confirmNewPass = control.get('confirmPassword');
 
-    if (!password || !confirmPassword) {
+    if (!newPass || !confirmNewPass) {
       return null;
     }
 
-    return password.value === confirmPassword.value ? null : { mismatch: true };
+    return newPass.value === confirmNewPass.value ? null : { mismatch: true };
   }
 
   onSubmit(): void {
