@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./profile.component.css'] 
 })
 
-export class ProfileComponent implements OnInit  {
+export class ProfileComponent  {
   
   user: any; // Aquí guardaremos la información del usuario
 
@@ -18,23 +18,23 @@ export class ProfileComponent implements OnInit  {
   constructor(private userService: UserService) {}
 
 
-  ngOnInit(): void {
-     this.loadUserProfile();
-  }
+  // ngOnInit(): void {
+  //    this.loadUserProfile();
+  // }
 
 
 
- loadUserProfile(): void {
-  this.userService.getUserProfile().subscribe(
-    response => {
-      this.user = response[0]; // Accediendo al primer usuario del array
-      console.log('Perfil del usuario cargado:', this.user);
-    },
-    error => {
-      console.error('Error al cargar el perfil del usuario:', error); // Manejo de errores
-    }
-  );
-}
+// //  loadUserProfile(): void {
+// //   this.userService.getUserProfile().subscribe(
+// //     response => {
+// //       this.user = response[0]; // Accediendo al primer usuario del array
+// //       console.log('Perfil del usuario cargado:', this.user);
+// //     },
+// //     error => {
+// //       console.error('Error al cargar el perfil del usuario:', error); // Manejo de errores
+// //     }
+// //   );
+// }
 
 
 

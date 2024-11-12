@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Juanma",
+      "email": "juanmciardi@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "active": true
+    },
+    {
+      "id": "65a8",
+      "name": "Juna",
+      "email": "juanibasket05@gmail.com",
+      "password": "12345678",
+      "role": "usuario",
+      "active": true
+    }
+  ]
+}
