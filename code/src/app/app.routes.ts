@@ -5,7 +5,7 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { ModifyProfileComponent } from './modify-profile/modify-profile.component';
+import { ModifyProfileComponent } from './components/modify-profile/modify-profile.component';
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -35,7 +35,8 @@ export const routes: Routes = [
     },
     {
       path: 'modifyprofile',
-      component: ModifyProfileComponent
+      component: ModifyProfileComponent,
+      canActivate: [AuthGuard]
     },
     {
         path: '**', // el resto: AL FINAL POR FAVOR

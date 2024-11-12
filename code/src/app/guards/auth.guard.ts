@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
        
       Swal.fire({
         title: 'Error!',
-        text: 'Para visualizar el perfil, primero debes iniciar sesión o registrarte',
+        text: 'Para visualizar esta información, primero debes iniciar sesión o registrarte',
         icon: 'error'
       })
       this.router.navigate(['/login']); // Redirigir al login si no está autenticado
