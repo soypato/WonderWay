@@ -1,31 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-modify-profile',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './modify-profile.component.html',
-  styleUrl: './modify-profile.component.css'
+  styleUrls: ['./modify-profile.component.css']
 })
 export class ModifyProfileComponent implements OnInit {
   modifyProfileForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
      this.modifyProfileForm = this.fb.group({
-      name: ['',[Validators.name]],
-      email: ['', [Validators.email]],
+      name: ['',[Validators.required]], // Cambia 'nombre' a 'name' para ser consistente
+      email: ['', [Validators.email, Validators.required]],
       newPass: ['', [Validators.required , Validators.minLength(8)]],
-      confirmNewPass:['',Validators.required]
+      confirmNewPass: ['', Validators.required]
     },{ validators: ModifyProfileComponent.passwordMatchValidator });
   }
 
   ngOnInit(): void {}
 
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const newPass = control.get('newpassword');
-    const confirmNewPass = control.get('confirmPassword');
+    const newPass = control.get('newPass');
+    const confirmNewPass = control.get('confirmNewPass');
 
     if (!newPass || !confirmNewPass) {
       return null;
@@ -37,12 +37,9 @@ export class ModifyProfileComponent implements OnInit {
   onSubmit(): void {
     if (this.modifyProfileForm.valid) {
       console.log('Formulario enviado', this.modifyProfileForm.value);
-      // LOGICA DE LOGIN ACA
+      // Lógica adicional para enviar el formulario
     } else {
       console.log('Formulario no válido');
     }
   }
-
-
-
 }
