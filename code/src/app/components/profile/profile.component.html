@@ -9,9 +9,12 @@
           <p>Estado: {{ user.active ? 'Activo' : 'Inactivo' }}</p>
         </div>
       </div>
-      <a href="/menu_travel" class="button-main">✈️ Menú de viajes</a>
-      <a href="/modifyprofile" class="button-main">🖊️ Editar perfil</a>
-      <a href="#" (click)="logout()" class="button-main">🚪 Cerrar sesión</a>
+      <div class="menu-buttons">
+        <a href="/menu_travel" class="button-main">✈️ Menú de viajes</a>
+        <a href="/modifyprofile" class="button-main">🖊️ Editar perfil</a>
+        <a href="#" (click)="logout()" class="button-main">🚪 Cerrar sesión</a>
+  
+      </div>
       <!-- Esto cuando tengan ya la URL de edición -->
     </div>
 </div>  
