@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './crud-new-travel.component.css'
 })
 export class CrudNewTravelComponent {
-
+  constructor() { }
+  
 }
