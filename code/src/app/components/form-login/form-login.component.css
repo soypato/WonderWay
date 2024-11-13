@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../../assets/Paisaje_2.webp');
+    background-image: url('/img/Paisaje_2.webp');
     background-size: cover;
     background-position: center;
     filter: brightness(0.7);
