@@ -74,3 +74,10 @@ h1 {
     height: auto;
     border-radius: var(--border-radius-image);
 }
+
+
+.menu-buttons
+{
+    display: grid;
+    gap: 1rem;
+}
