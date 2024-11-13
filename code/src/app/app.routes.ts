@@ -8,6 +8,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ModifyProfileComponent } from './components/modify-profile/modify-profile.component';
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { MenuTravel } from './components/travel-modes/menutravel/menutravel.component';
+import { FreeMode } from './components/travel-modes/freemode/freemode.component';
+import { TravelassistantComponent } from './components/travel-modes/travelassistant/travelassistant.component';
+import { NewTravelComponent } from './components/travel-modes/new-travel/new-travel.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +41,26 @@ export const routes: Routes = [
       path: 'modifyprofile',
       component: ModifyProfileComponent,
       canActivate: [AuthGuard]
+    },
+    {
+        path: 'menu_travel',
+        component: MenuTravel,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'menu_travel/free_mode',
+        component: FreeMode,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'menu_travel/travel_assistant',
+        component: TravelassistantComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'new_travel',
+        component: NewTravelComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: '**', // el resto: AL FINAL POR FAVOR
