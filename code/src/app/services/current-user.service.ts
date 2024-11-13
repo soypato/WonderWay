@@ -5,7 +5,7 @@ import { User } from '../interface/user.interface';
   providedIn: 'root'
 })
 export class CurrentUser {
-  private usuarioActual: any = null;
+  private usuarioActual: User | null = null;
 
   setUsuario(usuario: User): void {
     this.usuarioActual = usuario;

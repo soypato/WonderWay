@@ -10,7 +10,7 @@ import { User } from '../interface/user.interface';
 
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000/users'; // Cambia esto a tu API
+  private apiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}
 

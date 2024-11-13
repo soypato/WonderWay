@@ -1,8 +1,16 @@
 <div class="main-parent-container">
     <div class="profile-container main-child-container">
-        <h2>✨ Nuevo viaje</h2>
+        <h2>✨ Nuevo viaje ✨</h2>
         <p>Comencemos con algunos datos básicos.</p>
         <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Nombre del viaje:</label>
+                <input id="name" type="text" formControlName="name" class="form-control">
+                <p *ngIf="travelForm.get('name')?.touched && travelForm.get('name')?.invalid" class="text-danger">
+                    Este campo es requerido
+                </p>
+            </div>
+            
             <div class="form-group">
                 <label for="startDate">Fecha de inicio:</label>
                 <input id="startDate" type="date" formControlName="startDate" class="form-control">
