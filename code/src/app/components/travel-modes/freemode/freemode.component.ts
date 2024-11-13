@@ -19,7 +19,7 @@ interface RestaurantData {
   templateUrl: './freemode.component.html',
   styleUrls: ['./freemode.component.css']
 })
-export class ExampleComponent implements OnInit {
+export class FreeMode implements OnInit {
 
 
   tripAdvisorService = Inject(TripadvisorService);

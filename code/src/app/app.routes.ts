@@ -9,7 +9,7 @@ import { ModifyProfileComponent } from './components/modify-profile/modify-profi
 import { PublicGuard } from './guards/public.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { MenuTravel } from './components/travel-modes/menutravel/menutravel.component';
-import { FreemodeComponent } from './components/travel-modes/freemode/freemode.component';
+import { FreeMode } from './components/travel-modes/freemode/freemode.component';
 import { TravelassistantComponent } from './components/travel-modes/travelassistant/travelassistant.component';
 
 export const routes: Routes = [
@@ -48,7 +48,7 @@ export const routes: Routes = [
     },
     {
         path: 'freemode',
-        component: FreemodeComponent,
+        component: FreeMode,
         canActivate: [AuthGuard]
     },
     {
