@@ -9,15 +9,38 @@
           <!-- 1º form para modificar nombre o emial -->
           <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
             <div>
-              <label>Nombre:</label>
-              <input formControlName="name" type="text">
+              <label>Ingrese Nombre:</label>
+              <input
+              id="name"
+              type="text"
+              formControlName="name"
+
+              >
+
+              <input
+                    type="text"
+                    id="name"
+                    formControlName="name"
+                    placeholder="Tu nombre completo"
+                    required
+                    aria-required="true"
+                    aria-describedby="nameHelp">
+                    <!-- que es estod e aria- ask gpt -->
+
             </div>
+
+
+
+
             <div>
-              <label>Email:</label>
+              <label>Ingrese Email:</label>
               <input formControlName="email" type="email">
+
+
+
             </div>
             <div>
-              <label>Contraseña actual (para verificar):</label>
+              <label>Ingrese Contraseña:</label>
               <input formControlName="currentPasswordForProfile" type="password">
             </div>
             <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
@@ -44,3 +67,36 @@
         </div>
     </div>
 </div>
+
+
+<!--
+
+
+<div class="form-group">
+                <label for="name">Nuevo Nombre<span class="required">*</span></label>
+                <div class="input-icon">
+                  <i class="icon-user" aria-hidden="true">👤</i>
+                  <input
+                    type="text"
+                    id="name"
+                    formControlName="name"
+                    placeholder="Tu nombre completo"
+                    required
+                    aria-required="true"
+                    aria-describedby="nameHelp">
+                </div>
+                <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre completo.</div>
+                <div *ngIf=
+                " modifyProfileForm.get('name')?.invalid &&
+                (modifyProfileForm.get('name')?.touched || modifyProfileForm.get('name')?.dirty)  "
+
+                     class="error-message" role="alert" aria-live="assertive"
+
+                >
+                  El nombre es obligatorio.
+                </div>
+              </div>
+
+
+
+-->
