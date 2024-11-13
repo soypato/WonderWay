@@ -16,9 +16,8 @@ export class PublicGuard implements CanActivate {
     } else {
  
       Swal.fire({
-        title: 'Error!',
-        text: 'Ya hay iniciada una sesión',
-        icon: 'error'
+        title: '¡Su sesión ya está iniciada!',
+        icon: 'success'
       })
       this.router.navigate(['/profile']); // Redirigir a profile si ya está autenticado
       return false;
