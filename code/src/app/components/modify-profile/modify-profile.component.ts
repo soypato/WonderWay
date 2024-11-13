@@ -14,8 +14,8 @@ export class ModifyProfileComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
      this.modifyProfileForm = this.fb.group({
-      name: ['',[Validators.required]], // Cambia 'nombre' a 'name' para ser consistente
-      email: ['', [Validators.email, Validators.required]],
+      name: [''], // Cambia 'nombre' a 'name' para ser consistente
+      email: ['', [Validators.email]],
       newPass: ['', [Validators.required , Validators.minLength(8)]],
       confirmNewPass: ['', Validators.required]
     },{ validators: ModifyProfileComponent.passwordMatchValidator });

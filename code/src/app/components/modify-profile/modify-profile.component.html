@@ -6,6 +6,9 @@
             <p class="card-description">Ingresa información en los campos que quieras modificar</p>
         </div>
         <div class="card-content">
+
+
+          <!-- 1º form nombre  -->
             <form [formGroup]="modifyProfileForm" (ngSubmit)="onSubmit()" id="modifyPf-Form" aria-labelledby="form-title">
               <!-- Modify Name -->
               <div class="form-group">
@@ -22,12 +25,26 @@
                     aria-describedby="nameHelp">
                 </div>
                 <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre completo.</div>
-                <div *ngIf="modifyProfileForm.get('name')?.invalid && (modifyProfileForm.get('name')?.touched || modifyProfileForm.get('name')?.dirty)"
+                <div *ngIf="modifyProfileForm.get('name')?.invalid &&
+                (modifyProfileForm.get('name')?.touched ||
+                modifyProfileForm.get('name')?.dirty)"
+
+
+
                      class="error-message" role="alert" aria-live="assertive">
                   El nombre es obligatorio.
                 </div>
               </div>
 
+
+              <button type="submit" class="button-main" [attr.aria-disabled]="modifyProfileForm.invalid"
+                      [disabled]="modifyProfileForm.invalid">
+                Guardar cambios
+              </button>
+            </form>
+
+            <!-- 2º form email  -->
+            <form [formGroup]="modifyProfileForm" (ngSubmit)="onSubmit()" id="modifyPf-Form" aria-labelledby="form-title">
               <!-- Modify Email -->
               <div class="form-group">
                 <label for="email">Correo electrónico <span class="required">*</span></label>
@@ -49,6 +66,11 @@
                 </div>
               </div>
 
+
+            </form>
+
+            <!-- 3º form pass  -->
+            <form [formGroup]="modifyProfileForm" (ngSubmit)="onSubmit()" id="modifyPf-Form" aria-labelledby="form-title">
               <!-- Modify New Password -->
               <div class="form-group">
                 <label for="newPass">Nueva Contraseña <span class="required">*</span></label>
@@ -91,11 +113,10 @@
                 </div>
               </div>
 
-              <button type="submit" class="button-main" [attr.aria-disabled]="modifyProfileForm.invalid"
-                      [disabled]="modifyProfileForm.invalid">
-                Guardar cambios
-              </button>
+
             </form>
+
+
         </div>
     </div>
 </div>
