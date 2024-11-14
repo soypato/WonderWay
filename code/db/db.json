@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Juanma",
+      "email": "juanmciardi@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "active": true,
+      "travel": [
+        {
+          "name": "sda",
+          "location": "sdf",
+          "startDate": "0221-12-12",
+          "services": [
+            {
+              "id": 1,
+              "duration": 120,
+              "originAirportCode": "JFK",
+              "destinationAirportCode": "LAX",
+              "travelDate": "2023-12-12",
+              "returnDate": "2023-12-19",
+              "scale": 0,
+              "class": "Economy"
+            }
+          ]
+        },
+        {
+          "name": "Prueba2",
+          "location": "fcd",
+          "startDate": "0123-11-11",
+          "services": []
+        },
+        {
+          "name": "aA",
+          "location": "sd",
+          "startDate": "0011-11-11",
+          "services": []
+        },
+        {
+          "name": "das",
+          "location": "2df",
+          "startDate": "0112-12-31",
+          "services": []
+        }
+      ]
+    }
+  ]
+}

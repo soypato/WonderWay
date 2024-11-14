@@ -74,3 +74,26 @@ h1 {
     height: auto;
     border-radius: var(--border-radius-image);
 }
+
+
+.menu-buttons
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vertical
+{
+    flex-direction: row;
+}
+
+.delete
+{
+    background-color: #930C00;
+}
+
+.delete:hover
+{
+    background-color: #612727;
+}

@@ -1,0 +1,17 @@
+<div class="main-parent-container">
+    <div class="profile-container main-child-container">
+        <h2>Viajes de {{serverUser?.name}} ✈️</h2>
+        <main *ngIf="serverUser?.travel">
+            <article class="user-travels" *ngFor="let i of serverUser?.travel">
+                <h3>{{i.name}}</h3>
+                <p>{{i.location}}</p>
+                <p>{{i.startDate}}</p>
+                <article class="menu-buttons vertical">
+                    <a (click)="moreInfoTravel(i.name)" class="button-main">ℹ️ Más información</a>
+                    <a class="button-main">🖊️ Editar</a>    
+                    <a class="button-main">🧹 Borrar</a>    
+                </article>
+            </article>    
+        </main>
+    </div>  
+</div>
