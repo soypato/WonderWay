@@ -7,7 +7,14 @@
       "password": "12345678",
       "role": "admin",
       "active": true,
-      "travel": []
+      "travel": [
+        {
+          "name": "sda",
+          "location": "sdf",
+          "startDate": "0221-12-12",
+          "services": []
+        }
+      ]
     }
   ]
 }

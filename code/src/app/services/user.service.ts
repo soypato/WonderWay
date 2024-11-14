@@ -34,6 +34,7 @@ export class UserService {
     return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
   }
 
+
   verificarCorreo(correo: string): Observable<User | null> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${correo}`).pipe( // Filtro con el correo directamente en la URL
       map(usuarios => (usuarios.length > 0 ? usuarios[0] : null)), // Si existe, retornamos el primer usuario

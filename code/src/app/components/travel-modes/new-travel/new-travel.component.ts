@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { CurrentUser } from '../../../services/current-user.service';
 import { UserService } from '../../../services/user.service';
+import { User } from '../../../interface/user.interface';
 
 @Component({
   selector: 'app-new-travel',
@@ -49,8 +50,8 @@ export class NewTravelComponent {
           services: []
         };
 
-        await this.addTravelToCurrentUser(this.travelDetails); // Espera a que el viaje se agregue al usuario actual
-        await this.saveTravelToDatabase(this.userCurrent.getUsuario()); // Guarda en la base de datos
+        this.addTravelToCurrentUser(this.travelDetails); // Espera a que el viaje se agregue al usuario actual
+        this.saveToDB(this.userCurrent.getUsuario()); // Guarda en la base de datos
 
         this.travelForm.reset();
         Swal.fire({
@@ -75,32 +76,35 @@ export class NewTravelComponent {
   }
 
   private async addTravelToCurrentUser(travelData: Travel) {
-    const currentUser = this.userCurrent.getUsuario();
+    // Clonamos el usuario actual para evitar problemas de referencia
+    const currentUser = { ...this.userCurrent.getUsuario() };
+    
+    // Inicializar el arreglo 'travel' si no existe en el usuario actual
     if (!currentUser.travel) {
       currentUser.travel = [];
     }
-    currentUser.travel.push(travelData);
-    console.log('Viaje agregado al usuario actual:', travelData);
-  }
 
-  private saveTravelToDatabase(user: any) {
-    this.userService.updateUser(user).subscribe(
-      (updatedUser) => {
-        console.log('Usuario actualizado:', updatedUser);
-        this.userCurrent.setUsuario(updatedUser);
-        Swal.fire({
-          icon: 'success',
-          title: 'Usuario actualizado correctamente en la base de datos'
-        });
-      },
-      (error) => {
-        console.error('Error al actualizar el usuario:', error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error al actualizar',
-          text: 'No se pudo actualizar el usuario en la base de datos. Por favor, intenta nuevamente.'
-        });
-      }
-    );
-  }
+    // Agregar el nuevo viaje al arreglo 'travel'
+    currentUser.travel.push(travelData);
+    console.log('Viaje agregado al usuario actual:', currentUser);
+
+    // Actualizar el usuario en `CurrentUser`
+    this.userCurrent.setUsuario(currentUser);
+}
+
+private saveToDB(user: User) {
+    // Confirmamos que se esté enviando el usuario actualizado
+    console.log('Usuario a guardar en DB:', user);
+    
+    this.userService.updateUser(user).subscribe({
+        next: (updatedUser) => {
+            console.log('Usuario actualizado en el servidor:', updatedUser);
+            // Asegurarse de que el usuario retornado desde el servidor también tenga el arreglo actualizado
+            this.userCurrent.setUsuario(updatedUser); // Si tienes un método para actualizar el usuario local
+        },
+        error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
+    });
+}
+
+
 }
