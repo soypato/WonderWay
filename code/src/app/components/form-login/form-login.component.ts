@@ -50,7 +50,7 @@ export class FormLoginComponent implements OnInit {
   private checkAttributes(usuario: any): void {
     if (usuario.password === this.loginForm.get('password')?.value) {
       if(usuario.active){
-        this.currentUser.setUsuario(usuario);
+        this.currentUser.setUsuario(usuario?.id);
         this.router.navigate(['/profile']);
       } else {
         this.showError('Este usuario está deshabilitado');
