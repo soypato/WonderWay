@@ -15,7 +15,7 @@ import { find } from 'rxjs';
   styleUrls: ['./list-travels.component.css']
 })
 export class ListTravelsComponent implements OnInit {
-  currentUserId : Number | undefined = inject(CurrentUser).getUsuario().id;
+  currentUserId : Number | null = inject(CurrentUser).getUsuario();
   serviceUser = inject(UserService); 
   serverUser : User | null = null;
 

@@ -50,8 +50,10 @@ export class NewTravelComponent {
           services: []
         };
 
-        this.addTravelToCurrentUser(this.travelDetails); // Espera a que el viaje se agregue al usuario actual
-        this.saveToDB(this.userCurrent.getUsuario()); // Guarda en la base de datos
+        this.userService.getUserProfile(Number(this.userCurrent.getUsuario())).subscribe({
+          next: (user) => this.saveToDB(user),
+          error: (err) => console.error('Error al obtener el perfil del usuario:', err)
+        }); // Guarda en la base de datos
 
         this.travelForm.reset();
         Swal.fire({
@@ -75,32 +77,17 @@ export class NewTravelComponent {
     }
   }
 
-  private async addTravelToCurrentUser(travelData: Travel) {
-    // Clonamos el usuario actual para evitar problemas de referencia
-    const currentUser = { ...this.userCurrent.getUsuario() };
-    
-    // Inicializar el arreglo 'travel' si no existe en el usuario actual
-    if (!currentUser.travel) {
-      currentUser.travel = [];
-    }
-
-    // Agregar el nuevo viaje al arreglo 'travel'
-    currentUser.travel.push(travelData);
-    console.log('Viaje agregado al usuario actual:', currentUser);
-
-    // Actualizar el usuario en `CurrentUser`
-    this.userCurrent.setUsuario(currentUser);
-}
-
 private saveToDB(user: User) {
     // Confirmamos que se esté enviando el usuario actualizado
-    console.log('Usuario a guardar en DB:', user);
+    if (user.travel) {
+      user.travel.push(this.travelDetails);
+    } else {
+      user.travel = [this.travelDetails];
+    }
     
     this.userService.updateUser(user).subscribe({
         next: (updatedUser) => {
             console.log('Usuario actualizado en el servidor:', updatedUser);
-            // Asegurarse de que el usuario retornado desde el servidor también tenga el arreglo actualizado
-            this.userCurrent.setUsuario(updatedUser); // Si tienes un método para actualizar el usuario local
         },
         error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
     });

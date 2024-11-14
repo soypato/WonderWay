@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent implements OnInit{
 
   currentUserService = inject(CurrentUser);
-  currentUser: User | null = null;
+  currentUser: Number | null = null;
 
   ngOnInit() : void
   {
