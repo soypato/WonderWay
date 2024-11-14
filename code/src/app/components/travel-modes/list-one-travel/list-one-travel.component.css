@@ -1,0 +1,14 @@
+h1
+{
+    font-size: 5rem;
+}
+h2{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#service-list
+{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2rem;
+}

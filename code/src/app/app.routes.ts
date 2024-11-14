@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
@@ -13,6 +12,8 @@ import { FreeMode } from './components/travel-modes/freemode/freemode.component'
 import { TravelassistantComponent } from './components/travel-modes/travelassistant/travelassistant.component';
 import { NewTravelComponent } from './components/travel-modes/new-travel/new-travel.component';
 import { CrudNewTravelComponent } from './components/travel-modes/crud-new-travel/crud-new-travel.component';
+import { ListTravelsComponent } from './components/travel-modes/list-travels/list-travels.component';
+import { ListOneTravelComponent } from './components/travel-modes/list-one-travel/list-one-travel.component';
 
 export const routes: Routes = [
     {
@@ -66,6 +67,16 @@ export const routes: Routes = [
     {
         path: 'new_travel/crud-new-travel',
         component: CrudNewTravelComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'menu_travel/travel_assistant/list_travels',
+        component: ListTravelsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'menu_travel/travel_assistant/list_travels/list_one_travel',
+        component: ListOneTravelComponent,
         canActivate: [AuthGuard]
     },
     {
