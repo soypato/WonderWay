@@ -55,11 +55,14 @@ export class NewTravelComponent {
           error: (err) => console.error('Error al obtener el perfil del usuario:', err)
         }); // Guarda en la base de datos
 
-        this.travelForm.reset();
         Swal.fire({
           icon: 'success',
           title: '¡Hemos guardado el progreso del viaje!'
         });
+
+        // Redirigimos al usuario a la lista de viajes
+        this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
+
       } catch (error) {
         console.error('Error al guardar el viaje:', error);
         Swal.fire({
