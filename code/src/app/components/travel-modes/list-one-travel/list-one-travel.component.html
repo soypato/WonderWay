@@ -1,0 +1,38 @@
+<div class="main-parent-container">
+    <div class="profile-container main-child-container">
+        <h1>{{travelData.name}}</h1>
+        <article id="simple-data">
+            <p>{{travelData.location}}</p>
+            <p>{{travelData.startDate}}</p>   
+        </article>     
+        <h2>Servicios:</h2>
+        <article *ngFor="let serv of travelData.services">
+            <div *ngIf="isRestaurant(serv)">
+              <h3>Restaurant: {{ serv.name }}</h3>
+              <p>Phone: {{ serv.phone }}</p>
+              <p>Location: {{ serv.location }}</p>
+              <p>Qualification: {{ serv.qualification }}</p>
+            </div>
+          
+            <div *ngIf="isHotel(serv)">
+              <h3>Hotel: {{ serv.name }}</h3>
+              <p>Location: {{ serv.location }}</p>
+              <p>Price: ${{ serv.price }}</p>
+              <p>Qualification: {{ serv.qualification }} stars</p>
+              <p>Check-In: {{ serv.checkIn }}</p>
+              <p>Check-Out: {{ serv.checkOut }}</p>
+              <p>Rooms: {{ serv.rooms }}</p>
+            </div>
+          
+            <div *ngIf="isFlight(serv)">
+              <h3>Flight: {{ serv.originAirportCode }} to {{ serv.destinationAirportCode }}</h3>
+              <p>Duration: {{ serv.duration }} hours</p>
+              <p>Travel Date: {{ serv.travelDate }}</p>
+              <p>Return Date: {{ serv.returnDate }}</p>
+              <p>Scale: {{ serv.scale }}</p>
+              <p>Class: {{ serv.class }}</p>
+            </div>
+          </article>
+          
+    </div>  
+</div>
