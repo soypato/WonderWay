@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('https://www.clarin.com/img/2017/01/12/Hy8AVwSUg_1256x620.jpg'); /* Imagen de fondo */
+    background-image: url('/img/imgPaisaje.webp'); 
     background-size: cover;
     background-position: center;
     overflow: hidden;
