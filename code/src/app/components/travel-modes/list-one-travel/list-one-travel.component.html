@@ -1,38 +1,48 @@
 <div class="main-parent-container">
     <div class="profile-container main-child-container">
         <h1>{{travelData.name}}</h1>
+        <hr>
         <article id="simple-data">
-            <p>{{travelData.location}}</p>
-            <p>{{travelData.startDate}}</p>   
+            <p>📌 Ubicación | {{travelData.location}}</p>
+            <p>📅 Fecha de inicio | {{travelData.startDate}}</p>   
         </article>     
-        <h2>Servicios:</h2>
-        <article *ngFor="let serv of travelData.services">
+        <hr>    
+        <h2>Servicios</h2>
+        <article id="service-list" *ngFor="let serv of travelData.services">
+
+            <!-- Restaurantes -->
             <div *ngIf="isRestaurant(serv)">
-              <h3>Restaurant: {{ serv.name }}</h3>
-              <p>Phone: {{ serv.phone }}</p>
-              <p>Location: {{ serv.location }}</p>
-              <p>Qualification: {{ serv.qualification }}</p>
+              <h3>🥪 Restaurant | {{ serv.name }}</h3>
+              <p>☎️ Telefono | {{ serv.phone }}</p>
+              <p>📌 Ubicación | {{ serv.location }}</p>
+              <p>⭐ Calificación | {{ serv.qualification }}</p>
             </div>
           
+            <!-- Hoteles -->
             <div *ngIf="isHotel(serv)">
-              <h3>Hotel: {{ serv.name }}</h3>
-              <p>Location: {{ serv.location }}</p>
-              <p>Price: ${{ serv.price }}</p>
-              <p>Qualification: {{ serv.qualification }} stars</p>
-              <p>Check-In: {{ serv.checkIn }}</p>
-              <p>Check-Out: {{ serv.checkOut }}</p>
-              <p>Rooms: {{ serv.rooms }}</p>
+              <h3>🏨 Hotel | {{ serv.name }}</h3>
+              <p>📌 Ubicación | {{ serv.location }}</p>
+              <p>💰 Precio: ${{ serv.price }}</p>
+              <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
+              <p>🕒 Check-In: {{ serv.checkIn }}</p>
+              <p>🕙 Check-Out: {{ serv.checkOut }}</p>
+              <p>🏨 Habitaciones: {{ serv.rooms }}</p>
             </div>
           
+            <!-- Vuelos -->
             <div *ngIf="isFlight(serv)">
-              <h3>Flight: {{ serv.originAirportCode }} to {{ serv.destinationAirportCode }}</h3>
-              <p>Duration: {{ serv.duration }} hours</p>
-              <p>Travel Date: {{ serv.travelDate }}</p>
-              <p>Return Date: {{ serv.returnDate }}</p>
-              <p>Scale: {{ serv.scale }}</p>
-              <p>Class: {{ serv.class }}</p>
+              <h3>✈️ Vuelo: {{ serv.originAirportCode }} a {{ serv.destinationAirportCode }}</h3>
+              <p>⏳ Duración: {{ serv.duration }} horas</p>
+              <p>📅 Fecha de Viaje: {{ serv.travelDate }}</p>
+              <p>🔙 Fecha de Regreso: {{ serv.returnDate }}</p>
+              <p>🔁 Escalas: {{ serv.scale }}</p>
+              <p>💺 Clase: {{ serv.class }}</p>
             </div>
+            <article class="menu-buttons vertical">
+                <a class="button-main delete">🗑️ Eliminar </a>
           </article>
+        </article>
+
           
     </div>  
 </div>

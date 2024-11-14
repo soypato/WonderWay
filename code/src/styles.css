@@ -87,3 +87,13 @@ h1 {
 {
     flex-direction: row;
 }
+
+.delete
+{
+    background-color: #930C00;
+}
+
+.delete:hover
+{
+    background-color: #612727;
+}

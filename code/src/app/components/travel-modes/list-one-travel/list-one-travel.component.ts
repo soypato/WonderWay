@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Restaurant } from '../../../interface/restaurant.interface';
 import { Hotel } from '../../../interface/hotel.interface';
 import { Flight } from '../../../interface/flight.interface';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-list-one-travel',
@@ -15,7 +16,7 @@ import { Flight } from '../../../interface/flight.interface';
 
 export class ListOneTravelComponent implements OnInit {
   travelData: any;
-
+  serviceUser = inject(UserService); 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -24,9 +25,6 @@ export class ListOneTravelComponent implements OnInit {
     
     if (travel) {
       this.travelData = travel;
-      console.log('Travel data received:', this.travelData);
-    } else {
-      console.error('No travel data found.');
     }
   }
 
