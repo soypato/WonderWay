@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('https://images.adsttc.com/media/images/642d/edf9/aa1b/804d/f2b1/4f74/slideshow/arquitectura-de-las-maldivas_7.jpg?1680731654'); /* Imagen de fondo */
+  background-image: url('/img/imgPaisaje2.webp');
   background-size: cover;
   background-position: center;
   overflow: hidden;
