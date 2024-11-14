@@ -1,0 +1,17 @@
+<div class="main-parent-container">
+    <div class="profile-container main-child-container">
+        <h2>Tus viajes</h2>
+        <main *ngIf="currentList">
+            <article class="user-travels" *ngFor="let i of currentList">
+                <h3>{{i.name}}</h3>
+                <p>{{i.location}}</p>
+                <p>{{i.startDate}}</p>
+                <article class="menu-buttons vertical">
+                    <a href="menu_travel/free_mode" class="button-main">ℹ️ Más información</a>
+                    <a href="menu_travel/travel_assistant" class="button-main">🖊️ Editar</a>    
+                    <a href="menu_travel/travel_assistant" class="button-main">🧹 Borrar</a>    
+                </article>
+            </article>    
+        </main>
+    </div>  
+</div>
