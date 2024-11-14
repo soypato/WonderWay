@@ -79,7 +79,11 @@ export class NewTravelComponent {
 
 private saveToDB(user: User) {
     // Confirmamos que se esté enviando el usuario actualizado
-    console.log('Usuario a guardar en DB:', user);
+    if (user.travel) {
+      user.travel.push(this.travelDetails);
+    } else {
+      user.travel = [this.travelDetails];
+    }
     
     this.userService.updateUser(user).subscribe({
         next: (updatedUser) => {
