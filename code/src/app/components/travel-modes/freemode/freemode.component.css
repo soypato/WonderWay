@@ -2,7 +2,7 @@
     position: relative;
     text-align: center;
     padding: 4rem 2rem;
-    background-image: url('https://cdn.pixabay.com/photo/2023/06/09/18/32/maldive-islands-8052403_1280.png'); /* Reemplaza con la URL de la imagen */
+    background-image: url('/img/imgBotesito.webp'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh;
