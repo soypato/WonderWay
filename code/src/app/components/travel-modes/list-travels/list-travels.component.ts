@@ -15,7 +15,7 @@ import { find } from 'rxjs';
   styleUrls: ['./list-travels.component.css']
 })
 export class ListTravelsComponent implements OnInit {
-  currentUserId : Number | undefined = inject(CurrentUser).getUsuario().id;
+  currentUserId : Number | null = inject(CurrentUser).getUsuario();
   serviceUser = inject(UserService); 
   serverUser : User | null = null;
 
@@ -45,11 +45,28 @@ export class ListTravelsComponent implements OnInit {
 
     // Navegar a la ruta destino enviando el objeto `currentTravel` en el estado
     this.router.navigate(['/menu_travel/travel_assistant/list_travels/list_one_travel'], {
-      state: { travel: this.findTravel }
+      state: { travel: this.findTravel, user: this.serverUser }
     });
   }
 
   editTravel(name : String) : void {}
 
-  deleteTravel(name : String) : void {}
+  deleteTravel(name : String) : void {
+    this.findTravel = this.currentTravel?.find((current) => current.name === name);
+    const index = this.findTravel ? this.currentTravel?.indexOf(this.findTravel) : -1;
+    if (index !== -1 && index !== undefined) {
+      this.currentTravel?.splice(index!, 1);
+    }
+
+    // Actualizar el usuario
+    this.serviceUser.updateUser(this.serverUser!).subscribe({
+      next: (res) => {
+        console.log('Usuario actualizado:', res);
+      },
+      error: (err) => {
+        console.error('Error al actualizar el usuario:', err);
+      }
+    });
+
+  }
 }

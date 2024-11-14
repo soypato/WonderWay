@@ -14,28 +14,47 @@
           "startDate": "0221-12-12",
           "services": [
             {
+
               "id": 1,
-              "duration": 120,
-              "originAirportCode": "JFK",
-              "destinationAirportCode": "LAX",
-              "travelDate": "2023-12-12",
-              "returnDate": "2023-12-19",
-              "scale": 0,
+              "name": "Hotel Example",
+              "location": "Example Location",
+              "price": 100,
+              "qualification": 5,
+              "checkIn": 1609459200,
+              "checkOut": 1609545600,
+              "rooms": 10
+            },
+            {
+              "id": 1,
+              "duration": 8,
+              "originAirportCode": "EZE",
+              "destinationAirportCode": "JFK",
+              "travelDate": "2024-12-15",
+              "returnDate": "2025-01-15",
+              "scale": 1,
               "class": "Economy"
+            },
+            {
+              "id": 2,
+              "duration": 12,
+              "originAirportCode": "LAX",
+              "destinationAirportCode": "SYD",
+              "travelDate": "2024-11-20",
+              "returnDate": "2024-12-05",
+              "scale": 2,
+              "class": "Business"
+            },
+            {
+              "id": 3,
+              "duration": 6,
+              "originAirportCode": "CDG",
+              "destinationAirportCode": "DXB",
+              "travelDate": "2025-01-10",
+              "returnDate": "2025-01-20",
+              "scale": 0,
+              "class": "First Class"
             }
           ]
-        },
-        {
-          "name": "Prueba2",
-          "location": "fcd",
-          "startDate": "0123-11-11",
-          "services": []
-        },
-        {
-          "name": "aA",
-          "location": "sd",
-          "startDate": "0011-11-11",
-          "services": []
         }
       ]
     }
