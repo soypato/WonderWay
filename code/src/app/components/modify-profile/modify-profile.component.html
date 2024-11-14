@@ -8,58 +8,89 @@
         <div class="card-content">
           <!-- 1º form para modificar nombre o emial -->
           <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
+
             <div>
-              <label>Ingrese Nombre:</label>
+              <label>Nombre:</label>
               <input
               id="name"
               type="text"
               formControlName="name"
-
+              aria-describedby="nameHelp"
+              placeholder="Nuevo Nombre"
               >
-
-              <input
-                    type="text"
-                    id="name"
-                    formControlName="name"
-                    placeholder="Tu nombre completo"
-                    required
-                    aria-required="true"
-                    aria-describedby="nameHelp">
-                    <!-- que es estod e aria- ask gpt -->
-
             </div>
-
-
-
+            <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre.</div>
+            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Nombre no valido </div>
 
             <div>
               <label>Ingrese Email:</label>
-              <input formControlName="email" type="email">
-
-
-
+              <input
+              id="mail"
+              type="email"
+              formControlName="email"
+              placeholder="Nuevo Nombre"
+              aria-describedby="mailHelp"
+              >
             </div>
+            <div id="mailHelp" class="sr-only">Ingrese nuevo correo.</div>
+            <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.dirty"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Correo no valido </div>
+
             <div>
               <label>Ingrese Contraseña:</label>
-              <input formControlName="currentPasswordForProfile" type="password">
+              <input
+              id="pass"
+              type="password"
+              formControlName="currentPasswordForProfile"
+              aria-describedby="passHelp"
+              >
             </div>
-            <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
+            <div id="passHelp" class="sr-only">Ingrese contraseña para confirmar accion.</div>
+            <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.dirty"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Contraseña invalida
+            </div>
+
+            <button type="submit" [disabled]="!profileForm.valid"> Guardar Cambios </button>
           </form>
+
           <!-- 2º form para modificar contraseña -->
           <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
             <div>
               <label>Contraseña actual:</label>
-              <input formControlName="currentPassword" type="password">
+              <input
+              type="password"
+              formControlName="currentPassword"
+              >
             </div>
+
             <div>
               <label>Nueva contraseña:</label>
-              <input formControlName="newPassword" type="password">
+              <input
+              type="password"
+              formControlName="newPassword"
+              >
             </div>
+
             <div>
               <label>Confirmar nueva contraseña:</label>
-              <input formControlName="confirmPassword" type="password">
+              <input
+              type="password"
+              formControlName="confirmPassword"
+              >
             </div>
-            <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
+
+            <button type="submit" [disabled]="!passwordForm.valid || (!passwordsMatch() && !prevPasswordsMatch() )">
+              Cambiar Contraseña </button>
           </form>
 
 
@@ -71,32 +102,17 @@
 
 <!--
 
-
 <div class="form-group">
                 <label for="name">Nuevo Nombre<span class="required">*</span></label>
                 <div class="input-icon">
                   <i class="icon-user" aria-hidden="true">👤</i>
-                  <input
-                    type="text"
-                    id="name"
-                    formControlName="name"
-                    placeholder="Tu nombre completo"
-                    required
-                    aria-required="true"
-                    aria-describedby="nameHelp">
                 </div>
-                <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre completo.</div>
                 <div *ngIf=
                 " modifyProfileForm.get('name')?.invalid &&
                 (modifyProfileForm.get('name')?.touched || modifyProfileForm.get('name')?.dirty)  "
 
                      class="error-message" role="alert" aria-live="assertive"
-
                 >
-                  El nombre es obligatorio.
                 </div>
               </div>
-
-
-
 -->
