@@ -62,7 +62,7 @@ export class TripadvisorService {
 
   // Método para buscar restaurantes
   searchRestaurants(query: number): Observable<any> {
-    const url = `${this.baseUrl}/restaurant/searchLocation?query=${query}`;
+    const url = `${this.baseUrl}/restaurant/searchRestaurants?locationId=${query}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       catchError(this.handleError)
     );
