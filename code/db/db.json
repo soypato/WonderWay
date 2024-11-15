@@ -29,9 +29,9 @@
     },
     {
       "id": "2",
-      "name": "Mariana Pérez",
-      "email": "mariana.perez@gmail.com",
-      "password": "miContraseña123",
+      "name": "Maria Belen ",
+      "email": "mari.perez@gmail.com",
+      "password": "Nuevacontra123",
       "role": "user",
       "active": true,
       "travel": [
@@ -74,7 +74,7 @@
       "id": "3",
       "name": "Carlos Gómez",
       "email": "carlos.gomez@gmail.com",
-      "password": "contraCarlos23",
+      "password": "contrasena123",
       "role": "user",
       "active": true,
       "travel": [
