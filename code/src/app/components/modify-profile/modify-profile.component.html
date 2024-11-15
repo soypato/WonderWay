@@ -47,13 +47,13 @@
               <input
               id="pass"
               type="password"
-              formControlName="currentPasswordForProfile"
+              formControlName="currentPassword"
               aria-required="true"
               aria-describedby="passHelp"
               >
             </div>
             <div id="passHelp" class="sr-only">Ingrese contraseña para confirmar accion.</div>
-            <div *ngIf="profileForm.get('currentPasswordForProfile')?.invalid && profileForm.get('currentPasswordForProfile')?.dirty"
+            <div *ngIf="profileForm.get('currentPassword')?.invalid && profileForm.get('currentPassword')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
@@ -112,30 +112,13 @@
                 aria-live="assertive"
             > contraseña no valida </div>
 
-            <button type="submit" [disabled]="!passwordForm.valid || (!passwordsMatch() && !prevPasswordsMatch() )">
+            <button type="submit" [disabled]="!passwordForm.valid || ( !passwordsMatch() && !prevPasswordsMatch() )">
               Cambiar Contraseña </button>
           </form>
         </section>
 
 
+
         </div>
     </div>
 </div>
-
-
-<!--
-
-<div class="form-group">
-                <label for="name">Nuevo Nombre<span class="required">*</span></label>
-                <div class="input-icon">
-                  <i class="icon-user" aria-hidden="true">👤</i>
-                </div>
-                <div *ngIf=
-                " modifyProfileForm.get('name')?.invalid &&
-                (modifyProfileForm.get('name')?.touched || modifyProfileForm.get('name')?.dirty)  "
-
-                     class="error-message" role="alert" aria-live="assertive"
-                >
-                </div>
-              </div>
--->

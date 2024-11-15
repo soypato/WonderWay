@@ -17,7 +17,8 @@ export class ModifyProfileComponent implements OnInit {
   profileForm: FormGroup;
   passwordForm: FormGroup;
 
-  userid : number= 0; // te trae el id de la sesion actual -- es un number
+
+  userid : number = 1;
   currentUser : User | null = null; // creo var para guardar el user entero de la sesion actual
 
 
@@ -31,7 +32,7 @@ export class ModifyProfileComponent implements OnInit {
     });
     // Formulario para cambio de contraseña
     this.passwordForm = this.fb.group({
-      currentPassword: [''],
+      currentPassword: ['',[Validators.required]],
       newPassword: ['', [Validators.required], [Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]]
     });
@@ -54,7 +55,7 @@ export class ModifyProfileComponent implements OnInit {
         // Puedes usar `userPassword` aquí como desees*/
       },
       error: (err:Error) => {
-        console.error('Error al cargar el perfil del usuario:', err);
+        console.log('Error al cargar el perfil del usuario:', err);
       }
     });
   }
