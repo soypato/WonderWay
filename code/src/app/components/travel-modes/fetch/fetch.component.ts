@@ -71,6 +71,7 @@ export class FetchComponent implements OnInit {
             // Busca los hoteles en la ciudad usando el geoId
             this.apiService.searchHotels(this.geoId, this.freemodeForm.get('checkIn')?.value, this.freemodeForm.get('checkOut')?.value).subscribe({
               next: (hoteles) => {
+                console.log(hoteles);
                 this.hoteles = hoteles.data.data;  // Actualiza la lista de hoteles con los datos recibidos
               },
               error: (err) => {
