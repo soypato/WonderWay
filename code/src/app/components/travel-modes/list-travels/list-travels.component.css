@@ -1,17 +1,100 @@
-h2
-{
+.main-parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/img/imgPaisaje10.jpg'); /* Fondo sin capa oscura */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Contenedor de Perfil */
+.profile-container {
+    position: relative;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    color: #ffffff;
+    width: 600px;
+    height: 760px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff; 
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título */
+.profile-container h2 {
     font-size: 3rem;
+    color: #02708b; /* Color del texto */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
 }
-main
-{
-    margin-top: 1rem;
+
+/* Estilos para los recuadros de los viajes */
+.user-travels {
+    font-size: 2rem;
+    box-shadow: rgba(100, 100, 100, 0.2) 0px 7px 29px 0px;
+    padding: 1.5rem;
+    padding-top: 20px;
+    /* vertical-align: top; */
+    background-color: #ffffff;  /* Fondo blanco para los recuadros de los viajes */
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 20px;
+    width: 500px;
 }
-h3
-{
-    font-size: 3rem;
+
+/* Estilo de los botones dentro de los recuadros de los viajes */
+.menu-buttons {
+    display: flex;
+    justify-content: flex-start; /* Alineación de los botones hacia la izquierda */
+    gap: 1rem;
+    margin-top: 4rem;
 }
-.user-travels
-{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 2rem;
+
+/* Estilo de los Botones */
+.button-main {
+    padding: 0.4rem 1rem;
+    width: 250px; /* Establece un ancho fijo para el botón */
+    height: 30px; /* Establece un alto fijo para el botón */
+    margin-left: auto; /* Centrado automático desde la izquierda */
+    margin-right: auto;
+    background-color: #02708b;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.button-main:hover {
+    background-color: #013f4e;
+    transform: scale(1.05);
+}
+
+.button-main:active {
+    transform: scale(1);  /* Desactiva la escala al hacer clic */
+}
+
+/* Estilo para los Viajes */
+h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #777;
+}
+
+/* Estilo para la sección de la lista de viajes */
+main {
+    margin-top: 2rem;
 }

@@ -26,6 +26,7 @@ h1 {
 
 .button-main:hover {
     background-color: var(--color-button-hover);
+    transform: scale(1.05); /* Efecto de escala */
 }
 
 
