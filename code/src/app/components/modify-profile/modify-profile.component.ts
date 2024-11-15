@@ -34,7 +34,7 @@ export class ModifyProfileComponent implements OnInit {
     // Formulario para cambio de contraseña
     this.passwordForm = this.fb.group({
       currentPassword: ['',[Validators.required]],
-      newPassword: ['', [Validators.required], [Validators.minLength(8)]],
+      newPassword: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]]
     });
   }
@@ -90,7 +90,6 @@ export class ModifyProfileComponent implements OnInit {
         (this.profileForm.value.name !== this.currentUser.name)   )
       {
         updatedUser.name = this.profileForm.value.name
-
       }else if(
         !this.profileForm.value.name &&
         this.profileForm.value.email &&
@@ -98,7 +97,6 @@ export class ModifyProfileComponent implements OnInit {
         {
           updatedUser.email = this.profileForm.value.email;
         }
-
       else if(
         this.profileForm.value.name &&
         this.profileForm.value.email &&
@@ -124,6 +122,7 @@ export class ModifyProfileComponent implements OnInit {
         }
       });
     }
+    this.profileForm.reset();
   }
 
   onPasswordSubmit() {
@@ -146,6 +145,7 @@ export class ModifyProfileComponent implements OnInit {
         }
       });
     }
+    this.passwordForm.reset();
   }
 }
 
