@@ -3,7 +3,7 @@
         <h2>Viajes de {{serverUser?.name}} ✈️</h2>
         <main *ngIf="serverUser?.travel">
             <article class="user-travels" *ngFor="let i of serverUser?.travel">
-                <h3>{{i.name}}</h3>
+                <h3><strong>Nombre: </strong>{{i.name}}</h3>
                 <p><strong>Ubicación:</strong> {{i.location}}</p>
                 <p><strong>Fecha de inicio:</strong> {{i.startDate}}</p>
                 <article class="menu-buttons">

@@ -14,6 +14,7 @@ import { NewTravelComponent } from './components/travel-modes/new-travel/new-tra
 import { CrudNewTravelComponent } from './components/travel-modes/crud-new-travel/crud-new-travel.component';
 import { ListTravelsComponent } from './components/travel-modes/list-travels/list-travels.component';
 import { ListOneTravelComponent } from './components/travel-modes/list-one-travel/list-one-travel.component';
+import { FetchComponent } from './components/travel-modes/fetch/fetch.component';
 
 export const routes: Routes = [
     {
@@ -77,6 +78,11 @@ export const routes: Routes = [
     {
         path: 'menu_travel/travel_assistant/list_travels/list_one_travel',
         component: ListOneTravelComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'fetch',
+        component: FetchComponent,
         canActivate: [AuthGuard]
     },
     {

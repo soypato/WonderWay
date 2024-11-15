@@ -43,26 +43,31 @@ export class NewTravelComponent {
   async onSubmit() {
     if (this.travelForm.valid) {
       try {
+        // Crear un objeto de viaje con los datos del formulario
         this.travelDetails = {
           name: this.travelForm.value.name,
           location: this.travelForm.value.location,
           startDate: this.travelForm.value.startDate,
-          services: []
+          services: [] // Por ahora no tiene servicios
         };
 
+        // Obtener el perfil del usuario
         this.userService.getUserProfile(Number(this.userCurrent.getUsuario())).subscribe({
-          next: (user) => this.saveToDB(user),
+          next: (user) => {
+            // Guardamos el viaje en el perfil del usuario
+            this.saveToDB(user);
+          },
           error: (err) => console.error('Error al obtener el perfil del usuario:', err)
         }); // Guarda en la base de datos
 
+        // Mostrar mensaje de éxito
         Swal.fire({
           icon: 'success',
           title: '¡Hemos guardado el progreso del viaje!'
         });
 
-        // Redirigimos al usuario a la lista de viajes
+        // Redirigir a la lista de viajes
         this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
-
       } catch (error) {
         console.error('Error al guardar el viaje:', error);
         Swal.fire({
@@ -80,21 +85,30 @@ export class NewTravelComponent {
     }
   }
 
-private saveToDB(user: User) {
+  private saveToDB(user: User) {
     // Confirmamos que se esté enviando el usuario actualizado
     if (user.travel) {
+      // Agregar el nuevo viaje al array de viajes
       user.travel.push(this.travelDetails);
     } else {
+      // Si no existe el array de viajes, lo creamos
       user.travel = [this.travelDetails];
     }
-    
+
+    // Actualizar el perfil del usuario en la base de datos
     this.userService.updateUser(user).subscribe({
-        next: (updatedUser) => {
-            console.log('Usuario actualizado en el servidor:', updatedUser);
-        },
-        error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
+      next: (updatedUser) => {
+        console.log('Usuario actualizado en el servidor:', updatedUser);
+
+        // Redirigir al componente de viajes, pasando la información actualizada
+        this.router.navigate(['/fetch'], {
+          state: {
+            updatedUser: updatedUser,   // Pasa el usuario actualizado
+            travelDetails: updatedUser.travel // Pasa el arreglo de detalles de viajes
+          }
+        });
+      },
+      error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
     });
-}
-
-
+  }
 }
