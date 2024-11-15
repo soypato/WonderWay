@@ -1,0 +1,77 @@
+/* Contenedor principal - Ahora aplica la capa oscura a toda la pantalla */
+.main-parent-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/img/imgPaisaje.webp'); 
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Capa oscura para toda la pantalla */
+.main-parent-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurece toda la pantalla */
+    z-index: 1;
+}
+
+/* Contenedor del perfil y botones */
+.main-child-container {
+    position: relative;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #ffffff;
+    max-width: 600px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título */
+h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/* Estilo de los botones */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espacio entre los botones */
+}
+
+/* Estilo individual de los botones */
+.button-main {
+    display: block;
+    padding: 1rem 2rem;
+    color: #ffffff;
+    background-color: #005662;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 200px;
+    text-align: center;
+}
+
+/* Efecto hover para los botones */
+.button-main:hover {
+    background-color: #00484a;
+    transform: scale(1.05); /* Efecto de escala */
+}
+

@@ -4,8 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripadvisorService } from '../../../services/tripadvisor.service';
 import { debounceTime, switchMap } from 'rxjs';
-import { IService } from '../../../interface/service.interface';
+import { Travel } from '../../../interface/travel.interface';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { CurrentUser } from '../../../services/current-user.service';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../interface/user.interface';
 
 @Component({
   selector: 'app-new-travel',
@@ -17,39 +21,80 @@ import Swal from 'sweetalert2';
 export class NewTravelComponent {
   travelForm: FormGroup;
   tripAdvisorService = inject(TripadvisorService);
-  service: IService = {
+  userCurrent = inject(CurrentUser);
+  userService = inject(UserService);
+  router = inject(Router);
+
+  travelDetails: Travel = {
+    name: '',
     location: '',
-    startDate: ''
+    startDate: '',
+    services: []
   };
 
   constructor(private fb: FormBuilder) {
     this.travelForm = this.fb.group({
+      name: ['', Validators.required],
       startDate: ['', Validators.required],
       location: ['', Validators.required]
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.travelForm.valid) {
-      this.service = 
-      {
-        location: this.travelForm.value.location,
-        startDate: this.travelForm.value.startDate
-      }
-      this.travelForm.reset();
-      Swal.fire({
-        icon: 'success',
-        title: '¡Hemos comenzado el viaje!'
-      })
-      
-     }
-     else
-     {
+      try {
+        this.travelDetails = {
+          name: this.travelForm.value.name,
+          location: this.travelForm.value.location,
+          startDate: this.travelForm.value.startDate,
+          services: []
+        };
+
+        this.userService.getUserProfile(Number(this.userCurrent.getUsuario())).subscribe({
+          next: (user) => this.saveToDB(user),
+          error: (err) => console.error('Error al obtener el perfil del usuario:', err)
+        }); // Guarda en la base de datos
+
+        Swal.fire({
+          icon: 'success',
+          title: '¡Hemos guardado el progreso del viaje!'
+        });
+
+        // Redirigimos al usuario a la lista de viajes
+        this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
+
+      } catch (error) {
+        console.error('Error al guardar el viaje:', error);
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Por favor, completa los datos!',
-        })
-     }
+          text: 'Hubo un problema al guardar el viaje. Inténtalo nuevamente.',
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por favor, completa los datos!'
+      });
+    }
   }
+
+private saveToDB(user: User) {
+    // Confirmamos que se esté enviando el usuario actualizado
+    if (user.travel) {
+      user.travel.push(this.travelDetails);
+    } else {
+      user.travel = [this.travelDetails];
+    }
+    
+    this.userService.updateUser(user).subscribe({
+        next: (updatedUser) => {
+            console.log('Usuario actualizado en el servidor:', updatedUser);
+        },
+        error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
+    });
+}
+
+
 }

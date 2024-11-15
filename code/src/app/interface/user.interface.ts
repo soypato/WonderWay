@@ -1,3 +1,5 @@
+import { Travel } from "./travel.interface";
+
 export interface User {
     id?: number,
     name: string,
@@ -5,4 +7,5 @@ export interface User {
     password: string,
     role: string,
     active: boolean,
-}
+    travel?: Travel[]
+}   

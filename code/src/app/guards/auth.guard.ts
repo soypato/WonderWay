@@ -3,6 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { CurrentUser } from '../services/current-user.service';
 import Swal from 'sweetalert2';
 import { User } from '../interface/user.interface';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,22 @@ import { User } from '../interface/user.interface';
 export class AuthGuard implements CanActivate {
   currentUser = inject(CurrentUser);
   router = inject(Router);
+  userService = inject(UserService);
 
   canActivate(): boolean {
-    const user: User | null = this.currentUser.getUsuario(); // Obtiene el usuario actual directamente
+    const userId: Number | null = this.currentUser.getUsuario(); // Obtiene el usuario actual directamente
+    const user = this.userService.getUserProfile(Number(userId)).subscribe
+    (
+      {
+        next: (res) => {
+          return res;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    );
+    // Obtiene el perfil del usuario actual
 
     if (user) {
       return true; // Usuario autenticado, permitir acceso a /profile

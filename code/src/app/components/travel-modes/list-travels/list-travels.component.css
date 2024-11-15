@@ -1,0 +1,17 @@
+h2
+{
+    font-size: 3rem;
+}
+main
+{
+    margin-top: 1rem;
+}
+h3
+{
+    font-size: 3rem;
+}
+.user-travels
+{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2rem;
+}

@@ -10,7 +10,7 @@ import { User } from '../interface/user.interface';
 
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000/users'; // Cambia esto a tu API
+  private apiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +33,7 @@ export class UserService {
   updateUser(user: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
   }
+
 
   verificarCorreo(correo: string): Observable<User | null> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${correo}`).pipe( // Filtro con el correo directamente en la URL
