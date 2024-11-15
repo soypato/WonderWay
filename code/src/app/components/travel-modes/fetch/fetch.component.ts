@@ -44,10 +44,11 @@ export class FetchComponent implements OnInit{
           console.log('GeoId obtenido:', this.geoId);
           console.log(data);
           if (this.geoId) {
-            this.apiService.searchHotels(this.geoId).subscribe({
+            this.apiService.searchHotels(this.geoId, '2024-11-15', '2024-11-16').subscribe({
               next: (hoteles) => {
                 this.hoteles = hoteles; // Asigna los hoteles a la variable `hoteles`
                 console.log('Hoteles obtenidos:', this.hoteles);
+                console.log(hoteles);
               },
               error: (err) => {
                 console.error('Error al buscar hoteles:', err);

@@ -44,8 +44,9 @@ export class TripadvisorService {
   }
 
   // Método para buscar hoteles
-  searchHotels(query: number): Observable<any> {
-    const url = `${this.baseUrl}/hotels/searchLocation?query=${query}`;
+  searchHotels(query: number, checkIn: string, checkOut: string): Observable<any> {
+    const url = `${this.baseUrl}/hotels/searchHotels?geoId=${query}&checkIn=${checkIn}&checkOut=${checkOut}&pageNumber=1&currencyCode=USD'`;
+    console.log(url);
     return this.http.get(url, { headers: this.headers }).pipe(
       catchError(this.handleError)
     );
