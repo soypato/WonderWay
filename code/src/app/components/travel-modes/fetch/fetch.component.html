@@ -21,8 +21,8 @@
               <th>Calificación</th>
               <th>Proveedor</th>
               <th>Precio</th>
-              <th>Imagen</th>
               <th>Enlace a Reserva</th>
+              <th>Agregar al viaje</th>
             </tr>
           </thead>
           <tbody>
@@ -49,20 +49,19 @@
       
               <!-- Precio de visualización -->
               <td>{{ hotel.priceForDisplay || 'No disponible' }}</td>
-      
-              <!-- Imagen del hotel (si existe) -->
-              <td>
-                <img *ngIf="hotel.cardPhotos?.length > 0" 
-                     [src]="hotel.cardPhotos[0].sizes.urlTemplate.replace('{width}', '100').replace('{height}', '100')" 
-                     alt="Imagen del hotel" width="100" height="100" />
-              </td>
-      
+
               <!-- Enlace a la reserva -->
               <td>
                 <a *ngIf="hotel.commerceInfo?.externalUrl" [href]="hotel.commerceInfo.externalUrl" target="_blank">
                   Ver ofertas
                 </a>
               </td>
+
+              <!-- Botón para agregar al viaje -->
+              <td>
+                <button (click)="agregarViaje(hotel)">Agregar</button>
+              </td>
+
             </tr>
           </tbody>
         </table>

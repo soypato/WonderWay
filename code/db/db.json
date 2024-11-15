@@ -87,70 +87,19 @@
       "active": true,
       "travel": [
         {
-          "name": "Viaje de Negocios a Londres",
-          "location": "London, UK",
-          "startDate": "2024-11-10",
+          "name": "GUNS Tour",
+          "location": "guns n city",
+          "startDate": "2000-11-22",
           "services": [
             {
-              "id": 7,
-              "name": "The Ritz London",
-              "location": "Piccadilly, London",
-              "price": 350,
+              "id": 25259297,
+              "name": "20. Hotel Casa Allegra Art Suites",
+              "location": "Confort y arte en el corazón de la ciudad",
+              "price": 48,
               "qualification": 5,
-              "checkIn": 1710787200,
-              "checkOut": 1711228800,
-              "rooms": 1
-            },
-            {
-              "id": 8,
-              "duration": 8,
-              "originAirportCode": "EZE",
-              "destinationAirportCode": "LHR",
-              "travelDate": "2024-11-10",
-              "returnDate": "2024-11-18",
-              "scale": 1,
-              "class": "First Class"
-            },
-            {
-              "id": 9,
-              "name": "The Ledbury",
-              "phone": 233445566,
-              "location": "Notting Hill, London",
-              "qualification": 5
-            }
-          ]
-        },
-        {
-          "name": "Escapada en Barcelona",
-          "location": "Barcelona, Spain",
-          "startDate": "2025-06-20",
-          "services": [
-            {
-              "id": 10,
-              "name": "Hotel Arts Barcelona",
-              "location": "Marina, Barcelona",
-              "price": 300,
-              "qualification": 5,
-              "checkIn": 1743216000,
-              "checkOut": 1743580800,
-              "rooms": 1
-            },
-            {
-              "id": 11,
-              "duration": 5,
-              "originAirportCode": "EZE",
-              "destinationAirportCode": "BCN",
-              "travelDate": "2025-06-20",
-              "returnDate": "2025-06-25",
-              "scale": 0,
-              "class": "Economy"
-            },
-            {
-              "id": 12,
-              "name": "Cervecería 100 Montaditos",
-              "phone": 1122334455,
-              "location": "Las Ramblas, Barcelona",
-              "qualification": 4
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
             }
           ]
         }

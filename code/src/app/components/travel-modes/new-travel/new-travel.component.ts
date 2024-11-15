@@ -91,7 +91,16 @@ private saveToDB(user: User) {
     this.userService.updateUser(user).subscribe({
         next: (updatedUser) => {
             console.log('Usuario actualizado en el servidor:', updatedUser);
-        },
+
+            this.router.navigate(['/fetch'], {
+              state: {
+                updatedUser: updatedUser,   // Pasa el usuario actualizado
+                travelDetails: updatedUser.travel // Pasa el arreglo de detalles de viajes
+              }
+            });
+
+
+          },
         error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
     });
 }
