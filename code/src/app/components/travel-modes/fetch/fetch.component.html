@@ -1,2 +1,33 @@
-<!-- <input type="text"  [[ngModel]] = "ciudad" name="ciudad"> -->
-<!-- <button (click)="getCiudad()"></button> -->
+<div class="freemode-container">
+    <h2>Explora y busca hoteles a lo largo del mundo!</h2>
+    <p>Busca hoteles sin necesidad de crear un viaje.</p>
+  
+    <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
+        <div class="search-section">
+          <input type="text" placeholder="Buscar destino..." class="search-input" formControlName="ciudad" />
+          <input type="text" placeholder="Ingrese fecha de salida..." class="search-input" formControlName="checkIn" />
+          <input type="text" placeholder="Ingrese fecha de llegada..." class="search-input" formControlName="checkOut" />
+          <button type="submit" class="search-button">Buscar</button>
+        </div>
+      </form>
+  
+    <div class="results-section">
+      <!-- Aquí puedes utilizar *ngFor para iterar sobre los resultados de hoteles, restaurantes o vuelos -->
+      <div class="result-item" *ngFor="let hotel of hoteles">
+        <!-- Nombre del hotel -->
+    <h3>{{ hotel.title }}</h3>
+
+    <!-- Información adicional sobre el hotel (si existe) -->
+    <p *ngIf="hotel.primaryInfo">{{ hotel.primaryInfo }}</p>
+
+    <!-- Información secundaria (ubicación del hotel) -->
+    <p>{{ hotel.secondaryInfo }}</p>
+
+    <!-- Información adicional del hotel (si existe) -->
+    <div *ngIf="hotel.badge">
+      <span class="badge">{{ hotel.badge }}</span>
+    </div>
+
+      </div>
+    </div>
+  </div>

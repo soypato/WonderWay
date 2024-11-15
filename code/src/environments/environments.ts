@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    rapidApiKey: '7aea22d87bmsh59a8a8b4c8de911p170154jsnc6c8c9c34502'
+    rapidApiKey: 'e4eb741606msh861c4c599232c3ep128698jsnd24403195625'
   };
   
