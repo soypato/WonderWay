@@ -61,7 +61,7 @@
             </div>
 
             <!-- arreglar los validators-->
-            <button type="submit" > Guardar Cambios </button>
+            <button type="submit" [disabled]="!profileForm.valid" > Guardar Cambios </button>
           </form>
         </section><br/>
 

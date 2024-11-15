@@ -15,12 +15,15 @@ import { User } from '../../interface/user.interface';
 export class ModifyProfileComponent implements OnInit {
   profileForm: FormGroup;
   passwordForm: FormGroup;
+  userid: number | null = null;
+  currentUser: User | null = null;
 
-  userid :number|null =null;
-  user : User | null = null;
-
-
-  constructor(private fb: FormBuilder,private userService : UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService : UserService,
+    private currentUserService: CurrentUser
+  )
+    {
     // Formulario para nombre y email
     this.profileForm = this.fb.group({
       name: [''],
@@ -36,7 +39,7 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userid =  inject(CurrentUser).getUsuario();
+    this.userid =  this.currentUserService.getUsuario();
     this.loadUserProfile();
   }
 
@@ -44,7 +47,7 @@ export class ModifyProfileComponent implements OnInit {
     if(this.userid){
       this.userService.getUserProfile(this.userid).subscribe({
         next: (user:User) => {
-          this.user = user;
+          this.currentUser = user;
           /*
           console.log('Perfil del usuario cargado:', this.currentUser);
           // Accede al valor de password
@@ -61,7 +64,7 @@ export class ModifyProfileComponent implements OnInit {
 
   // Método para validar que las nuevas contraseñas coincidan
   prevPasswordsMatch() {
-    if(this.profileForm.get('currentPassword')?.value  === this.user?.password  )
+    if(this.profileForm.get('currentPassword')?.value  === this.currentUser?.password  )
       {
         return true;
       }
@@ -75,18 +78,142 @@ export class ModifyProfileComponent implements OnInit {
     return false;
   }
 
-
   onProfileSubmit() {
-    if (this.profileForm.valid) {
-      console.log('Datos de perfil actualizados:', this.profileForm.value);
+    if (this.profileForm.valid && this.currentUser) {
+      // Actualiza los datos en el perfil del usuario
+      const updatedUser: User = {
+        ...this.currentUser,
+        name: this.profileForm.value.name,
+        email: this.profileForm.value.email
+      };
+
+      // Llama a updateUser en el servicio UserService
+      this.userService.updateUser(updatedUser).subscribe({
+        next: () => {
+          console.log('Datos de perfil actualizados:', updatedUser);
+          // Llama a setUsuario para guardar el ID del usuario en el local storage
+          this.currentUserService.setUsuario(this.userid!);
+        },
+        error: (err:Error) => {
+          console.error('Error al actualizar el perfil del usuario:', err);
+        }
+      });
     }
   }
+
   onPasswordSubmit() {
-    if (this.passwordForm.valid && this.passwordsMatch()) {
-      console.log('Contraseña cambiada:', this.passwordForm.value);
-    } else {
-      console.error('Las contraseñas no coinciden');
+    if (this.profileForm.valid && this.currentUser) {
+      // Actualiza los datos en el perfil del usuario
+      const updatedUser: User = {
+        ...this.currentUser,
+        password: this.profileForm.value.password
+      };
+
+      // Llama a updateUser en el servicio UserService
+      this.userService.updateUser(updatedUser).subscribe({
+        next: () => {
+          console.log('Datos de perfil actualizados:', updatedUser);
+          // Llama a setUsuario para guardar el ID del usuario en el local storage
+          this.currentUserService.setUsuario(this.userid!);
+        },
+        error: (err:Error) => {
+          console.error('Error al actualizar el perfil del usuario:', err);
+        }
+      });
     }
   }
 
 }
+
+
+
+
+
+/*
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'app/services/user.service';
+import { CurrentUser } from 'app/services/current-user.service';
+import { User } from 'app/models/user.model';
+
+@Component({
+  selector: 'app-modify-profile',
+  templateUrl: './modify-profile.component.html',
+  styleUrls: ['./modify-profile.component.css']
+})
+export class ModifyProfileComponent implements OnInit {
+  profileForm: FormGroup;
+  passwordForm: FormGroup;
+  userid: number | null = null;
+  currentUser: User | null = null;
+
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private currentUserService: CurrentUser
+  ) {
+    this.profileForm = this.fb.group({
+      name: [''],
+      email: ['', [Validators.email]],
+      currentPassword: ['', [Validators.required]]
+    });
+    this.passwordForm = this.fb.group({
+      currentPassword: [''],
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required]]
+    });
+  }
+
+  ngOnInit() {
+    this.userid = this.currentUserService.getUsuario();
+    if (this.userid !== null) {
+      this.loadUserProfile();
+    } else {
+      console.error('No se pudo obtener el ID del usuario actual');
+    }
+  }
+
+  loadUserProfile() {
+    if (this.userid) {
+      this.userService.getUserProfile(this.userid).subscribe({
+        next: (user: User) => {
+          this.currentUser = user;
+          this.profileForm.patchValue({
+            name: user.name,
+            email: user.email
+          });
+        },
+        error: (err: Error) => {
+          console.error('Error al cargar el perfil del usuario:', err);
+        }
+      });
+    }
+  }
+
+  onProfileSubmit() {
+    if (this.profileForm.valid && this.currentUser) {
+      // Actualiza los datos en el perfil del usuario
+      const updatedUser: User = {
+        ...this.currentUser,
+        name: this.profileForm.value.name,
+        email: this.profileForm.value.email
+      };
+
+      // Llama a updateUser en el servicio UserService
+      this.userService.updateUser(updatedUser).subscribe({
+        next: () => {
+          console.log('Datos de perfil actualizados:', updatedUser);
+
+          // Llama a setUsuario para guardar el ID del usuario en el local storage
+          this.currentUserService.setUsuario(this.userid!);
+        },
+        error: (err) => {
+          console.error('Error al actualizar el perfil del usuario:', err);
+        }
+      });
+    }
+  }
+}
+
+
+*/
