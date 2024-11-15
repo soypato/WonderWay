@@ -20,8 +20,7 @@
               >
             </div>
             <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre.</div>
-            <!-- arreglar todas las comprobaciones -->
-            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty">
+            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
@@ -54,7 +53,7 @@
               >
             </div>
             <div id="passHelp" class="sr-only">Ingrese contraseña para confirmar accion.</div>
-            <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.dirty"
+            <div *ngIf="profileForm.get('currentPasswordForProfile')?.invalid && profileForm.get('currentPasswordForProfile')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
@@ -62,7 +61,7 @@
             </div>
 
             <!-- arreglar los validators-->
-            <button type="submit" [disabled]="!profileForm.valid"> Guardar Cambios </button>
+            <button type="submit" > Guardar Cambios </button>
           </form>
         </section><br/>
 
@@ -79,37 +78,39 @@
               formControlName="currentPassword"
               >
             </div>
-            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+            <div *ngIf="profileForm.get('currentPassword')?.invalid && profileForm.get('currentPassword')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
-            > Nombre no valido </div>
+            > La contraseña no coincide con la actual </div>
 
             <div>
               <label>Nueva contraseña:</label>
               <input
+              id="newPass"
               type="password"
               formControlName="newPassword"
               >
             </div>
-            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+            <div *ngIf="profileForm.get('newPassword')?.invalid && profileForm.get('newPassword')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
-            > Nombre no valido </div>
+            > constraseña no valida </div>
 
             <div>
               <label>Confirmar nueva contraseña:</label>
               <input
+              id="confirmPass"
               type="password"
               formControlName="confirmPassword"
               >
             </div>
-            <div *ngIf="profileForm.get('name')?.invalid"
+            <div *ngIf="profileForm.get('confirmPassword')?.invalid && profileForm.get('confirmPassword')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
-            > Nombre no valido </div>
+            > contraseña no valida </div>
 
             <button type="submit" [disabled]="!passwordForm.valid || (!passwordsMatch() && !prevPasswordsMatch() )">
               Cambiar Contraseña </button>
