@@ -91,59 +91,60 @@ export class FetchComponent implements OnInit {
   }
  
   agregarViaje(hotel: any): void {
-    // Transforma los datos del hotel a la interfaz Hotel
+    // Transforma el hotel recibido a la interfaz de Hotel
     const transformedHotel: Hotel = this.transformHotelData(hotel);
   
-    // Agrega el hotel transformado al arreglo de servicios del viaje
+    // Verificamos si ya existe el array de servicios (services) en el viaje actual
+    if (!this.currentTravel.services) {
+      this.currentTravel.services = [];  // Si no existe, lo inicializamos
+    }
+  
+    // Agregamos el hotel al array de servicios del viaje actual
     this.currentTravel.services.push(transformedHotel);
   
-    // Primero, obtiene el perfil del usuario para actualizarlo
+    // Luego, obtenemos el perfil del usuario para actualizarlo con los cambios
     this.usersDB.getUserProfile(Number(this.currentUser.getUsuario())).subscribe({
       next: (user: any) => {
-        // Encuentra el índice del viaje actual en el perfil del usuario
+        // Aquí encontramos el índice del viaje en el array de viajes (travel) del usuario
         const travelIndex = user.travel?.findIndex((travel: any) => travel.id === this.currentTravel.id);
   
-        // Si el viaje existe, lo actualiza en el perfil del usuario
-        if (travelIndex !== undefined && travelIndex !== -1 && user.travel) {
-          // Aquí, solo actualizamos las propiedades del viaje necesarias
-          const existingTravel = user.travel[travelIndex];
-          existingTravel.services = this.currentTravel.services;  // Actualiza solo los servicios
-          // No reemplazamos todo el objeto travel, solo la propiedad que queremos modificar
+        // Si encontramos el índice (es decir, si el viaje existe en el perfil del usuario), lo actualizamos
+        if (travelIndex !== undefined && travelIndex !== -1) {
+          user.travel[travelIndex] = this.currentTravel; // Actualizamos el viaje con los nuevos servicios
   
-          // Ahora, guarda el perfil actualizado en la base de datos
+          // Ahora actualizamos el perfil del usuario en la base de datos
           this.usersDB.updateUser(user).subscribe({
             next: (updateRes: any) => {
-              console.log('Perfil de usuario actualizado:', updateRes);
+              console.log('Perfil de usuario actualizado correctamente:', updateRes);
             },
             error: (updateErr: any) => {
               console.error('Error al actualizar el perfil del usuario:', updateErr);
             }
           });
         } else {
-          // Si el viaje no existe en el perfil, se agrega o manejar el caso
-          console.warn('Viaje no encontrado en el perfil del usuario.');
+          // Si no encontramos el viaje en el perfil del usuario (lo cual no debería pasar), mostramos un mensaje
+          console.warn('El viaje no fue encontrado en el perfil del usuario.');
         }
       },
       error: (err: any) => {
-        console.error('Error al obtener perfil del usuario:', err);
+        console.error('Error al obtener el perfil del usuario:', err);
       }
     });
   }
   
-  
-  // Función para transformar los datos del hotel a la interfaz Hotel
-  transformHotelData(hotel: any): Hotel {
-    return {
-      id: hotel.id ? Number(hotel.id) : undefined,  // Si no tiene ID, lo pone como undefined
-      name: hotel.title || '',  // Si no tiene título, lo pone como cadena vacía
-      location: hotel.primaryInfo || '',  // Si no tiene información primaria, lo pone como cadena vacía
-      price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : 0,  // Convierte el precio a número, si está disponible
-      qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : 0,  // Si no tiene calificación, lo pone como 0
-      checkIn: hotel.checkIn ? Number(hotel.checkIn) : 0,  // Si no tiene checkIn, lo pone como 0
-      checkOut: hotel.checkOut ? Number(hotel.checkOut) : 0,  // Si no tiene checkOut, lo pone como 0
-      rooms: hotel.rooms ? Number(hotel.rooms) : 0  // Si no tiene información de habitaciones, lo pone como 0
-    };
-  }
-  
+// Función para transformar los datos del hotel a la interfaz Hotel
+transformHotelData(hotel: any): Hotel {
+  return {
+    id: hotel.id ? Number(hotel.id) : null,  // Si no tiene ID, lo pone como null
+    name: hotel.title || null,  // Si no tiene título, lo pone como null
+    location: hotel.primaryInfo || null,  // Si no tiene información primaria, lo pone como null
+    price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : null,  // Convierte el precio a número, si está disponible
+    qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : null,  // Si no tiene calificación, lo pone como null
+    checkIn: hotel.checkIn ? Number(hotel.checkIn) : null,  // Si no tiene checkIn, lo pone como null
+    checkOut: hotel.checkOut ? Number(hotel.checkOut) : null,  // Si no tiene checkOut, lo pone como null
+    rooms: hotel.rooms ? Number(hotel.rooms) : null  // Si no tiene información de habitaciones, lo pone como null
+  };
+}
+
   
 }

@@ -87,21 +87,37 @@
       "active": true,
       "travel": [
         {
-          "name": "GUNS Tour",
-          "location": "guns n city",
-          "startDate": "2000-11-22",
+          "name": "DIOS DALE",
+          "location": "SAD",
+          "startDate": "2000-02-21",
           "services": [
             {
-              "id": 25259297,
-              "name": "20. Hotel Casa Allegra Art Suites",
-              "location": "Confort y arte en el corazón de la ciudad",
-              "price": 48,
-              "qualification": 5,
+              "id": 1657848,
+              "name": "2. Holiday Inn Express Rosario, an IHG Hotel",
+              "location": "Free breakfast available",
+              "price": 83,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 306483,
+              "name": "6. Hotel Solans Riviera",
+              "location": "Free breakfast available",
+              "price": 80,
+              "qualification": 4,
               "checkIn": 0,
               "checkOut": 0,
               "rooms": 0
             }
           ]
+        },
+        {
+          "name": "DALE DIOS",
+          "location": "SDS",
+          "startDate": "2000-11-20",
+          "services": []
         }
       ]
     },
