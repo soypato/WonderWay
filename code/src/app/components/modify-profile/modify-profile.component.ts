@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractContro
 import { UserService } from '../../services/user.service';
 import { CurrentUser } from '../../services/current-user.service';
 import { User } from '../../interface/user.interface';
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 
 @Component({
   selector: 'app-modify-profile',
@@ -80,15 +81,39 @@ export class ModifyProfileComponent implements OnInit {
 
   onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
-      // Actualiza los datos en el perfil del usuario
-      const updatedUser: User = {
-        ...this.currentUser,
-        name: this.profileForm.value.name,
-        email: this.profileForm.value.email
-      };
+
+      const updatedUser: Partial<User> = { ...this.currentUser };
+
+      if (
+        !this.profileForm.value.email &&
+        this.profileForm.value.name &&
+        (this.profileForm.value.name !== this.currentUser.name)   )
+      {
+        updatedUser.name = this.profileForm.value.name
+
+      }else if(
+        !this.profileForm.value.name &&
+        this.profileForm.value.email &&
+        (this.profileForm.value.email !== this.currentUser.email)   )
+        {
+          updatedUser.email = this.profileForm.value.email;
+        }
+
+      else if(
+        this.profileForm.value.name &&
+        this.profileForm.value.email &&
+        (this.profileForm.value.name !== this.currentUser.name) &&
+        (this.profileForm.value.email !== this.currentUser.email)   )
+      {
+        updatedUser.name = this.profileForm.value.name;
+        updatedUser.email = this.profileForm.value.email;
+      }
+      else{
+        console.error('No hay cambios que guardar. O ha habido un error xd');
+      }
 
       // Llama a updateUser en el servicio UserService
-      this.userService.updateUser(updatedUser).subscribe({
+      this.userService.updateUser(updatedUser as User).subscribe({
         next: () => {
           console.log('Datos de perfil actualizados:', updatedUser);
           // Llama a setUsuario para guardar el ID del usuario en el local storage
@@ -102,11 +127,11 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   onPasswordSubmit() {
-    if (this.profileForm.valid && this.currentUser) {
+    if (this.passwordForm.valid && this.currentUser) {
       // Actualiza los datos en el perfil del usuario
       const updatedUser: User = {
         ...this.currentUser,
-        password: this.profileForm.value.password
+        password: this.passwordForm.value.newPassword
       };
 
       // Llama a updateUser en el servicio UserService
@@ -122,98 +147,5 @@ export class ModifyProfileComponent implements OnInit {
       });
     }
   }
-
 }
 
-
-
-
-
-/*
-import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'app/services/user.service';
-import { CurrentUser } from 'app/services/current-user.service';
-import { User } from 'app/models/user.model';
-
-@Component({
-  selector: 'app-modify-profile',
-  templateUrl: './modify-profile.component.html',
-  styleUrls: ['./modify-profile.component.css']
-})
-export class ModifyProfileComponent implements OnInit {
-  profileForm: FormGroup;
-  passwordForm: FormGroup;
-  userid: number | null = null;
-  currentUser: User | null = null;
-
-  constructor(
-    private fb: FormBuilder,
-    private userService: UserService,
-    private currentUserService: CurrentUser
-  ) {
-    this.profileForm = this.fb.group({
-      name: [''],
-      email: ['', [Validators.email]],
-      currentPassword: ['', [Validators.required]]
-    });
-    this.passwordForm = this.fb.group({
-      currentPassword: [''],
-      newPassword: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', [Validators.required]]
-    });
-  }
-
-  ngOnInit() {
-    this.userid = this.currentUserService.getUsuario();
-    if (this.userid !== null) {
-      this.loadUserProfile();
-    } else {
-      console.error('No se pudo obtener el ID del usuario actual');
-    }
-  }
-
-  loadUserProfile() {
-    if (this.userid) {
-      this.userService.getUserProfile(this.userid).subscribe({
-        next: (user: User) => {
-          this.currentUser = user;
-          this.profileForm.patchValue({
-            name: user.name,
-            email: user.email
-          });
-        },
-        error: (err: Error) => {
-          console.error('Error al cargar el perfil del usuario:', err);
-        }
-      });
-    }
-  }
-
-  onProfileSubmit() {
-    if (this.profileForm.valid && this.currentUser) {
-      // Actualiza los datos en el perfil del usuario
-      const updatedUser: User = {
-        ...this.currentUser,
-        name: this.profileForm.value.name,
-        email: this.profileForm.value.email
-      };
-
-      // Llama a updateUser en el servicio UserService
-      this.userService.updateUser(updatedUser).subscribe({
-        next: () => {
-          console.log('Datos de perfil actualizados:', updatedUser);
-
-          // Llama a setUsuario para guardar el ID del usuario en el local storage
-          this.currentUserService.setUsuario(this.userid!);
-        },
-        error: (err) => {
-          console.error('Error al actualizar el perfil del usuario:', err);
-        }
-      });
-    }
-  }
-}
-
-
-*/

@@ -47,7 +47,7 @@
     {
       "id": "2",
       "name": "Mariana Pérez",
-      "email": "mariana.perez@gmail.com",
+      "email": "mari.perez@gmail.com",
       "password": "miContraseña123",
       "role": "user",
       "active": true,
