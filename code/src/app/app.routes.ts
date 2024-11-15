@@ -15,6 +15,7 @@ import { CrudNewTravelComponent } from './components/travel-modes/crud-new-trave
 import { ListTravelsComponent } from './components/travel-modes/list-travels/list-travels.component';
 import { ListOneTravelComponent } from './components/travel-modes/list-one-travel/list-one-travel.component';
 import { FetchComponent } from './components/travel-modes/fetch/fetch.component';
+import { RestaurantApiComponent } from './components/travel-modes/restaurant-api/restaurant-api.component';
 
 export const routes: Routes = [
     {
@@ -83,6 +84,11 @@ export const routes: Routes = [
     {
         path: 'fetch',
         component: FetchComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'restaurant-api',
+        component: RestaurantApiComponent,
         canActivate: [AuthGuard]
     },
     {

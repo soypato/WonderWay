@@ -14,14 +14,12 @@
           "startDate": "2024-10-31",
           "services": [
             {
-              "id": 1227221,
-              "name": "2. Hotel Sirenuse",
-              "location": "Free breakfast available",
-              "price": 72,
+              "id": 0,
+              "name": "El Mercado",
+              "location": "Buenos Aires",
               "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
+              "reviewers": 3592,
+              "currentOpenStatusText": "Closed now"
             }
           ]
         }

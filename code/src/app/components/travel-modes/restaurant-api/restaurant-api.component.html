@@ -1,0 +1,53 @@
+<div class="freemode-container">
+    <h2>Explora y busca restaurantes a lo largo del mundo!</h2>
+  
+    <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
+        <div class="search-section">
+          <input type="text" placeholder="Buscar destino..." class="search-input" formControlName="ciudad" />
+          <button type="submit" class="search-button">Buscar</button>
+        </div>
+      </form>
+      
+      <div class="results-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Calificación</th>
+              <th>Cantidad reviews</th>
+              <th>Condicion</th>
+              <th>Agregar al viaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Utilizando *ngFor para iterar sobre los restaurantes -->
+            <tr *ngFor="let restaurant of restaurants">
+              <!-- Nombre del restaurante -->
+              <td>{{ restaurant.name }}</td>
+    
+      
+              <!-- Calificación del restaurant -->
+              <td>
+                {{ restaurant.qualification || 0 }} / 5 
+              </td>
+
+              <!-- Cantidad de reviews -->
+              <td>
+                {{ restaurant.reviewers || 'N/A' }} 
+              </td>
+      
+              <!-- Condicion del restaurant -->
+              <td>{{ restaurant.currentOpenStatusText }}</td>
+
+
+              <!-- Botón para agregar al viaje -->
+              <td>
+                <button (click)="agregarViaje(restaurant)">Agregar</button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  </div>

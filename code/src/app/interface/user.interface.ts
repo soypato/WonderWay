@@ -8,4 +8,4 @@ export interface User {
     role: string,
     active: boolean,
     travel?: Travel[]
-}   
+}
