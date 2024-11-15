@@ -1,20 +1,41 @@
 .main-parent-container {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    background-image: url('/img/imgPaisaje5.webp');
     display: flex;
     justify-content: center;
     align-items: center;
     max-height: 70vh;
     background-color: #f4f6f8;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
+/* Capa de superposición oscura */
+.main-parent-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Ajusta la opacidad según el nivel de oscuridad */
+    z-index: 1; /* Asegura que la superposición esté detrás del contenido */
+}
+
+/* Aseguramos que los elementos dentro del contenedor estén por encima del overlay */
 .profile-container {
+    position: relative; /* Mantiene el contenido por encima del overlay */
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 50rem;
     text-align: center;
+    z-index: 2; /* Asegura que el contenido se vea sobre el overlay */
 }
 
+/* Resto del código sigue igual... */
 .profile-container h1 {
     font-size: 2em;
     color: #333;

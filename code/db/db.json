@@ -9,40 +9,6 @@
       "active": true,
       "travel": [
         {
-          "name": "Vacaciones en Nueva York",
-          "location": "New York, USA",
-          "startDate": "2024-12-20",
-          "services": [
-            {
-              "id": 1,
-              "name": "Hotel Manhattan Plaza",
-              "location": "Midtown, New York",
-              "price": 250,
-              "qualification": 4,
-              "checkIn": 1703030400,
-              "checkOut": 1703462400,
-              "rooms": 1
-            },
-            {
-              "id": 2,
-              "duration": 10,
-              "originAirportCode": "EZE",
-              "destinationAirportCode": "JFK",
-              "travelDate": "2024-12-20",
-              "returnDate": "2025-01-05",
-              "scale": 0,
-              "class": "Economy"
-            },
-            {
-              "id": 3,
-              "name": "The Italian Corner",
-              "phone": 123456789,
-              "location": "Little Italy, New York",
-              "qualification": 5
-            }
-          ]
-        },
-        {
           "name": "Conferencia en París",
           "location": "Paris, France",
           "startDate": "2025-03-15",
