@@ -4,12 +4,12 @@
         <main *ngIf="serverUser?.travel">
             <article class="user-travels" *ngFor="let i of serverUser?.travel">
                 <h3>{{i.name}}</h3>
-                <p>{{i.location}}</p>
-                <p>{{i.startDate}}</p>
-                <article class="menu-buttons vertical">
+                <p><strong>Ubicación:</strong> {{i.location}}</p>
+                <p><strong>Fecha de inicio:</strong> {{i.startDate}}</p>
+                <article class="menu-buttons">
                     <a (click)="moreInfoTravel(i.name)" class="button-main">ℹ️ Más información</a>
-                    <a class="button-main">🖊️ Editar</a>    
-                    <a (click)="deleteTravel(i.name)" class="button-main">🧹 Borrar</a>    
+                    <a class="button-main">🖊️ Editar</a>
+                    <a (click)="deleteTravel(i.name)" class="button-main">🧹 Borrar</a>
                 </article>
             </article>    
         </main>
