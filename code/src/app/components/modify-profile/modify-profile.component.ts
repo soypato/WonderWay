@@ -65,14 +65,14 @@ export class ModifyProfileComponent implements OnInit {
 
   // Método para validar que las nuevas contraseñas coincidan
   prevPasswordsMatch() {
-    if(this.profileForm.get('currentPassword')?.value  === this.currentUser?.password  )
+    if(this.profileForm.value.currentPassword  === this.currentUser?.password  )
       {
         return true;
       }
       return false;
     }
   passwordsMatch() {
-    if(this.passwordForm.get('newPassword')?.value === this.passwordForm.get('confirmPassword')?.value)
+    if(this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword)
     {
       return true;
     }
