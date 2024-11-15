@@ -110,7 +110,8 @@ export class FetchComponent implements OnInit {
   
         // Si encontramos el índice (es decir, si el viaje existe en el perfil del usuario), lo actualizamos
         if (travelIndex !== undefined && travelIndex !== -1) {
-          user.travel[travelIndex] = this.currentTravel; // Actualizamos el viaje con los nuevos servicios
+          // Actualizamos solo los servicios del viaje sin borrar otros datos
+          user.travel[travelIndex].services = this.currentTravel.services;
   
           // Ahora actualizamos el perfil del usuario en la base de datos
           this.usersDB.updateUser(user).subscribe({
@@ -135,14 +136,14 @@ export class FetchComponent implements OnInit {
 // Función para transformar los datos del hotel a la interfaz Hotel
 transformHotelData(hotel: any): Hotel {
   return {
-    id: hotel.id ? Number(hotel.id) : null,  // Si no tiene ID, lo pone como null
-    name: hotel.title || null,  // Si no tiene título, lo pone como null
-    location: hotel.primaryInfo || null,  // Si no tiene información primaria, lo pone como null
-    price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : null,  // Convierte el precio a número, si está disponible
-    qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : null,  // Si no tiene calificación, lo pone como null
-    checkIn: hotel.checkIn ? Number(hotel.checkIn) : null,  // Si no tiene checkIn, lo pone como null
-    checkOut: hotel.checkOut ? Number(hotel.checkOut) : null,  // Si no tiene checkOut, lo pone como null
-    rooms: hotel.rooms ? Number(hotel.rooms) : null  // Si no tiene información de habitaciones, lo pone como null
+    id: hotel.id ? Number(hotel.id) : 0,  // Asignamos 0 en lugar de null si no tiene ID
+    name: hotel.title || '',  // Asignamos una cadena vacía si no tiene título
+    location: hotel.primaryInfo || '',  // Asignamos una cadena vacía si no tiene información primaria
+    price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : 0,  // Asignamos 0 si no tiene precio
+    qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : 0,  // Asignamos 0 si no tiene calificación
+    checkIn: hotel.checkIn ? Number(hotel.checkIn) : 0,  // Asignamos 0 si no tiene checkIn
+    checkOut: hotel.checkOut ? Number(hotel.checkOut) : 0,  // Asignamos 0 si no tiene checkOut
+    rooms: hotel.rooms ? Number(hotel.rooms) : 0  // Asignamos 0 si no tiene información de habitaciones
   };
 }
 

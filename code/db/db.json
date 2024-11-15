@@ -9,36 +9,19 @@
       "active": true,
       "travel": [
         {
-          "name": "Conferencia en París",
-          "location": "Paris, France",
-          "startDate": "2025-03-15",
+          "name": "Bandit",
+          "location": "aca",
+          "startDate": "2024-10-31",
           "services": [
             {
-              "id": 4,
-              "name": "Hotel Le Marais",
-              "location": "Le Marais, Paris",
-              "price": 180,
-              "qualification": 4,
-              "checkIn": 1741987200,
-              "checkOut": 1742246400,
-              "rooms": 1
-            },
-            {
-              "id": 5,
-              "duration": 12,
-              "originAirportCode": "EZE",
-              "destinationAirportCode": "CDG",
-              "travelDate": "2025-03-15",
-              "returnDate": "2025-03-22",
-              "scale": 0,
-              "class": "Business"
-            },
-            {
-              "id": 6,
-              "name": "Café de la Paix",
-              "phone": 987654321,
-              "location": "Place de l'Opéra, Paris",
-              "qualification": 4
+              "id": 1227221,
+              "name": "2. Hotel Sirenuse",
+              "location": "Free breakfast available",
+              "price": 72,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
             }
           ]
         }
