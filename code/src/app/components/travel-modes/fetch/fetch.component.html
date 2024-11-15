@@ -10,24 +10,62 @@
           <button type="submit" class="search-button">Buscar</button>
         </div>
       </form>
-  
-    <div class="results-section">
-      <!-- Aquí puedes utilizar *ngFor para iterar sobre los resultados de hoteles, restaurantes o vuelos -->
-      <div class="result-item" *ngFor="let hotel of hoteles">
-        <!-- Nombre del hotel -->
-    <h3>{{ hotel.title }}</h3>
-
-    <!-- Información adicional sobre el hotel (si existe) -->
-    <p *ngIf="hotel.primaryInfo">{{ hotel.primaryInfo }}</p>
-
-    <!-- Información secundaria (ubicación del hotel) -->
-    <p>{{ hotel.secondaryInfo }}</p>
-
-    <!-- Información adicional del hotel (si existe) -->
-    <div *ngIf="hotel.badge">
-      <span class="badge">{{ hotel.badge }}</span>
-    </div>
-
+      
+      <div class="results-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Información Primaria</th>
+              <th>Información Secundaria</th>
+              <th>Calificación</th>
+              <th>Proveedor</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Enlace a Reserva</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Utilizando *ngFor para iterar sobre los hoteles -->
+            <tr *ngFor="let hotel of hoteles">
+              <!-- Nombre del hotel -->
+              <td>{{ hotel.title }}</td>
+      
+              <!-- Información adicional sobre el hotel (si existe) -->
+              <td *ngIf="hotel.primaryInfo">{{ hotel.primaryInfo }}</td>
+              <td *ngIf="!hotel.primaryInfo">No disponible</td>
+      
+              <!-- Información secundaria (ubicación del hotel, si existe) -->
+              <td>{{ hotel.secondaryInfo || 'No disponible' }}</td>
+      
+              <!-- Calificación del hotel -->
+              <td>
+                {{ hotel.bubbleRating?.rating || 'N/A' }} / 5 
+                ({{ hotel.bubbleRating?.count || '0' }} reseñas)
+              </td>
+      
+              <!-- Proveedor del hotel -->
+              <td>{{ hotel.provider }}</td>
+      
+              <!-- Precio de visualización -->
+              <td>{{ hotel.priceForDisplay || 'No disponible' }}</td>
+      
+              <!-- Imagen del hotel (si existe) -->
+              <td>
+                <img *ngIf="hotel.cardPhotos?.length > 0" 
+                     [src]="hotel.cardPhotos[0].sizes.urlTemplate.replace('{width}', '100').replace('{height}', '100')" 
+                     alt="Imagen del hotel" width="100" height="100" />
+              </td>
+      
+              <!-- Enlace a la reserva -->
+              <td>
+                <a *ngIf="hotel.commerceInfo?.externalUrl" [href]="hotel.commerceInfo.externalUrl" target="_blank">
+                  Ver ofertas
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
+      
   </div>
