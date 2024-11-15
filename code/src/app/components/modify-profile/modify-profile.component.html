@@ -60,8 +60,8 @@
             > Contraseña invalida
             </div>
 
-            <!-- arreglar los validators-->
-            <button type="submit" [disabled]="!profileForm.valid" > Guardar Cambios </button>
+
+            <button type="submit" [disabled]="!profileForm.valid || !prevPasswordsMatch()" > Guardar Cambios </button>
           </form>
         </section><br/>
 
