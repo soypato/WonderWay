@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractContro
 import { UserService } from '../../services/user.service';
 import { CurrentUser } from '../../services/current-user.service';
 import { User } from '../../interface/user.interface';
-import { InvokeFunctionExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-modify-profile',
@@ -17,10 +16,8 @@ export class ModifyProfileComponent implements OnInit {
   profileForm: FormGroup;
   passwordForm: FormGroup;
 
-
-  userid : number = 1;
-  currentUser : User | null = null; // creo var para guardar el user entero de la sesion actual
-
+  userid :number|null =null;
+  user : User | null = null;
 
 
   constructor(private fb: FormBuilder,private userService : UserService) {
@@ -39,30 +36,32 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userid =  inject(CurrentUser).getUsuario();
     this.loadUserProfile();
   }
 
   loadUserProfile() {
-    this.userService.getUserProfile(this.userid).subscribe({
-      next: (user:User) => {
-        this.currentUser = user;
-        /*
-        console.log('Perfil del usuario cargado:', this.currentUser);
-        // Accede al valor de password
-        const userPassword = this.currentUser.password;
-        //console.log('Contraseña del usuario:', userPassword);
-        //ni ganan de mostrar tu contra con solo apretar f12
-        // Puedes usar `userPassword` aquí como desees*/
-      },
-      error: (err:Error) => {
-        console.log('Error al cargar el perfil del usuario:', err);
-      }
-    });
+    if(this.userid){
+      this.userService.getUserProfile(this.userid).subscribe({
+        next: (user:User) => {
+          this.user = user;
+          /*
+          console.log('Perfil del usuario cargado:', this.currentUser);
+          // Accede al valor de password
+          const userPassword = this.currentUser.password;
+          //console.log('Contraseña del usuario:', userPassword);
+          //ni ganan de mostrar tu contra con solo apretar f12
+          // Puedes usar `userPassword` aquí como desees*/
+        },
+        error: (err:Error) => {
+          console.log('Error al cargar el perfil del usuario:', err);
+        }
+      })}
   }
 
   // Método para validar que las nuevas contraseñas coincidan
   prevPasswordsMatch() {
-    if(this.profileForm.get('currentPassword')?.value  === this.currentUser?.password  )
+    if(this.profileForm.get('currentPassword')?.value  === this.user?.password  )
       {
         return true;
       }

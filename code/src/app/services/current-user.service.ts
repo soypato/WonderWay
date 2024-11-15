@@ -28,9 +28,6 @@ export class CurrentUser {
     return this.usuarioActual;
   }
 
-
-
-
   logout(): void {
     this.usuarioActual = null;
     localStorage.removeItem('usuarioActual');
