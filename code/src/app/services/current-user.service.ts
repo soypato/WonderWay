@@ -16,6 +16,9 @@ export class CurrentUser {
     return this.usuarioActual || JSON.parse(localStorage.getItem('usuarioActual') || 'null');
   }
 
+
+
+
   logout(): void {
     this.usuarioActual = null;
     localStorage.removeItem('usuarioActual');

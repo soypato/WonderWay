@@ -6,6 +6,7 @@
             <p class="card-description">Ingresa información en los campos que quieras modificar</p>
         </div>
         <div class="card-content">
+          <section> Cambio de Informacion
           <!-- 1º form para modificar nombre o emial -->
           <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
 
@@ -16,11 +17,11 @@
               type="text"
               formControlName="name"
               aria-describedby="nameHelp"
-              placeholder="Nuevo Nombre"
               >
             </div>
             <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre.</div>
-            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+            <!-- arreglar todas las comprobaciones -->
+            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty">
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
@@ -32,7 +33,6 @@
               id="mail"
               type="email"
               formControlName="email"
-              placeholder="Nuevo Nombre"
               aria-describedby="mailHelp"
               >
             </div>
@@ -49,6 +49,7 @@
               id="pass"
               type="password"
               formControlName="currentPasswordForProfile"
+              aria-required="true"
               aria-describedby="passHelp"
               >
             </div>
@@ -60,18 +61,29 @@
             > Contraseña invalida
             </div>
 
+            <!-- arreglar los validators-->
             <button type="submit" [disabled]="!profileForm.valid"> Guardar Cambios </button>
           </form>
+        </section><br/>
 
+
+
+        <section> Cambio de Contraseña
           <!-- 2º form para modificar contraseña -->
           <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
             <div>
               <label>Contraseña actual:</label>
               <input
+              id="prevPass"
               type="password"
               formControlName="currentPassword"
               >
             </div>
+            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Nombre no valido </div>
 
             <div>
               <label>Nueva contraseña:</label>
@@ -80,6 +92,11 @@
               formControlName="newPassword"
               >
             </div>
+            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Nombre no valido </div>
 
             <div>
               <label>Confirmar nueva contraseña:</label>
@@ -88,11 +105,16 @@
               formControlName="confirmPassword"
               >
             </div>
+            <div *ngIf="profileForm.get('name')?.invalid"
+                class="error-message"
+                role="alert"
+                aria-live="assertive"
+            > Nombre no valido </div>
 
             <button type="submit" [disabled]="!passwordForm.valid || (!passwordsMatch() && !prevPasswordsMatch() )">
               Cambiar Contraseña </button>
           </form>
-
+        </section>
 
 
         </div>
