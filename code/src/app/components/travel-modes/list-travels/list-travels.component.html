@@ -8,7 +8,7 @@
                 <p><strong>Fecha de inicio:</strong> {{i.startDate}}</p>
                 <article class="menu-buttons">
                     <a (click)="moreInfoTravel(i.name)" class="button-main">ℹ️ Más información</a>
-                    <a class="button-main">🖊️ Editar</a>
+                    <a (click)="editTravel(i.name)" class="button-main">🖊️ Editar</a>
                     <a (click)="deleteTravel(i.name)" class="button-main">🧹 Borrar</a>
                 </article>
             </article>    
