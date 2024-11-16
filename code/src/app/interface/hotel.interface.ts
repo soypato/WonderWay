@@ -8,3 +8,5 @@ export interface Hotel{
     checkOut: number,
     rooms: number
 }
+
+  

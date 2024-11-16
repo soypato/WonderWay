@@ -15,38 +15,31 @@ import { Hotel } from '../../../interface/hotel.interface';
   styleUrls: ['./fetch.component.css']
 })
 export class FetchComponent implements OnInit {
+  // Formulario para la búsqueda
   freemodeForm: FormGroup;
-  apiService = inject(TripadvisorService); // Inyección del servicio para consultar la API
+
+  // Servicios inyectados
+  private apiService = inject(TripadvisorService);
+  private currentUser = inject(CurrentUser); 
+  private usersDB = inject(UserService);
+
+  // Este usuario será el obj en en oninit
+  usuarioActual : any;
+
+  // Propiedades del componente
   ciudad = '';
   checkIn = '';
   checkOut = '';
   geoId = 0;
-  
-  // Lista de hoteles por defecto
-  // hoteles = [
-  //   {
-  //     id: "25259297",
-  //     title: "20. Hotel Casa Allegra Art Suites",
-  //     primaryInfo: "Confort y arte en el corazón de la ciudad",
-  //     secondaryInfo: "Ubicado en el centro de la ciudad, cerca de atracciones principales",
-  //     badge: "Popular entre viajeros",
-  //     bubbleRating: { count: "3", rating: 5 },
-  //     provider: "Booking.com",
-  //     priceForDisplay: "$48",
-  //     cardPhotos: [
-  //       { sizes: { maxHeight: 4032, maxWidth: 3024, urlTemplate: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/63/ea/d1/caption.jpg?w={width}&h={height}&s=1" } }
-  //     ],
-  //     commerceInfo: { externalUrl: "https://www.tripadvisor.in/Commerce?p=BookingCom&geo=25259297", provider: "Booking.com" }
-  //   }
-  // ];
+  updatedUser: any; // Usuario actualizado
+  travelName: string = ''; // Nombre del viaje
+  hoteles : any;
 
+  // Este es el objeto que nos pasa el componente origen
+  origen = history.state?.updatedUser ?? { services: [] };
 
-  hoteles: any[] = [];
-  currentTravel = history.state?.currentTravel ?? { services: [] };
-  currentUser = inject(CurrentUser);
-  usersDB = inject(UserService);
-
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder) {
+    // Definición del formulario
     this.freemodeForm = this.formBuilder.group({
       ciudad: ['', Validators.required],
       checkIn: ['', Validators.required],
@@ -55,13 +48,14 @@ export class FetchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Verifica que la información de "currentTravel" esté disponible
-    if (!this.currentTravel) {
-      console.warn("No se encontró 'currentTravel' en el estado de la ruta. Redirigiendo...");
-      this.router.navigate(['/ruta-default']);  // Redirige si no se encuentra
-    }
+    
+    // Acceder a la navegación
+    // Le mandamos el obj usuario y el nombre del viaje creado (string)
+    this.updatedUser = this.origen;
+    this.travelName = this.origen.travel ? this.origen.travel[this.origen.travel.length - 1]?.name : '';
   }
-
+  
+  // Fetch de la API
   onSubmit(): void {
     if (this.freemodeForm.get('ciudad')?.value) {
       this.apiService.getHotelGeoId(this.freemodeForm.get('ciudad')?.value).subscribe({
@@ -89,63 +83,46 @@ export class FetchComponent implements OnInit {
       console.warn('Ciudad no especificada.');
     }
   }
- 
-  agregarViaje(hotel: any): void {
-    // Transforma el hotel recibido a la interfaz de Hotel
-    const transformedHotel: Hotel = this.transformHotelData(hotel);
-  
-    // Verificamos si ya existe el array de servicios (services) en el viaje actual
-    if (!this.currentTravel.services) {
-      this.currentTravel.services = [];  // Si no existe, lo inicializamos
-    }
-  
-    // Agregamos el hotel al array de servicios del viaje actual
-    this.currentTravel.services.push(transformedHotel);
-  
-    // Luego, obtenemos el perfil del usuario para actualizarlo con los cambios
-    this.usersDB.getUserProfile(Number(this.currentUser.getUsuario())).subscribe({
-      next: (user: any) => {
-        // Aquí encontramos el índice del viaje en el array de viajes (travel) del usuario
-        const travelIndex = user.travel?.findIndex((travel: any) => travel.id === this.currentTravel.id);
-  
-        // Si encontramos el índice (es decir, si el viaje existe en el perfil del usuario), lo actualizamos
-        if (travelIndex !== undefined && travelIndex !== -1) {
-          // Actualizamos solo los servicios del viaje sin borrar otros datos
-          user.travel[travelIndex].services = this.currentTravel.services;
-  
-          // Ahora actualizamos el perfil del usuario en la base de datos
-          this.usersDB.updateUser(user).subscribe({
-            next: (updateRes: any) => {
-              console.log('Perfil de usuario actualizado correctamente:', updateRes);
-            },
-            error: (updateErr: any) => {
-              console.error('Error al actualizar el perfil del usuario:', updateErr);
-            }
-          });
-        } else {
-          // Si no encontramos el viaje en el perfil del usuario (lo cual no debería pasar), mostramos un mensaje
-          console.warn('El viaje no fue encontrado en el perfil del usuario.');
-        }
-      },
-      error: (err: any) => {
-        console.error('Error al obtener el perfil del usuario:', err);
+
+  agregarViaje(hotel : any) : void
+  {  
+    // Paso el hotel al formato de nuestra interface
+    const hotelComoInterfaz = this.transformHotelData(hotel);
+
+    // Accedo al objeto del nuevo viaje...
+    // es: el usuario.travel.(resultado de búsqueda para el nombre que pasamos de origen como "travelName")
+    const travelDetail = this.updatedUser.travel.find((travel: { name: string; }) => travel.name === this.travelName);
+    
+    // Guardo el servicio[] en una variable aparte (tiene referencia a la anterior)
+    const arrServiceDetail = travelDetail.services;
+    
+    // Guardo el nuevo hotel y tengo el arr listo
+    arrServiceDetail.push(hotelComoInterfaz);
+
+    // Como trabajamos por referencia desde el principio, queda guardado tamb en travel detail
+    // Ahora sólo queda actualizarlo en el usuario, en usuarioActual tenemos el obj del usuario actual
+
+    this.usersDB.updateUser(this.updatedUser).subscribe
+    (
+      {
+        next: (res) => console.log(res),
+        error: (err) => console.log(err)
       }
-    });
+    );
   }
-  
-// Función para transformar los datos del hotel a la interfaz Hotel
-transformHotelData(hotel: any): Hotel {
-  return {
-    id: hotel.id ? Number(hotel.id) : 0,  // Asignamos 0 en lugar de null si no tiene ID
-    name: hotel.title || '',  // Asignamos una cadena vacía si no tiene título
-    location: hotel.primaryInfo || '',  // Asignamos una cadena vacía si no tiene información primaria
-    price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : 0,  // Asignamos 0 si no tiene precio
-    qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : 0,  // Asignamos 0 si no tiene calificación
-    checkIn: hotel.checkIn ? Number(hotel.checkIn) : 0,  // Asignamos 0 si no tiene checkIn
-    checkOut: hotel.checkOut ? Number(hotel.checkOut) : 0,  // Asignamos 0 si no tiene checkOut
-    rooms: hotel.rooms ? Number(hotel.rooms) : 0  // Asignamos 0 si no tiene información de habitaciones
-  };
+
+  transformHotelData(hotel: any): Hotel {
+    return {
+      id: hotel.id ? Number(hotel.id) : 0,  // Asignamos 0 en lugar de null si no tiene ID
+      name: hotel.title || '',  // Asignamos una cadena vacía si no tiene título
+      location: hotel.primaryInfo || '',  // Asignamos una cadena vacía si no tiene información primaria
+      price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : 0,  // Asignamos 0 si no tiene precio
+      qualification: hotel.bubbleRating ? hotel.bubbleRating.rating : 0,  // Asignamos 0 si no tiene calificación
+      checkIn: hotel.checkIn ? Number(hotel.checkIn) : 0,  // Asignamos 0 si no tiene checkIn
+      checkOut: hotel.checkOut ? Number(hotel.checkOut) : 0,  // Asignamos 0 si no tiene checkOut
+      rooms: hotel.rooms ? Number(hotel.rooms) : 0  // Asignamos 0 si no tiene información de habitaciones
+    };
+  }
 }
 
-  
-}
+

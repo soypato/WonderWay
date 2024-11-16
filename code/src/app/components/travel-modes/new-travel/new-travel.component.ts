@@ -99,14 +99,16 @@ export class NewTravelComponent {
     this.userService.updateUser(user).subscribe({
       next: (updatedUser) => {
         console.log('Usuario actualizado en el servidor:', updatedUser);
-
+        console.log(updatedUser.travel);
+        console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '')
         // Redirigir al componente de viajes, pasando la información actualizada
         this.router.navigate(['/fetch'], {
           state: {
             updatedUser: updatedUser,   // Pasa el usuario actualizado
-            travelDetails: updatedUser.travel // Pasa el arreglo de detalles de viajes
+            travelName: updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '' // Pasa el nombre del último viaje
           }
         });
+        
       },
       error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
     });
