@@ -9,17 +9,73 @@
       "active": true,
       "travel": [
         {
-          "name": "Bandit",
-          "location": "aca",
-          "startDate": "2024-10-31",
+          "name": "sad",
+          "location": "asdc",
+          "startDate": "2024-11-29",
           "services": [
             {
-              "id": 0,
-              "name": "El Mercado",
-              "location": "Buenos Aires",
+              "id": 25259297,
+              "name": "20. Hotel Casa Allegra Art Suites",
+              "location": "Confort y arte en el corazón de la ciudad",
+              "price": 48,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
+        },
+        {
+          "name": "cac",
+          "location": "sd",
+          "startDate": "2002-02-01",
+          "services": [
+            {
+              "id": 25259297,
+              "name": "20. Hotel Casa Allegra Art Suites",
+              "location": "Confort y arte en el corazón de la ciudad",
+              "price": 48,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
+        },
+        {
+          "name": "Martdel",
+          "location": "sd",
+          "startDate": "2024-11-27",
+          "services": [
+            {
+              "id": 630596,
+              "name": "1. Hyatt Regency Barcelona Tower",
+              "location": "",
+              "price": 497,
               "qualification": 4.5,
-              "reviewers": 3592,
-              "currentOpenStatusText": "Closed now"
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 228464,
+              "name": "Hotel Alimara Barcelona",
+              "location": "",
+              "price": 100,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 8778628,
+              "name": "10. H10 Cubik",
+              "location": "",
+              "price": 271,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
             }
           ]
         }
