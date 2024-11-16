@@ -2,43 +2,42 @@ import { inject, Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { CurrentUser } from '../services/current-user.service';
 import Swal from 'sweetalert2';
-import { User } from '../interface/user.interface';
 import { UserService } from '../services/user.service';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthGuard implements CanActivate {
-  currentUser = inject(CurrentUser);
-  router = inject(Router);
-  userService = inject(UserService);
+  currentUser = inject(CurrentUser); // Inyecta el servicio para obtener el usuario actual
+  router = inject(Router);           // Inyecta el Router para redireccionar en caso necesario
 
-  canActivate(): boolean {
-    const userId: Number | null = this.currentUser.getUsuario(); // Obtiene el usuario actual directamente
-    const user = this.userService.getUserProfile(Number(userId)).subscribe
-    (
-      {
-        next: (res) => {
-          return res;
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      }
-    );
-    // Obtiene el perfil del usuario actual
+  /**
+   * Método que determina si un usuario puede acceder a la ruta protegida.
+   * - Verifica si hay un `userId` activo a través del servicio `CurrentUser`.
+   * - Si no hay `userId`, muestra una alerta y redirige al login.
+   * - Si hay `userId`, permite el acceso a la ruta.
+   */
+  canActivate(): Observable<boolean> {
+    const userId = this.currentUser.getUsuario(); // Obtiene el ID del usuario actual
 
-    if (user) {
-      return true; // Usuario autenticado, permitir acceso a /profile
-    } else {
-       
+    if (!userId) {
+      // Si no hay usuario activo, muestra una alerta y redirige al login
       Swal.fire({
-        title: 'Error!',
-        text: 'Para visualizar esta información, primero debes iniciar sesión o registrarte',
-        icon: 'error'
-      })
-      this.router.navigate(['/login']); // Redirigir al login si no está autenticado
-      return false;
+        icon: 'error',
+        title: 'Acceso denegado',
+        text: 'No se encontró un usuario válido. Por favor, inicia sesión.'
+      });
+      this.router.navigate(['/login']); // Redirige a la página de login
+      return of(false); // Deniega el acceso
     }
+
+    // Si hay un usuario activo, permite el acceso a la ruta
+    return of(true); // Permite el acceso
   }
 }
+
