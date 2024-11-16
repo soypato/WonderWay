@@ -22,8 +22,8 @@ export class FetchComponent implements OnInit {
   private apiService = inject(TripadvisorService);
   private currentUser = inject(CurrentUser); 
   private usersDB = inject(UserService);
-  private router = inject(Router);
 
+  // Este usuario será el obj en en oninit
   usuarioActual : any;
 
   // Propiedades del componente
@@ -34,9 +34,9 @@ export class FetchComponent implements OnInit {
   updatedUser: any; // Usuario actualizado
   travelName: string = ''; // Nombre del viaje
   hoteles : any;
-  
-  // Estado de la navegación actual
-  currentTravel = history.state?.updatedUser ?? { services: [] };
+
+  // Este es el objeto que nos pasa el componente origen
+  origen = history.state?.updatedUser ?? { services: [] };
 
   constructor(private formBuilder: FormBuilder) {
     // Definición del formulario
@@ -48,49 +48,14 @@ export class FetchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     // Acceder a la navegación
     // Le mandamos el obj usuario y el nombre del viaje creado (string)
-    this.updatedUser = this.currentTravel;
-    this.travelName = this.currentTravel.travel ? this.currentTravel.travel[this.currentTravel.travel.length - 1]?.name : '';
-
-    console.log(this.updatedUser)
-    console.log(this.travelName)
-
-    this.usersDB.getUserProfile(Number(this.currentUser.getUsuario())).subscribe
-    (
-      {
-        next: (res) => {
-          this.usuarioActual = res;
-          console.warn(res);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      }
-    );
-  }
-
-  // Función que retorna los hoteles por defecto
-  private getDefaultHotels() {
-    return [
-      {
-        id: "25259297",
-        title: "20. Hotel Casa Allegra Art Suites",
-        primaryInfo: "Confort y arte en el corazón de la ciudad",
-        secondaryInfo: "Ubicado en el centro de la ciudad, cerca de atracciones principales",
-        badge: "Popular entre viajeros",
-        bubbleRating: { count: "3", rating: 5 },
-        provider: "Booking.com",
-        priceForDisplay: "$48",
-        cardPhotos: [
-          { sizes: { maxHeight: 4032, maxWidth: 3024, urlTemplate: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/63/ea/d1/caption.jpg?w={width}&h={height}&s=1" } }
-        ],
-        commerceInfo: { externalUrl: "https://www.tripadvisor.in/Commerce?p=BookingCom&geo=25259297", provider: "Booking.com" }
-      }
-    ];
+    this.updatedUser = this.origen;
+    this.travelName = this.origen.travel ? this.origen.travel[this.origen.travel.length - 1]?.name : '';
   }
   
-  // ON SUBMIT PERFECTA
+  // Fetch de la API
   onSubmit(): void {
     if (this.freemodeForm.get('ciudad')?.value) {
       this.apiService.getHotelGeoId(this.freemodeForm.get('ciudad')?.value).subscribe({
@@ -121,13 +86,11 @@ export class FetchComponent implements OnInit {
 
   agregarViaje(hotel : any) : void
   {  
-    // Paso el hotel a una interfaz
+    // Paso el hotel al formato de nuestra interface
     const hotelComoInterfaz = this.transformHotelData(hotel);
 
     // Accedo al objeto del nuevo viaje...
-    // en la variable this.travelName almacené la string del objeto.nombre del nuevo viaje
-    // accedo con ella, pero como es el nombre... implemento el find para la primer coincidencia
-    // en travelDetail tenemos el objeto a modificar, es un pasaje por referencia, queda vinculado a updatedUser
+    // es: el usuario.travel.(resultado de búsqueda para el nombre que pasamos de origen como "travelName")
     const travelDetail = this.updatedUser.travel.find((travel: { name: string; }) => travel.name === this.travelName);
     
     // Guardo el servicio[] en una variable aparte (tiene referencia a la anterior)

@@ -78,6 +78,70 @@
               "rooms": 0
             }
           ]
+        },
+        {
+          "name": "Vacaciones con Dua Lipa",
+          "location": "Houston, Texas",
+          "startDate": "2002-11-22",
+          "services": [
+            {
+              "id": 21310248,
+              "name": "1. Blossom Hotel Houston",
+              "location": "",
+              "price": 198,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 17442330,
+              "name": "2. Cambria Hotel Houston Downtown Convention Center",
+              "location": "",
+              "price": 147,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
+        },
+        {
+          "name": "Vacaciones con Paul",
+          "location": "London",
+          "startDate": "2002-02-22",
+          "services": [
+            {
+              "id": 195280,
+              "name": "5. Holiday Inn London - Kensington High St., an IHG hotel",
+              "location": "",
+              "price": 306,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 3291169,
+              "name": "6. Travelodge London Excel",
+              "location": "",
+              "price": 229,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 192029,
+              "name": "7. Hampton by Hilton London City",
+              "location": "",
+              "price": 358,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
         }
       ]
     },
