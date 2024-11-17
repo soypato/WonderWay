@@ -12,7 +12,305 @@
           "name": "Visitar a Pato",
           "location": "Mar del Plata",
           "startDate": "2024-11-25",
-          "services": []
+          "services": [
+            {
+              "id": 23146248,
+              "type": "hotel",
+              "name": "3. Hilton Cancun, an All-Inclusive Resort",
+              "location": "",
+              "price": 411,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152887,
+              "type": "hotel",
+              "name": "4. Hyatt Ziva Cancun",
+              "location": "All-inclusive",
+              "price": 757,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 6001367,
+              "type": "hotel",
+              "name": "5. Emporio Cancun",
+              "location": "",
+              "price": 242,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152681,
+              "type": "hotel",
+              "name": "6. Grand Fiesta Americana Coral Beach",
+              "location": "",
+              "price": 687,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152681,
+              "type": "hotel",
+              "name": "6. Grand Fiesta Americana Coral Beach",
+              "location": "",
+              "price": 687,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 186909,
+              "type": "hotel",
+              "name": "7. Hilton Cancun Mar Caribe All-inclusive Resort",
+              "location": "",
+              "price": 466,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 154897,
+              "type": "hotel",
+              "name": "8. Wyndham Grand Cancun All Inclusive Resort & Villas",
+              "location": "All-inclusive",
+              "price": 387,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152680,
+              "type": "hotel",
+              "name": "9. Fiesta Americana Condesa Cancun All Inclusive",
+              "location": "All-inclusive",
+              "price": 440,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 13499839,
+              "type": "hotel",
+              "name": "10. Haven Riviera Cancun",
+              "location": "All-inclusive",
+              "price": 753,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 153138,
+              "type": "hotel",
+              "name": "The Royal Sands All Suites Resort & Spa",
+              "location": "",
+              "price": 375,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 2627483,
+              "type": "hotel",
+              "name": "11. Secrets The Vine Cancun",
+              "location": "All-inclusive",
+              "price": 702,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 506374,
+              "type": "hotel",
+              "name": "12. Live Aqua Cancun",
+              "location": "",
+              "price": 737,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 155814,
+              "type": "hotel",
+              "name": "13. Crown Paradise Club Cancun",
+              "location": "All-inclusive",
+              "price": 407,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 219163,
+              "type": "hotel",
+              "name": "14. Moon Palace Cancun",
+              "location": "All-inclusive",
+              "price": 592,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 26997115,
+              "type": "hotel",
+              "name": "15. Hyatt Vivid Grand Island",
+              "location": "All-inclusive",
+              "price": 480,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 671540,
+              "type": "hotel",
+              "name": "16. Dreams Sands Cancun Resort & Spa",
+              "location": "All-inclusive",
+              "price": 1156,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 154868,
+              "type": "hotel",
+              "name": "18. Le Blanc Spa Resort Cancun",
+              "location": "All-inclusive",
+              "price": 1102,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 634235,
+              "type": "hotel",
+              "name": "19. Seadust Cancun Family Resort",
+              "location": "",
+              "price": 295,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 303140,
+              "type": "hotel",
+              "name": "20. Hotel Riu Palace Las Americas",
+              "location": "",
+              "price": 311,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 7395363,
+              "type": "hotel",
+              "name": "21. Krystal Urban Cancún & Beach Club",
+              "location": "",
+              "price": 84,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152896,
+              "type": "hotel",
+              "name": "22. Hard Rock Hotel Cancun",
+              "location": "All-inclusive",
+              "price": 478,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 23760011,
+              "type": "hotel",
+              "name": "23. Breathless Cancun Soul Resort & Spa",
+              "location": "All-inclusive",
+              "price": 657,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 154428,
+              "type": "hotel",
+              "name": "24. Temptation Cancun Resort",
+              "location": "All-inclusive",
+              "price": 469,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 23738165,
+              "type": "hotel",
+              "name": "25. Hilton Garden Inn Cancun Airport",
+              "location": "",
+              "price": 165,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 152887,
+              "type": "hotel",
+              "name": "Hyatt Ziva Cancun",
+              "location": "All-inclusive",
+              "price": 757,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 23508277,
+              "type": "hotel",
+              "name": "26. Adhara Express",
+              "location": "Free breakfast available",
+              "price": 69,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 23508277,
+              "type": "hotel",
+              "name": "26. Adhara Express",
+              "location": "Free breakfast available",
+              "price": 69,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
         },
         {
           "name": "A",
@@ -37,6 +335,7 @@
           "services": [
             {
               "name": "20. Hotel Casa Allegra Art Suites",
+              "type": "hotel",
               "location": "Confort y arte en el corazón de la ciudad",
               "price": 48,
               "qualification": 5,
