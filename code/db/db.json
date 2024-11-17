@@ -26,14 +26,116 @@
       "id": "3a51",
       "name": "Juan Pagani",
       "email": "juan@pagani.com",
-      "password": "d2bSpGj7su/ghHjKSB69Zc1iAmrgYnkXxJ19m+RmndYbZ3j8WA==",
+      "password": "XS1sPPfWOKqaXD1VOapKuZ2h3HVsm6OMLGVRekka7guEs6FRNw==",
       "role": "usuario",
       "active": true,
       "travel": [
         {
-          "name": "Barilo",
-          "location": "Bariloché",
+          "name": "Visitar a Pato",
+          "location": "Mar del Plata",
           "startDate": "2024-11-25",
+          "services": []
+        },
+        {
+          "name": "A",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "B",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "C",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "D",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "E",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "F",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "G",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "H",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "I",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "J",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "K",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "L",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "M",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "N",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "O",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "P",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
+        },
+        {
+          "name": "Q",
+          "location": "asd",
+          "startDate": "2000-12-21",
           "services": []
         }
       ]
