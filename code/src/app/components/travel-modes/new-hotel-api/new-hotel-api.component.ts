@@ -11,10 +11,10 @@ import { Hotel } from '../../../interface/hotel.interface';
   selector: 'app-fetch',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './fetch.component.html',
-  styleUrls: ['./fetch.component.css']
+  templateUrl: './new-hotel-api.component.html',
+  styleUrls: ['./new-hotel-api.component.css']
 })
-export class FetchComponent implements OnInit {
+export class NewHotelApi implements OnInit {
   // Formulario para la búsqueda
   freemodeForm: FormGroup;
 
