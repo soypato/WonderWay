@@ -5,13 +5,14 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environments';
 
 @Component({
   selector: 'app-form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, SweetAlert2Module] 
+  imports: [ReactiveFormsModule, NgIf, SweetAlert2Module],
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
@@ -19,20 +20,28 @@ export class FormRegisterComponent implements OnInit {
   router = inject(Router);
 
   constructor(private formBuilder: FormBuilder) {
-    this.registerForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
-    }, { validators: FormRegisterComponent.passwordMatchValidator });
+    this.registerForm = this.formBuilder.group(
+      {
+        nombre: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', Validators.required],
+      },
+      { validators: FormRegisterComponent.passwordMatchValidator }
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!crypto?.subtle) {
+      console.error('El navegador no soporta Web Crypto API.');
+      Swal.fire('Error', 'El navegador no soporta la funcionalidad requerida.', 'error');
+    }
+  }
 
   static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
-    
+
     if (!password || !confirmPassword) {
       return null;
     }
@@ -40,51 +49,103 @@ export class FormRegisterComponent implements OnInit {
     return password.value === confirmPassword.value ? null : { mismatch: true };
   }
 
-  onSubmit(): void {
+  // Método para convertir ArrayBuffer a Base64
+  private arrayBufferToBase64(buffer: ArrayBuffer): string {
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    bytes.forEach((byte) => (binary += String.fromCharCode(byte)));
+    return btoa(binary);
+  }
+
+  // Método para encriptar contraseñas
+  async encryptPassword(password: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+
+    // Ajusta la clave a una longitud válida (32 bytes para AES-256)
+    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
+
+    try {
+      const key = await crypto.subtle.importKey(
+        'raw',
+        fixedKey,
+        { name: 'AES-GCM' },
+        false,
+        ['encrypt']
+      );
+
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const encryptedData = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv },
+        key,
+        data
+      );
+
+      // Combina IV y datos encriptados en un solo ArrayBuffer
+      const encryptedArray = new Uint8Array(encryptedData);
+      const result = new Uint8Array(iv.length + encryptedArray.length);
+      result.set(iv);
+      result.set(encryptedArray, iv.length);
+
+      return this.arrayBufferToBase64(result.buffer);
+    } catch (error) {
+      console.error('Error durante la encriptación:', error);
+      throw new Error('Encriptación fallida');
+    }
+  }
+
+  async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {
       console.log('Formulario válido:', this.registerForm.value);
       const email = this.registerForm.get('email')?.value;
-  
-      this.userService.verificarCorreo(email).subscribe(
-        usuario => {
-  
-          // Si el usuario ya existe, muestra el alert
-          if (usuario) {
-            // alert('El usuario ya existe.');
-            Swal.fire({
-              title: 'Error!',
-              text: 'El mail ingresado ya existe',
-              icon: 'error',
-              confirmButtonText: 'Reintentar'
-            })
-          } else {
-            // Si no existe, crea un nuevo usuario con los datos del formulario
-            const nuevoUsuario = {
-              name: this.registerForm.get('nombre')?.value,
-              email: email,
-              password: this.registerForm.get('password')?.value,
-              role: 'usuario',
-              active: true
-            };
-  
-            // Agregar el nuevo usuario
-            this.userService.addUser(nuevoUsuario).subscribe({
-              next: () => {
-                // Redirigir a la página de inicio o donde sea necesario
-                this.router.navigate(['/']);
-              },
-              error: (error) => console.log(error)
-            });
+      const password = this.registerForm.get('password')?.value;
+
+      try {
+        const encryptedPassword = await this.encryptPassword(password);
+
+        this.userService.verificarCorreo(email).subscribe(
+          (usuario) => {
+            if (usuario) {
+              Swal.fire({
+                title: 'Error!',
+                text: 'El mail ingresado ya existe',
+                icon: 'error',
+                confirmButtonText: 'Reintentar',
+              });
+            } else {
+              const nuevoUsuario = {
+                name: this.registerForm.get('nombre')?.value,
+                email: email,
+                password: encryptedPassword,
+                role: 'usuario',
+                active: true,
+                travel: []
+              };
+
+              this.userService.addUser(nuevoUsuario).subscribe({
+                next: () => {
+                  Swal.fire('Registro exitoso', '¡Bienvenido!', 'success');
+                  this.router.navigate(['/']);
+                },
+                error: (error) => {
+                  console.error('Error al registrar usuario:', error);
+                  Swal.fire('Error', 'Hubo un problema en el registro', 'error');
+                },
+              });
+            }
+          },
+          (error) => {
+            console.error('Error al verificar correo:', error);
+            Swal.fire('Error', 'Hubo un problema al verificar el correo', 'error');
           }
-        },
-        (error) => {
-          console.log('Error al verificar correo:', error);
-          alert('Error en la verificación del correo');
-        }
-      );
+        );
+      } catch (error) {
+        console.error('Error al encriptar la contraseña:', error);
+        Swal.fire('Error', 'No se pudo procesar la contraseña', 'error');
+      }
     } else {
-      console.log('Formulario inválido');
       this.registerForm.markAllAsTouched();
+      Swal.fire('Formulario inválido', 'Revisa los campos ingresados', 'error');
     }
   }
 }

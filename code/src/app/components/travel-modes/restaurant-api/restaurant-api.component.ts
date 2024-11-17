@@ -84,7 +84,7 @@ export class RestaurantApiComponent {
     this.currentTravel.services.push(transformedRestaurant);
   
     // Luego, obtenemos el perfil del usuario para actualizarlo con los cambios
-    this.usersDB.getUserProfile(Number(this.currentUser.getUsuario())).subscribe({
+    this.usersDB.getUserProfile(this.currentUser.getUsuario()).subscribe({
       next: (user: any) => {
         // Aquí encontramos el índice del viaje en el array de viajes (travel) del usuario
         const travelIndex = user.travel?.findIndex((travel: any) => travel.id === this.currentTravel.id);

@@ -16,7 +16,7 @@ import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 export class ModifyProfileComponent implements OnInit {
   profileForm: FormGroup;
   passwordForm: FormGroup;
-  userid: number | null = null;
+  userid: string | null = null;
   currentUser: User | null = null;
 
   constructor(
