@@ -9,7 +9,7 @@
       "active": true,
       "travel": [
         {
-          "name": "Vacaciones con Dusa!",
+          "name": "Vacaciones con Dua Lipa!",
           "location": "Houston, Texas",
           "startDate": "2002-11-22",
           "services": [
@@ -45,6 +45,93 @@
               "name": "6. Travelodge London Excel",
               "location": "",
               "price": 229,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 505517,
+              "name": "1. Dos Reyes Hotel Mar del Plata",
+              "location": "Free breakfast available",
+              "price": 104,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 3243851,
+              "name": "8. Hotel Lido",
+              "location": "Free breakfast available",
+              "price": 24,
+              "qualification": 3.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 2371032,
+              "name": "11. Apart Hotel Family",
+              "location": "Free breakfast available",
+              "price": 51,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 1209181,
+              "name": "13. Gran Hotel Monaco",
+              "location": "Free breakfast available",
+              "price": 38,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 8781807,
+              "name": "14. Ribera Sur Hotel Mar del Plata",
+              "location": "Free breakfast available",
+              "price": 154,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 4310527,
+              "name": "15. Hotel Lucky Home",
+              "location": "Free breakfast available",
+              "price": 82,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
+        },
+        {
+          "name": "Vacaciones con soypato",
+          "location": "Rosario",
+          "startDate": "2000-11-20",
+          "services": [
+            {
+              "id": 299088,
+              "name": "1. Holiday Inn Rosario, an IHG hotel",
+              "location": "Free breakfast available",
+              "price": 111,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 1440311,
+              "name": "3. Esplendor by Wyndham Savoy Rosario",
+              "location": "Free breakfast available",
+              "price": 90,
               "qualification": 4,
               "checkIn": 0,
               "checkOut": 0,

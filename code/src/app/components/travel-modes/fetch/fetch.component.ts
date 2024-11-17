@@ -52,7 +52,10 @@ export class FetchComponent implements OnInit {
     // Acceder a la navegación
     // Le mandamos el obj usuario y el nombre del viaje creado (string)
     this.updatedUser = this.origen;
-    this.travelName = this.origen.travel ? this.origen.travel[this.origen.travel.length - 1]?.name : '';
+    this.travelName = history.state?.travelName ?? '';
+  
+    console.log(this.updatedUser);
+    console.log(this.travelName);
   }
   
   // Fetch de la API
