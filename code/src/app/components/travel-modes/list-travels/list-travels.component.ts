@@ -29,6 +29,9 @@ export class ListTravelsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUserData();
+    // Recargar la página para actualizar los datos
+    this.loadUserData();
+
   }
 
   /**
@@ -93,7 +96,12 @@ export class ListTravelsComponent implements OnInit {
         preConfirm: () => this.handleEditConfirm(travel),
       });
     }
-  
+    
+    reload() : void
+    {
+      window.location.reload();
+    }
+
     // Generar el HTML del formulario de edición
     private generateEditFormHtml(travel: Travel): string {
       return `

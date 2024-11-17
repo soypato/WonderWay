@@ -21,6 +21,22 @@
           "services": []
         }
       ]
+    },
+    {
+      "id": "3a51",
+      "name": "Juan Pagani",
+      "email": "juan@pagani.com",
+      "password": "d2bSpGj7su/ghHjKSB69Zc1iAmrgYnkXxJ19m+RmndYbZ3j8WA==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Barilo",
+          "location": "Bariloché",
+          "startDate": "2024-11-25",
+          "services": []
+        }
+      ]
     }
   ]
 }

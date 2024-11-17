@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1.5rem;
 }
 
 html {
@@ -50,23 +51,29 @@ h1 {
 }
 /* Estilos generales de botones */
 .button-main {
+    padding: 0.4rem 2rem;
+    width: 250px; /* Establece un ancho fijo para el botón */
+    margin-left: auto; /* Centrado automático desde la izquierda */
+    margin-right: auto;
+    background-color: #02708b;
+    font-size: 1.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     color: #fff;
-    border-radius: 1rem;
-    background-color: var(--color-primary);
-    padding: 1rem;
-    text-decoration: none;
-    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    text-decoration:none;
+    cursor: pointer;
     width: 100%;
-    justify-content: center;  
-    align-items: center;
-    display: flex; /* Para centrar el texto en disp moviles */
-    outline:none;
-
 }
 
 .button-main:hover {
     background-color: var(--color-button-hover);
+    transform: scale(1.05);
 }
+.button-main:active {
+    transform: scale(1);  /* Desactiva la escala al hacer clic */
+}
+
 
 /* Estilos de imagen */
 .landscape-image {
@@ -96,4 +103,19 @@ h1 {
 .delete:hover
 {
     background-color: #612727;
+}
+ /* Alertas */
+.swal2-popup {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    background-color: var(--color-body-bg);
+    border: .2rem solid var(--color-secondary);
+}
+
+
+/* Estilos de imagen */
+.landscape-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-image);
 }

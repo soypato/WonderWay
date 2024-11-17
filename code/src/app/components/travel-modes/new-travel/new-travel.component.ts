@@ -102,13 +102,7 @@ export class NewTravelComponent {
         console.log(updatedUser.travel);
         console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '')
         // Redirigir al componente de viajes, pasando la información actualizada
-        this.router.navigate(['/new-hotel-api'], {
-          state: {
-            updatedUser: updatedUser,   // Pasa el usuario actualizado
-            travelName: updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '' // Pasa el nombre del último viaje
-          }
-        });
-        
+        this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
       },
       error: (err) => console.error('Error al actualizar el usuario en el servidor:', err)
     });
