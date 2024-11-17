@@ -1,51 +1,53 @@
 <div class="main-parent-container">
-    <div class="profile-container main-child-container">
-        <h1>{{travelData.name}}</h1>
-        <hr>
-        <article id="simple-data">
-            <p>📌 Ubicación | {{travelData.location}}</p>
-            <p>📅 Fecha de inicio | {{travelData.startDate}}</p>   
-        </article>     
-        <hr>    
-        <h2>Servicios</h2>
-        <article id="service-list" *ngFor="let serv of travelData.services">
-
-            <!-- Restaurantes -->
-            <div *ngIf="isRestaurant(serv)">
-              <h3>🥪 Restaurant | {{ serv.name }}</h3>
-              <p>🚪 Abierto/Cerrado | {{ serv.currentOpenStatusText }}</p>
-              <p>📌 Ubicación | {{ serv.location }}</p>
-              <p>⭐ Calificación | {{ serv.qualification }}</p>
-            </div>
-          
-            <!-- Hoteles -->
-            <div *ngIf="isHotel(serv)">
-              <h3>🏨 Hotel | {{ serv.name }}</h3>
-              <p>📌 Ubicación | {{ serv.location }}</p>
-              <p>💰 Precio: ${{ serv.price }}</p>
-              <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
-            </div>
-          
-            <!-- Vuelos -->
-            <div *ngIf="isFlight(serv)">
-              <h3>✈️ Vuelo: {{ serv.originAirportCode }} a {{ serv.destinationAirportCode }}</h3>
-              <p>⏳ Duración: {{ serv.duration }} horas</p>
-              <p>📅 Fecha de Viaje: {{ serv.travelDate }}</p>
-              <p>🔙 Fecha de Regreso: {{ serv.returnDate }}</p>
-              <p>🔁 Escalas: {{ serv.scale }}</p>
-              <p>💺 Clase: {{ serv.class }}</p>
-            </div>
-            <article class="menu-buttons vertical">
-                <a (click)="deleteService(serv)" class="button-main delete">🗑️ Eliminar </a>
-          </article>
-        </article>
-
-        <div class="menu-buttons vertical">
-          <button (click)="addService('hotel')" class="button-main">🏨 Agregar hotel</button>
-          <button (click)="addService('restaurant')" class="button-main">🍽️ Agregar restaurant</button>
-          <button (click)="addService('flight')" class="button-main">✈️ Agregar vuelo</button>
+  <div class="profile-container main-child-container">
+    <h1>{{travelData.name}}</h1>
+    <hr>
+    <article id="simple-data">
+      <p>📌 Ubicación | {{travelData.location}}</p>
+      <p>📅 Fecha de inicio | {{travelData.startDate}}</p>
+    </article>
+    <hr>
+    <h2>Servicios</h2>
+    <main *ngFor="let serv of travelData.services">
+      <article *ngIf="isService(serv)"  id="service-list">
+        <!-- Restaurantes -->
+        <div *ngIf="isRestaurant(serv)">
+          <h3>🥪 Restaurant | {{ serv.name }}</h3>
+          <p>🚪 Abierto/Cerrado | {{ serv.currentOpenStatusText }}</p>
+          <p>📌 Ubicación | {{ serv.location }}</p>
+          <p>⭐ Calificación | {{ serv.qualification }}</p>
         </div>
-        <button (click)="print()" class="button-main" id="print">🖨️ Imprimir / PDF</button>
 
-    </div>  
+        <!-- Hoteles -->
+        <div *ngIf="isHotel(serv)">
+          <h3>🏨 Hotel | {{ serv.name }}</h3>
+          <p>📌 Ubicación | {{ serv.location }}</p>
+          <p>💰 Precio: ${{ serv.price }}</p>
+          <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
+        </div>
+
+        <!-- Vuelos -->
+        <div *ngIf="isFlight(serv)">
+          <h3>✈️ Vuelo: {{ serv.originAirportCode }} a {{ serv.destinationAirportCode }}</h3>
+          <p>⏳ Duración: {{ serv.duration }} horas</p>
+          <p>📅 Fecha de Viaje: {{ serv.travelDate }}</p>
+          <p>🔙 Fecha de Regreso: {{ serv.returnDate }}</p>
+          <p>🔁 Escalas: {{ serv.scale }}</p>
+          <p>💺 Clase: {{ serv.class }}</p>
+        </div>
+        <article class="menu-buttons vertical">
+          <a (click)="deleteService(serv)" class="button-main delete">🗑️ Eliminar </a>
+        </article>
+      </article>
+
+    </main>
+
+    <div class="menu-buttons vertical">
+      <button (click)="addService('hotel')" class="button-main">🏨 Agregar hotel</button>
+      <button (click)="addService('restaurant')" class="button-main">🍽️ Agregar restaurant</button>
+      <button (click)="addService('flight')" class="button-main">✈️ Agregar vuelo</button>
+    </div>
+    <button (click)="print()" class="button-main" id="print">🖨️ Imprimir / PDF</button>
+
+  </div>
 </div>

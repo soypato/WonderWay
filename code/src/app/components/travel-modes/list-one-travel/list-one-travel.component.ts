@@ -51,20 +51,23 @@ export class ListOneTravelComponent implements OnInit {
   }
 
   // Comprobación de tipo para Restaurant
-  isRestaurant(service: any): service is Restaurant {
-    return service && service.phone !== undefined && service.location !== undefined;
+  isRestaurant(service: any): boolean {
+    return service && service.type == "restaurant";
   }
 
   // Comprobación de tipo para Hotel
-  isHotel(service: any): service is Hotel {
-    return service && service.price !== undefined && service.rooms !== undefined;
+  isHotel(service: any): boolean {
+    return service && service.type == "hotel";
   }
 
   // Comprobación de tipo para Flight
-  isFlight(service: any): service is Flight {
-    return service && service.duration !== undefined && service.originAirportCode !== undefined;
+  isFlight(service: any): boolean {
+    return service && service.type == "flight";
   }
 
+  isService(service: any): boolean {
+    return this.isFlight(service) || this.isHotel(service) || this.isRestaurant(service);
+  }
   addService(type : string) : void
   {
     switch(type)
@@ -79,6 +82,7 @@ export class ListOneTravelComponent implements OnInit {
         break;
     }
   }
+
 
   print(): void {
     const doc = new jsPDF();
