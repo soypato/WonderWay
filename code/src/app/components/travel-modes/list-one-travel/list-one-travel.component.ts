@@ -5,6 +5,7 @@ import { Restaurant } from '../../../interface/restaurant.interface';
 import { Hotel } from '../../../interface/hotel.interface';
 import { Flight } from '../../../interface/flight.interface';
 import { UserService } from '../../../services/user.service';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-list-one-travel',
@@ -77,6 +78,26 @@ export class ListOneTravelComponent implements OnInit {
         });
         break;
     }
+  }
+
+  print() : void
+  {
+    const doc = new jsPDF();
+    doc.setFontSize(22);
+    const pageWidth = doc.internal.pageSize.getWidth();
+    doc.setFont('Arial', 'bold');
+    doc.setTextColor('#000');
+    doc.text('WonderWay', pageWidth / 2, 10, { align: 'center' });
+    doc.setFontSize(16);
+    doc.text('Detalles del viaje:', pageWidth / 2, 30, { align: 'center' });
+    doc.setFontSize(12);
+    const travelDetails = JSON.stringify(this.travelData, null, 2)
+      .replace(/[\[\]{}"]/g, '')
+      .split('\n');
+    travelDetails.forEach((line, index) => {
+      doc.text(line.trim(), 10, 40 + (index * 10));
+    });
+    doc.save('travel-data.pdf');
   }
 
 }
