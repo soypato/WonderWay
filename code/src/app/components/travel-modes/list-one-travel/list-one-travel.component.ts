@@ -69,7 +69,7 @@ export class ListOneTravelComponent implements OnInit {
     switch(type)
     {
       case "hotel":
-        this.router.navigate(['/fetch'], {
+        this.router.navigate(['/new-hotel-api'], {
           state: {
             updatedUser: this.user,   // Pasa el usuario actualizado
             travelName: this.travelData.name // Y el nombre de la lista

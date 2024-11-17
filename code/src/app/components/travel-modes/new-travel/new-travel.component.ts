@@ -102,7 +102,7 @@ export class NewTravelComponent {
         console.log(updatedUser.travel);
         console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '')
         // Redirigir al componente de viajes, pasando la información actualizada
-        this.router.navigate(['/fetch'], {
+        this.router.navigate(['/new-hotel-api'], {
           state: {
             updatedUser: updatedUser,   // Pasa el usuario actualizado
             travelName: updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '' // Pasa el nombre del último viaje
