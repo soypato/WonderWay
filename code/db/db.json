@@ -13,6 +13,12 @@
           "location": "Mar del Plata",
           "startDate": "2024-11-25",
           "services": []
+        },
+        {
+          "name": "A",
+          "location": "asd",
+          "startDate": "2000-12-21",
+          "services": []
         }
       ]
     }
