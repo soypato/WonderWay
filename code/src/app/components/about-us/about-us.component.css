@@ -10,7 +10,7 @@
 }
 
 .main-child-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    background-color: #ffffffec; /* Fondo blanco semi-transparente */
     border-radius: 10px; /* Bordes redondeados */
     padding: 20px; /* Espaciado interno */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
@@ -45,6 +45,14 @@ p {
     margin-bottom: 15px; /* Espacio entre párrafos */
     font-size: 1.7rem;
     color: #444; /* Color del texto */
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 ul {
