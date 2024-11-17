@@ -34,7 +34,17 @@
           "name": "Visitar a Pato",
           "location": "Mar del Plata",
           "startDate": "2024-11-25",
-          "services": []
+          "services": [
+            {
+              "name": "20. Hotel Casa Allegra Art Suites",
+              "location": "Confort y arte en el corazón de la ciudad",
+              "price": 48,
+              "qualification": 5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
         },
         {
           "name": "A",
