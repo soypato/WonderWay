@@ -4,20 +4,18 @@
     align-items: center;
     min-height: 100vh;
     background-image: url('/img/imgPaisaje10.jpg'); /* Fondo sin capa oscura */
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
     overflow: hidden;
 }
 
 /* Contenedor de Perfil */
 .profile-container {
     position: relative;
-    padding: 10px;
+    padding: 2rem;
     border-radius: 15px;
     text-align: center;
     color: #ffffff;
-    width: 600px;
-    height: 760px;
+    min-height: 20rem;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #ffffff; 
@@ -63,6 +61,7 @@ h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #777;
+    font-weight: 700;
 }
 
 p {
