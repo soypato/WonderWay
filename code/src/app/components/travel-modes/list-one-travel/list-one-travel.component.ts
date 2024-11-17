@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../../../interface/restaurant.interface';
 import { Hotel } from '../../../interface/hotel.interface';
 import { Flight } from '../../../interface/flight.interface';
@@ -17,6 +17,7 @@ import { UserService } from '../../../services/user.service';
 export class ListOneTravelComponent implements OnInit {
   travelData: any;
   serviceUser = inject(UserService);
+  router = inject(Router);
   constructor(private route: ActivatedRoute) { }
   user: any;
 
@@ -24,7 +25,7 @@ export class ListOneTravelComponent implements OnInit {
     // Usar `history.state` para obtener el estado pasado por `router.navigate()`
     const travel = history.state?.travel;
     this.user = history.state?.user;
-
+    
     if (travel) {
       this.travelData = travel;
     }
@@ -62,4 +63,20 @@ export class ListOneTravelComponent implements OnInit {
   isFlight(service: any): service is Flight {
     return service && service.duration !== undefined && service.originAirportCode !== undefined;
   }
+
+  addService(type : string) : void
+  {
+    switch(type)
+    {
+      case "hotel":
+        this.router.navigate(['/fetch'], {
+          state: {
+            updatedUser: this.user,   // Pasa el usuario actualizado
+            travelName: this.travelData.name // Y el nombre de la lista
+          }
+        });
+        break;
+    }
+  }
+
 }
