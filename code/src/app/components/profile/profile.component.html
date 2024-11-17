@@ -3,7 +3,12 @@
       <div class="profile-info" *ngIf="user">
         <h1>¡Hola, {{ user.name }}!</h1>
         <p>📥 Tu correo es: {{ user.email }}</p>
-        <p>🦆 Tenés {{user.travel?.length}} viajes creados.</p>
+        <p *ngIf="user.travel?.length > 0">
+          <span>🦆 Tenés {{ user.travel.length }} viajes creados.</span>
+        </p>
+        <p *ngIf="user.travel?.length === 0">
+          <span>🦆 ¿Vamos a crear un viaje?</span>
+        </p>
       </div>
       <div class="menu-buttons">
         <a href="/menu_travel" class="button-main">✈️ Menú de viajes</a>

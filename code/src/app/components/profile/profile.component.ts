@@ -14,13 +14,13 @@ import { User } from '../../interface/user.interface';
 
 export class ProfileComponent implements OnInit {
   
-  userId : Number | null | undefined ; // el ID del usuario actual
+  userId : string = '' ; // el ID del usuario actual
   currentUserService = inject(CurrentUser);
-  user : User | null | undefined;
-
+  user : any = { travel: [] }; 
+  
   ngOnInit(): void {
-    this.userId = this.currentUserService.getUsuario();
-    this.userService.getUserProfile(Number(this.userId)).subscribe({
+    this.userId = this.currentUserService.getUsuario() || '';
+    this.userService.getUserProfile(this.userId).subscribe({
       next: (res) => {
         this.user = res;
       },

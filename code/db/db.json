@@ -271,7 +271,7 @@
       "active": true
     },
     {
-      "id": "5",
+      "id": "48bc",
       "name": "coscu",
       "email": "coscu@gmail.com",
       "password": "TZDh6Uq0I55AS+ZYjf0axQ+owfph8/tAIZfuNBVCC8b53uQAEGl8Y8uygw==",
@@ -279,10 +279,19 @@
       "active": true
     },
     {
-      "id": "6",
+      "id": "066e",
       "name": "coscu2@gmail.com",
       "email": "coscu2@gmail.com",
       "password": "I3Rnt5SRJz6hAWOzLw9UwwPZvNYH0ugoYHqyLswuSvPhwbdUAL0hssmrUQ==",
+      "role": "usuario",
+      "active": true,
+      "travel": []
+    },
+    {
+      "id": "616a",
+      "name": "ai",
+      "email": "ai@gmail.com",
+      "password": "HHGVOfrHeFXeSV+hv/Cv8Kc5Tc8lN4rYDkg6TSnN6e53VNX2",
       "role": "usuario",
       "active": true,
       "travel": []

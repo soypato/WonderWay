@@ -52,7 +52,7 @@ export class NewTravelComponent {
         };
 
         // Obtener el perfil del usuario
-        this.userService.getUserProfile(Number(this.userCurrent.getUsuario())).subscribe({
+        this.userService.getUserProfile(this.userCurrent.getUsuario()).subscribe({
           next: (user) => {
             // Guardamos el viaje en el perfil del usuario
             this.saveToDB(user);

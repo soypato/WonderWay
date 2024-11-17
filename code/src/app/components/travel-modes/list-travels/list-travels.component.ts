@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list-travels.component.css']
 })
 export class ListTravelsComponent implements OnInit {
-  currentUserId: number | null = inject(CurrentUser).getUsuario();
+  currentUserId: string | null = inject(CurrentUser).getUsuario();
   serviceUser = inject(UserService); 
   serverUser: User | null = null;
 

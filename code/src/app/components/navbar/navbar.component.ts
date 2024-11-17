@@ -16,13 +16,13 @@ export class NavbarComponent implements OnInit{
 
   currentUserService = inject(CurrentUser);
   userService = inject(UserService);
-  currentUser: Number | null = null;
+  currentUser: string = '';
   miPerfil : string | null = null;
 
   ngOnInit() : void
   {
     this.currentUser = this.currentUserService.getUsuario();
-    this.userService.getUserProfile(Number(this.currentUser)).subscribe(
+    this.userService.getUserProfile(this.currentUser).subscribe(
       {
         next: (user: User) => {
           this.miPerfil = user.name;
