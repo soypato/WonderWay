@@ -95,7 +95,7 @@ export class ListOneTravelComponent implements OnInit {
     doc.setFont('Helvetica', 'bold');
     doc.setFontSize(18);
     doc.setTextColor('#0c5163'); // Título en #0c5163
-    doc.text('WonderWay', pageWidth / 2, 20, { align: 'center' });
+    doc.text('Wonder Way', pageWidth / 2, 20, { align: 'center' });
   
     doc.setFontSize(12);
     doc.setFont('Helvetica', 'normal');
@@ -122,7 +122,7 @@ export class ListOneTravelComponent implements OnInit {
     this.travelData?.services?.forEach((service: any, index: number) => {
       const details = [
         `Servicio: ${service.name || 'Sin nombre'}`,
-        `Ubicación: ${service.location || 'Desconocida'}`,
+        `Ubicación: ${service.location || 'No disponible'}`,
         `Precio: ${service.price ? `$${service.price} USD` : 'N/A'}`,
       ];
   
