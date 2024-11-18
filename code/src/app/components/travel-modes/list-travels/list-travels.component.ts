@@ -65,13 +65,26 @@ export class ListTravelsComponent implements OnInit {
   }
 
   deleteTravel(name: string): void {
-    const { index, travel } = this.mapTravel(name);
-    if (index !== -1 && travel) {
-      this.currentTravel?.splice(index, 1);
-      this.updateInDB();
-    } else {
-      console.error('No se pudo eliminar el viaje: ', name);
-    }
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: `Estás a punto de eliminar el viaje: ${name}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      confirmButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const { index, travel } = this.mapTravel(name);
+        if (index !== -1 && travel) {
+          this.currentTravel?.splice(index, 1);
+          this.updateInDB();
+        } else {
+          console.error('No se pudo eliminar el viaje: ', name);
+        }
+      }
+    });
   }
 
     // Función principal para editar un viaje

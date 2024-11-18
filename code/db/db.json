@@ -14,72 +14,6 @@
           "startDate": "2024-11-25",
           "services": [
             {
-              "id": 23146248,
-              "type": "hotel",
-              "name": "3. Hilton Cancun, an All-Inclusive Resort",
-              "location": "",
-              "price": 411,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
-              "id": 152887,
-              "type": "hotel",
-              "name": "4. Hyatt Ziva Cancun",
-              "location": "All-inclusive",
-              "price": 757,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
-              "id": 6001367,
-              "type": "hotel",
-              "name": "5. Emporio Cancun",
-              "location": "",
-              "price": 242,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
-              "id": 152681,
-              "type": "hotel",
-              "name": "6. Grand Fiesta Americana Coral Beach",
-              "location": "",
-              "price": 687,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
-              "id": 152681,
-              "type": "hotel",
-              "name": "6. Grand Fiesta Americana Coral Beach",
-              "location": "",
-              "price": 687,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
-              "id": 186909,
-              "type": "hotel",
-              "name": "7. Hilton Cancun Mar Caribe All-inclusive Resort",
-              "location": "",
-              "price": 466,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
               "id": 154897,
               "type": "hotel",
               "name": "8. Wyndham Grand Cancun All Inclusive Resort & Villas",
@@ -311,12 +245,6 @@
               "rooms": 0
             }
           ]
-        },
-        {
-          "name": "A",
-          "location": "asd",
-          "startDate": "2000-12-21",
-          "services": []
         }
       ]
     },
