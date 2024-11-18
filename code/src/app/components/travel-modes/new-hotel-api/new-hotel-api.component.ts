@@ -117,6 +117,7 @@ export class NewHotelApi implements OnInit {
   transformHotelData(hotel: any): Hotel {
     return {
       id: hotel.id ? Number(hotel.id) : 0,  // Asignamos 0 en lugar de null si no tiene ID
+      type: "hotel",  // Asignamos el tipo de servicio
       name: hotel.title || '',  // Asignamos una cadena vacía si no tiene título
       location: hotel.primaryInfo || '',  // Asignamos una cadena vacía si no tiene información primaria
       price: hotel.priceForDisplay ? parseFloat(hotel.priceForDisplay.replace('$', '').replace(',', '')) : 0,  // Asignamos 0 si no tiene precio
