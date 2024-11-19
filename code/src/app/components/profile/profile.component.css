@@ -50,7 +50,7 @@
 
 .profile-info p {
     font-size: 1em;
-    color: #777;
+    color: var(--placeholder-color);
     margin: 5px 0;
 }
 
@@ -69,6 +69,6 @@
 
 .profile-info p:last-child {
     font-weight: bold;
-    color: #4CAF50; /* Verde para 'Activo' */
+    color: #0c8211; /* Verde para 'Viajes creados' */
     margin-bottom: 2.5rem;
 }

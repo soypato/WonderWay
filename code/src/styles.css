@@ -6,8 +6,10 @@
 
     --color-body-bg: #f7f2f2;       /* Color de fondo del body */
     --color-button-hover: #0b3f4c;  /* Color de fondo del botón al hacer hover */
-    --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
+    --placeholder-color: #835b5b;
+    --text-brand-colors: #195b61;
 
+    --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
 }
 
 /* Reset y configuración básica */
@@ -55,7 +57,7 @@ h1 {
     width: 250px; /* Establece un ancho fijo para el botón */
     margin-left: auto; /* Centrado automático desde la izquierda */
     margin-right: auto;
-    background-color: #02708b;
+    background-color: #034c5d;
     font-size: 1.9rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
     color: #fff;
@@ -97,7 +99,7 @@ h1 {
 
 .delete
 {
-    background-color: #930C00;
+    background-color: #dc3545;
 }
 
 .delete:hover
@@ -118,4 +120,9 @@ h1 {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius-image);
+}
+
+#introduction-data
+{
+    text-align: center;
 }
