@@ -6,8 +6,12 @@
 
     --color-body-bg: #f7f2f2;       /* Color de fondo del body */
     --color-button-hover: #0b3f4c;  /* Color de fondo del botón al hacer hover */
-    --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
+    --placeholder-color: #835b5b;
+    --text-brand-colors: #195b61;
 
+    --border-radius-image: 0.5rem;  /* Borde redondeado para las imágenes */
+    --danger-color: #dc3545;        /* Color de alerta */
+    --box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 /* Reset y configuración básica */
@@ -55,7 +59,7 @@ h1 {
     width: 250px; /* Establece un ancho fijo para el botón */
     margin-left: auto; /* Centrado automático desde la izquierda */
     margin-right: auto;
-    background-color: #02708b;
+    background-color: #034c5d;
     font-size: 1.9rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
     color: #fff;
@@ -72,6 +76,12 @@ h1 {
 }
 .button-main:active {
     transform: scale(1);  /* Desactiva la escala al hacer clic */
+}
+
+
+/* Botón borrar con alerta */
+.button-main.danger {
+    background: var(--danger-color);
 }
 
 
@@ -97,7 +107,7 @@ h1 {
 
 .delete
 {
-    background-color: #930C00;
+    background-color: #dc3545;
 }
 
 .delete:hover
@@ -118,4 +128,9 @@ h1 {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius-image);
+}
+
+#introduction-data
+{
+    text-align: center;
 }

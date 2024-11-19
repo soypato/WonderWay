@@ -2,7 +2,7 @@
   <div class="profile-container main-child-container">
     <h1>{{travelData.name}}</h1>
     <hr>
-    <article id="simple-data">
+    <article id="introduction-data">
       <p>📌 Ubicación | {{travelData.location}}</p>
       <p>📅 Fecha de inicio | {{travelData.startDate}}</p>
     </article>
@@ -36,18 +36,27 @@
           <p>💺 Clase: {{ serv.class }}</p>
         </div>
         <article class="menu-buttons vertical">
-          <a (click)="deleteService(serv)" class="button-main delete">🗑️ Eliminar </a>
+          <a (click)="deleteService(serv)" class="button-main danger">
+            <i class="fas fa-trash-alt"></i> Eliminar
+        </a>
         </article>
       </article>
 
     </main>
 
     <div class="menu-buttons vertical">
-      <button (click)="addService('hotel')" class="button-main">🏨 Agregar hotel</button>
-      <button (click)="addService('restaurant')" class="button-main">🍽️ Agregar restaurant</button>
-      <button (click)="addService('flight')" class="button-main">✈️ Agregar vuelo</button>
+      <button (click)="addService('hotel')" class="button-main">
+        <i class="fas fa-hotel"></i> Agregar hotel
+      </button>
+      <button (click)="addService('restaurant')" class="button-main">
+        <i class="fas fa-utensils"></i> Agregar restaurant
+      </button>
+      <button (click)="addService('flight')" class="button-main">
+        <i class="fas fa-plane"></i> Agregar vuelo
+      </button>
     </div>
-    <button (click)="print()" class="button-main" id="print">🖨️ Imprimir / PDF</button>
-
-  </div>
+    <button (click)="print()" class="button-main" id="print">
+      <i class="fas fa-print"></i> Imprimir / PDF
+    </button>
+    
 </div>
