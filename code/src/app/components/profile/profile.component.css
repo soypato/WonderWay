@@ -28,7 +28,7 @@
     position: relative; /* Mantiene el contenido por encima del overlay */
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     padding: 30px;
     width: 50rem;
     text-align: center;

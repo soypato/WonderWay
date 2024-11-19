@@ -1,75 +1,93 @@
+/* Contenedor principal */
 .main-parent-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('/img/imgPaisaje10.jpg'); /* Fondo sin capa oscura */
-    background-size: contain;
+    background-image: url('/img/imgPaisaje10.jpg');
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
 }
 
-/* Contenedor de Perfil */
+/* Capa oscurecida para resaltar contenido */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Contenedor del perfil */
 .profile-container {
     position: relative;
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    color: #ffffff;
-    min-height: 20rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #ffffff; 
+    color: #2c2c2c;
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-/* Título */
-.profile-container h2 {
-    font-size: 3rem;
-    color: var(--text-brand-colors); /* Color del texto */
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-}
-
-/* Estilos para los recuadros de los viajes */
-.user-travels {
-    font-size: 2rem;
-    box-shadow: rgba(100, 100, 100, 0.2) 0px 7px 29px 0px;
-    padding: 1.5rem;
-    padding-top: 20px;
-    /* vertical-align: top; */
-    background-color: #ffffff;  /* Fondo blanco para los recuadros de los viajes */
-    margin-top: 0.5rem;
-    margin-bottom: 3rem;
-    border-radius: 20px;
-    width: 500px;
-}
-
-#introduction-data
-{
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--box-shadow);
     margin: 2rem 0;
 }
 
-/* Estilo de los botones dentro de los recuadros de los viajes */
-.menu-buttons {
-    display: flex;
-    justify-content: flex-start; /* Alineación de los botones hacia la izquierda */
-    gap: 1rem;
+/* Títulos */
+.profile-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
-
-/* Estilo para los Viajes */
-h3 {
+.user-travels h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--text-brand-colors); /* Color del texto */
-    font-weight: 600;
+    color: #0077cc;
 }
 
-p {
-    color: var(--placeholder-color); /* Color del texto */
+/* Estilo de los recuadros */
+.user-travels {
+    background: #ffffff;
+    border-radius: var(--border-radius-image);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    width: 60vh;
+    margin-bottom: 2rem;
 }
 
+/* Botones principales */
+.action-buttons .button-main {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.button-main {
+    padding: 0.6rem 1rem;
+    font-size: 1.3rem;
+}
+
+
+#introduction-data p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .user-travels {
+        padding: 1rem;
+        width: 50vh;
+    }
+    
+  
+    
+
+}

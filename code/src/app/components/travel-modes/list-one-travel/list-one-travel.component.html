@@ -36,7 +36,9 @@
           <p>💺 Clase: {{ serv.class }}</p>
         </div>
         <article class="menu-buttons vertical">
-          <a (click)="deleteService(serv)" class="button-main delete">🗑️ Eliminar </a>
+          <a (click)="deleteService(serv)" class="button-main danger">
+            <i class="fas fa-trash-alt"></i> Eliminar
+        </a>
         </article>
       </article>
 
