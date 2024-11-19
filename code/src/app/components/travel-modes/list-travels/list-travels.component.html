@@ -3,9 +3,11 @@
         <h2>Viajes de {{serverUser?.name}} ✈️</h2>
         <main *ngIf="serverUser?.travel">
             <article class="user-travels" *ngFor="let i of serverUser?.travel">
-                <h3>Nombre: {{i.name}}</h3>
-                <p><strong>Ubicación:</strong> {{i.location}}</p>
-                <p><strong>Fecha de inicio:</strong> {{i.startDate}}</p>
+                <h3>{{i.name}}</h3>
+                <div id="introduction-data">
+                    <p>📌 Ubicación | {{i.location}}</p>
+                    <p>📅 Fecha de inicio |  {{i.startDate}}</p>    
+                </div>
                 <article class="menu-buttons">
                     <a (click)="moreInfoTravel(i.name)" class="button-main">ℹ️ Más información</a>
                     <a (click)="editTravel(i.name)" class="button-main">🖊️ Editar</a>

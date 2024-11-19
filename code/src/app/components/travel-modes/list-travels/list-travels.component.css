@@ -29,7 +29,7 @@
 /* Título */
 .profile-container h2 {
     font-size: 3rem;
-    color: #02708b; /* Color del texto */
+    color: var(--text-brand-colors); /* Color del texto */
     margin-bottom: 1.5rem;
     font-weight: bold;
 }
@@ -43,9 +43,14 @@
     /* vertical-align: top; */
     background-color: #ffffff;  /* Fondo blanco para los recuadros de los viajes */
     margin-top: 0.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     border-radius: 20px;
     width: 500px;
+}
+
+#introduction-data
+{
+    margin: 2rem 0;
 }
 
 /* Estilo de los botones dentro de los recuadros de los viajes */
@@ -60,11 +65,11 @@
 h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #777;
-    font-weight: 700;
+    color: var(--text-brand-colors); /* Color del texto */
+    font-weight: 600;
 }
 
 p {
-    color: #777;
+    color: var(--placeholder-color); /* Color del texto */
 }
 
