@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject} from '@angular/core';
+import { Component, OnInit, booleanAttribute, inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { CurrentUser } from '../../services/current-user.service';
 import { User } from '../../interface/user.interface';
 import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
+import { environment } from '../../../environments/environments';
 
 @Component({
   selector: 'app-modify-profile',
@@ -49,13 +50,6 @@ export class ModifyProfileComponent implements OnInit {
       this.userService.getUserProfile(this.userid).subscribe({
         next: (user:User) => {
           this.currentUser = user;
-          /*
-          console.log('Perfil del usuario cargado:', this.currentUser);
-          // Accede al valor de password
-          const userPassword = this.currentUser.password;
-          //console.log('Contraseña del usuario:', userPassword);
-          //ni ganan de mostrar tu contra con solo apretar f12
-          // Puedes usar `userPassword` aquí como desees*/
         },
         error: (err:Error) => {
           console.log('Error al cargar el perfil del usuario:', err);
@@ -64,13 +58,16 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   // Método para validar que las nuevas contraseñas coincidan
-  prevPasswordsMatch() {
-    if(this.profileForm.value.currentPassword  === this.currentUser?.password  )
-      {
-        return true;
-      }
-      return false;
+  async prevPasswordsMatch() {
+    //this.profileForm.value.currentPassword  === this.currentUser?.password
+    const enteredPassword = this.profileForm.value.currentPassword;
+    let storedPassword = '';
+    if( this.currentUser?.password !== undefined ){
+      storedPassword = this.currentUser?.password;
     }
+    return await this.userService.verifyPassword(enteredPassword,storedPassword);
+  }
+
   passwordsMatch() {
     if(this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword)
     {
@@ -79,7 +76,7 @@ export class ModifyProfileComponent implements OnInit {
     return false;
   }
 
-  onProfileSubmit() {
+  async onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
 
       const updatedUser: Partial<User> = { ...this.currentUser };
@@ -107,7 +104,7 @@ export class ModifyProfileComponent implements OnInit {
         updatedUser.email = this.profileForm.value.email;
       }
       else{
-        console.error('No hay cambios que guardar. O ha habido un error xd');
+        console.error('No hay cambios que guardar.');
       }
 
       // Llama a updateUser en el servicio UserService
@@ -125,12 +122,15 @@ export class ModifyProfileComponent implements OnInit {
     this.profileForm.reset();
   }
 
-  onPasswordSubmit() {
+  async onPasswordSubmit() {
     if (this.passwordForm.valid && this.currentUser) {
+
+      const encryptedPass:any= this.userService.encryptPassword(this.passwordForm.value.newPassword);
+
       // Actualiza los datos en el perfil del usuario
       const updatedUser: User = {
         ...this.currentUser,
-        password: this.passwordForm.value.newPassword
+        password: encryptedPass
       };
 
       // Llama a updateUser en el servicio UserService

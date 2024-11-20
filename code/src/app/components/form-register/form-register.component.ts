@@ -49,6 +49,7 @@ export class FormRegisterComponent implements OnInit {
     return password.value === confirmPassword.value ? null : { mismatch: true };
   }
 
+/*
   // Método para convertir ArrayBuffer a Base64
   private arrayBufferToBase64(buffer: ArrayBuffer): string {
     const bytes = new Uint8Array(buffer);
@@ -93,7 +94,7 @@ export class FormRegisterComponent implements OnInit {
       throw new Error('Encriptación fallida');
     }
   }
-
+*/
   async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {
       console.log('Formulario válido:', this.registerForm.value);
@@ -101,7 +102,7 @@ export class FormRegisterComponent implements OnInit {
       const password = this.registerForm.get('password')?.value;
 
       try {
-        const encryptedPassword = await this.encryptPassword(password);
+        const encryptedPassword = await this.userService.encryptPassword(password);
 
         this.userService.verificarCorreo(email).subscribe(
           (usuario) => {
