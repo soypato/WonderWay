@@ -13,7 +13,7 @@ import { Restaurant } from '../../../interface/restaurant.interface';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './restaurant-api.component.html',
-  styleUrl: './restaurant-api.component.css'
+  styleUrls: ['../new-service.css', './restaurant-api.component.css']
 })
 export class RestaurantApiComponent implements OnInit {
 
@@ -89,11 +89,11 @@ export class RestaurantApiComponent implements OnInit {
       type: 'restaurant',
       name: restaurant.name || 'Sin nombre',
       location: restaurant.parentGeoName || 'Desconocido',
-      price: restaurant.priceTag || 'N/A',
       qualification: restaurant.averageRating || 0,
-      distance: restaurant.distanceTo || 'Desconocido',
+      cuisine: restaurant.establishmentTypeAndCuisineTags || [],
       image: restaurant.squareImgUrl || '',
       review: restaurant.reviewSnippets?.[0]?.reviewText || 'Sin reseña disponible'
     };
   }
+  
 }

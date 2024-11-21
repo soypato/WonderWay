@@ -247,7 +247,6 @@
           ]
         },
         {
-
           "name": "Visitar a Enzo",
           "location": "Rosario",
           "startDate": "2000-02-02",
@@ -478,6 +477,107 @@
               "distance": "Desconocido",
               "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
               "review": "Sin reseña disponible"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f461",
+      "name": "Juan",
+      "email": "juancho2@gmail.com",
+      "password": "pOWn6pqZzv5xy/QkJBtJerdMh4Qkm1EEYsrk+gIY3gtR0Ve6Ow==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Sysakar07",
+          "location": "aca",
+          "startDate": "2024-11-27",
+          "endDate": "2024-11-30",
+          "services": [
+            {
+              "id": 15104522,
+              "type": "restaurant",
+              "name": "Rufino ",
+              "location": "Buenos Aires",
+              "qualification": 4.5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Contemporary",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/96/ed/1d/el-clasico-morron-con.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 26322909,
+              "type": "restaurant",
+              "name": "Criolla Cooking & Wine",
+              "location": "Buenos Aires",
+              "qualification": 5,
+              "cuisine": [
+                "Grill",
+                "Healthy",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/4d/51/87/caption.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 15325004,
+              "type": "restaurant",
+              "name": "Fogón Asado",
+              "location": "Buenos Aires",
+              "qualification": 5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/33/1e/59/fogon.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 305499,
+              "type": "hotel",
+              "name": "4. Hotel Costa Galana",
+              "location": "Free breakfast available",
+              "price": 292,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 308183,
+              "type": "hotel",
+              "name": "10. Bristol Apart Hotel",
+              "location": "Free breakfast available",
+              "price": 85,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
             }
           ]
         }
