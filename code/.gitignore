@@ -46,5 +46,4 @@ Thumbs.db
 .env.local
 .env.*.local
 
-code/src/environments/environment.ts
-code/src/environments/environment.prod.ts
+code/src/app/environments/

@@ -28,6 +28,7 @@ export class NewFlightApi implements OnInit {
   usuarioActual : any;
   updatedUser : any; // Usuario actualizado
   travelName: string = ''; // Nombre del viaje
+  flights : any;
 
   // Propiedades del componente
   ciudadOrigen = '';
@@ -65,18 +66,18 @@ export class NewFlightApi implements OnInit {
       this.apiService.getHotelGeoId(this.freemodeForm.get('ciudadOrigen')?.value).subscribe({
         next: (data) => {
           this.geoIdOrigen = data.data[0].geoId;
-          console.log(this.geoIdOrigen)  
+          console.log("ORIGEN: " + this.freemodeForm.get('ciudadOrigen')?.value + " - "+ this.geoIdOrigen)  
         },
         error: (err) => {
           console.error('Error al obtener código de aeropuerto:', err);
-          console.log(this.geoIdDestino)
         }
       });
+      
     
       this.apiService.getHotelGeoId(this.freemodeForm.get('ciudadDestino')?.value).subscribe({
         next: (data) => {
-          this.geoIdOrigen = data.data[0].geoId;
-          console.log(this.geoIdOrigen)  
+          this.geoIdDestino = data.data[0].geoId;
+          console.log("DESTINO: " + this.freemodeForm.get('ciudadDestino')?.value + " - "+ this.geoIdDestino)  
         },
           error: (err) => {
             console.error('Error al obtener código de aeropuerto:', err);

@@ -28,43 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Utilizando *ngFor para iterar sobre los hoteles -->
-            <tr *ngFor="let flight of flights">
-              <!-- Nombre del hotel -->
-              <td>{{ hotel.title }}</td>
-      
-              <!-- Información adicional sobre el hotel (si existe) -->
-              <td *ngIf="hotel.primaryInfo">{{ hotel.primaryInfo }}</td>
-              <td *ngIf="!hotel.primaryInfo">No disponible</td>
-      
-              <!-- Información secundaria (ubicación del hotel, si existe) -->
-              <td>{{ hotel.secondaryInfo || 'No disponible' }}</td>
-      
-              <!-- Calificación del hotel -->
-              <td>
-                {{ hotel.bubbleRating?.rating || 'N/A' }} / 5 
-                ({{ hotel.bubbleRating?.count || '0' }} reseñas)
-              </td>
-      
-              <!-- Proveedor del hotel -->
-              <td>{{ hotel.provider }}</td>
-      
-              <!-- Precio de visualización -->
-              <td>{{ hotel.priceForDisplay || 'No disponible' }}</td>
 
-              <!-- Enlace a la reserva -->
-              <td>
-                <a *ngIf="hotel.commerceInfo?.externalUrl" [href]="hotel.commerceInfo.externalUrl" target="_blank">
-                  Ver ofertas
-                </a>
-              </td>
-
-              <!-- Botón para agregar al viaje -->
-              <td>
-                <button (click)="agregarViaje(hotel)">Agregar</button>
-              </td>
-
-            </tr>
           </tbody>
         </table>
       </div>
