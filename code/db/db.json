@@ -376,6 +376,34 @@
           "services": []
         }
       ]
+    },
+    {
+      "id": "0824",
+      "name": "Juanma nuevo",
+      "email": "juancho@gmail.com",
+      "password": "7k5uSg8jaFtoLrpKEMMSzghL1Lmk9jZ17gXseFC12VSRpY32Bg==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Bandit",
+          "location": "aca",
+          "startDate": "2024-11-10",
+          "services": [
+            {
+              "id": 8093257,
+              "type": "restaurant",
+              "name": "A La Que Te Criaste",
+              "location": "Mar del Plata",
+              "price": "$$ - $$$",
+              "qualification": 4.5,
+              "distance": "Desconocido",
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

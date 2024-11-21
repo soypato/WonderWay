@@ -87,7 +87,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'restaurant-api',
+        path: 'new-restaurant-api',
         component: RestaurantApiComponent,
         canActivate: [AuthGuard]
     },

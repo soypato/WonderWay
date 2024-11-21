@@ -60,32 +60,31 @@ export class NewHotelApi implements OnInit {
   
   // Fetch de la API
   onSubmit(): void {
-    if (this.freemodeForm.get('ciudad')?.value) {
-      this.apiService.getHotelGeoId(this.freemodeForm.get('ciudad')?.value).subscribe({
-        next: (data) => {
-          this.geoId = data.data[0].geoId;
-          if (this.geoId) {
-            // Busca los hoteles en la ciudad usando el geoId
-            this.apiService.searchHotels(this.geoId, this.freemodeForm.get('checkIn')?.value, this.freemodeForm.get('checkOut')?.value).subscribe({
-              next: (hoteles) => {
-                this.hoteles = hoteles.data.data;  // Actualiza la lista de hoteles con los datos recibidos
-              },
-              error: (err) => {
-                console.error('Error al buscar hoteles:', err);
-              }
-            });
-          } else {
-            console.warn('GeoId no encontrado para la ciudad:', this.ciudad);
-          }
+    const checkIn = this.freemodeForm.get('checkIn')?.value;
+    const checkOut = this.freemodeForm.get('checkOut')?.value;
+  
+    // Convierte las fechas a formato 'YYYY-MM-DD'
+    const formattedCheckIn = checkIn ? new Date(checkIn).toISOString().split('T')[0] : '';
+    const formattedCheckOut = checkOut ? new Date(checkOut).toISOString().split('T')[0] : '';
+  
+    console.log('CheckIn:', formattedCheckIn);
+    console.log('CheckOut:', formattedCheckOut);
+  
+    if (formattedCheckIn && formattedCheckOut) {
+      // Llama al servicio de la API con las fechas formateadas
+      this.apiService.searchHotels(this.geoId, formattedCheckIn, formattedCheckOut).subscribe({
+        next: (hoteles) => {
+          this.hoteles = hoteles.data?.data || []; // Actualiza la lista de hoteles con los datos recibidos
         },
         error: (err) => {
-          console.error('Error al obtener geoId:', err);
+          console.error('Error al buscar hoteles:', err);
         }
       });
     } else {
-      console.warn('Ciudad no especificada.');
+      console.warn('Fechas no válidas.');
     }
   }
+  
 
   agregarViaje(hotel : any) : void
   {  
