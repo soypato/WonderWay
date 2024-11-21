@@ -33,7 +33,7 @@ export class ModifyProfileComponent implements OnInit {
 
     this.passwordForm = this.fb.group({
       currentPassword: ['', [Validators.required]],
-      newPassword: ['', [Validators.required, Validators.minLength(6)]],
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]],
     });
   }
@@ -52,16 +52,20 @@ export class ModifyProfileComponent implements OnInit {
       });
     }
   }
-
   async prevPasswordsMatch(): Promise<boolean> {
-    if (!this.profileForm.value.currentPassword || !this.currentUser?.password) {
-      return false;
+
+
+    if (!this.passwordForm.value.currentPassword || !this.currentUser?.password) {
+      return false; // Verificar si ambos valores están presentes
     }
-    return this.verifyPassword(
-      this.profileForm.value.currentPassword,
+  
+    // Llamar a verifyPassword para comparar las contraseñas
+    return await this.verifyPassword(
+      this.passwordForm.value.currentPassword,
       this.currentUser.password
     );
   }
+  
 
   passwordsMatch(): boolean {
     return (
@@ -69,6 +73,7 @@ export class ModifyProfileComponent implements OnInit {
       this.passwordForm.value.confirmPassword
     );
   }
+  
   async onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
       const passwordValid = await this.prevPasswordsMatch();
@@ -130,34 +135,78 @@ export class ModifyProfileComponent implements OnInit {
 
   async onPasswordSubmit() {
     if (this.passwordForm.valid && this.currentUser) {
-      const passwordValid = await this.prevPasswordsMatch();
-
-      if (!passwordValid) {
-        console.error('La contraseña actual no es correcta.');
-        return;
+      try {
+        // Verificar si la contraseña actual coincide
+        const passwordValid = await this.prevPasswordsMatch();
+        
+        if (!passwordValid) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'La contraseña actual no es correcta.',
+          });
+          return;
+        }
+  
+        // Verificar si las nuevas contraseñas coinciden
+        if (!this.passwordsMatch()) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Las nuevas contraseñas no coinciden.',
+          });
+          return;
+        }
+  
+        // Encriptar la nueva contraseña antes de enviarla
+        const encryptedPassword = await this.encryptPassword(this.passwordForm.value.newPassword);
+  
+        // Preparar el objeto con los nuevos datos del usuario
+        const updatedUser: User = {
+          ...this.currentUser,
+          password: encryptedPassword, // Asignar la contraseña encriptada
+        };
+  
+        // Actualizar la contraseña en la base de datos
+        this.userService.updateUser(updatedUser).subscribe({
+          next: () => {
+            console.log('Contraseña actualizada con éxito.');
+            Swal.fire({
+              icon: 'success',
+              title: 'Éxito',
+              text: 'Contraseña actualizada correctamente.',
+            });
+            this.passwordForm.reset();
+          },
+          error: (err) => {
+            console.error('Error al actualizar la contraseña:', err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Hubo un problema al actualizar la contraseña. Intenta nuevamente.',
+            });
+          },
+        });
+      } catch (error) {
+        console.error('Error desconocido:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al procesar la solicitud. Intenta nuevamente.',
+        });
       }
-
-      if (!this.passwordsMatch()) {
-        console.error('Las nuevas contraseñas no coinciden.');
-        return;
-      }
-
-      const updatedUser: User = {
-        ...this.currentUser,
-        password: this.passwordForm.value.newPassword,
-      };
-
-      this.userService.updateUser(updatedUser).subscribe({
-        next: () => {
-          console.log('Contraseña actualizada con éxito.');
-          this.passwordForm.reset();
-        },
-        error: (err) => {
-          console.error('Error al actualizar la contraseña:', err);
-        },
+    } else {
+      console.warn('Formulario inválido');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario inválido',
+        text: 'Por favor, completa correctamente todos los campos.',
       });
     }
   }
+  
+  
+  // TODO: PASARLA A UNA INYECCIÓN DE DEPENDENCIAS
 
   async verifyPassword(
     enteredPassword: string,
@@ -194,6 +243,53 @@ export class ModifyProfileComponent implements OnInit {
     } catch (error) {
       console.error('Error al desencriptar la contraseña:', error);
       return false;
+    }
+  }
+
+
+
+  // Método para convertir ArrayBuffer a Base64
+  private arrayBufferToBase64(buffer: ArrayBuffer): string {
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    bytes.forEach((byte) => (binary += String.fromCharCode(byte)));
+    return btoa(binary);
+  }
+
+  // Método para encriptar contraseñas
+  async encryptPassword(password: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+
+    // Ajusta la clave a una longitud válida (32 bytes para AES-256)
+    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
+
+    try {
+      const key = await crypto.subtle.importKey(
+        'raw',
+        fixedKey,
+        { name: 'AES-GCM' },
+        false,
+        ['encrypt']
+      );
+
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const encryptedData = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv },
+        key,
+        data
+      );
+
+      // Combina IV y datos encriptados en un solo ArrayBuffer
+      const encryptedArray = new Uint8Array(encryptedData);
+      const result = new Uint8Array(iv.length + encryptedArray.length);
+      result.set(iv);
+      result.set(encryptedArray, iv.length);
+
+      return this.arrayBufferToBase64(result.buffer);
+    } catch (error) {
+      console.error('Error durante la encriptación:', error);
+      throw new Error('Encriptación fallida');
     }
   }
 }
