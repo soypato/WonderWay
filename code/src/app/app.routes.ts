@@ -16,6 +16,7 @@ import { ListTravelsComponent } from './components/travel-modes/list-travels/lis
 import { ListOneTravelComponent } from './components/travel-modes/list-one-travel/list-one-travel.component';
 import { RestaurantApiComponent } from './components/travel-modes/restaurant-api/restaurant-api.component';
 import { NewHotelApi } from './components/travel-modes/new-hotel-api/new-hotel-api.component';
+import { NewFlightApi } from './components/travel-modes/new-flight-api/new-flight-api.component';
 
 export const routes: Routes = [
     {
@@ -87,12 +88,17 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'restaurant-api',
+        path: 'new-restaurant-api',
         component: RestaurantApiComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: '**', // Redirección genérica: IMPORTANTE que esté al final
+        path: 'new-flight-api',
+        component: NewFlightApi,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: '**', // el resto: AL FINAL POR FAVOR
         redirectTo: ''
     }
 ];

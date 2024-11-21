@@ -1,0 +1,72 @@
+<div class="freemode-container">
+  <h2>¡Explora y busca vuelos a lo largo del mundo!</h2>
+
+  <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
+    <div class="search-section">
+      <input type="text" placeholder="Buscar origen" class="search-input" formControlName="ciudadOrigen" required />
+      <input type="text" placeholder="Buscar destino" class="search-input" formControlName="ciudadDestino" required />
+
+      <input type="date" placeholder="Fecha de ida" class="search-input" formControlName="fechaOrigen" required />
+      <input type="date" placeholder="Fecha de regreso (opcional)" class="search-input" formControlName="fechaDestino" />
+
+      <select class="search-input" formControlName="itineraryType">
+        <option value="ONE_WAY">Solo ida</option>
+        <option value="ROUND_TRIP">Ida y vuelta</option>
+      </select>
+
+      <select class="search-input" formControlName="classOfService">
+      <option value="ECONOMY">Economía</option>
+        <option value="PREMIUM_ECONOMY">Economía Premium</option>
+        <option value="BUSINESS">Negocios</option>
+        <option value="FIRST">Primera Clase</option>
+      </select>
+
+
+      <input type="number" min="1" placeholder="Número de adultos" class="search-input" formControlName="numAdults" required />
+      <input type="number" min="0" placeholder="Número de seniors" class="search-input" formControlName="numSeniors" />
+
+      <select class="search-input" formControlName="sortOrder">
+        <option value="PRICE">Ordenar por Precio</option>
+        <option value="DURATION">Ordenar por Duración</option>
+        <option value="DEPARTURE">Ordenar por Hora de Salida</option>
+        <option value="ARRIVAL">Ordenar por Hora de Llegada</option>
+      </select>
+
+      <button type="submit" class="search-button">Buscar</button>
+    </div>
+  </form>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Aerolínea</th>
+          <th>Ruta</th>
+          <th>Fecha de Salida</th>
+          <th>Vuelo</th>
+          <th>Clase</th>
+          <th>Precio</th>
+          <th>Enlace de Compra</th>
+          <th>Agregar al Viaje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>
+            <img [src]="flight.segments[0].legs[0].operatingCarrier.logoUrl" alt="Logo Aerolínea" width="50">
+            {{ flight.segments[0].legs[0].operatingCarrier.displayName }}
+          </td>
+          <td>
+            {{ flight.segments[0].legs[0].originStationCode }} → {{ flight.segments[0].legs[0].destinationStationCode }}
+          </td>
+          <td>{{ flight.segments[0].legs[0].departureDateTime | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ flight.segments[0].legs[0].flightNumber }}</td>
+          <td>{{ flight.segments[0].legs[0].classOfService }}</td>
+          <td>{{ flight.purchaseLinks[0].totalPrice | currency }}</td>
+          <td><a [href]="flight.purchaseLinks[0].url" target="_blank">Reservar</a></td>
+          <td><button (click)="agregarVuelo(flight)">Agregar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

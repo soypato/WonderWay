@@ -90,24 +90,34 @@ export class ListOneTravelComponent implements OnInit {
 
   // Comprobación de tipo para Flight
   isFlight(service: any): boolean {
-    return service && service.type == "flight";
+    return service.type == "flight";
   }
 
   isService(service: any): boolean {
     return this.isFlight(service) || this.isHotel(service) || this.isRestaurant(service);
   }
-  addService(type : string) : void
-  {
-    switch(type)
-    {
-      case "hotel":
-        this.router.navigate(['/new-hotel-api'], {
-          state: {
-            updatedUser: this.user,   // Pasa el usuario actualizado
-            travelName: this.travelData.name // Y el nombre de la lista
-          }
-        });
-        break;
+
+  addService(type: string): void {
+    const state = {
+      updatedUser: this.user,  // Usuario actualizado
+      travelName: this.travelData.name // Nombre del viaje
+    };
+  
+    // acá declaro un obj con las rutas, ts me da la posibilidad de declarar los tipos de datos
+    // por lo que le específico 
+
+    const routes: { [key: string]: string } = {
+      hotel: '/new-hotel-api',
+      restaurant: '/new-restaurant-api',
+      flight: '/new-flight-api'
+    };
+  
+    // Verifica si el tipo es válido
+    const path = routes[type];
+    if (path) {
+      this.router.navigate([path], { state }); // ruta correspondiente y paso el estado / la str
+    } else {
+      console.error(`Tipo de servicio no reconocido: ${type}`);
     }
   }
 
@@ -197,7 +207,7 @@ export class ListOneTravelComponent implements OnInit {
     this.travelData?.services?.forEach((service: any, index: number) => {
       const details = [
         `Servicio: ${service.name || 'Sin nombre'}`,
-        `Ubicación: ${service.location || 'No disponible'}`,
+        `Información: ${service.location || 'No disponible'}`,
         `Precio: ${service.price ? `$${service.price} USD` : 'N/A'}`,
       ];
 

@@ -28,14 +28,18 @@
         </div>
 
         <!-- Vuelos -->
-        <div *ngIf="isFlight(serv)">
-          <h3>✈️ Vuelo: {{ serv.originAirportCode }} a {{ serv.destinationAirportCode }}</h3>
-          <p>⏳ Duración: {{ serv.duration }} horas</p>
-          <p>📅 Fecha de Viaje: {{ serv.travelDate }}</p>
-          <p>🔙 Fecha de Regreso: {{ serv.returnDate }}</p>
-          <p>🔁 Escalas: {{ serv.scale }}</p>
-          <p>💺 Clase: {{ serv.class }}</p>
-        </div>
+           <!-- Hoteles -->
+           <div *ngIf="isFlight(serv)">
+            <h3>✈️ Vuelo | {{ serv.operatingCarrier }} (Vuelo {{ serv.flightNumber }})</h3>
+            <p>📍 Origen: {{ serv.originAirportCode }} → Destino: {{ serv.destinationAirportCode }}</p>
+            <p>🕒 Salida: {{ serv.travelDate | date:'short' }}</p>
+            <p>🕓 Llegada: {{ serv.returnDate | date:'short' }}</p>
+            <p>⏳ Duración: {{ serv.duration }} minutos</p>
+            <p>🔴 Escalas: {{ serv.scale }}</p>
+            <p>💼 Clase: {{ serv.class }}</p>
+            <p>🌍 Internacional: {{ serv.isInternational ? 'Sí' : 'No' }}</p>
+          </div>
+
         <article class="menu-buttons vertical">
           <a (click)="deleteService(serv)" class="button-main danger">
             <i class="fas fa-trash-alt"></i> Eliminar
