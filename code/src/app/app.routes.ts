@@ -38,14 +38,14 @@ export const routes: Routes = [
         component: AboutUsComponent
     },
     {
-      path: 'profile', 
-      component: ProfileComponent,
-      canActivate: [AuthGuard]
+        path: 'profile', 
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
-      path: 'modifyprofile',
-      component: ModifyProfileComponent,
-      canActivate: [AuthGuard]
+        path: 'modifyprofile',
+        component: ModifyProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'menu_travel',
@@ -64,7 +64,7 @@ export const routes: Routes = [
     },
     {
         path: 'new_travel',
-        component: NewTravelComponent,
+        component: NewTravelComponent, // Ruta hacia el componente NewTravel
         canActivate: [AuthGuard]
     },
     {
@@ -101,6 +101,4 @@ export const routes: Routes = [
         path: '**', // el resto: AL FINAL POR FAVOR
         redirectTo: ''
     }
-
-
 ];

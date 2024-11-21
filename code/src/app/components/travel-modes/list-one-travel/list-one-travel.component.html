@@ -5,11 +5,12 @@
     <article id="introduction-data">
       <p>📌 Ubicación | {{travelData.location}}</p>
       <p>📅 Fecha de inicio | {{travelData.startDate}}</p>
+      <p>📅 Fecha de fin | {{travelData.endDate}}</p> <!-- Nueva línea para mostrar la fecha de fin -->
     </article>
     <hr>
     <h2>Servicios</h2>
     <main *ngFor="let serv of travelData.services">
-      <article *ngIf="isService(serv)"  id="service-list">
+      <article *ngIf="isService(serv)" id="service-list">
         <!-- Restaurantes -->
         <div *ngIf="isRestaurant(serv)">
           <h3>🥪 Restaurant | {{ serv.name }}</h3>
@@ -42,10 +43,9 @@
         <article class="menu-buttons vertical">
           <a (click)="deleteService(serv)" class="button-main danger">
             <i class="fas fa-trash-alt"></i> Eliminar
-        </a>
+          </a>
         </article>
       </article>
-
     </main>
 
     <div class="menu-buttons vertical">
@@ -62,5 +62,5 @@
     <button (click)="print()" class="button-main" id="print">
       <i class="fas fa-print"></i> Imprimir / PDF
     </button>
-    
+  </div>
 </div>

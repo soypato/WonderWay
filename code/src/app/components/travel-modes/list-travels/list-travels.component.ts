@@ -71,7 +71,7 @@ export class ListTravelsComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Eliminar',
-      confirmButtonColor: '#d33',
+      confirmButtonColor: '#013f4e',
       cancelButtonText: 'Cancelar',
       reverseButtons: true
     }).then((result) => {
@@ -105,7 +105,9 @@ export class ListTravelsComponent implements OnInit {
         focusConfirm: false,
         showCancelButton: true,
         confirmButtonText: 'Guardar cambios',
+        confirmButtonColor: '#013f4e',
         cancelButtonText: 'Cancelar',
+        cancelButtonColor: '#b41c11',
         preConfirm: () => this.handleEditConfirm(travel),
       });
     }
@@ -121,13 +123,21 @@ export class ListTravelsComponent implements OnInit {
           <label for="name">Nombre del viaje:</label>
           <input id="name" class="swal2-input" placeholder="Nombre del viaje" value="${travel.name}">
           <br>
+          <br>
           <label for="location">Ubicación:</label>
           <br>
           <input id="location" class="swal2-input" placeholder="Ubicación" value="${travel.location}">
-          
+          <br>
+          <br>
           <label for="startDate">Fecha de inicio:</label>
+          <br>
           <input id="startDate" class="swal2-input" placeholder="Fecha de inicio" value="${travel.startDate}">
-      `
+          <br>
+          <br>
+          <label for="endDate">Fecha de fin:</label> <!-- Nueva línea para la fecha de fin -->
+          <br>
+          <input id="endDate" class="swal2-input" placeholder="Fecha de fin" value="${travel.endDate}">
+      `;
     }
   
     // Manejar la confirmación del cuadro de diálogo
@@ -135,9 +145,10 @@ export class ListTravelsComponent implements OnInit {
       const nameInput = (document.getElementById('name') as HTMLInputElement).value;
       const locationInput = (document.getElementById('location') as HTMLInputElement).value;
       const startDateInput = (document.getElementById('startDate') as HTMLInputElement).value;
-  
+      const endDateInput = (document.getElementById('endDate') as HTMLInputElement).value; // Obtenemos la fecha de fin
+    
       // Si no hubo cambios, se notifica al usuario y no se hace nada
-      if (this.areFieldsUnchanged(travel, nameInput, locationInput, startDateInput)) {
+      if (this.areFieldsUnchanged(travel, nameInput, locationInput, startDateInput, endDateInput)) {
         Swal.fire({
           icon: 'info',
           title: 'No se realizaron cambios',
@@ -145,18 +156,19 @@ export class ListTravelsComponent implements OnInit {
         });
         return;
       }
-  
+    
       // Si hubo cambios, actualizamos el objeto `travel`
       travel.name = nameInput;
       travel.location = locationInput;
       travel.startDate = startDateInput;
-  
+      travel.endDate = endDateInput; // Actualizamos la fecha de fin
+    
       // Llamamos a la función que actualiza el viaje en la base de datos
       this.updateInDB();
     }
   
     // Comprobar si los campos no fueron cambiados
-    private areFieldsUnchanged(travel: Travel, nameInput: string, locationInput: string, startDateInput: string): boolean {
+    private areFieldsUnchanged(travel: Travel, nameInput: string, locationInput: string, startDateInput: string, endDateInput: string): boolean {
       return nameInput === travel.name && locationInput === travel.location && startDateInput === travel.startDate;
     }
 
