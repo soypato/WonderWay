@@ -12,7 +12,7 @@ import { Hotel } from '../../../interface/hotel.interface';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './new-hotel-api.component.html',
-  styleUrls: ['./new-hotel-api.component.css']
+  styleUrls: ['../new-service.css', './new-hotel-api.component.css']
 })
 export class NewHotelApi implements OnInit {
   // Formulario para la búsqueda
@@ -97,7 +97,9 @@ export class NewHotelApi implements OnInit {
     
     // Guardo el servicio[] en una variable aparte (tiene referencia a la anterior)
     const arrServiceDetail = travelDetail.services;
-    
+    // (es el arr de servicios)
+
+
     // Guardo el nuevo hotel y tengo el arr listo
     arrServiceDetail.push(hotelComoInterfaz);
 

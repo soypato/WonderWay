@@ -91,7 +91,7 @@ export class ListOneTravelComponent implements OnInit {
 
   // Comprobación de tipo para Flight
   isFlight(service: any): boolean {
-    return service && service.type == "flight";
+    return service.type == "flight";
   }
 
   isService(service: any): boolean {
@@ -106,7 +106,7 @@ export class ListOneTravelComponent implements OnInit {
   
     // acá declaro un obj con las rutas, ts me da la posibilidad de declarar los tipos de datos
     // por lo que le específico 
-    
+
     const routes: { [key: string]: string } = {
       hotel: '/new-hotel-api',
       restaurant: '/new-restaurant-api',
@@ -208,7 +208,7 @@ export class ListOneTravelComponent implements OnInit {
     this.travelData?.services?.forEach((service: any, index: number) => {
       const details = [
         `Servicio: ${service.name || 'Sin nombre'}`,
-        `Ubicación: ${service.location || 'No disponible'}`,
+        `Información: ${service.location || 'No disponible'}`,
         `Precio: ${service.price ? `$${service.price} USD` : 'N/A'}`,
       ];
 

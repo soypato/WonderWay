@@ -245,6 +245,84 @@
               "rooms": 0
             }
           ]
+        },
+        {
+
+          "name": "Visitar a Enzo",
+          "location": "Rosario",
+          "startDate": "2000-02-02",
+          "services": [
+            {
+              "duration": 75,
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            }
+          ]
+        },
+        {
+          "name": "Chiara y Mili, un viaje de amigas",
+          "location": "ChiarMiliLand",
+          "startDate": "2000-12-12",
+          "services": [
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|816&area=FLTCenterColumn|1|1|ItinList|3|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4687&totalPricePerPassenger=45.97"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T06:45:00+01:00",
+              "returnDate": "2024-11-28T08:00:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 401,
+              "operatingCarrier": "Iberia",
+              "marketingCarrier": "Iberia",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|438&area=FLTCenterColumn|1|1|ItinList|4|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4688&totalPricePerPassenger=56.97"
+            }
+          ]
         }
       ]
     },
