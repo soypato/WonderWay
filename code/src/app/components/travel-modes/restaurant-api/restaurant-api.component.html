@@ -1,53 +1,47 @@
 <div class="freemode-container">
-    <h2>Explora y busca restaurantes a lo largo del mundo!</h2>
-  
-    <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
-        <div class="search-section">
-          <input type="text" placeholder="Buscar destino..." class="search-input" formControlName="ciudad" />
-          <button type="submit" class="search-button">Buscar</button>
-        </div>
-      </form>
-      
-      <div class="results-section">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Calificación</th>
-              <th>Cantidad reviews</th>
-              <th>Condicion</th>
-              <th>Agregar al viaje</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Utilizando *ngFor para iterar sobre los restaurantes -->
-            <tr *ngFor="let restaurant of restaurants">
-              <!-- Nombre del restaurante -->
-              <td>{{ restaurant.name }}</td>
-    
-      
-              <!-- Calificación del restaurant -->
-              <td>
-                {{ restaurant.qualification || 0 }} / 5 
-              </td>
+  <h2>Busca restaurantes para tu viaje</h2>
 
-              <!-- Cantidad de reviews -->
-              <td>
-                {{ restaurant.reviewers || 'N/A' }} 
-              </td>
-      
-              <!-- Condicion del restaurant -->
-              <td>{{ restaurant.currentOpenStatusText }}</td>
+  <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
+    <div class="search-section">
+      <input type="text" placeholder="Ciudad" class="search-input" formControlName="ciudad" />
+      <button type="submit" class="search-button">Buscar</button>
+    </div>
+  </form>
 
-
-              <!-- Botón para agregar al viaje -->
-              <td>
-                <button (click)="agregarViaje(restaurant)">Agregar</button>
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
+  <div class="results-section" *ngIf="restaurantes">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Ubicación</th>
+          <th>Calificación</th>
+          <th>Tipo de establecimiento / Cocina</th>
+          <th>Imagen</th>
+          <th>Agregar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of restaurantes">
+          <td>{{ restaurant.name }}</td>
+          <td>{{ restaurant.parentGeoName || 'Desconocido' }}</td>
+          <td>{{ restaurant.averageRating || 'N/A' }}</td>
+          <td>
+            <span *ngIf="restaurant.establishmentTypeAndCuisineTags?.length">
+              {{ restaurant.establishmentTypeAndCuisineTags.join(', ') }}
+            </span>
+            <span *ngIf="!restaurant.establishmentTypeAndCuisineTags">
+              No disponible
+            </span>
+          </td>
+          <td>
+            <img [src]="restaurant.squareImgUrl" alt="Imagen" style="width: 120px;" />
+          </td>
+          <td>
+            <button (click)="agregarViaje(restaurant)">Agregar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  
+</div>

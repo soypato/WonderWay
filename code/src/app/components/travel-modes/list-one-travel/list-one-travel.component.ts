@@ -7,10 +7,11 @@ import { Flight } from '../../../interface/flight.interface';
 import { UserService } from '../../../services/user.service';
 import jsPDF from 'jspdf';
 import Swal from 'sweetalert2';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-one-travel',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   standalone: true,
   templateUrl: './list-one-travel.component.html',
   styleUrls: ['./list-one-travel.component.css']
