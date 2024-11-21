@@ -3,7 +3,7 @@
 
 export const environment = {
     production: false,
-    rapidApiKey: 'd7348b4764mshaac8e73bfaa3886p15b9f9jsn75772c2251c0',
+    rapidApiKey: 'bf09268203mshac97fd2fd84b697p1b57e7jsn5021e25dc3f1',
     keyPass: ''
   };
   
