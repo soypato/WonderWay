@@ -6,9 +6,9 @@
       <p class="card-description">Ingresa información en los campos que quieras modificar</p>
     </div>
     <div class="card-content">
+      <!-- Sección para modificar información del perfil -->
       <section>
         <h2>Cambio de Información</h2>
-        <!-- 1º form para modificar nombre o email -->
         <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
           <div>
             <label for="name">Nombre:</label>
@@ -16,115 +16,91 @@
               id="name"
               type="text"
               formControlName="name"
-              placeholder="Ingrese su nuevo nombre"
+              placeholder="Ingrese su nuevo nombre o dejar vacío"
               aria-describedby="nameHelp"
             />
+            <div *ngIf="profileForm.get('name')?.dirty && profileForm.get('name')?.invalid" class="error-message">
+              Nombre no válido.
+            </div>
           </div>
-          <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre.</div>
-          <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            Nombre no válido
-          </div>
-
           <div>
-            <label for="mail">Email:</label>
+            <label for="email">Email:</label>
             <input
-              id="mail"
+              id="email"
               type="email"
               formControlName="email"
-              placeholder="Ingrese su nuevo correo"
-              aria-describedby="mailHelp"
+              placeholder="Ingrese su nuevo correo o dejar vacío"
+              aria-describedby="emailHelp"
             />
+            <div *ngIf="profileForm.get('email')?.dirty && profileForm.get('email')?.invalid" class="error-message">
+              Correo no válido.
+            </div>
           </div>
-          <div id="mailHelp" class="sr-only">Ingresa tu nuevo correo.</div>
-          <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            Correo no válido
-          </div>
-
           <div>
-            <label for="pass">Contraseña actual:</label>
+            <label for="currentPassword">Contraseña actual:</label>
             <input
-              id="pass"
+              id="currentPassword"
               type="password"
               formControlName="currentPassword"
               placeholder="Ingrese su contraseña actual"
-              aria-required="true"
-              aria-describedby="passHelp"
             />
+            <div *ngIf="profileForm.get('currentPassword')?.dirty && profileForm.get('currentPassword')?.invalid" class="error-message">
+              La contraseña es requerida.
+            </div>
           </div>
-          <div id="passHelp" class="sr-only">Ingresa tu contraseña para confirmar acción.</div>
-          <div *ngIf="profileForm.get('currentPassword')?.invalid && profileForm.get('currentPassword')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            Contraseña inválida
-          </div>
-
-          <button type="submit" [disabled]="!profileForm.valid || !prevPasswordsMatch()">Guardar Cambios</button>
+          <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
         </form>
       </section>
-      <br />
 
+      <hr />
+
+      <!-- Sección para cambiar contraseña -->
       <section>
         <h2>Cambio de Contraseña</h2>
-        <!-- 2º form para modificar contraseña -->
         <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
           <div>
-            <label for="prevPass">Contraseña actual:</label>
+            <label for="currentPassword">Contraseña actual:</label>
             <input
-              id="prevPass"
+              id="currentPasswordPassword"
               type="password"
               formControlName="currentPassword"
               placeholder="Ingrese su contraseña actual"
             />
+            <div *ngIf="passwordForm.get('currentPassword')?.dirty && passwordForm.get('currentPassword')?.invalid" class="error-message">
+              Contraseña requerida.
+            </div>
           </div>
-          <div *ngIf="passwordForm.get('currentPassword')?.invalid && passwordForm.get('currentPassword')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            La contraseña no coincide con la actual
-          </div>
-
           <div>
-            <label for="newPass">Nueva contraseña:</label>
+            <label for="newPassword">Nueva contraseña:</label>
             <input
-              id="newPass"
+              id="newPassword"
               type="password"
               formControlName="newPassword"
               placeholder="Ingrese su nueva contraseña"
             />
+            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('required')" class="error-message">
+              La nueva contraseña es requerida.
+            </div>
+            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('minlength')" class="error-message">
+              La contraseña debe tener al menos 6 caracteres.
+            </div>
           </div>
-          <div *ngIf="passwordForm.get('newPassword')?.invalid && passwordForm.get('newPassword')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            Contraseña no válida
-          </div>
-
           <div>
-            <label for="confirmPass">Confirmar nueva contraseña:</label>
+            <label for="confirmPassword">Confirmar nueva contraseña:</label>
             <input
-              id="confirmPass"
+              id="confirmPassword"
               type="password"
               formControlName="confirmPassword"
               placeholder="Confirme su nueva contraseña"
             />
+            <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid" class="error-message">
+              Confirmación de contraseña requerida.
+            </div>
           </div>
-          <div *ngIf="passwordForm.get('confirmPassword')?.invalid && passwordForm.get('confirmPassword')?.dirty"
-               class="error-message"
-               role="alert"
-               aria-live="assertive">
-            Contraseña no válida
+          <div *ngIf="passwordForm.dirty && !passwordsMatch()" class="error-message">
+            Las contraseñas no coinciden.
           </div>
-
-          <button type="submit" [disabled]="!passwordForm.valid || (!passwordsMatch() && !prevPasswordsMatch())">
-            Cambiar Contraseña
-          </button>
+          <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
         </form>
       </section>
     </div>
