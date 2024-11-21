@@ -376,6 +376,15 @@
           "services": []
         }
       ]
+    },
+    {
+      "id": "0329",
+      "name": "Enzo",
+      "email": "enzo@mail.com",
+      "password": "CCgNAv3xnL6ezy9DQRVi4MDlhXj0+r9DAQ3x2l9tKSY2nrYV5g==",
+      "role": "usuario",
+      "active": true,
+      "travel": []
     }
   ]
 }

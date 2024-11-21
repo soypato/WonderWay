@@ -49,52 +49,6 @@ export class FormRegisterComponent implements OnInit {
     return password.value === confirmPassword.value ? null : { mismatch: true };
   }
 
-/*
-  // Método para convertir ArrayBuffer a Base64
-  private arrayBufferToBase64(buffer: ArrayBuffer): string {
-    const bytes = new Uint8Array(buffer);
-    let binary = '';
-    bytes.forEach((byte) => (binary += String.fromCharCode(byte)));
-    return btoa(binary);
-  }
-
-  // Método para encriptar contraseñas
-  async encryptPassword(password: string): Promise<string> {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-
-    // Ajusta la clave a una longitud válida (32 bytes para AES-256)
-    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
-
-    try {
-      const key = await crypto.subtle.importKey(
-        'raw',
-        fixedKey,
-        { name: 'AES-GCM' },
-        false,
-        ['encrypt']
-      );
-
-      const iv = crypto.getRandomValues(new Uint8Array(12));
-      const encryptedData = await crypto.subtle.encrypt(
-        { name: 'AES-GCM', iv },
-        key,
-        data
-      );
-
-      // Combina IV y datos encriptados en un solo ArrayBuffer
-      const encryptedArray = new Uint8Array(encryptedData);
-      const result = new Uint8Array(iv.length + encryptedArray.length);
-      result.set(iv);
-      result.set(encryptedArray, iv.length);
-
-      return this.arrayBufferToBase64(result.buffer);
-    } catch (error) {
-      console.error('Error durante la encriptación:', error);
-      throw new Error('Encriptación fallida');
-    }
-  }
-*/
   async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {
       console.log('Formulario válido:', this.registerForm.value);

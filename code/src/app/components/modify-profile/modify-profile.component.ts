@@ -57,15 +57,17 @@ export class ModifyProfileComponent implements OnInit {
       })}
   }
 
-  // Método para validar que las nuevas contraseñas coincidan
   async prevPasswordsMatch() {
-    //this.profileForm.value.currentPassword  === this.currentUser?.password
     const enteredPassword = this.profileForm.value.currentPassword;
     let storedPassword = '';
     if( this.currentUser?.password !== undefined ){
       storedPassword = this.currentUser?.password;
+
+      if(await this.userService.verifyPassword(enteredPassword,storedPassword) as boolean){
+        return true;
+      }
     }
-    return await this.userService.verifyPassword(enteredPassword,storedPassword);
+    return false;
   }
 
   passwordsMatch() {

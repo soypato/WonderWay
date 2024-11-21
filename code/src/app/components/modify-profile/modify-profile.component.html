@@ -53,7 +53,8 @@
               >
             </div>
             <div id="passHelp" class="sr-only">Ingrese contraseña para confirmar accion.</div>
-            <div *ngIf="profileForm.get('currentPassword')?.invalid && profileForm.get('currentPassword')?.dirty"
+            <div *ngIf="profileForm.get('currentPassword')?.invalid &&
+             profileForm.get('currentPassword')?.dirty"
                 class="error-message"
                 role="alert"
                 aria-live="assertive"
@@ -61,7 +62,8 @@
             </div>
 
 
-            <button type="submit" [disabled]="!profileForm.valid || !prevPasswordsMatch()" > Guardar Cambios </button>
+            <button type="submit" [disabled]="profileForm.invalid || !prevPasswordsMatch() " >
+              Guardar Cambios </button>
           </form>
         </section><br/>
 
