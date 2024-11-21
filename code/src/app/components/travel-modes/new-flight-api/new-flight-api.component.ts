@@ -277,6 +277,1629 @@ export class NewFlightApi implements OnInit {
   
   }
   
+
+  testData = {
+      "status": true,
+      "message": "Success",
+      "timestamp": 1732166521575,
+      "data": {
+          "session": {
+              "searchHash": "bf33399d40375a50061942e9db9a7044",
+              "pageLoadUid": "c94b56e1-2dc1-47e8-8000-80b09c5b9bfa",
+              "searchId": "039e2e7d-963b-4343-ae84-ccdcf555a462.96",
+              "filterSettings": {
+                  "aa": "",
+                  "tt": "",
+                  "a": "",
+                  "d": "",
+                  "ns": "1",
+                  "cos": "0",
+                  "fq": "",
+                  "al": "",
+                  "ft": "",
+                  "sid": "",
+                  "oc": "",
+                  "plp": "",
+                  "mc": "",
+                  "da": "",
+                  "pRange": "-1,-1",
+                  "ca": ""
+              }
+          },
+          "complete": true,
+          "numOfFilters": 480,
+          "totalNumResults": 589,
+          "flights": [
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T22:35:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T23:50:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 1009,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T06:10:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T07:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 737-800 (winglets)",
+                                  "amenities": [],
+                                  "flightNumber": 7994,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|513",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 45.97,
+                          "totalPricePerPassenger": 45.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 22.97,
+                                  "totalPricePerPassenger": 22.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4686",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+                      }
+                  ],
+                  "itineraryTag": {
+                      "tag": "Cheapest",
+                      "type": "CHEAPEST"
+                  }
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T22:35:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T23:50:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 1009,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T11:50:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T13:20:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 787-9 Dreamliner",
+                                  "amenities": [],
+                                  "flightNumber": 7706,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|816",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 45.97,
+                          "totalPricePerPassenger": 45.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 22.97,
+                                  "totalPricePerPassenger": 22.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4687",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|816&area=FLTCenterColumn|1|1|ItinList|3|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4687&totalPricePerPassenger=45.97"
+                      }
+                  ],
+                  "itineraryTag": {
+                      "tag": "Cheapest",
+                      "type": "CHEAPEST"
+                  }
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T06:45:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T08:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 401,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T06:10:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T07:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 737-800 (winglets)",
+                                  "amenities": [],
+                                  "flightNumber": 7994,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|438",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 56.97,
+                          "totalPricePerPassenger": 56.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 33.97,
+                                  "totalPricePerPassenger": 33.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4688",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|438&area=FLTCenterColumn|1|1|ItinList|4|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4688&totalPricePerPassenger=56.97"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T10:30:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T11:45:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 409,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T06:10:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T07:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 737-800 (winglets)",
+                                  "amenities": [],
+                                  "flightNumber": 7994,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|72",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 58.97,
+                          "totalPricePerPassenger": 58.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4689",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|72&area=FLTCenterColumn|1|1|ItinList|6|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4689&totalPricePerPassenger=58.97"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T13:15:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T14:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 413,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T06:10:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T07:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 737-800 (winglets)",
+                                  "amenities": [],
+                                  "flightNumber": 7994,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|94",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 58.97,
+                          "totalPricePerPassenger": 58.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4690",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|94&area=FLTCenterColumn|1|1|ItinList|7|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4690&totalPricePerPassenger=58.97"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T10:30:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T11:45:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 409,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T11:50:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T13:20:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 787-9 Dreamliner",
+                                  "amenities": [],
+                                  "flightNumber": 7706,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|753",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 58.97,
+                          "totalPricePerPassenger": 58.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4691",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|753&area=FLTCenterColumn|1|1|ItinList|8|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4691&totalPricePerPassenger=58.97"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T13:15:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T14:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 413,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T11:50:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T13:20:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "UX",
+                                  "operatingCarrierCode": "UX",
+                                  "equipmentId": "Boeing 787-9 Dreamliner",
+                                  "amenities": [],
+                                  "flightNumber": 7706,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729002,
+                                      "code": "UX",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/AirEuropa2.png",
+                                      "displayName": "Air Europa"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|241",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 58.97,
+                          "totalPricePerPassenger": 58.97,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "CTRIPAIR",
+                                      "displayName": "Trip.com",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/CTRIPAIR.png?crop=false&width=166&height=62&fallback=default1.png&_v=6ffbb6778ab7d3ee8da1e965010b225e"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 23,
+                                  "totalPricePerPassenger": 23,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4692",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|241&area=FLTCenterColumn|1|1|ItinList|9|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4692&totalPricePerPassenger=58.97"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T06:45:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T08:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 401,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T20:30:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T22:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A319",
+                                  "amenities": [],
+                                  "flightNumber": 1008,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|100",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 59.31,
+                          "totalPricePerPassenger": 59.31,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 33.97,
+                                  "totalPricePerPassenger": 33.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "VY",
+                                      "displayName": "Vueling",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/VY.png?crop=false&width=166&height=62&fallback=default2.png&_v=0583352b916cd4b8a65176f68b99c8a9"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 25.34,
+                                  "totalPricePerPassenger": 25.34,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "fareBranding": {
+                                      "brandId": "Economy",
+                                      "carrierCode": "VY"
+                                  },
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4693",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|100&area=FLTCenterColumn|1|1|ItinList|10|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4693&totalPricePerPassenger=59.31"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T10:30:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T11:45:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 409,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T20:30:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T22:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A319",
+                                  "amenities": [],
+                                  "flightNumber": 1008,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|386",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 61.31,
+                          "totalPricePerPassenger": 61.31,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "VY",
+                                      "displayName": "Vueling",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/VY.png?crop=false&width=166&height=62&fallback=default2.png&_v=0583352b916cd4b8a65176f68b99c8a9"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 25.34,
+                                  "totalPricePerPassenger": 25.34,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "fareBranding": {
+                                      "brandId": "Economy",
+                                      "carrierCode": "VY"
+                                  },
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4694",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|386&area=FLTCenterColumn|1|1|ItinList|12|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4694&totalPricePerPassenger=61.31"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T13:15:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T14:30:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 413,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T20:30:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T22:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A319",
+                                  "amenities": [],
+                                  "flightNumber": 1008,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|801",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 61.31,
+                          "totalPricePerPassenger": 61.31,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 35.97,
+                                  "totalPricePerPassenger": 35.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "VY",
+                                      "displayName": "Vueling",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/VY.png?crop=false&width=166&height=62&fallback=default2.png&_v=0583352b916cd4b8a65176f68b99c8a9"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 25.34,
+                                  "totalPricePerPassenger": 25.34,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "fareBranding": {
+                                      "brandId": "Economy",
+                                      "carrierCode": "VY"
+                                  },
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4695",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|801&area=FLTCenterColumn|1|1|ItinList|13|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4695&totalPricePerPassenger=61.31"
+                      }
+                  ]
+              },
+              {
+                  "segments": [
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "MAD",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "BCN",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-11-28T06:45:00+01:00",
+                                  "arrivalDateTime": "2024-11-28T08:00:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "IB",
+                                  "operatingCarrierCode": "IB",
+                                  "equipmentId": "Airbus A320-100/200",
+                                  "amenities": [],
+                                  "flightNumber": 401,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729089,
+                                      "code": "IB",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Iberia.png",
+                                      "displayName": "Iberia"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      },
+                      {
+                          "legs": [
+                              {
+                                  "originStationCode": "BCN",
+                                  "isDifferentOriginStation": false,
+                                  "destinationStationCode": "MAD",
+                                  "isDifferentDestinationStation": false,
+                                  "departureDateTime": "2024-12-04T15:55:00+01:00",
+                                  "arrivalDateTime": "2024-12-04T17:15:00+01:00",
+                                  "classOfService": "ECONOMY",
+                                  "marketingCarrierCode": "VY",
+                                  "operatingCarrierCode": "VY",
+                                  "equipmentId": "Airbus A320 (sharklets)",
+                                  "amenities": [],
+                                  "flightNumber": 1006,
+                                  "seatGuruEquipmentId": 0,
+                                  "seatGuruAirlineUrl": "",
+                                  "numStops": 0,
+                                  "distanceInKM": 483.50418,
+                                  "isInternational": false,
+                                  "selfTransfer": false,
+                                  "operatingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  },
+                                  "marketingCarrier": {
+                                      "locationId": 8729185,
+                                      "code": "VY",
+                                      "logoUrl": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Vueling.png",
+                                      "displayName": "Vueling"
+                                  }
+                              }
+                          ],
+                          "layovers": []
+                      }
+                  ],
+                  "purchaseLinks": [
+                      {
+                          "purchaseLinkId": "Kayak|1|197",
+                          "providerId": "CombinedFare",
+                          "commerceName": "KayakFlightsMeta_KayakFlightsMeta",
+                          "currency": "USD",
+                          "originalCurrency": "USD",
+                          "seatAvailability": 0,
+                          "taxesAndFees": 0,
+                          "taxesAndFeesPerPassenger": 0,
+                          "totalPrice": 63.550003,
+                          "totalPricePerPassenger": 63.550003,
+                          "fareBasisCodes": [],
+                          "containedPurchaseLinks": [
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "EDREAMSAIR",
+                                      "displayName": "eDreams",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/EDREAMSAIR.us.png?crop=false&width=166&height=62&fallback=default2.png&_v=af0479a857c0eb142b1531d305bbf971"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 33.97,
+                                  "totalPricePerPassenger": 33.97,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              },
+                              {
+                                  "providerId": "Kayak",
+                                  "partnerSuppliedProvider": {
+                                      "id": "VY",
+                                      "displayName": "Vueling",
+                                      "logoUrl": "https://content.r9cdn.net/rimg/provider-logos/airlines/h/VY.png?crop=false&width=166&height=62&fallback=default2.png&_v=0583352b916cd4b8a65176f68b99c8a9"
+                                  },
+                                  "commerceName": "KayakFlightsMeta",
+                                  "currency": "USD",
+                                  "originalCurrency": "USD",
+                                  "seatAvailability": 0,
+                                  "taxesAndFees": 0,
+                                  "taxesAndFeesPerPassenger": 0,
+                                  "totalPrice": 29.58,
+                                  "totalPricePerPassenger": 29.58,
+                                  "fareBasisCodes": [],
+                                  "containedPurchaseLinks": [],
+                                  "fareBranding": {
+                                      "brandId": "Economy",
+                                      "carrierCode": "VY"
+                                  },
+                                  "partnerData": {},
+                                  "isPaid": false,
+                                  "fareAttributesList": []
+                              }
+                          ],
+                          "impressionId": "b4761d2c-4500-483c-b6d2-19e391a52590.4696",
+                          "partnerData": {},
+                          "isPaid": false,
+                          "fareAttributesList": [],
+                          "url": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|197&area=FLTCenterColumn|1|1|ItinList|14|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4696&totalPricePerPassenger=63.550003"
+                      }
+                  ]
+              }
+          ]
+      }
+  }
+
   // Formulario para la búsqueda
   freemodeForm: FormGroup;
 
@@ -354,16 +1977,9 @@ export class NewFlightApi implements OnInit {
       params.sourceAirportCode= this.iata[origenStringCiudad];
       params.destinationAirportCode = this.iata[destinoStringCiudad];
       console.log(params);
-      
-        // Llamada a la API
-        this.apiService.searchFlights(params).subscribe({
-          next: (data) => {
-            console.log(data);
-          },
-          error: (error) => {
-            console.log(error);
-          }
-        });
+
+      this.flights = this.testData.data.flights;
+      console.log(this.flights)
       
     }
   }
@@ -381,6 +1997,7 @@ export class NewFlightApi implements OnInit {
   {  
     // Paso el hotel al formato de nuestra interface
     const hotelComoInterfaz = this.transformFlightData(hotel);
+    console.log(hotelComoInterfaz);
 
     // Accedo al objeto del nuevo viaje...
     // es: el usuario.travel.(resultado de búsqueda para el nombre que pasamos de origen como "travelName")
@@ -406,20 +2023,38 @@ export class NewFlightApi implements OnInit {
     );
   }
 
-  // Función que transforma los datos
+  // Función que transforma un solo vuelo
   transformFlightData(flight: any): Flight {
+    const departureDate = flight.segments[0].legs[0].departureDateTime;
+    const arrivalDate = flight.segments[0].legs[0].arrivalDateTime;
+    const isInternational = flight.segments[0].legs[0].isInternational;
+    const scale = flight.segments[0].legs[0].numStops;
+
     return {
-      id: flight.id ? Number(flight.id) : 0, // Si no hay ID, asigna 0
-      duration: flight.duration || 0, // Si no hay duración, asigna 0
-      originAirportCode: flight.originAirportCode || '', // Código de aeropuerto de origen
-      destinationAirportCode: flight.destinationAirportCode || '', // Código de aeropuerto de destino
-      travelDate: flight.travelDate || '', // Fecha de viaje
-      returnDate: flight.returnDate || '', // Fecha de retorno
-      scale: flight.scale || 0, // Número de escalas
-      class: flight.class || 'economy' // Clase del vuelo (por defecto, economy)
+      duration: this.calculateDuration(departureDate, arrivalDate),  // Duración en minutos
+      type: 'flight',
+      originAirportCode: flight.segments[0].legs[0].originStationCode,
+      destinationAirportCode: flight.segments[0].legs[0].destinationStationCode,
+      travelDate: departureDate,
+      returnDate: arrivalDate,  // Fecha de regreso (mismo que llegada si no hay regreso separado)
+      scale: scale || 0,  // Número de escalas
+      class: flight.segments[0].legs[0].classOfService,
+      flightNumber: flight.segments[0].legs[0].flightNumber,
+      operatingCarrier: flight.segments[0].legs[0].operatingCarrier.displayName,
+      marketingCarrier: flight.segments[0].legs[0].marketingCarrier.displayName,
+      amenities: flight.segments[0].legs[0].amenities,
+      isInternational: isInternational,
+      purchaseLink: flight.purchaseLinks[0]?.url || '#',  // Si no existe enlace de compra, se coloca un marcador
     };
-  } 
-  
+  }
+
+  // Función para calcular la duración del vuelo en minutos
+  calculateDuration(departureDateTime: string, arrivalDateTime: string): number {
+    const departureTime = new Date(departureDateTime);
+    const arrivalTime = new Date(arrivalDateTime);
+
+    return (arrivalTime.getTime() - departureTime.getTime()) / (1000 * 60);  // Duración en minutos
+  }
 }
 
 

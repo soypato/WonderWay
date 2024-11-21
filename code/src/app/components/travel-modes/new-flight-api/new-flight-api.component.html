@@ -3,8 +3,8 @@
 
   <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
     <div class="search-section">
-      <input type="text" placeholder="Buscar origen (código aeropuerto)" class="search-input" formControlName="ciudadOrigen" required />
-      <input type="text" placeholder="Buscar destino (código aeropuerto)" class="search-input" formControlName="ciudadDestino" required />
+      <input type="text" placeholder="Buscar origen" class="search-input" formControlName="ciudadOrigen" required />
+      <input type="text" placeholder="Buscar destino" class="search-input" formControlName="ciudadDestino" required />
 
       <input type="date" placeholder="Fecha de ida" class="search-input" formControlName="fechaOrigen" required />
       <input type="date" placeholder="Fecha de regreso (opcional)" class="search-input" formControlName="fechaDestino" />
@@ -15,7 +15,7 @@
       </select>
 
       <select class="search-input" formControlName="classOfService">
-        <option value="ECONOMY">Economía</option>
+      <option value="ECONOMY">Economía</option>
         <option value="PREMIUM_ECONOMY">Economía Premium</option>
         <option value="BUSINESS">Negocios</option>
         <option value="FIRST">Primera Clase</option>
@@ -40,25 +40,30 @@
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Información Primaria</th>
-          <th>Información Secundaria</th>
-          <th>Calificación</th>
-          <th>Proveedor</th>
+          <th>Aerolínea</th>
+          <th>Ruta</th>
+          <th>Fecha de Salida</th>
+          <th>Vuelo</th>
+          <th>Clase</th>
           <th>Precio</th>
-          <th>Enlace a Reserva</th>
-          <th>Agregar al viaje</th>
+          <th>Enlace de Compra</th>
+          <th>Agregar al Viaje</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let flight of flights">
-          <td>{{ flight.name }}</td>
-          <td>{{ flight.originAirportCode }} → {{ flight.destinationAirportCode }}</td>
-          <td>{{ flight.travelDate }}</td>
-          <td>{{ flight.rating || 'N/A' }}</td>
-          <td>{{ flight.provider }}</td>
-          <td>{{ flight.price | currency }}</td>
-          <td><a [href]="flight.reservationLink" target="_blank">Reservar</a></td>
+          <td>
+            <img [src]="flight.segments[0].legs[0].operatingCarrier.logoUrl" alt="Logo Aerolínea" width="50">
+            {{ flight.segments[0].legs[0].operatingCarrier.displayName }}
+          </td>
+          <td>
+            {{ flight.segments[0].legs[0].originStationCode }} → {{ flight.segments[0].legs[0].destinationStationCode }}
+          </td>
+          <td>{{ flight.segments[0].legs[0].departureDateTime | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ flight.segments[0].legs[0].flightNumber }}</td>
+          <td>{{ flight.segments[0].legs[0].classOfService }}</td>
+          <td>{{ flight.purchaseLinks[0].totalPrice | currency }}</td>
+          <td><a [href]="flight.purchaseLinks[0].url" target="_blank">Reservar</a></td>
           <td><button (click)="agregarVuelo(flight)">Agregar</button></td>
         </tr>
       </tbody>

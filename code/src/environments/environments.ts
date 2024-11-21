@@ -4,6 +4,6 @@
 export const environment = {
     production: false,
     rapidApiKey: 'bf09268203mshac97fd2fd84b697p1b57e7jsn5021e25dc3f1',
-    keyPass: ''
+    keyPass: 'e23erf423e4r4ewf34rt45y56nrfbniu98'
   };
   

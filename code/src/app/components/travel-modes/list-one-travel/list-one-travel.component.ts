@@ -90,7 +90,7 @@ export class ListOneTravelComponent implements OnInit {
 
   // Comprobación de tipo para Flight
   isFlight(service: any): boolean {
-    return service && service.type == "flight";
+    return service.type == "flight";
   }
 
   isService(service: any): boolean {
