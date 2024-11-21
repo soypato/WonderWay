@@ -6,6 +6,6 @@ export interface Travel {
     name: string,
     location : string,
     startDate : string,
-    services: (Restaurant | Hotel | Flight)[];
-
+    services: (Restaurant | Hotel | Flight)[],
+    endDate: string;
 }   

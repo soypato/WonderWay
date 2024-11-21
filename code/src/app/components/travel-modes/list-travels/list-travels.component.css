@@ -22,7 +22,7 @@
     z-index: 1;
 }
 
-/* Contenedor del perfil */
+ /* Contenedor del perfil */
 .profile-container {
     position: relative;
     padding: 2rem;
@@ -33,11 +33,12 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center; /* Asegura que los contenidos se alineen verticalmente */
+    align-items: center;     /* Alinea los elementos horizontalmente */
     width: 90%;
     max-width: 600px;
     box-shadow: var(--box-shadow);
-    margin: 2rem 0;
+    margin: 0 auto; /* Centrado en el contenedor */
 }
 
 /* Títulos */
@@ -86,8 +87,65 @@
         padding: 1rem;
         width: 50vh;
     }
-    
-  
-    
-
 }
+
+/* Estilo para el formulario de edición */
+.swal2-popup {
+    width: 100%;
+    height: auto; /* Cambiar altura para que se ajuste al contenido */
+    max-width: 400px; /* Limitar el ancho del popup */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Asegura que el contenido se alinee arriba */
+}
+
+/* Estilo de los campos de entrada (input) */
+.swal2-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Estilo para el título */
+.swal2-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo de los botones de confirmación y cancelación */
+.swal2-confirm, .swal2-cancel {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    width: 48%;
+    cursor: pointer;
+}
+
+/* Botón de confirmación (color personalizado) */
+.swal2-confirm {
+    background-color: #013f4e; /* Cambiar a color deseado */
+    color: white;
+}
+
+/* Botón de cancelación */
+.swal2-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+
+
+

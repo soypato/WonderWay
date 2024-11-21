@@ -245,6 +245,13 @@
               "rooms": 0
             }
           ]
+        },
+        {
+          "name": "Viaje a la playa",
+          "location": "Hawai",
+          "startDate": "2024-11-22",
+          "endDate": "2024-11-29",
+          "services": []
         }
       ]
     },
