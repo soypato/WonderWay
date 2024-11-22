@@ -24,7 +24,8 @@ export class ModifyProfileComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private currentUserService: CurrentUser
-  ) {
+  )
+  {
     this.profileForm = this.fb.group({
       name: [''],
       email: ['', [  Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/)  ]  ],
@@ -35,8 +36,7 @@ export class ModifyProfileComponent implements OnInit {
       currentPassword: ['', [Validators.required]],
       newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]],
-    },
-    { Validators : this.passwordsMatch()  });
+    });
   }
 
   ngOnInit() {
@@ -73,7 +73,14 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   passwordsMatch(): boolean {
-    return (  this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword  );
+
+    if (  this.passwordForm.value.newPassword && this.passwordForm.value.confirmPassword  ) {
+      if (  this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword  ) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   async onProfileSubmit() {

@@ -101,14 +101,23 @@
               formControlName="confirmPassword"
               placeholder="Confirme su nueva contraseña"
             />
-            <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid" class="error-message">
+            <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid"
+              class="error-message"
+              role="alert"
+              aria-live="assertive">
               Confirmación de contraseña requerida.
             </div>
-            <div *ngIf=" !passwordsMatch() " class="error-message">
-              Las contraseñas no coinciden.
+
+            <div *ngIf="  passwordForm.get('newPassword')?.value !== passwordForm.get('confirmPassword')?.value    "
+              class="error-message"
+              role="alert"
+              aria-live="assertive">
+              Confirmación de contraseña no coindides.
             </div>
+
+
           </div>
-          <button type="submit" [disabled]="!passwordForm.valid || ( !passwordsMatch() )">Cambiar Contraseña</button>
+          <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
         </form>
       </section>
     </div>

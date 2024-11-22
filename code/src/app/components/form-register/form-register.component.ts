@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environments';
+import { CurrentUser } from '../../services/current-user.service';
+
 
 @Component({
   selector: 'app-form-register',
@@ -18,6 +20,7 @@ export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
   userService = inject(UserService);
   router = inject(Router);
+  currentUser = inject(CurrentUser);
 
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group(
@@ -94,9 +97,10 @@ export class FormRegisterComponent implements OnInit {
               };
 
               this.userService.addUser(nuevoUsuario).subscribe({
-                next: () => {
+                next: (data) => {
+                  this.currentUser.setUsuario(String(data.id))
                   Swal.fire('Registro exitoso', '¡Bienvenido!', 'success');
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/profile']);
                 },
                 error: (error) => {
                   console.error('Error al registrar usuario:', error);
@@ -119,4 +123,7 @@ export class FormRegisterComponent implements OnInit {
       Swal.fire('Formulario inválido', 'Revisa los campos ingresados', 'error');
     }
   }
+
+
+
 }
