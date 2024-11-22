@@ -1915,12 +1915,16 @@ export class NewFlightApi implements OnInit {
   flights : any;
 
   // Propiedades del componente
-  ciudadOrigen = '';
-  ciudadDestino = '';
-  fechaOrigen = '';
-  fechaDestino = '';
-  geoIdOrigen = 0;
-  geoIdDestino = 0;
+//   ciudadOrigen = '';
+//   ciudadDestino = '';
+//   fechaOrigen = '';
+//   fechaDestino = '';
+//   geoIdOrigen = 0;
+//   geoIdDestino = 0;
+    origenCode = '';
+    destinoCode = '';
+
+
 
   // Este es el objeto que nos pasa el componente origen
   origen = history.state?.updatedUser ?? { services: [] };
@@ -1931,12 +1935,12 @@ export class NewFlightApi implements OnInit {
       ciudadOrigen: ['', Validators.required],
       ciudadDestino: ['', Validators.required],
       fechaOrigen: ['', Validators.required],
-      fechaDestino: [''], // Opcional
+      fechaDestino: [''],
       itineraryType: ['ONE_WAY', Validators.required],
       classOfService: ['ECONOMY', Validators.required],
       numAdults: [1, [Validators.required, Validators.min(1)]],
-      numSeniors: [0, [Validators.min(0)]],
-      sortOrder: ['PRICE']
+      numSeniors: [0, Validators.min(0)],
+      sortOrder: ['PRICE', Validators.required]
     });
   }
 
@@ -1948,55 +1952,106 @@ export class NewFlightApi implements OnInit {
     this.travelName = history.state?.travelName ?? '';
   }
 
-  onSubmit(): void {
-    // Obtenemos los valores del formulario
-    const fechaOrigen = this.freemodeForm.get('fechaOrigen')?.value;
-    const fechaDestino = this.freemodeForm.get('fechaDestino')?.value || '';
+//   onSubmit(): void {
+//     // Obtenemos los valores del formulario
+//     const fechaOrigen = this.freemodeForm.get('fechaOrigen')?.value;
+//     const fechaDestino = this.freemodeForm.get('fechaDestino')?.value || '';
   
-    // Convertir las fechas a formato 'YYYY-MM-DD'
-    const fechaOrigenFormatted = this.formatDate(fechaOrigen);
-    const fechaDestinoFormatted = fechaDestino ? this.formatDate(fechaDestino) : '';
+//     // Convertir las fechas a formato 'YYYY-MM-DD'
+//     const fechaOrigenFormatted = this.formatDate(fechaOrigen);
+//     const fechaDestinoFormatted = fechaDestino ? this.formatDate(fechaDestino) : '';
   
-    const params = {
-      sourceAirportCode: '',  // Esto será llenado con los códigos de aeropuerto más adelante
-      destinationAirportCode: '',
-      date: fechaOrigenFormatted,
-      returnDate: fechaDestinoFormatted,
-      itineraryType: this.freemodeForm.get('itineraryType')?.value || 'ONE_WAY',
-      classOfService: this.freemodeForm.get('classOfService')?.value || 'ECONOMY',
-      numAdults: this.freemodeForm.get('numAdults')?.value || 1,
-      numSeniors: this.freemodeForm.get('numSeniors')?.value || 0,
-      sortOrder: 'PRICE'
-    };
+//     const params = {
+//       sourceAirportCode: '',  // Esto será llenado con los códigos de aeropuerto más adelante
+//       destinationAirportCode: '',
+//       date: fechaOrigenFormatted,
+//       returnDate: fechaDestinoFormatted,
+//       itineraryType: this.freemodeForm.get('itineraryType')?.value || 'ONE_WAY',
+//       classOfService: this.freemodeForm.get('classOfService')?.value || 'ECONOMY',
+//       numAdults: this.freemodeForm.get('numAdults')?.value || 1,
+//       numSeniors: this.freemodeForm.get('numSeniors')?.value || 0,
+//       sortOrder: 'PRICE'
+//     };
   
-    // Validar si las ciudades y fechas están presentes
-    if (this.freemodeForm.get('ciudadOrigen')?.value && this.freemodeForm.get('ciudadDestino')?.value && fechaOrigen) {
-      const origenStringCiudad = this.freemodeForm.get('ciudadOrigen')?.value as keyof typeof this.iata;
-      const destinoStringCiudad = this.freemodeForm.get('ciudadDestino')?.value as keyof typeof this.iata;
+//     // Validar si las ciudades y fechas están presentes
+//     if (this.freemodeForm.get('ciudadOrigen')?.value && this.freemodeForm.get('ciudadDestino')?.value && fechaOrigen) {
+//       const origenStringCiudad = this.freemodeForm.get('ciudadOrigen')?.value as keyof typeof this.iata;
+//       const destinoStringCiudad = this.freemodeForm.get('ciudadDestino')?.value as keyof typeof this.iata;
   
-      params.sourceAirportCode= this.iata[origenStringCiudad];
-      params.destinationAirportCode = this.iata[destinoStringCiudad];
-      console.log(params);
+//       params.sourceAirportCode= this.iata[origenStringCiudad];
+//       params.destinationAirportCode = this.iata[destinoStringCiudad];
+//       console.log(params);
 
-      this.flights = this.testData.data.flights;
-      console.log(this.flights)
+//       this.flights = this.testData.data.flights;
+//       console.log(this.flights)
       
-    }
-  }
+//     }
+//   }
   
-  // Función para convertir una fecha en formato 'YYYY-MM-DD'
-  formatDate(date: string): string {
-    const d = new Date(date);
-    const year = d.getFullYear();
-    const month = (d.getMonth() + 1).toString().padStart(2, '0');
-    const day = d.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
+//   // Función para convertir una fecha en formato 'YYYY-MM-DD'
+//   formatDate(date: string): string {
+//     const d = new Date(date);
+//     const year = d.getFullYear();
+//     const month = (d.getMonth() + 1).toString().padStart(2, '0');
+//     const day = d.getDate().toString().padStart(2, '0');
+//     return `${year}-${month}-${day}`;
+//   }
 
-  agregarVuelo(hotel : any) : void
+    // Buscar vuelos en la API
+    onSubmit(): void {
+        const params = {
+          sourceAirportCode: '',
+          destinationAirportCode: '',
+          itineraryType: this.freemodeForm.get('itineraryType')?.value,
+          sortOrder: this.freemodeForm.get('sortOrder')?.value,
+          numAdults: this.freemodeForm.get('numAdults')?.value,
+          numSeniors: this.freemodeForm.get('numSeniors')?.value,
+          classOfService: this.freemodeForm.get('classOfService')?.value,
+          date: this.freemodeForm.get('fechaOrigen')?.value,
+          returnDate: this.freemodeForm.get('fechaDestino')?.value
+        };
+    
+        // Obtener los códigos de aeropuerto para origen y destino
+        const ciudadOrigen = this.freemodeForm.get('ciudadOrigen')?.value;
+        const ciudadDestino = this.freemodeForm.get('ciudadDestino')?.value;
+    
+        if (ciudadOrigen && ciudadDestino) {
+          this.apiService.getAirportCode(ciudadOrigen).subscribe({
+            next: (dataOrigen) => {
+              params.sourceAirportCode = dataOrigen.data[0].code;
+              this.apiService.getAirportCode(ciudadDestino).subscribe({
+                next: (dataDestino) => {
+                  params.destinationAirportCode = dataDestino.data[0].code;
+    
+                  // Buscar vuelos usando los códigos obtenidos
+                  this.apiService.searchFlights(params).subscribe({
+                    next: (flights) => {
+                      this.flights = flights.data;
+                      console.log('Vuelos encontrados:', this.flights);
+                    },
+                    error: (err) => {
+                      console.error('Error al buscar vuelos:', err);
+                    }
+                  });
+                },
+                error: (err) => {
+                  console.error('Error al obtener código de aeropuerto destino:', err);
+                }
+              });
+            },
+            error: (err) => {
+              console.error('Error al obtener código de aeropuerto origen:', err);
+            }
+          });
+        } else {
+          console.warn('Debe especificar tanto la ciudad de origen como la de destino.');
+        }
+      }
+
+  agregarVuelo(vuelo : any) : void
   {  
     // Paso el hotel al formato de nuestra interface
-    const hotelComoInterfaz = this.transformFlightData(hotel);
+    const hotelComoInterfaz = this.transformFlightData(vuelo);
     console.log(hotelComoInterfaz);
 
     // Accedo al objeto del nuevo viaje...
