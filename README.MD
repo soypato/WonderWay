@@ -1,7 +1,7 @@
 
 # WonderWay
 
-![WonderWay portada](./code/public/img/WonderWay.jpg)
+![WonderWay pic](./code/public/img/WonderWay.jpg)
 
 **WonderWay** is a travel management tool designed to help you discover and organize visits to hotels, attractions, and restaurants efficiently. We use the Tripadvisor API and a local server based on `json-server` to provide a fast and reliable experience.
 
@@ -34,8 +34,8 @@
    export const tripkey  = {
     production: true,
     token: 'token'
-  };
-   ```
+  };   ```
+  
   
 
 2. **Install dependencies**:
