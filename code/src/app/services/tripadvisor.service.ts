@@ -8,10 +8,10 @@ import { tripkey } from "../../../../../tripkey";
 })
 export class TripadvisorService {
   private apiKey = tripkey.token;
-  private baseUrl = 'https://api.content.tripadvisor.com/api/v1/location/search';
-  private detailsUrl = 'https://api.content.tripadvisor.com/api/v1/location/details';
-  private imageUrl = 'https://api.content.tripadvisor.com/api/v1/location/photos';
-  private reviewsUrl = 'https://api.content.tripadvisor.com/api/v1/location/reviews';
+  private baseUrl = '/api/v1/location/search';
+  private detailsUrl = '/api/v1/location/details';
+  private imageUrl = '/api.content.tripadvisor.com/api/v1/location/photos';  
+  private reviewsUrl = '/api.content.tripadvisor.com/api/v1/location/reviews';
 
 
   constructor(private http: HttpClient) {}
