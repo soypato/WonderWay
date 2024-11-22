@@ -50,8 +50,7 @@ export class NewRestaurantApiComponent implements OnInit {
     this.updatedUser = this.origen;
     this.travelName = history.state?.travelName ?? '';
 
-    console.log(this.updatedUser);
-    console.log(this.travelName);
+
   }
 
   onSubmit(): void {
@@ -67,11 +66,15 @@ export class NewRestaurantApiComponent implements OnInit {
 
     this.tripAdvisorService.searchLocations(searchQuery, 'restaurants').subscribe({
        next: (data) => {
-         console.log(data)
          this.restaurants = data.data; // Asignar los resultados a la variable restaurants
        },
        error: (error) => {
-         console.error('Error al buscar restaurantes:', error);
+         Swal.fire({
+          title: 'Error',
+          text: 'No se pudieron obtener los resultados de la búsqueda.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
        }
     });
   }
@@ -80,7 +83,6 @@ export class NewRestaurantApiComponent implements OnInit {
     {
       // Paso el hotel al formato de nuestra interface
       const restaurantComoInterfaz = this.transformRestaurantData(restaurant);
-      console.error(restaurantComoInterfaz)
       
       // Accedo al objeto del nuevo viaje...
       // es: el usuario.travel.(resultado de búsqueda para el nombre que pasamos de origen como "travelName")
@@ -166,7 +168,6 @@ export class NewRestaurantApiComponent implements OnInit {
             icon: 'error',
             confirmButtonText: 'Aceptar',
           });
-          console.error('Error al buscar detalles:', error);
         },
       });
     }
@@ -178,7 +179,6 @@ export class NewRestaurantApiComponent implements OnInit {
       // Llamamos al servicio para obtener las imágenes del restaurante
       this.tripAdvisorService.searchImages(locationId).subscribe({
         next: (data) => {
-          console.log('Imágenes del restaurant:', data);
           this.selectedRestaurantImages = data.data; // Guardamos las imágenes obtenidas
     
           // Creamos el contenido HTML con el carrusel
@@ -253,7 +253,6 @@ export class NewRestaurantApiComponent implements OnInit {
           });
         },
         error: (error) => {
-          console.error('Error al buscar imágenes del restaurant:', error);
           this.errorMessage = 'No se pudieron obtener las imágenes del restaurant.';
         }
       });
@@ -263,7 +262,6 @@ export class NewRestaurantApiComponent implements OnInit {
     verOpiniones(locationId: string): void {
       this.tripAdvisorService.searchReviews(locationId).subscribe({
         next: (data) => {
-          console.log('Reseñas del restaurante:', data);
     
           // Crear el contenido HTML para mostrar todas las reseñas
           let reviewsHtml = '';
@@ -292,7 +290,6 @@ export class NewRestaurantApiComponent implements OnInit {
           
         },
         error: (error) => {
-          console.error('Error al buscar reseñas del restaurante:', error);
           this.errorMessage = 'No se pudieron obtener las reseñas del restaurante.';
         }
       });

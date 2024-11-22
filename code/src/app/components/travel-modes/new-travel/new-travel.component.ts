@@ -72,7 +72,14 @@ export class NewTravelComponent {
             // Guardamos el viaje en el perfil del usuario
             this.saveToDB(user);
           },
-          error: (err) => console.error('Error al obtener el perfil del usuario:', err)
+          error: (err) => 
+          {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Hubo un problema al guardar el viaje. Inténtalo nuevamente.'
+            });
+          }
         });
 
         // Mostrar mensaje de éxito
@@ -84,7 +91,6 @@ export class NewTravelComponent {
         // Redirigir a la lista de viajes
         this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
       } catch (error) {
-        console.error('Error al guardar el viaje:', error);
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -113,9 +119,6 @@ export class NewTravelComponent {
     // Actualizar el perfil del usuario en la base de datos
     this.userService.updateUser(user).subscribe({
       next: (updatedUser) => {
-        console.log('Usuario actualizado en el servidor:', updatedUser);
-        console.log(updatedUser.travel);
-        console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '');
         // Redirigir al componente de viajes, pasando la información actualizada
         this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
       },

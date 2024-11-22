@@ -292,7 +292,6 @@ export class NewAttractionApiComponent implements OnInit {
 
       },
       error: (error) => {
-        console.error('Error al buscar reseñas de la atracción:', error);
         this.errorMessage = 'No se pudieron obtener las reseñas de la atracción.';
       }
     });

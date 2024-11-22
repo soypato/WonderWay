@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { CurrentUser } from '../../services/current-user.service';
 import { User } from '../../interface/user.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +26,12 @@ export class ProfileComponent implements OnInit {
         this.user = res;
       },
       error: (err) => {
-        console.log(err);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo cargar el perfil del usuario. Intente nuevamente.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
       }
     });
   }

@@ -49,7 +49,6 @@ export class FormLoginComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Error al verificar usuario:', error);
         this.showError('Error al procesar la solicitud.');
       }
     );
@@ -71,7 +70,6 @@ export class FormLoginComponent implements OnInit {
         this.showError('Contraseña incorrecta');
       }
     } catch (error) {
-      console.error('Error al verificar contraseña:', error);
       this.showError('No se pudo verificar la contraseña');
     }
   }
