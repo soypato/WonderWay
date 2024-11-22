@@ -45,7 +45,12 @@ export class ListTravelsComponent implements OnInit {
           this.currentTravel = this.serverUser?.travel || []; // Asegura que sea un array vacío si no hay viajes
         },
         error: (err) => {
-          console.error('Error al cargar el perfil del usuario:', err);
+            console.error('Error al cargar el perfil del usuario:', err);
+            Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al cargar el perfil del usuario. Por favor, inténtelo de nuevo más tarde.',
+            });
         }
       });
     }

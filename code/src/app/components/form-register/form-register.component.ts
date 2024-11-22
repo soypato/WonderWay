@@ -37,7 +37,6 @@ export class FormRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if (!crypto?.subtle) {
-      console.error('El navegador no soporta Web Crypto API.');
       Swal.fire('Error', 'El navegador no soporta la funcionalidad requerida.', 'error');
     }
   }
@@ -70,7 +69,6 @@ export class FormRegisterComponent implements OnInit {
 
   async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {
-      console.log('Formulario válido:', this.registerForm.value);
       const email = this.registerForm.get('email')?.value;
       const password = this.registerForm.get('password')?.value;
 
@@ -103,19 +101,16 @@ export class FormRegisterComponent implements OnInit {
                   this.router.navigate(['/profile']);
                 },
                 error: (error) => {
-                  console.error('Error al registrar usuario:', error);
                   Swal.fire('Error', 'Hubo un problema en el registro', 'error');
                 },
               });
             }
           },
           (error) => {
-            console.error('Error al verificar correo:', error);
             Swal.fire('Error', 'Hubo un problema al verificar el correo', 'error');
           }
         );
       } catch (error) {
-        console.error('Error al encriptar la contraseña:', error);
         Swal.fire('Error', 'No se pudo procesar la contraseña', 'error');
       }
     } else {

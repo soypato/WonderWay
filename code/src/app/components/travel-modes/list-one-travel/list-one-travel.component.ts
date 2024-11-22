@@ -60,7 +60,6 @@ export class ListOneTravelComponent implements OnInit {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
               });
-              console.log('Usuario actualizado:', res);
             },
             error: (err) => {
               Swal.fire({
@@ -69,7 +68,6 @@ export class ListOneTravelComponent implements OnInit {
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
               });
-              console.error('Error al actualizar el usuario:', err);
             }
           });
         }
@@ -117,7 +115,12 @@ export class ListOneTravelComponent implements OnInit {
     if (path) {
       this.router.navigate([path], { state }); // ruta correspondiente y paso el estado / la str
     } else {
-      console.error(`Tipo de servicio no reconocido: ${type}`);
+      Swal.fire({
+        title: 'Error',
+        text: `Tipo de servicio no reconocido: ${type}`,
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   }
 

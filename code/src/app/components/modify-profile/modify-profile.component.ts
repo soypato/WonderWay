@@ -51,7 +51,6 @@ export class ModifyProfileComponent implements OnInit {
           this.currentUser = user;
         },
         error: (err) => {
-          console.error('Error al cargar el perfil del usuario:', err);
           Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -85,7 +84,6 @@ export class ModifyProfileComponent implements OnInit {
       const decodedPassword = new TextDecoder().decode(decryptedData);
       return decodedPassword === enteredPassword;
     } catch (error) {
-      console.error('Error al desencriptar la contraseña:', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -110,7 +108,6 @@ export class ModifyProfileComponent implements OnInit {
       result.set(new Uint8Array(encryptedData), iv.length);
       return btoa(String.fromCharCode(...result));
     } catch (error) {
-      console.error('Error durante la encriptación:', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -168,7 +165,6 @@ export class ModifyProfileComponent implements OnInit {
           this.profileForm.reset();
         },
         error: (err) => {
-          console.error('Error al actualizar el perfil:', err);
           Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -218,7 +214,6 @@ export class ModifyProfileComponent implements OnInit {
             this.passwordForm.reset();
           },
           error: (err) => {
-            console.error('Error al actualizar la contraseña:', err);
             Swal.fire({
               icon: 'error',
               title: 'Error',
@@ -227,7 +222,6 @@ export class ModifyProfileComponent implements OnInit {
           },
         });
       } catch (error) {
-        console.error('Error al encriptar la nueva contraseña:', error);
         Swal.fire({
           icon: 'error',
           title: 'Error',

@@ -41,16 +41,18 @@ export class FreeMode{
     this.services = [];
 
     const { searchQuery, categoria } = this.searchForm.value;
-    console.log(categoria);
-    console.log(searchQuery);
 
     this.tripAdvisorService.searchLocations(searchQuery, categoria).subscribe({
       next: (data) => {
-        console.log(data)
         this.services = data.data; // Asignar los resultados a la variable restaurants
       },
       error: (error) => {
-        console.error('Error al buscar:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudieron obtener los resultados de la búsqueda.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
       }
     });
   }
@@ -103,7 +105,6 @@ export class FreeMode{
           icon: 'error',
           confirmButtonText: 'Aceptar',
         });
-        console.error('Error al buscar detalles:', error);
       },
     });
   }
@@ -115,7 +116,6 @@ export class FreeMode{
     // Llamamos al servicio para obtener las imágenes del restaurante
     this.tripAdvisorService.searchImages(locationId).subscribe({
       next: (data) => {
-        console.log('Imágenes:', data);
         this.selectedServiceImages = data.data; // Guardamos las imágenes obtenidas
   
         // Creamos el contenido HTML con el carrusel
@@ -190,7 +190,6 @@ export class FreeMode{
         });
       },
       error: (error) => {
-        console.error('Error al buscar imágenes:', error);
         this.errorMessage = 'No se pudieron obtener las imágenes.';
       }
     });
@@ -200,7 +199,6 @@ export class FreeMode{
   verOpiniones(locationId: string): void {
     this.tripAdvisorService.searchReviews(locationId).subscribe({
       next: (data) => {
-        console.log('Reseñas:', data);
   
         // Crear el contenido HTML para mostrar todas las reseñas
         let reviewsHtml = '';
@@ -229,7 +227,6 @@ export class FreeMode{
         
       },
       error: (error) => {
-        console.error('Error al buscar reseñas:', error);
         this.errorMessage = 'No se pudieron obtener las reseñas.';
       }
     });
