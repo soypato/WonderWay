@@ -88,3 +88,19 @@
     color: #333;
   }
 
+  .search
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search > *
+  {
+    width: 100%;
+  }
+
+  #categoria
+  {
+    height: 4rem;
+  }

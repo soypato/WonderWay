@@ -1,9 +1,9 @@
 <div class="main-parent-container freemode-container">
   <div class="profile-container main-child-container">
     <h2>Modo libre</h2>
-    <p>Sientete libre de buscar e investigar opciones de servicios a lo largo de todo el mundo</p>
+    <p>Sientete libre de buscar servicios a lo largo de todo el mundo.</p>
 
-    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <form id="freemode-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
       <div class="search-section" class="search">
         <input
           type="text"
@@ -13,6 +13,7 @@
           required
         />
         <select name="categoria" id="categoria" formControlName="categoria">
+          <option value="" disabled selected>Seleccione un servicio</option>
           <option value="restaurants">Restaurantes</option>
           <option value="hotels">Hoteles</option>
           <option value="attractions">Atracciones</option>
