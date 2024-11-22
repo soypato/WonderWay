@@ -10,6 +10,7 @@
     background-position: center;
     filter: brightness(0.7);
     z-index: -1; /* Para asegurar que esté detrás del contenido */
+    min-height: 100vh;
 }
 
 
