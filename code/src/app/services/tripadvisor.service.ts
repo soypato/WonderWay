@@ -9,9 +9,6 @@ import { tripkey } from "../../../../../tripkey";
 export class TripadvisorService {
   private apiKey = tripkey.token;
   private baseUrl = '/api/v1/location/search';
-  private detailsUrl = '/api/v1/location/details';
-  private imageUrl = '/api.content.tripadvisor.com/api/v1/location/photos';  
-  private reviewsUrl = '/api.content.tripadvisor.com/api/v1/location/reviews';
 
 
   constructor(private http: HttpClient) {}
@@ -49,8 +46,7 @@ export class TripadvisorService {
   }
 
   searchDetails(locationId: string): Observable<any> {
-    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details`;    
-    console.log(this.detailsUrl);
+    const url = `/api/v1/location/${locationId}/details`;    
     const headers = new HttpHeaders({
       accept: 'application/json',
     });
@@ -69,7 +65,7 @@ export class TripadvisorService {
   }
   
   searchImages(locationId: string): Observable<any> {
-    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/photos`;  
+    const url = `/api/v1/location/${locationId}/photos`;  
     const headers = new HttpHeaders({
       accept: 'application/json',
     });
@@ -88,7 +84,7 @@ export class TripadvisorService {
   }
   
   searchReviews(locationId: string): Observable<any> {
-    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/reviews`;  
+    const url = `/api/v1/location/${locationId}/reviews`;  
     const headers = new HttpHeaders({
       accept: 'application/json',
     });
