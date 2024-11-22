@@ -171,17 +171,17 @@ export class NewAttractionApiComponent implements OnInit {
         }
     ]
 
-    this.attractions = attractionsJson;
+    //this.attractions = attractionsJson;
 
-    // this.tripAdvisorService.searchLocations(searchQuery, 'attractions').subscribe({
-    //   next: (data) => {
-    //     console.log(data)
-    //     this.attractions = data.data; // Asignar los resultados a la variable restaurants
-    //   },
-    //   error: (error) => {
-    //     console.error('Error al buscar restaurantes:', error);
-    //   }
-    // });
+    this.tripAdvisorService.searchLocations(searchQuery, 'attractions').subscribe({
+      next: (data) => {
+        console.log(data)
+        this.attractions = data.data; // Asignar los resultados a la variable restaurants
+      },
+      error: (error) => {
+        console.error('Error al buscar restaurantes:', error);
+      }
+    });
   }
 
     agregarViaje(attraction : any) : void

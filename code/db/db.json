@@ -654,17 +654,6 @@
               "review": "Sin reseña disponible"
             },
             {
-              "id": 305499,
-              "type": "hotel",
-              "name": "4. Hotel Costa Galana",
-              "location": "Free breakfast available",
-              "price": 292,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
               "id": 308183,
               "type": "hotel",
               "name": "10. Bristol Apart Hotel",
@@ -763,6 +752,36 @@
               ],
               "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/91/96/21/la-esquina-de-pichincha.jpg?w=200&h=200&s=1",
               "review": "Sin reseña disponible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "180b",
+      "name": "PatoSeLaCome",
+      "email": "juanmaaciardi@gmail.com",
+      "password": "bDHgx6gTQ6VGXE9oihdQhpGkw7nsOiOoEV9vd9b/R+OmeST01w==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Sysakar07",
+          "location": "aca",
+          "startDate": "2024-11-22",
+          "endDate": "2024-11-30",
+          "services": [
+            {
+              "location_id": "306891",
+              "type": "hotel",
+              "name": "Hilton Buenos Aires",
+              "address_obj": {
+                "street1": "Ave Macacha Guemes 351",
+                "city": "Buenos Aires",
+                "country": "Argentina",
+                "postalcode": "C1106BKG",
+                "address_string": "Ave Macacha Guemes 351, Buenos Aires C1106BKG Argentina"
+              }
             }
           ]
         }

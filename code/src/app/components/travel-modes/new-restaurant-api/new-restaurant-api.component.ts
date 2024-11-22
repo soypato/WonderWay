@@ -94,8 +94,8 @@ export class NewRestaurantApiComponent implements OnInit {
       this.usersDB.updateUser(this.updatedUser).subscribe
       (
         {
-          next: (res) => console.log(res),
-          error: (err) => console.log(err)
+          next: (res) => {},
+          error: (err) => {}
         }
       );
     }
@@ -109,6 +109,6 @@ export class NewRestaurantApiComponent implements OnInit {
           country: restaurant.address_obj?.country  || 'País desconocido', // País
           postalCode: restaurant.address_obj?.postalcode || 'Sin código postal', // Código postal
       };
-  }
+    }
 
 }

@@ -8,7 +8,7 @@ import { tripkey } from "../../../../../tripkey";
 })
 export class TripadvisorService {
   private apiKey = tripkey.token;
-  private baseUrl = '/api/v1/location/search'; 
+  private baseUrl = 'https://api.content.tripadvisor.com/api/v1/location/search'; 
 
   constructor(private http: HttpClient) {}
 
