@@ -19,25 +19,20 @@
           <p>📖 Código postal: {{ serv.postalCode }}</p>
         </div>
 
-        <!-- Hoteles -->
-        <div *ngIf="isHotel(serv)">
-          <h3>🏨 Hotel | {{ serv.name }}</h3>
-          <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
-          <p>🌍 País | {{ serv.address_obj.country }}</p>
-          <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
-        </div>
+        <!-- Atracciones -->
+          <div *ngIf="isAttraction(serv)">
+            <h3>🏨 Atracción | {{ serv.name }}</h3>
+            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+            <p>🌍 País | {{ serv.address_obj.country }}</p>
+            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
+          </div>
 
-        <!-- Vuelos -->
-           <!-- Hoteles -->
-           <div *ngIf="isFlight(serv)">
-            <h3>✈️ Vuelo | {{ serv.operatingCarrier }} (Vuelo {{ serv.flightNumber }})</h3>
-            <p>📍 Origen: {{ serv.originAirportCode }} → Destino: {{ serv.destinationAirportCode }}</p>
-            <p>🕒 Salida: {{ serv.travelDate | date:'short' }}</p>
-            <p>🕓 Llegada: {{ serv.returnDate | date:'short' }}</p>
-            <p>⏳ Duración: {{ serv.duration }} minutos</p>
-            <p>🔴 Escalas: {{ serv.scale }}</p>
-            <p>💼 Clase: {{ serv.class }}</p>
-            <p>🌍 Internacional: {{ serv.isInternational ? 'Sí' : 'No' }}</p>
+        <!-- Hoteles -->
+          <div *ngIf="isHotel(serv)">
+            <h3>🏨 Hotel | {{ serv.name }}</h3>
+            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+            <p>🌍 País | {{ serv.address_obj.country }}</p>
+            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
           </div>
 
         <article class="menu-buttons vertical">

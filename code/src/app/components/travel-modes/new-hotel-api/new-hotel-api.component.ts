@@ -170,7 +170,7 @@ export class NewHotelApiComponent implements OnInit {
     // this.tripAdvisorService.searchLocations(searchQuery, 'hotels').subscribe({
     //   next: (data) => {
     //     console.log(data)
-    //     this.restaurants = data.data; // Asignar los resultados a la variable restaurants
+    //     this.hotels = data.data; // Asignar los resultados a la variable restaurants
     //   },
     //   error: (error) => {
     //     console.error('Error al buscar restaurantes:', error);

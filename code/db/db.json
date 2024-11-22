@@ -356,6 +356,42 @@
                 "country": "Spain",
                 "address_string": "Madrid Spain"
               }
+            },
+            {
+              "location_id": "190146",
+              "name": "Royal Palace of Madrid",
+              "type": "attraction",
+              "address_obj": {
+                "street1": "Calle de Bailen s/n",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28071",
+                "address_string": "Calle de Bailen s/n, 28071 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "286503",
+              "name": "Parque Warner Madrid",
+              "type": "attraction",
+              "address_obj": {
+                "street1": "Autovia A-4, Exit 22",
+                "city": "San Martin de la Vega",
+                "country": "Spain",
+                "postalcode": "28330",
+                "address_string": "Autovia A-4, Exit 22, 28330 San Martin de la Vega Spain"
+              }
+            },
+            {
+              "location_id": "1419410",
+              "type": "attraction",
+              "name": "IFEMA Convention Center - Feria de Madrid",
+              "address_obj": {
+                "street1": "",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "",
+                "address_string": "Madrid Spain"
+              }
             }
           ]
         }

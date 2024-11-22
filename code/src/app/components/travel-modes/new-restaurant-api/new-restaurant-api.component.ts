@@ -59,15 +59,15 @@ export class NewRestaurantApiComponent implements OnInit {
 
     const { searchQuery } = this.searchForm.value;
 
-    this.tripAdvisorService.searchLocations(searchQuery, 'restaurants').subscribe({
-      next: (data) => {
-        console.log(data)
-        this.restaurants = data.data; // Asignar los resultados a la variable restaurants
-      },
-      error: (error) => {
-        console.error('Error al buscar restaurantes:', error);
-      }
-    });
+    // this.tripAdvisorService.searchLocations(searchQuery, 'restaurants').subscribe({
+    //   next: (data) => {
+    //     console.log(data)
+    //     this.restaurants = data.data; // Asignar los resultados a la variable restaurants
+    //   },
+    //   error: (error) => {
+    //     console.error('Error al buscar restaurantes:', error);
+    //   }
+    // });
   }
 
     agregarViaje(restaurant : any) : void
