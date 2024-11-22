@@ -208,10 +208,10 @@ export class FreeMode{
           reviewsHtml += `
             <div style="margin-bottom: 20px;">
               <h5>${review.title}</h5>
-              <p><strong>Rating:</strong> <img src="${review.rating_image_url}" alt="Rating" /> (${review.rating} stars)</p>
-              <p><strong>Review by:</strong> ${review.user.username}</p>
-              <p><strong>Review:</strong> ${review.text}</p>
-              <a href="${review.url}" target="_blank">Read more</a>
+              <p><strong>⭐ Calificación:</strong> <img src="${review.rating_image_url}" alt="Rating" /> (${review.rating} estrellas)</p>
+              <p><strong>🙋 Usuario:</strong> ${review.user.username}</p>
+              <p><strong>🖊️ Reseña:</strong> ${review.text}</p>
+              <a href="${review.url}" class="button-main" target="_blank">Más información</a>
               <hr />
             </div>
           `;
