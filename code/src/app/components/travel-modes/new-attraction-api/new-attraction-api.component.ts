@@ -172,45 +172,69 @@ export class NewAttractionApiComponent implements OnInit {
   }
 
 
-// Función para obtener imágenes de un restaurante seleccionado y mostrarlas en un SweetAlert
   verImagenes(locationId: string): void {
     // Llamamos al servicio para obtener las imágenes del restaurante
     this.tripAdvisorService.searchImages(locationId).subscribe({
       next: (data) => {
         console.log('Imágenes de la atracción:', data);
         this.selectedAttractionImages = data.data; // Guardamos las imágenes obtenidas
-
-        // Creamos el contenido HTML con tabla y estilos
+  
+        // Creamos el contenido HTML con el carrusel
         let imagesHtml = '<p>No hay imágenes disponibles.</p>';
-
+  
         if (this.selectedAttractionImages.length > 0) {
-          imagesHtml = `
-          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-            <thead style="background-color: #f4f4f4; font-weight: bold;">
-              <tr>
-                <th style="padding: 8px; text-align: left;">Imagen</th>
-                <th style="padding: 8px; text-align: left;">Descripción</th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
-
-          this.selectedAttractionImages.forEach((image: any) => {
-            const imageUrl = image.images?.original?.url || image.images?.large?.url || image.images?.medium?.url || image.images?.small?.url; // Usamos la imagen pequeña o mediana
-            imagesHtml += `
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 10px; text-align: center;">
-                <img src="${imageUrl}" alt="${image.caption}" style="width: 50vh; height: auto;">
-              </td>
-              <td style="padding: 10px;">${image.caption}</td>
-            </tr>
-          `;
+          let carouselItems = '';
+          let indicators = '';
+  
+          this.selectedAttractionImages.forEach((image: any, index: number) => {
+            // Accedemos a la URL de la imagen más grande disponible
+            const imageUrl = image.images?.original?.url || image.images?.large?.url || image.images?.medium?.url || image.images?.small?.url;
+  
+            // Aseguramos que la imagen tenga una URL válida
+            if (!imageUrl) {
+              return; // Si no hay URL, no mostramos esta imagen
+            }
+  
+            // Verificamos si la imagen tiene una descripción
+            const caption = image.caption || 'Sin descripción disponible'; // Si no tiene caption, mostramos un texto predeterminado
+  
+            // Crear cada item del carrusel
+            carouselItems += `
+              <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${imageUrl}" alt="${caption}" class="d-block w-100" style="height: 800px; object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                  <p>${caption}</p>
+                </div>
+              </div>
+            `;
+  
+            // Crear cada indicador
+            indicators += `
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
+            `;
           });
-
-          imagesHtml += '</tbody></table>';
+  
+          imagesHtml = `
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                ${indicators}
+              </div>
+              <div class="carousel-inner">
+                ${carouselItems}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          `;
         }
-
-        // Mostrar SweetAlert con las imágenes en una tabla
+  
+        // Mostrar SweetAlert con el carrusel de imágenes
         Swal.fire({
           title: 'Imágenes de la atracción',
           html: imagesHtml,
@@ -218,6 +242,12 @@ export class NewAttractionApiComponent implements OnInit {
           confirmButtonText: 'Aceptar',
           width: '80%',
           heightAuto: true,
+          didOpen: () => {
+            // Aquí podemos cargar el script de Bootstrap para manejar el carrusel si no está cargado
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
+            document.head.appendChild(script);
+          }
         });
       },
       error: (error) => {
@@ -226,6 +256,7 @@ export class NewAttractionApiComponent implements OnInit {
       }
     });
   }
+  
 
 
   // Función para obtener reseñas de un restaurante seleccionado y mostrarlas en un SweetAlert

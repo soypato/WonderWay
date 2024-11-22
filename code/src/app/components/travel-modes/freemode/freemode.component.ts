@@ -50,7 +50,7 @@ export class FreeMode{
         this.services = data.data; // Asignar los resultados a la variable restaurants
       },
       error: (error) => {
-        console.error('Error al buscar restaurantes:', error);
+        console.error('Error al buscar:', error);
       }
     });
   }
@@ -90,7 +90,7 @@ export class FreeMode{
         `;
   
         Swal.fire({
-          title: 'Detalles del Hotel',
+          title: 'Detalles',
           html: message,
           icon: 'info',
           confirmButtonText: 'Aceptar',
@@ -99,7 +99,7 @@ export class FreeMode{
       error: (error) => {
         Swal.fire({
           title: 'Error',
-          text: 'No se pudieron obtener los detalles del hotel.',
+          text: 'No se pudieron obtener los detalles.',
           icon: 'error',
           confirmButtonText: 'Aceptar',
         });
@@ -115,36 +115,83 @@ export class FreeMode{
     // Llamamos al servicio para obtener las imágenes del restaurante
     this.tripAdvisorService.searchImages(locationId).subscribe({
       next: (data) => {
-        console.log('Imágenes del hotel:', data);
+        console.log('Imágenes:', data);
         this.selectedServiceImages = data.data; // Guardamos las imágenes obtenidas
   
-        // Ahora mostramos las imágenes en un alert
-        let imagesHtml = 'No hay imágenes disponibles';
+        // Creamos el contenido HTML con el carrusel
+        let imagesHtml = '<p>No hay imágenes disponibles.</p>';
   
         if (this.selectedServiceImages.length > 0) {
-          imagesHtml = ''; // Limpiamos el mensaje si hay imágenes
-          this.selectedServiceImages.forEach((image: any) => {
-            const imageUrl = image.images?.small?.url || image.images?.medium?.url; // Usamos la imagen pequeña o mediana
-            imagesHtml += `
-              <div>
-                <img src="${imageUrl}" alt="${image.caption}" style="width: 150px; height: auto; margin-right: 10px;">
-                <strong>${image.caption}</strong> <em>(${image.album})</em>
+          let carouselItems = '';
+          let indicators = '';
+  
+          this.selectedServiceImages.forEach((image: any, index: number) => {
+            // Accedemos a la URL de la imagen más grande disponible
+            const imageUrl = image.images?.original?.url || image.images?.large?.url || image.images?.medium?.url || image.images?.small?.url;
+  
+            // Aseguramos que la imagen tenga una URL válida
+            if (!imageUrl) {
+              return; // Si no hay URL, no mostramos esta imagen
+            }
+  
+            // Verificamos si la imagen tiene una descripción
+            const caption = image.caption || 'Sin descripción disponible'; // Si no tiene caption, mostramos un texto predeterminado
+  
+            // Crear cada item del carrusel
+            carouselItems += `
+              <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${imageUrl}" alt="${caption}" class="d-block w-100" style="height: 800px; object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                  <p>${caption}</p>
+                </div>
               </div>
             `;
+  
+            // Crear cada indicador
+            indicators += `
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
+            `;
           });
+  
+          imagesHtml = `
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                ${indicators}
+              </div>
+              <div class="carousel-inner">
+                ${carouselItems}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          `;
         }
   
-        // Mostrar el alert con las imágenes
+        // Mostrar SweetAlert con el carrusel de imágenes
         Swal.fire({
-          title: 'Imágenes del Hotel',
+          title: 'Imágenes',
           html: imagesHtml,
           icon: 'info',
           confirmButtonText: 'Aceptar',
+          width: '80%',
+          heightAuto: true,
+          didOpen: () => {
+            // Aquí podemos cargar el script de Bootstrap para manejar el carrusel si no está cargado
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
+            document.head.appendChild(script);
+          }
         });
       },
       error: (error) => {
-        console.error('Error al buscar imágenes del restaurante:', error);
-        this.errorMessage = 'No se pudieron obtener las imágenes del restaurante.';
+        console.error('Error al buscar imágenes:', error);
+        this.errorMessage = 'No se pudieron obtener las imágenes.';
       }
     });
   }
@@ -153,7 +200,7 @@ export class FreeMode{
   verOpiniones(locationId: string): void {
     this.tripAdvisorService.searchReviews(locationId).subscribe({
       next: (data) => {
-        console.log('Reseñas del hotel:', data);
+        console.log('Reseñas:', data);
   
         // Crear el contenido HTML para mostrar todas las reseñas
         let reviewsHtml = '';
@@ -172,7 +219,7 @@ export class FreeMode{
   
         // Mostrar SweetAlert con todas las reseñas
         Swal.fire({
-          title: 'Reseñas del hotel',
+          title: 'Reseñas',
           html: reviewsHtml,
           showCloseButton: true,
           showConfirmButton: false,
@@ -182,8 +229,8 @@ export class FreeMode{
         
       },
       error: (error) => {
-        console.error('Error al buscar reseñas del restaurante:', error);
-        this.errorMessage = 'No se pudieron obtener las reseñas del restaurante.';
+        console.error('Error al buscar reseñas:', error);
+        this.errorMessage = 'No se pudieron obtener las reseñas.';
       }
     });
   }
