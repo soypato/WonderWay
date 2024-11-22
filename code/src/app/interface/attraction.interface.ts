@@ -1,4 +1,4 @@
-export interface Hotel {
+export interface Attraction {
     location_id: string;
     type: string,
     name: string;

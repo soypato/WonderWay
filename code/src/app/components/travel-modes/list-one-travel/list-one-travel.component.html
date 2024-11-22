@@ -14,32 +14,25 @@
         <!-- Restaurantes -->
         <div *ngIf="isRestaurant(serv)">
           <h3>🥪 Restaurant | {{ serv.name }}</h3>
-          <p>📌 Ubicación | {{ serv.location }}</p>
-          <p>⭐ Calificación | {{ serv.qualification }} estrellas</p>
-          <p>📖 Reseña: {{ serv.review }}</p>
-          <p>🍽️ Tipo de cocina: {{ serv.cuisine }}</p>
+          <p>📌 Ubicación | {{ serv.street }}</p>
+          <p>⭐ País | {{ serv.country }}</p>
+          <p>📖 Código postal: {{ serv.postalCode }}</p>
         </div>
+
+        <!-- Atracciones -->
+          <div *ngIf="isAttraction(serv)">
+            <h3>🏨 Atracción | {{ serv.name }}</h3>
+            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+            <p>🌍 País | {{ serv.address_obj.country }}</p>
+            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
+          </div>
 
         <!-- Hoteles -->
-        <div *ngIf="isHotel(serv)">
-          <h3>🏨 Hotel | {{ serv.name }}</h3>
-          <p>📌 Ubicación | {{ serv.location }}</p>
-          <p>💰 Precio: ${{ serv.price }}</p>
-          <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
-
-        </div>
-
-        <!-- Vuelos -->
-           <!-- Hoteles -->
-           <div *ngIf="isFlight(serv)">
-            <h3>✈️ Vuelo | {{ serv.operatingCarrier }} (Vuelo {{ serv.flightNumber }})</h3>
-            <p>📍 Origen: {{ serv.originAirportCode }} → Destino: {{ serv.destinationAirportCode }}</p>
-            <p>🕒 Salida: {{ serv.travelDate | date:'short' }}</p>
-            <p>🕓 Llegada: {{ serv.returnDate | date:'short' }}</p>
-            <p>⏳ Duración: {{ serv.duration }} minutos</p>
-            <p>🔴 Escalas: {{ serv.scale }}</p>
-            <p>💼 Clase: {{ serv.class }}</p>
-            <p>🌍 Internacional: {{ serv.isInternational ? 'Sí' : 'No' }}</p>
+          <div *ngIf="isHotel(serv)">
+            <h3>🏨 Hotel | {{ serv.name }}</h3>
+            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+            <p>🌍 País | {{ serv.address_obj.country }}</p>
+            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
           </div>
 
         <article class="menu-buttons vertical">
@@ -57,8 +50,8 @@
       <button (click)="addService('restaurant')" class="button-main">
         <i class="fas fa-utensils"></i> Agregar restaurant
       </button>
-      <button (click)="addService('flight')" class="button-main">
-        <i class="fas fa-plane"></i> Agregar vuelo
+      <button (click)="addService('attraction')" class="button-main">
+        <i class="fas fa-person"></i> Agregar atracción
       </button>
     </div>
     <button (click)="print()" class="button-main" id="print">

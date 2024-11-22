@@ -274,95 +274,148 @@
           "startDate": "2000-12-12",
           "services": [
             {
-              "duration": 75,
-              "type": "flight",
-              "originAirportCode": "MAD",
-              "destinationAirportCode": "BCN",
-              "travelDate": "2024-11-28T22:35:00+01:00",
-              "returnDate": "2024-11-28T23:50:00+01:00",
-              "scale": 0,
-              "class": "ECONOMY",
-              "flightNumber": 1009,
-              "operatingCarrier": "Vueling",
-              "marketingCarrier": "Vueling",
-              "amenities": [],
-              "isInternational": false,
-              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
-            },
-            {
-              "duration": 75,
-              "type": "flight",
-              "originAirportCode": "MAD",
-              "destinationAirportCode": "BCN",
-              "travelDate": "2024-11-28T22:35:00+01:00",
-              "returnDate": "2024-11-28T23:50:00+01:00",
-              "scale": 0,
-              "class": "ECONOMY",
-              "flightNumber": 1009,
-              "operatingCarrier": "Vueling",
-              "marketingCarrier": "Vueling",
-              "amenities": [],
-              "isInternational": false,
-              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|816&area=FLTCenterColumn|1|1|ItinList|3|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4687&totalPricePerPassenger=45.97"
-            },
-            {
-              "duration": 75,
-              "type": "flight",
-              "originAirportCode": "MAD",
-              "destinationAirportCode": "BCN",
-              "travelDate": "2024-11-28T06:45:00+01:00",
-              "returnDate": "2024-11-28T08:00:00+01:00",
-              "scale": 0,
-              "class": "ECONOMY",
-              "flightNumber": 401,
-              "operatingCarrier": "Iberia",
-              "marketingCarrier": "Iberia",
-              "amenities": [],
-              "isInternational": false,
-              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|438&area=FLTCenterColumn|1|1|ItinList|4|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4688&totalPricePerPassenger=56.97"
-            },
-            {
-              "id": 5419112,
+              "name": "Los Montes de Galicia",
               "type": "restaurant",
-              "name": "Cantábrico",
-              "location": "Mar del Plata",
-              "qualification": 4.5,
-              "cuisine": [
-                "Seafood",
-                "Mediterranean",
-                "Spanish",
-                "Argentinean",
-                "Basque"
-              ],
-              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/6e/25/8f/caption.jpg?w=200&h=200&s=1",
-              "review": "Sin reseña disponible"
+              "street": "Calle Azcona 46",
+              "city": "Madrid",
+              "country": "España",
+              "postalCode": "28028"
             },
             {
-              "id": 10031454,
+              "name": "Entre Santos Cocktail Bar & Food",
               "type": "restaurant",
-              "name": "Yin & Toni",
-              "location": "Mar del Plata",
-              "qualification": 5,
-              "cuisine": [
-                "African",
-                "Middle Eastern",
-                "Argentinean"
-              ],
-              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/55/a9/e0/global-nomads.jpg?w=200&h=200&s=1",
-              "review": "Sin reseña disponible"
+              "street": "Calle de San Bartolomè 4",
+              "city": "Madrid",
+              "country": "España",
+              "postalCode": "28004"
             },
             {
-              "id": 8093257,
-              "type": "restaurant",
-              "name": "A La Que Te Criaste",
-              "location": "Mar del Plata",
-              "qualification": 4.5,
-              "cuisine": [
-                "Spanish",
-                "Argentinean"
-              ],
-              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
-              "review": "Sin reseña disponible"
+              "location_id": "190146",
+              "type": "hotel",
+              "name": "Royal Palace of Madrid",
+              "address_obj": {
+                "street1": "Calle de Bailen s/n",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28071",
+                "address_string": "Calle de Bailen s/n, 28071 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "7309373",
+              "type": "hotel",
+              "name": "The Principal Madrid",
+              "address_obj": {
+                "street1": "Calle Marques De Valdeiglesias, 1",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28004",
+                "address_string": "Calle Marques De Valdeiglesias, 1, 28004 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "4719800",
+              "type": "hotel",
+              "name": "Only YOU Boutique Hotel Madrid",
+              "address_obj": {
+                "street1": "Calle del Barquillo 21",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28004",
+                "address_string": "Calle del Barquillo 21, 28004 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "11452855",
+              "type": "hotel",
+              "name": "Madrid Tapas and Wine Tasting Tour",
+              "address_obj": {
+                "city": "Madrid",
+                "country": "Spain",
+                "address_string": "Madrid Spain"
+              }
+            },
+            {
+              "location_id": "12877674",
+              "type": "hotel",
+              "name": "BLESS Hotel Madrid",
+              "address_obj": {
+                "street1": "Calle Velazquez 62",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28001",
+                "address_string": "Calle Velazquez 62, 28001 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "11464757",
+              "type": "hotel",
+              "name": "Madrid Highlights Bike Tour",
+              "address_obj": {
+                "city": "Madrid",
+                "country": "Spain",
+                "address_string": "Madrid Spain"
+              }
+            },
+            {
+              "location_id": "190146",
+              "name": "Royal Palace of Madrid",
+              "type": "attraction",
+              "address_obj": {
+                "street1": "Calle de Bailen s/n",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28071",
+                "address_string": "Calle de Bailen s/n, 28071 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "286503",
+              "name": "Parque Warner Madrid",
+              "type": "attraction",
+              "address_obj": {
+                "street1": "Autovia A-4, Exit 22",
+                "city": "San Martin de la Vega",
+                "country": "Spain",
+                "postalcode": "28330",
+                "address_string": "Autovia A-4, Exit 22, 28330 San Martin de la Vega Spain"
+              }
+            },
+            {
+              "location_id": "1419410",
+              "type": "attraction",
+              "name": "IFEMA Convention Center - Feria de Madrid",
+              "address_obj": {
+                "street1": "",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "",
+                "address_string": "Madrid Spain"
+              }
+            },
+            {
+              "location_id": "190146",
+              "type": "hotel",
+              "name": "Royal Palace of Madrid",
+              "address_obj": {
+                "street1": "Calle de Bailen s/n",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28071",
+                "address_string": "Calle de Bailen s/n, 28071 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "7309373",
+              "type": "hotel",
+              "name": "The Principal Madrid",
+              "address_obj": {
+                "street1": "Calle Marques De Valdeiglesias, 1",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28004",
+                "address_string": "Calle Marques De Valdeiglesias, 1, 28004 Madrid Spain"
+              }
             }
           ]
         }
@@ -601,17 +654,6 @@
               "review": "Sin reseña disponible"
             },
             {
-              "id": 305499,
-              "type": "hotel",
-              "name": "4. Hotel Costa Galana",
-              "location": "Free breakfast available",
-              "price": 292,
-              "qualification": 4.5,
-              "checkIn": 0,
-              "checkOut": 0,
-              "rooms": 0
-            },
-            {
               "id": 308183,
               "type": "hotel",
               "name": "10. Bristol Apart Hotel",
@@ -710,6 +752,48 @@
               ],
               "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/91/96/21/la-esquina-de-pichincha.jpg?w=200&h=200&s=1",
               "review": "Sin reseña disponible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "180b",
+      "name": "PatoSeLaCome",
+      "email": "juanmaaciardi@gmail.com",
+      "password": "bDHgx6gTQ6VGXE9oihdQhpGkw7nsOiOoEV9vd9b/R+OmeST01w==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Sysakar07",
+          "location": "aca",
+          "startDate": "2024-11-22",
+          "endDate": "2024-11-30",
+          "services": [
+            {
+              "location_id": "1444306",
+              "type": "hotel",
+              "name": "Eurobuilding Hotel Boutique Buenos Aires",
+              "address_obj": {
+                "street1": "Lima 187",
+                "city": "Buenos Aires",
+                "country": "Argentina",
+                "postalcode": "C1073",
+                "address_string": "Lima 187, Buenos Aires C1073 Argentina"
+              }
+            },
+            {
+              "location_id": "306891",
+              "type": "hotel",
+              "name": "Hilton Buenos Aires",
+              "address_obj": {
+                "street1": "Ave Macacha Guemes 351",
+                "city": "Buenos Aires",
+                "country": "Argentina",
+                "postalcode": "C1106BKG",
+                "address_string": "Ave Macacha Guemes 351, Buenos Aires C1106BKG Argentina"
+              }
             }
           ]
         }
