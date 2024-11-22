@@ -1,18 +1,74 @@
-  <div class="freemode-container">
-    <h2>Explora el mundo en Modo Libre</h2>
-    <p>Busca hoteles, restaurantes y vuelos sin necesidad de crear un viaje.</p>
-  
-    <div class="search-section">
-      <input type="text" placeholder="Buscar destino..." class="search-input" />
-      <button class="search-button">Buscar</button>
-    </div>
-  
-    <div class="results-section">
-      <!-- Aquí puedes utilizar *ngFor para iterar sobre los resultados de hoteles, restaurantes o vuelos -->
-      <div class="result-item" *ngFor="let item of results">
-        <h3>{{ item.name }}</h3>
-        <p>{{ item.description }}</p>
+<div class="main-parent-container freemode-container">
+  <div class="profile-container main-child-container">
+    <h2>Modo libre</h2>
+    <p>Sientete libre de buscar e investigar opciones de servicios a lo largo de todo el mundo</p>
+
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="search-section" class="search">
+        <input
+          type="text"
+          class="search-input"
+          formControlName="searchQuery"
+          placeholder="Escribe la ciudad"
+          required
+        />
+        <select name="categoria" id="categoria" formControlName="categoria">
+          <option value="restaurant">Restaurantes</option>
+          <option value="hotel">Hoteles</option>
+          <option value="attraction">Atracciones</option>
+        </select>
+        <button class="button-main" type="submit" [disabled]="searchForm.invalid">
+          <i class="fas fa-search"> Buscar</i>
+        </button>
       </div>
+    </form>
+
+    <div class="results-section" *ngIf="services.length > 0" id="restaurants-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>País</th>
+            <th>Ver detalles</th>
+            <th>Ver imagenes</th>
+            <th>Ver opiniones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of services">
+            <td>{{ service.name }}</td>
+            <td>{{ service.address_obj.street1 }}</td>
+            <td>{{ service.address_obj.city }}</td>
+            <td>{{ service.address_obj.country }}</td>
+            <td>
+              <button class="button-main" (click)="verDetalles(service.location_id)">
+                <i class="fas fa-plus"></i> detalles
+              </button>
+              <td>
+                <button class="button-main" (click)="verImagenes(service.location_id)">
+                  <i class="fas fa-plus"></i> Imagenes
+                </button>
+                </td>
+                <td>
+                  <button class="button-main" (click)="verOpiniones(service.location_id)">
+                    <i class="fas fa-plus"></i> opiniones
+                  </button>
+                  </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="isLoading">
+      <span class="loader"></span>
+  </div>
+
+    <div *ngIf="errorMessage" class="results-section">
+      <p class="error">{{ errorMessage }}</p>
     </div>
   </div>
+</div>
+
   
