@@ -25,6 +25,9 @@
               <th>Dirección</th>
               <th>Ciudad</th>
               <th>País</th>
+              <th>Ver detalles</th>
+              <th>Ver imagenes</th>
+              <th>Ver opiniones</th>
               <th>Agregar</th>
             </tr>
           </thead>
@@ -34,6 +37,20 @@
               <td>{{ hotel.address_obj.street1 }}</td>
               <td>{{ hotel.address_obj.city }}</td>
               <td>{{ hotel.address_obj.country }}</td>
+              <td>
+                <button class="button-main" (click)="verDetalles(hotel.location_id)">
+                  <i class="fas fa-plus"></i> detalles
+                </button>
+                <td>
+                  <button class="button-main" (click)="verImagenes(hotel.location_id)">
+                    <i class="fas fa-plus"></i> Imagenes
+                  </button>
+                  </td>
+                  <td>
+                    <button class="button-main" (click)="verOpiniones(hotel.location_id)">
+                      <i class="fas fa-plus"></i> opiniones
+                    </button>
+                    </td>
               <td>
                 <button class="button-main" (click)="agregarViaje(hotel)">
                   <i class="fas fa-plus"></i> Agregar
