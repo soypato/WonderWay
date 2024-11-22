@@ -794,6 +794,30 @@
                 "postalcode": "C1106BKG",
                 "address_string": "Ave Macacha Guemes 351, Buenos Aires C1106BKG Argentina"
               }
+            },
+            {
+              "location_id": "301843",
+              "type": "hotel",
+              "name": "Sheraton Mar De Plata Hotel",
+              "address_obj": {
+                "street1": "Alem 4221",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "7600",
+                "address_string": "Alem 4221, Mar del Plata 7600 Argentina"
+              }
+            },
+            {
+              "location_id": "2338249",
+              "type": "attraction",
+              "name": "Puerto de Mar del Plata",
+              "address_obj": {
+                "street1": "",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "",
+                "address_string": "Mar del Plata Argentina"
+              }
             }
           ]
         }
