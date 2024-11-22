@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, Observable, throwError } from "rxjs";
 import { tripkey } from "../../../../../tripkey";
@@ -7,8 +7,8 @@ import { tripkey } from "../../../../../tripkey";
   providedIn: 'root',
 })
 export class TripadvisorService {
-  private readonly apiKey = tripkey.token;
-  private readonly baseUrl = '/api/v1/location/search'; 
+  private apiKey = tripkey.token;
+  private baseUrl = '/api/v1/location/search'; 
 
   constructor(private http: HttpClient) {}
 
@@ -19,21 +19,25 @@ export class TripadvisorService {
    * @returns Observable con los resultados de la búsqueda.
    */
   searchLocations(searchQuery: string, category: string): Observable<any> {
-    const url = this.baseUrl; // Usamos la URL completa de la API
+    // La URL base ya está configurada, no es necesario agregarla aquí
+    const url = this.baseUrl;
+    
+    // Encabezados
     const headers = new HttpHeaders({
-      accept: 'application/json',
+      accept: 'application/json', // Asegura que la respuesta sea en JSON
     });
 
-    const params = {
-      key: this.apiKey,
-      searchQuery: searchQuery,
-      category: category,
-      language: 'es',
-    };
+    // Parametros de la solicitud
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('searchQuery', searchQuery)
+      .set('category', category)
+      .set('language', 'es');
 
-
+    // Realizamos la solicitud GET
     return this.http.get(url, { headers, params }).pipe(
       catchError((error) => {
+        // Mejor manejo de errores
         console.error('Error al buscar ubicaciones:', error);
         return throwError(() => new Error('Error al buscar ubicaciones. Por favor, inténtalo de nuevo más tarde.'));
       })
