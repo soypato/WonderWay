@@ -10,6 +10,7 @@
     background-position: center;
     filter: brightness(0.7);
     z-index: -1; /* Para asegurar que esté detrás del contenido */
+    min-height: 100vh;
 }
 
 
@@ -17,6 +18,7 @@
     width: 100%;
     max-width: 400px;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .card {

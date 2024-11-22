@@ -56,7 +56,6 @@ export const routes: Routes = [
     {
         path: 'menu_travel/free_mode',
         component: FreeMode,
-        canActivate: [AuthGuard]
     },
     {
         path: 'menu_travel/travel_assistant',
