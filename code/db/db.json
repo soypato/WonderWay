@@ -4,7 +4,7 @@
       "id": "fc96",
       "name": "Juanma Ciardi",
       "email": "juanmaciardi@gmail.com",
-      "password": "1pFkRGnr2qP5RYLyle5ds/BxnHYOKaCzCj6M1nr8jcyzHF35Qg==",
+      "password": "d2bSpGj7su/ghHjKSB69Zc1iAmrgYnkXxJ19m+RmndYbZ3j8WA==",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -320,6 +320,49 @@
               "amenities": [],
               "isInternational": false,
               "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|438&area=FLTCenterColumn|1|1|ItinList|4|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4688&totalPricePerPassenger=56.97"
+            },
+            {
+              "id": 5419112,
+              "type": "restaurant",
+              "name": "Cantábrico",
+              "location": "Mar del Plata",
+              "qualification": 4.5,
+              "cuisine": [
+                "Seafood",
+                "Mediterranean",
+                "Spanish",
+                "Argentinean",
+                "Basque"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/6e/25/8f/caption.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 10031454,
+              "type": "restaurant",
+              "name": "Yin & Toni",
+              "location": "Mar del Plata",
+              "qualification": 5,
+              "cuisine": [
+                "African",
+                "Middle Eastern",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/55/a9/e0/global-nomads.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 8093257,
+              "type": "restaurant",
+              "name": "A La Que Te Criaste",
+              "location": "Mar del Plata",
+              "qualification": 4.5,
+              "cuisine": [
+                "Spanish",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
             }
           ]
         }
@@ -578,6 +621,95 @@
               "checkIn": 0,
               "checkOut": 0,
               "rooms": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5ff",
+      "name": "Roque",
+      "email": "roque@roque.com",
+      "password": "ClZcRDEs63UQXHutAqO7iMpMWhon/HjXlEepdHGs11EOqjzHig==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Juana Ciardi",
+          "location": "París",
+          "startDate": "2024-11-22",
+          "endDate": "2024-12-05",
+          "services": [
+            {
+              "id": 7134739,
+              "type": "restaurant",
+              "name": "Chinchibira",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Bar",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/a0/a8/b0/chinchibira.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 9985525,
+              "type": "restaurant",
+              "name": "Excalibur",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Mediterranean",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/90/b1/18/salon.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 10813906,
+              "type": "restaurant",
+              "name": "Ceviche Rosario",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Japanese",
+                "Peruvian",
+                "Seafood",
+                "Sushi",
+                "Fusion"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/0f/74/fb/cevicherosario.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 3317235,
+              "type": "restaurant",
+              "name": "Monreal",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Bar",
+                "Pub",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/9e/40/ae/monreal.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 7809942,
+              "type": "restaurant",
+              "name": "Chicharra Asador a Las Brasas",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/91/96/21/la-esquina-de-pichincha.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
             }
           ]
         }

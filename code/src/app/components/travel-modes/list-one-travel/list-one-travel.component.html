@@ -14,9 +14,10 @@
         <!-- Restaurantes -->
         <div *ngIf="isRestaurant(serv)">
           <h3>🥪 Restaurant | {{ serv.name }}</h3>
-          <p>🚪 Abierto/Cerrado | {{ serv.currentOpenStatusText }}</p>
           <p>📌 Ubicación | {{ serv.location }}</p>
-          <p>⭐ Calificación | {{ serv.qualification }}</p>
+          <p>⭐ Calificación | {{ serv.qualification }} estrellas</p>
+          <p>📖 Reseña: {{ serv.review }}</p>
+          <p>🍽️ Tipo de cocina: {{ serv.cuisine }}</p>
         </div>
 
         <!-- Hoteles -->
@@ -25,6 +26,7 @@
           <p>📌 Ubicación | {{ serv.location }}</p>
           <p>💰 Precio: ${{ serv.price }}</p>
           <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
+
         </div>
 
         <!-- Vuelos -->

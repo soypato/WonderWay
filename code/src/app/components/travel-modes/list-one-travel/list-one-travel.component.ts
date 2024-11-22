@@ -171,47 +171,71 @@ export class ListOneTravelComponent implements OnInit {
     // Configurar colores y estilos
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
-
+  
     // Fondo general
     doc.setFillColor(250, 250, 250); // Color de fondo (#FAFAFA)
     doc.rect(0, 0, pageWidth, pageHeight, 'F'); // Dibujar fondo
-
+  
     // Encabezado
     doc.setFont('Helvetica', 'bold');
     doc.setFontSize(18);
     doc.setTextColor('#0c5163'); // Título en #0c5163
-
     doc.text('Wonder Way', pageWidth / 2, 20, { align: 'center' });
-
+  
     doc.setFontSize(12);
     doc.setFont('Helvetica', 'normal');
     doc.setTextColor('#333'); // Subtítulo gris
     doc.text(`Detalles del viaje: ${this.travelData?.name || 'Sin nombre'}`, pageWidth / 2, 30, { align: 'center' });
-
+  
     // Línea separadora
     doc.setDrawColor(200, 200, 200); // Gris claro
     doc.line(10, 35, pageWidth - 10, 35);
-
+  
     // Detalles del viaje (tabla)
     let yPosition = 45; // Posición inicial
     const cellMargin = 5;
     const tableWidth = pageWidth - 20;
-
+  
     // Cabecera de la tabla
     doc.setFont('Helvetica', 'bold');
     doc.setFontSize(10);
     doc.setTextColor('#0c5163');
     doc.text('Servicios', 10, yPosition);
     yPosition += 10;
-
+  
     // Iterar servicios
     this.travelData?.services?.forEach((service: any, index: number) => {
-      const details = [
-        `Servicio: ${service.name || 'Sin nombre'}`,
-        `Información: ${service.location || 'No disponible'}`,
-        `Precio: ${service.price ? `$${service.price} USD` : 'N/A'}`,
-      ];
-
+      let details: any[] = [];
+  
+      if (this.isRestaurant(service)) {
+        details = [
+          `Restaurant | ${service.name || 'Sin nombre'}`,
+          `Ubicación | ${service.location || 'No disponible'}`,
+          `Calificación | ${service.qualification || 'No disponible'} estrellas`,
+          `Reseña: ${service.review || 'No disponible'}`,
+          `Tipo de cocina: ${service.cuisine || 'No disponible'}`
+        ];
+      } else if (this.isHotel(service)) {
+        details = [
+          `Hotel | ${service.name || 'Sin nombre'}`,
+          `Ubicación | ${service.location || 'No disponible'}`,
+          `Precio: $${service.price || 'N/A'}`,
+          `Calificación: ${service.qualification || 'No disponible'} estrellas`
+        ];
+      } else if (this.isFlight(service)) {
+        details = [
+          `Vuelo | ${service.operatingCarrier || 'No disponible'} (Vuelo ${service.flightNumber || 'No disponible'})`,
+          `Origen: ${service.originAirportCode || 'No disponible'} | Destino: ${service.destinationAirportCode || 'No disponible'}`,
+          `Salida: ${service.travelDate ? new Date(service.travelDate).toLocaleString() : 'No disponible'}`,
+          `Llegada: ${service.returnDate ? new Date(service.returnDate).toLocaleString() : 'No disponible'}`,
+          `Duración: ${service.duration || 'No disponible'} minutos`,
+          `Escalas: ${service.scale || 'No disponible'}`,
+          `Clase: ${service.class || 'No disponible'}`,
+          `Internacional: ${service.isInternational ? 'Sí' : 'No'}`
+        ];
+      }
+  
+      // Añadir detalles al PDF
       doc.setFont('Helvetica', 'normal');
       doc.setFontSize(10);
       doc.setTextColor('#000'); // Texto negro
@@ -219,14 +243,14 @@ export class ListOneTravelComponent implements OnInit {
         doc.text(detail, 15, yPosition + detailIndex * 6);
       });
       yPosition += details.length * 6 + 10; // Espaciado entre servicios
-
+  
       if (yPosition > pageHeight - 30) {
         // Nueva página si se excede el espacio
         doc.addPage();
         yPosition = 20;
       }
     });
-
+  
     // Pie de página con número de página
     const totalPages = doc.internal.pages.length - 1; // Restar 1 porque `pages[0]` es nulo
     for (let i = 1; i <= totalPages; i++) {
@@ -240,7 +264,7 @@ export class ListOneTravelComponent implements OnInit {
         { align: 'center' }
       );
     }
-
+  
     // Guardar PDF
     const fileName = `WonderWay - ${this.travelData?.name || 'Sin nombre'}.pdf`;
     doc.save(fileName);
