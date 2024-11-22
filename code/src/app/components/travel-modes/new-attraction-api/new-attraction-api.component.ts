@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './new-attraction-api.component.html',
-  styleUrl: './new-attraction-api.component.css'
+  styleUrls: ['../new-service.css', './new-attraction-api.component.css']
 })
 export class NewAttractionApiComponent {
 

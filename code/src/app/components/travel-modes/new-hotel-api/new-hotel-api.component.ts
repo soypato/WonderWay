@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './new-hotel-api.component.html',
-  styleUrl: './new-hotel-api.component.css'
+  styleUrls: ['../new-service.css', './new-hotel-api.component.css']
+  
 })
 export class NewHotelApiComponent {
 
