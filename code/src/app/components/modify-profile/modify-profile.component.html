@@ -52,8 +52,7 @@
               La contraseña es requerida.
             </div>
           </div>
-          <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
-          <!-- es posible que saque o meta el  " || ( !prevPasswordsMatch() )  "   -->
+          <button type="submit" [disabled]="!profileForm.valid || !prevPasswordsMatch() ">Guardar Cambios</button>
         </form>
       </section>
 

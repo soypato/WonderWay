@@ -60,13 +60,16 @@ export class ModifyProfileComponent implements OnInit {
       return false;
     }
 
+
+
+
     // Llamar a verifyPassword para comparar las contraseñas
 
     if(  this.profileForm.valid  ){
-      return await this.verifyPassword( this.profileForm.value.currentPassword , this.currentUser.password );
+      return Boolean (await this.verifyPassword( this.profileForm.value.currentPassword , this.currentUser.password ) );
 
     }else if(  this.passwordForm.valid  ){
-      return await this.verifyPassword( this.passwordForm.value.currentPassword , this.currentUser.password );
+      return Boolean ( await this.verifyPassword( this.passwordForm.value.currentPassword , this.currentUser.password ) ) ;
     }
 
     return false;
@@ -86,6 +89,8 @@ export class ModifyProfileComponent implements OnInit {
   async onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
       const passwordValid = await this.prevPasswordsMatch();
+
+
 
       if (!passwordValid) {
         Swal.fire({
@@ -220,6 +225,10 @@ export class ModifyProfileComponent implements OnInit {
   // verificar contraseñas mediante desencripcion
   async verifyPassword( enteredPassword: string, storedPassword: string ): Promise<boolean> {
 
+    console.log(enteredPassword);
+    console.log(storedPassword);
+
+
     const encoder = new TextEncoder();
 
     const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
@@ -246,7 +255,9 @@ export class ModifyProfileComponent implements OnInit {
       );
 
       const decodedPassword = new TextDecoder().decode(decryptedData);
-      return decodedPassword === enteredPassword;
+
+      return (decodedPassword === enteredPassword) ;
+
     } catch (error) {
       console.error('Error al desencriptar la contraseña:', error);
       return false;
