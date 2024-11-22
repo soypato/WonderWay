@@ -18,6 +18,10 @@ export class NewRestaurantApiComponent implements OnInit {
   isLoading = false;
   errorMessage = '';
   tripAdvisorService = inject(TripadvisorService);
+  selectedRestaurantDetails: any;
+  selectedRestaurantImages: any[] = [];
+  selectedRestaurantReviews: any[] = [];
+
 
   private currentUser = inject(CurrentUser); 
   private usersDB = inject(UserService);
@@ -111,4 +115,55 @@ export class NewRestaurantApiComponent implements OnInit {
       };
     }
 
+    // Función para obtener detalles de un restaurante seleccionado
+  verDetalles(locationId: string): void {
+    console.log(locationId);
+    this.tripAdvisorService.searchDetails(locationId).subscribe({
+      next: (data) => {
+        console.log('Detalles del restaurante:', data);
+        this.selectedRestaurantDetails = data; // Guardar los detalles
+      },
+      error: (error) => {
+        console.error('Error al buscar detalles del restaurante:', error);
+        this.errorMessage = 'No se pudieron obtener los detalles del restaurante.';
+      }
+    });
+  }
+
+  // Función para obtener imágenes de un restaurante seleccionado
+  verImagenes(locationId: string): void {
+    this.tripAdvisorService.searchImages(locationId).subscribe({
+      next: (data) => {
+        console.log('Imágenes del restaurante:', data);
+        this.selectedRestaurantImages = data.data; // Guardar las imágenes
+      },
+      error: (error) => {
+        console.error('Error al buscar imágenes del restaurante:', error);
+        this.errorMessage = 'No se pudieron obtener las imágenes del restaurante.';
+      }
+    });
+  }
+
+  // Función para obtener reseñas de un restaurante seleccionado
+  verOpiniones(locationId: string): void {
+    this.tripAdvisorService.searchReviews(locationId).subscribe({
+      next: (data) => {
+        console.log('Reseñas del restaurante:', data);
+        this.selectedRestaurantReviews = data.data; // Guardar las reseñas
+      },
+      error: (error) => {
+        console.error('Error al buscar reseñas del restaurante:', error);
+        this.errorMessage = 'No se pudieron obtener las reseñas del restaurante.';
+      }
+    });
+  }
+
+  // Método para manejar el clic en un restaurante de la lista
+  onSelectRestaurant(locationId: string): void {
+    this.verDetalles(locationId); // Obtener detalles
+    this.verImagenes(locationId);  // Obtener imágenes
+    this.verOpiniones(locationId); // Obtener reseñas
+  }
 }
+
+

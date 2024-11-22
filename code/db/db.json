@@ -772,6 +772,18 @@
           "endDate": "2024-11-30",
           "services": [
             {
+              "location_id": "1444306",
+              "type": "hotel",
+              "name": "Eurobuilding Hotel Boutique Buenos Aires",
+              "address_obj": {
+                "street1": "Lima 187",
+                "city": "Buenos Aires",
+                "country": "Argentina",
+                "postalcode": "C1073",
+                "address_string": "Lima 187, Buenos Aires C1073 Argentina"
+              }
+            },
+            {
               "location_id": "306891",
               "type": "hotel",
               "name": "Hilton Buenos Aires",

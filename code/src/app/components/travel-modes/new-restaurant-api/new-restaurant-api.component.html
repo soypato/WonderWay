@@ -25,7 +25,10 @@
               <th>Dirección</th>
               <th>Ciudad</th>
               <th>País</th>
-              <th>Agregar</th>
+              <th>Ver detalles</th>
+              <th>Ver imagenes</th>
+              <th>Ver opiniones</th>
+              <th>Agregar viaje</th>
             </tr>
           </thead>
           <tbody>
@@ -35,10 +38,25 @@
               <td>{{ restaurant.address_obj.city }}</td>
               <td>{{ restaurant.address_obj.country }}</td>
               <td>
-                <button class="button-main" (click)="agregarViaje(restaurant)">
-                  <i class="fas fa-plus"></i> Agregar
+                <button class="button-main" (click)="verDetalles(restaurant.location_id)">
+                  <i class="fas fa-plus"></i> detalles
                 </button>
                 </td>
+                <td>
+                  <button class="button-main" (click)="verImagenes(restaurant.location_id)">
+                    <i class="fas fa-plus"></i> Imagenes
+                  </button>
+                  </td>
+                  <td>
+                    <button class="button-main" (click)="verOpiniones(restaurant.location_id)">
+                      <i class="fas fa-plus"></i> opiniones
+                    </button>
+                    </td>
+                <td>
+                  <button class="button-main" (click)="agregarViaje(restaurant)">
+                    <i class="fas fa-plus"></i> Agregar
+                  </button>
+                  </td>
             </tr>
           </tbody>
         </table>

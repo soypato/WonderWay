@@ -8,7 +8,11 @@ import { tripkey } from "../../../../../tripkey";
 })
 export class TripadvisorService {
   private apiKey = tripkey.token;
-  private baseUrl = 'https://api.content.tripadvisor.com/api/v1/location/search'; 
+  private baseUrl = 'https://api.content.tripadvisor.com/api/v1/location/search';
+  private detailsUrl = 'https://api.content.tripadvisor.com/api/v1/location/details';
+  private imageUrl = 'https://api.content.tripadvisor.com/api/v1/location/photos';
+  private reviewsUrl = 'https://api.content.tripadvisor.com/api/v1/location/reviews';
+
 
   constructor(private http: HttpClient) {}
 
@@ -43,4 +47,63 @@ export class TripadvisorService {
       })
     );
   }
+
+  searchDetails(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details`;    
+    console.log(this.detailsUrl);
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar detalles de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar detalles de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
+    );
+  }
+  
+  searchImages(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/photos`;  
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar imágenes de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar imágenes de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
+    );
+  }
+  
+  searchReviews(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/reviews`;  
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar reseñas de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar reseñas de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
+    );
+  }
+  
 }
