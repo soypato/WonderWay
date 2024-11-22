@@ -108,9 +108,9 @@ export class ListOneTravelComponent implements OnInit {
     // por lo que le específico 
 
     const routes: { [key: string]: string } = {
-      hotel: '/new-hotel-api',
-      restaurant: '/new-restaurant-api',
-      flight: '/new-flight-api'
+      hotel: '/new_hotel_api',
+      restaurant: '/new_restaurant_api',
+      attraction: '/new_attraction_api'
     };
   
     // Verifica si el tipo es válido
