@@ -1,6 +1,6 @@
 .main-parent-container {
     position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
-    color: #f7f2f2; 
+    color: #f7f2f2;
 }
 
 .main-parent-container::before {
@@ -47,8 +47,6 @@ h2 {
     transform: scale(1.05); /* Aumentar ligeramente el tamaño en hover */
     transition: background-color 0.3s, transform 0.3s; /* Suavizar la transición */
 }
-
-
 
 
 

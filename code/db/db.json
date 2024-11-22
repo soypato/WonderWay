@@ -582,6 +582,23 @@
           ]
         }
       ]
+    },
+    {
+      "id": "49dc",
+      "name": "vscode123",
+      "email": "vscode123@mail.com",
+      "password": "UXUEyS1Lvny7NurStf5EfwFFr9qfxjj1yO8laILumYrAilXfZg==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "nuevo viaje",
+          "location": "cordoba, argentina",
+          "startDate": "2024-12-02",
+          "endDate": "2024-12-06",
+          "services": []
+        }
+      ]
     }
   ]
 }

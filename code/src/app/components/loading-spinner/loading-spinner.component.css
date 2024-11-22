@@ -1,0 +1,15 @@
+.spinner{
+  /* position: absolute; */
+  /* position: relative; */
+  /* justify-self: center; */
+  height: 50px;
+  width: 50px;
+  border: solid white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:  rotate(360deg);
+  }
+}
