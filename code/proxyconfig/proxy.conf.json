@@ -1,10 +1,7 @@
 {
   "/api": {
-    "target": "https://api.content.tripadvisor.com",
+    "target": "https://4b2f-2803-9800-9991-7f61-ba35-4df6-c29d-6bdd.ngrok.io",
     "secure": false,
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/api": ""
-    }
+    "changeOrigin": true
   }
 }
