@@ -1,30 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { catchError, Observable } from 'rxjs';
-import { tripkey } from '../../../../../tripkey'
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { catchError, Observable, throwError } from "rxjs";
+import { tripkey } from "../../../../../tripkey";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TripadvisorService {
   private readonly apiKey = tripkey.token;
-  private readonly baseUrl = 'https://api.content.tripadvisor.com/api/v1';
+  private readonly baseUrl = '/api/v1/location/search'; 
 
   constructor(private http: HttpClient) {}
-
-  /**
-   * Obtiene las fotos de una ubicación específica.
-   * @param locationId ID de la ubicación.
-   * @returns Observable con los datos de las fotos.
-   */
-  getLocationPhotos(locationId: string): Observable<any> {
-    const url = `${this.baseUrl}/location/${locationId}/photos`;
-    const headers = new HttpHeaders({
-      accept: 'application/json',
-    });
-
-    return this.http.get(url, { headers, params: { language: 'en', key: this.apiKey } });
-  }
 
   /**
    * Busca ubicaciones (hoteles, atracciones, restaurantes o geos).
@@ -33,27 +19,24 @@ export class TripadvisorService {
    * @returns Observable con los resultados de la búsqueda.
    */
   searchLocations(searchQuery: string, category: string): Observable<any> {
-    const url = `${this.baseUrl}/location/search`;
+    const url = this.baseUrl; // Usamos la URL completa de la API
     const headers = new HttpHeaders({
       accept: 'application/json',
     });
-    const params = new HttpParams()
-      .set('key', this.apiKey)
-      .set('searchQuery', searchQuery)
-      .set('category', category);
+
+    const params = {
+      key: this.apiKey,
+      searchQuery: searchQuery,
+      category: category,
+      language: 'es',
+    };
+
 
     return this.http.get(url, { headers, params }).pipe(
       catchError((error) => {
         console.error('Error al buscar ubicaciones:', error);
-        throw error; // Puedes manejar el error de manera más personalizada si es necesario.
+        return throwError(() => new Error('Error al buscar ubicaciones. Por favor, inténtalo de nuevo más tarde.'));
       })
     );
   }
-
-  returnApiKey () : any
-  {
-    console.log(this.apiKey)
-  }
-
-
 }

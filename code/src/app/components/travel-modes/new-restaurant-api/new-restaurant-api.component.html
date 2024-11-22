@@ -1,4 +1,52 @@
 <div class="main-parent-container">
     <div class="profile-container main-child-container">
-        <h2>Probando</h2>
+      <h2>Buscar Restaurantes</h2>
+  
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="search-section">
+          <input
+            type="text"
+            class="search-input"
+            formControlName="searchQuery"
+            placeholder="Escribe la ciudad"
+            required
+          />
+          <button class="button-main" type="submit" [disabled]="searchForm.invalid">
+            <i class="fas fa-search"> Buscar</i>
+          </button>
+        </div>
+      </form>
+  
+      <div class="results-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Estado</th>
+              <th>País</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let restaurant of restaurants">
+              <td>{{ restaurant.name }}</td>
+              <td>{{ restaurant.address_obj.street1 }}</td>
+              <td>{{ restaurant.address_obj.city }}</td>
+              <td>{{ restaurant.address_obj.state || 'N/A' }}</td>
+              <td>{{ restaurant.address_obj.country }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div *ngIf="isLoading" class="results-section">
+        <p>Cargando resultados...</p>
+      </div>
+  
+      <div *ngIf="errorMessage" class="results-section">
+        <p class="error">{{ errorMessage }}</p>
+      </div>
+    </div>
   </div>
+  
