@@ -35,7 +35,8 @@ export class ModifyProfileComponent implements OnInit {
       currentPassword: ['', [Validators.required]],
       newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]],
-    });
+    },
+    { Validators : this.passwordsMatch()  });
   }
 
   ngOnInit() {

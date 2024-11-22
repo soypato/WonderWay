@@ -24,11 +24,11 @@ export class FormRegisterComponent implements OnInit {
       {
         nombre: ['', Validators.required],
         email: ['', [Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/)  ]  ],
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/)]  ],
         password: ['', [Validators.required, Validators.minLength(8)]],
-        confirmPassword: ['', Validators.required],
+        confirmPassword: ['', [Validators.required]  ],
       },
-      { validators: FormRegisterComponent.passwordMatchValidator }
+      // { validators: FormRegisterComponent.passwordMatchValidator }
     );
   }
 
@@ -39,16 +39,31 @@ export class FormRegisterComponent implements OnInit {
     }
   }
 
-  static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
+  // static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+  //   const password = control.get('password');
+  //   const confirmPassword = control.get('confirmPassword');
 
-    if (!password || !confirmPassword) {
-      return null;
+  //   if (!password || !confirmPassword) {
+  //     return null;
+  //   }
+
+  //   return password.value === confirmPassword.value ? { mismatch: false } : null;
+  // }
+
+  passwordMatchValidator(){
+    const pass = this.registerForm.value.password;
+    const confirm = this.registerForm.value.confirmPassword;
+
+    if (  pass && confirm  ) {
+      if( pass === confirm ){
+        return true
+      };
     }
 
-    return password.value === confirmPassword.value ? null : { mismatch: true };
+    return false;
   }
+
+
 
   async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {

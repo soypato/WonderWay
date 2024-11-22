@@ -104,11 +104,11 @@
             <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid" class="error-message">
               Confirmación de contraseña requerida.
             </div>
+            <div *ngIf=" !passwordsMatch() " class="error-message">
+              Las contraseñas no coinciden.
+            </div>
           </div>
-          <div *ngIf="passwordForm.dirty && !passwordsMatch()" class="error-message">
-            Las contraseñas no coinciden.
-          </div>
-          <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
+          <button type="submit" [disabled]="!passwordForm.valid || ( !passwordsMatch() )">Cambiar Contraseña</button>
         </form>
       </section>
     </div>
