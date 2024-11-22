@@ -363,6 +363,22 @@
               ],
               "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
               "review": "Sin reseña disponible"
+            },
+            {
+              "name": "Los Montes de Galicia",
+              "type": "restaurant",
+              "street": "Calle Azcona 46",
+              "city": "Madrid",
+              "country": "España",
+              "postalCode": "28028"
+            },
+            {
+              "name": "Entre Santos Cocktail Bar & Food",
+              "type": "restaurant",
+              "street": "Calle de San Bartolomè 4",
+              "city": "Madrid",
+              "country": "España",
+              "postalCode": "28004"
             }
           ]
         }

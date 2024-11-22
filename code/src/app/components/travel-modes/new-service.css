@@ -3,6 +3,22 @@
   color: #000;
 }
 
+h2
+{
+  text-align: center;
+}
+
+.search
+{
+  display: block;
+  margin: auto;
+}
+
+.button-main > *
+{
+  color: #fff;
+}
+
 .freemode-container {
     position: relative;
     text-align: center;

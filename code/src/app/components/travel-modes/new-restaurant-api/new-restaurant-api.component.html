@@ -3,7 +3,7 @@
       <h2>Buscar Restaurantes</h2>
   
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <div class="search-section">
+        <div class="search-section" class="search">
           <input
             type="text"
             class="search-input"
@@ -17,15 +17,15 @@
         </div>
       </form>
   
-      <div class="results-section">
+      <div class="results-section" *ngIf="restaurants.length > 0" id="restaurants-list">
         <table>
           <thead>
             <tr>
               <th>Nombre</th>
               <th>Dirección</th>
               <th>Ciudad</th>
-              <th>Estado</th>
               <th>País</th>
+              <th>Agregar</th>
             </tr>
           </thead>
           <tbody>
@@ -33,8 +33,12 @@
               <td>{{ restaurant.name }}</td>
               <td>{{ restaurant.address_obj.street1 }}</td>
               <td>{{ restaurant.address_obj.city }}</td>
-              <td>{{ restaurant.address_obj.state || 'N/A' }}</td>
               <td>{{ restaurant.address_obj.country }}</td>
+              <td>
+                <button class="button-main" (click)="agregarViaje(restaurant)">
+                  <i class="fas fa-plus"></i> Agregar
+                </button>
+                </td>
             </tr>
           </tbody>
         </table>
