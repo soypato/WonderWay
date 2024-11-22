@@ -5,11 +5,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-            <a class="nav-link" href="/inicio">
-              <i class="fas fa-home nav-icon"></i>Inicio
+            <a class="nav-link" href="menu_travel/free_mode">
+              <i class="fas fa-home nav-icon"></i>Modo libre
             </a>
-            <a class="nav-link" href="/about">
-                <i class="fas fa-pen nav-icon"></i>Sobre nosotros
+            <a *ngIf="currentUser" class="nav-link" href="/menu_travel/travel_assistant">
+              <i class="fas fa-rocket nav-icon"></i>Crear viaje
             </a>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
@@ -25,11 +25,11 @@
           </li>
 
           <li class="nav-item">
-            <a *ngIf="currentUser" class="nav-link" href="/menu_travel/travel_assistant">
-              <i class="fas fa-rocket nav-icon"></i>Crear viaje
+            <a class="nav-link" href="/about">
+              <i class="fas fa-pen nav-icon"></i>Sobre nosotros
             </a>
           </li>
-
+          
           <li class="nav-item">
             <a *ngIf="currentUser" class="nav-link" href="/profile">
               <i class="fas fa-user nav-icon"></i>{{miPerfil}}
