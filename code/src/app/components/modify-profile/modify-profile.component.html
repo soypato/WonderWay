@@ -52,7 +52,7 @@
               La contraseña es requerida.
             </div>
           </div>
-          <button type="submit" [disabled]="!profileForm.valid || !prevPasswordsMatch() ">Guardar Cambios</button>
+          <button type="submit" [disabled]="!profileForm.valid || !passwordsMatch() ">Guardar Cambios</button>
         </form>
       </section>
 
