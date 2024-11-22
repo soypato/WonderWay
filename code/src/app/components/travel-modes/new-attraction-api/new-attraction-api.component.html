@@ -1,6 +1,6 @@
 <div class="main-parent-container freemode-container">
     <div class="profile-container main-child-container">
-      <h2>Buscar hoteles</h2>
+      <h2>Buscar atracciones</h2>
   
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
         <div class="search-section" class="search">
@@ -17,7 +17,7 @@
         </div>
       </form>
   
-      <div class="results-section" *ngIf="hotels.length > 0" id="restaurants-list">
+      <div class="results-section" *ngIf="attractions.length > 0" id="restaurants-list">
         <table>
           <thead>
             <tr>
@@ -32,25 +32,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let hotel of hotels">
+            <tr *ngFor="let hotel of attractions">
               <td>{{ hotel.name }}</td>
               <td>{{ hotel.address_obj.street1 }}</td>
               <td>{{ hotel.address_obj.city }}</td>
               <td>{{ hotel.address_obj.country }}</td>
               <td>
-              <button class="button-main" (click)="verDetalles(hotel.location_id)">
-                <i class="fas fa-plus"></i> detalles
-              </button>
-              <td>
-                <button class="button-main" (click)="verImagenes(hotel.location_id)">
-                  <i class="fas fa-plus"></i> Imagenes
+                <button class="button-main" (click)="verDetalles(hotel.location_id)">
+                  <i class="fas fa-plus"></i> detalles
                 </button>
-                </td>
                 <td>
-                  <button class="button-main" (click)="verOpiniones(hotel.location_id)">
-                    <i class="fas fa-plus"></i> opiniones
+                  <button class="button-main" (click)="verImagenes(hotel.location_id)">
+                    <i class="fas fa-plus"></i> Imagenes
                   </button>
                   </td>
+                  <td>
+                    <button class="button-main" (click)="verOpiniones(hotel.location_id)">
+                      <i class="fas fa-plus"></i> opiniones
+                    </button>
+                    </td>
               <td>
                 <button class="button-main" (click)="agregarViaje(hotel)">
                   <i class="fas fa-plus"></i> Agregar

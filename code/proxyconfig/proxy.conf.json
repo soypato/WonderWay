@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://api.content.tripadvisor.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

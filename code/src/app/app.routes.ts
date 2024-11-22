@@ -14,9 +14,10 @@ import { NewTravelComponent } from './components/travel-modes/new-travel/new-tra
 import { CrudNewTravelComponent } from './components/travel-modes/crud-new-travel/crud-new-travel.component';
 import { ListTravelsComponent } from './components/travel-modes/list-travels/list-travels.component';
 import { ListOneTravelComponent } from './components/travel-modes/list-one-travel/list-one-travel.component';
-import { RestaurantApiComponent } from './components/travel-modes/restaurant-api/restaurant-api.component';
-import { NewHotelApi } from './components/travel-modes/new-hotel-api/new-hotel-api.component';
-import { NewFlightApi } from './components/travel-modes/new-flight-api/new-flight-api.component';
+import { NewAttractionApiComponent } from './components/travel-modes/new-attraction-api/new-attraction-api.component';
+import { NewHotelApiComponent } from './components/travel-modes/new-hotel-api/new-hotel-api.component';
+import { NewRestaurantApiComponent } from './components/travel-modes/new-restaurant-api/new-restaurant-api.component';
+
 
 export const routes: Routes = [
     {
@@ -83,18 +84,18 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'new-hotel-api',
-        component: NewHotelApi,
+        path: 'new_attraction_api',
+        component: NewAttractionApiComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'new-restaurant-api',
-        component: RestaurantApiComponent,
+        path: 'new_hotel_api',
+        component: NewHotelApiComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'new-flight-api',
-        component: NewFlightApi,
+        path: 'new_restaurant_api',
+        component: NewRestaurantApiComponent,
         canActivate: [AuthGuard]
     },
     {

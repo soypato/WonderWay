@@ -1,109 +1,109 @@
-import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environments';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { catchError, Observable, throwError } from "rxjs";
+import { tripkey } from "../../../../../tripkey";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TripadvisorService {
-  http = inject(HttpClient);
+  private apiKey = tripkey.token;
+  private baseUrl = 'https://api.content.tripadvisor.com/api/v1/location/search';
+  private detailsUrl = 'https://api.content.tripadvisor.com/api/v1/location/details';
+  private imageUrl = 'https://api.content.tripadvisor.com/api/v1/location/photos';
+  private reviewsUrl = 'https://api.content.tripadvisor.com/api/v1/location/reviews';
 
-constructor() { }
-baseUrl = 'https://tripadvisor16.p.rapidapi.com/api/v1';
-apiKey = environment.rapidApiKey;
-private headers = new HttpHeaders({
-  'x-rapidapi-key': environment.rapidApiKey,
-  'x-rapidapi-host': 'tripadvisor16.p.rapidapi.com'
-});
 
-  // Método para obtener códigos de aeropuerto
-  getAirportCode(query: string): Observable<any> {
-    const url = `${this.baseUrl}/flights/searchAirport?query=${query}`; 
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
+  constructor(private http: HttpClient) {}
+
+  /**
+   * Busca ubicaciones (hoteles, atracciones, restaurantes o geos).
+   * @param searchQuery Nombre o texto para buscar la ubicación.
+   * @param category Categoría para filtrar los resultados. Opciones válidas: "hotels", "attractions", "restaurants", "geos".
+   * @returns Observable con los resultados de la búsqueda.
+   */
+  searchLocations(searchQuery: string, category: string): Observable<any> {
+    // La URL base ya está configurada, no es necesario agregarla aquí
+    const url = this.baseUrl;
+    
+    // Encabezados
+    const headers = new HttpHeaders({
+      accept: 'application/json', // Asegura que la respuesta sea en JSON
+    });
+
+    // Parametros de la solicitud
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('searchQuery', searchQuery)
+      .set('category', category)
+      .set('language', 'es');
+
+    // Realizamos la solicitud GET
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        // Mejor manejo de errores
+        console.error('Error al buscar ubicaciones:', error);
+        return throwError(() => new Error('Error al buscar ubicaciones. Por favor, inténtalo de nuevo más tarde.'));
+      })
     );
   }
 
-  // Método para obtener geoIds de hoteles
-  getHotelGeoId(query: string): Observable<any> {
-    const url = `${this.baseUrl}/hotels/searchLocation?query=${query}`;
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
+  searchDetails(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details`;    
+    console.log(this.detailsUrl);
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar detalles de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar detalles de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
     );
   }
-
-  // Método para buscar hoteles
-  searchHotels(query: number, checkIn: string, checkOut: string): Observable<any> {
-    const url = `${this.baseUrl}/hotels/searchHotels?geoId=${query}&checkIn=${checkIn}&checkOut=${checkOut}&pageNumber=1&currencyCode=USD'`;
-    console.log(url);
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
+  
+  searchImages(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/photos`;  
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar imágenes de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar imágenes de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
     );
   }
-
-  // Método para obtener geoIds de restaurantes
-  getRestaurantGeoId(query: string): Observable<any> {
-    const url = `${this.baseUrl}/restaurant/searchLocation?query=${query}`;
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
+  
+  searchReviews(locationId: string): Observable<any> {
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/reviews`;  
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+    });
+  
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('locationId', locationId)
+      .set('language', 'es');
+  
+    return this.http.get(url, { headers, params }).pipe(
+      catchError((error) => {
+        console.error('Error al buscar reseñas de la ubicación:', error);
+        return throwError(() => new Error('Error al buscar reseñas de la ubicación. Por favor, inténtalo de nuevo más tarde.'));
+      })
     );
   }
-
-  // Método para buscar restaurantes
-  searchRestaurants(query: number): Observable<any> {
-    const url = `${this.baseUrl}/restaurant/searchRestaurants?locationId=${query}`;
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-
-searchFlights(params: {
-  sourceAirportCode: string;
-  destinationAirportCode: string;
-  itineraryType: string;
-  sortOrder: string;
-  numAdults: number;
-  numSeniors: number;
-  classOfService: string;
-  date?: string;
-  returnDate?: string;
-}): Observable<any> {
-  let httpParams = new HttpParams()
-    .set('sourceAirportCode', params.sourceAirportCode)
-    .set('destinationAirportCode', params.destinationAirportCode)
-    .set('itineraryType', params.itineraryType)
-    .set('sortOrder', params.sortOrder)
-    .set('numAdults', params.numAdults.toString())
-    .set('numSeniors', params.numSeniors.toString())
-    .set('classOfService', params.classOfService)
-    .set('pageNumber', '1')
-    .set('nearby', 'yes')
-    .set('nonstop', 'yes')
-    .set('currencyCode', 'USD')
-    .set('region', 'USA');
-
-  if (params.date) {
-    httpParams = httpParams.set('date', params.date);
-  }
-
-  if (params.returnDate) {
-    httpParams = httpParams.set('returnDate', params.returnDate);
-  }
-
-  const url = `${this.baseUrl}/flights/searchFlights`;
-  return this.http.get(url, { params: httpParams, headers: this.headers }).pipe(
-    catchError(this.handleError)
-  );
-  }
-
-  private handleError(error: any): Observable<never> {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error('Something bad happened; please try again later.'));
-  }
-
-
+  
 }
-
