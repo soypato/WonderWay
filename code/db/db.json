@@ -822,6 +822,136 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2381",
+      "name": "Alejandro",
+      "email": "alejandro@alealejandro.com",
+      "password": "fnUhTv0/CnogJ/WIpDtXDnD8+li/1uty0yaYOYuyO7jFET2T",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Pato al agua",
+          "location": "Mar del P.",
+          "startDate": "2024-11-23",
+          "endDate": "2024-11-27",
+          "services": [
+            {
+              "location_id": "301843",
+              "type": "hotel",
+              "name": "Sheraton Mar De Plata Hotel",
+              "address_obj": {
+                "street1": "Alem 4221",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "7600",
+                "address_string": "Alem 4221, Mar del Plata 7600 Argentina"
+              }
+            },
+            {
+              "location_id": "505517",
+              "type": "hotel",
+              "name": "Dos Reyes Hotel Mar del Plata",
+              "address_obj": {
+                "street1": "Avenida Colon 2129",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "B7600FYB",
+                "address_string": "Avenida Colon 2129, Mar del Plata B7600FYB Argentina"
+              }
+            },
+            {
+              "name": "La Marina",
+              "type": "restaurant",
+              "street": "12 De Octubre 3147",
+              "city": "Mar del Plata",
+              "country": "Argentina",
+              "postalCode": "B7603GXE"
+            },
+            {
+              "name": "Coctel del Mar",
+              "type": "restaurant",
+              "street": "Cl. 19 69-24 Barrios Unidos",
+              "city": "Bogotá",
+              "country": "Colombia",
+              "postalCode": "Sin código postal"
+            },
+            {
+              "name": "Lo de Fran - Cocina de Mar",
+              "type": "restaurant",
+              "street": "Av. de los Trabajadores 171",
+              "city": "Mar del Plata",
+              "country": "Argentina",
+              "postalCode": "7600"
+            },
+            {
+              "name": "Las Nubes Cafe",
+              "type": "restaurant",
+              "street": "Calle Pbto M Alberti 453",
+              "city": "Mar del Plata",
+              "country": "Argentina",
+              "postalCode": "7600"
+            },
+            {
+              "name": "Bocas Del Mar",
+              "type": "restaurant",
+              "street": "Avenida Costanera 730",
+              "city": "Pichilemu",
+              "country": "Chile",
+              "postalCode": "Sin código postal"
+            },
+            {
+              "location_id": "2338249",
+              "type": "attraction",
+              "name": "Puerto de Mar del Plata",
+              "address_obj": {
+                "street1": "",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "",
+                "address_string": "Mar del Plata Argentina"
+              }
+            },
+            {
+              "location_id": "2191152",
+              "type": "attraction",
+              "name": "Torre Tanque",
+              "address_obj": {
+                "street1": "Falucho 995",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "",
+                "address_string": "Falucho 995, Mar del Plata Argentina"
+              }
+            },
+            {
+              "location_id": "2374894",
+              "type": "attraction",
+              "name": "Casino Central de Mar del Plata",
+              "address_obj": {
+                "street1": "Avenida Jacinto Peralta Ramos 2100",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "B7608CGR",
+                "address_string": "Avenida Jacinto Peralta Ramos 2100, Mar del Plata B7608CGR Argentina"
+              }
+            },
+            {
+              "location_id": "2385716",
+              "type": "attraction",
+              "name": "Parque Gral San Martin Mar del Plata",
+              "address_obj": {
+                "street1": "Boulevard Maritimo Patricio Peralta Ramos",
+                "city": "Mar del Plata",
+                "country": "Argentina",
+                "postalcode": "B7600",
+                "address_string": "Boulevard Maritimo Patricio Peralta Ramos, Mar del Plata B7600 Argentina"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

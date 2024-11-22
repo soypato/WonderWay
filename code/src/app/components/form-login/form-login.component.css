@@ -17,6 +17,7 @@
     width: 100%;
     max-width: 400px;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .card {
@@ -24,6 +25,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transform: translateY(120px);
 }
 
 .card-header {
