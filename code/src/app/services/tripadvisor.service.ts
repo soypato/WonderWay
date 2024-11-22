@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 
 
@@ -10,30 +10,21 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class TripadvisorService {
   http = inject(HttpClient);
 
-  constructor() { }
-  baseUrl = 'https://tripadvisor16.p.rapidapi.com/api/v1';
-  apiKey = environment.rapidApiKey;
-  private headers = new HttpHeaders({
-    'x-rapidapi-key': environment.rapidApiKey,
-    'x-rapidapi-host': 'tripadvisor16.p.rapidapi.com'
-  });
+constructor() { }
+baseUrl = 'https://tripadvisor16.p.rapidapi.com/api/v1';
+apiKey = environment.rapidApiKey;
+private headers = new HttpHeaders({
+  'x-rapidapi-key': environment.rapidApiKey,
+  'x-rapidapi-host': 'tripadvisor16.p.rapidapi.com'
+});
 
   // Método para obtener códigos de aeropuerto
   getAirportCode(query: string): Observable<any> {
-    const url = `${this.baseUrl}/flights/airports/searchAirport?query=${query}`;
+    const url = `${this.baseUrl}/flights/searchAirport?query=${query}`; 
     return this.http.get(url, { headers: this.headers }).pipe(
       catchError(this.handleError)
     );
   }
-
-   // Método para buscar vuelos
-   searchFlights(source: number, destination: number): Observable<any> {
-    const url = `${this.baseUrl}/flights/searchFlights?sourceAirportCode=${source}&destinationAirportCode=${destination}&itineraryType=ONE_WAY&sortOrder=ML_BEST_VALUE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&nearby=yes&nonstop=yes&currencyCode=USD&region=USA`;
-    return this.http.get(url, { headers: this.headers }).pipe(
-      catchError(this.handleError)
-    );
-  }
-
 
   // Método para obtener geoIds de hoteles
   getHotelGeoId(query: string): Observable<any> {
@@ -68,11 +59,51 @@ export class TripadvisorService {
     );
   }
 
-  // Método para manejar errores
+
+searchFlights(params: {
+  sourceAirportCode: string;
+  destinationAirportCode: string;
+  itineraryType: string;
+  sortOrder: string;
+  numAdults: number;
+  numSeniors: number;
+  classOfService: string;
+  date?: string;
+  returnDate?: string;
+}): Observable<any> {
+  let httpParams = new HttpParams()
+    .set('sourceAirportCode', params.sourceAirportCode)
+    .set('destinationAirportCode', params.destinationAirportCode)
+    .set('itineraryType', params.itineraryType)
+    .set('sortOrder', params.sortOrder)
+    .set('numAdults', params.numAdults.toString())
+    .set('numSeniors', params.numSeniors.toString())
+    .set('classOfService', params.classOfService)
+    .set('pageNumber', '1')
+    .set('nearby', 'yes')
+    .set('nonstop', 'yes')
+    .set('currencyCode', 'USD')
+    .set('region', 'USA');
+
+  if (params.date) {
+    httpParams = httpParams.set('date', params.date);
+  }
+
+  if (params.returnDate) {
+    httpParams = httpParams.set('returnDate', params.returnDate);
+  }
+
+  const url = `${this.baseUrl}/flights/searchFlights`;
+  return this.http.get(url, { params: httpParams, headers: this.headers }).pipe(
+    catchError(this.handleError)
+  );
+  }
+
   private handleError(error: any): Observable<never> {
-    console.error('Ocurrió un error:', error);
-    return throwError(() => new Error(error.message || 'Error en el servicio'));
+    console.error('An error occurred:', error);
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
 
 }
+

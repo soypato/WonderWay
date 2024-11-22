@@ -4,8 +4,8 @@
     <form [formGroup]="freemodeForm" (ngSubmit)="onSubmit()">
         <div class="search-section">
           <input type="text" placeholder="Buscar destino..." class="search-input" formControlName="ciudad" />
-          <input type="text" placeholder="Ingrese fecha de salida..." class="search-input" formControlName="checkIn" />
-          <input type="text" placeholder="Ingrese fecha de llegada..." class="search-input" formControlName="checkOut" />
+          <input type="date" placeholder="Ingrese fecha de salida..." class="search-input" formControlName="checkIn" />
+          <input type="date" placeholder="Ingrese fecha de llegada..." class="search-input" formControlName="checkOut" />
           <button type="submit" class="search-button">Buscar</button>
         </div>
       </form>

@@ -1,107 +1,71 @@
-/* Contenedor principal */
+/* Fondo oscuro translúcido */
 .main-parent-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-image: url('/img/imgPaisaje4.webp'); /* Fondo de la página */
+    height: 100vh;
+    background-image: url('/img/imgPaisaje4.webp');
     background-size: cover;
     background-position: center;
-    position: relative;
-    overflow: hidden;
-}
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    background-blend-mode: darken; /* Mezcla el fondo con el color oscuro */
+    margin: 0;
+  }
 
-/* Superposición de color oscuro */
-.main-parent-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+  /* Contenedor del formulario */
+  .profile-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con transparencia */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 400px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad */
-    z-index: 1;
-}
-
-/* Contenedor de formulario */
-.profile-container {
-    position: relative;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 500px;
-    width: 90%;
     text-align: center;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-}
-
-/* Título */
-.profile-container h2 {
-    font-size: 2.2rem;
-    color: #02708b;
-    margin-bottom: 1rem;
-}
-
-/* Subtítulo */
-.profile-container p {
-    font-size: 1.3rem;
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-/* Estilos de los elementos del formulario */
-.form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-label {
-    display: block;
-    font-weight: bold;
+  }
+  
+  /* Títulos */
+  h2 {
+    font-size: 2rem;
     color: #333;
     margin-bottom: 0.5rem;
-}
-
-.form-control {
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Inputs del formulario */
+  .form-control {
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 1.3rem;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: #02708b;
-}
-
-/* Mensaje de error */
-.text-danger {
-    color: #d9534f;
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-}
-
-/* Botón de enviar */
-.btn-primary {
-    padding: 0.7rem 1.5rem;
+  }
+  
+  /* Botón de envío */
+  .submit-button {
+    background-color: #008cba;
+    color: white;
+    padding: 0.8rem 1.5rem;
     font-size: 1.5rem;
-    color: #fff;
-    background-color: #02708b;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    max-width: 200px;
-    margin-top: 1.5rem;
-}
-
-.btn-primary:disabled {
-    background-color: #6ab8bf;
+    transition: transform 0.2s, background-color 0.3s;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
     cursor: not-allowed;
-}
-
-
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 1.5rem;
+    }
+  }

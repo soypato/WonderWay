@@ -1,126 +1,108 @@
 <div class="background-container"></div>
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title" id="form-title">Modificar Información</h1>
-            <p class="card-description">Ingresa información en los campos que quieras modificar</p>
-        </div>
-        <div class="card-content">
-          <section> Cambio de Informacion
-          <!-- 1º form para modificar nombre o emial -->
-          <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
-
-            <div>
-              <label>Nombre:</label>
-              <input
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title" id="form-title">Modificar Información</h1>
+      <p class="card-description">Ingresa información en los campos que quieras modificar</p>
+    </div>
+    <div class="card-content">
+      <!-- Sección para modificar información del perfil -->
+      <section>
+        <h2>Cambio de Información</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
+          <div>
+            <label for="name">Nombre:</label>
+            <input
               id="name"
               type="text"
               formControlName="name"
+              placeholder="Ingrese su nuevo nombre o dejar vacío"
               aria-describedby="nameHelp"
-              >
+            />
+            <div *ngIf="profileForm.get('name')?.dirty && profileForm.get('name')?.invalid" class="error-message">
+              Nombre no válido.
             </div>
-            <div id="nameHelp" class="sr-only">Ingresa tu nuevo nombre.</div>
-            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > Nombre no valido </div>
-
-            <div>
-              <label>Ingrese Email:</label>
-              <input
-              id="mail"
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              id="email"
               type="email"
               formControlName="email"
-              aria-describedby="mailHelp"
-              >
+              placeholder="Ingrese su nuevo correo o dejar vacío"
+              aria-describedby="emailHelp"
+            />
+            <div *ngIf="profileForm.get('email')?.dirty && profileForm.get('email')?.invalid" class="error-message">
+              Correo no válido.
             </div>
-            <div id="mailHelp" class="sr-only">Ingrese nuevo correo.</div>
-            <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > Correo no valido </div>
-
-            <div>
-              <label>Ingrese Contraseña:</label>
-              <input
-              id="pass"
+          </div>
+          <div>
+            <label for="currentPassword">Contraseña actual:</label>
+            <input
+              id="currentPassword"
               type="password"
               formControlName="currentPassword"
-              aria-required="true"
-              aria-describedby="passHelp"
-              >
+              placeholder="Ingrese su contraseña actual"
+            />
+            <div *ngIf="profileForm.get('currentPassword')?.dirty && profileForm.get('currentPassword')?.invalid" class="error-message">
+              La contraseña es requerida.
             </div>
-            <div id="passHelp" class="sr-only">Ingrese contraseña para confirmar accion.</div>
-            <div *ngIf="profileForm.get('currentPassword')?.invalid &&
-             profileForm.get('currentPassword')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > Contraseña invalida
-            </div>
+          </div>
+          <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
+        </form>
+      </section>
 
+      <hr />
 
-            <button type="submit" [disabled]="profileForm.invalid || !prevPasswordsMatch() " >
-              Guardar Cambios </button>
-          </form>
-        </section><br/>
-
-
-
-        <section> Cambio de Contraseña
-          <!-- 2º form para modificar contraseña -->
-          <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
-            <div>
-              <label>Contraseña actual:</label>
-              <input
-              id="prevPass"
+      <!-- Sección para cambiar contraseña -->
+      <section>
+        <h2>Cambio de Contraseña</h2>
+        <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
+          <div>
+            <label for="currentPassword">Contraseña actual:</label>
+            <input
+              id="currentPasswordPassword"
               type="password"
               formControlName="currentPassword"
-              >
+              placeholder="Ingrese su contraseña actual"
+            />
+            <div *ngIf="passwordForm.get('currentPassword')?.dirty && passwordForm.get('currentPassword')?.invalid" class="error-message">
+              Contraseña requerida.
             </div>
-            <div *ngIf="profileForm.get('currentPassword')?.invalid && profileForm.get('currentPassword')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > La contraseña no coincide con la actual </div>
-
-            <div>
-              <label>Nueva contraseña:</label>
-              <input
-              id="newPass"
+          </div>
+          <div>
+            <label for="newPassword">Nueva contraseña:</label>
+            <input
+              id="newPassword"
               type="password"
               formControlName="newPassword"
-              >
+              placeholder="Ingrese su nueva contraseña"
+            />
+            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('required')" class="error-message">
+              La nueva contraseña es requerida.
             </div>
-            <div *ngIf="profileForm.get('newPassword')?.invalid && profileForm.get('newPassword')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > constraseña no valida </div>
-
-            <div>
-              <label>Confirmar nueva contraseña:</label>
-              <input
-              id="confirmPass"
+            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('minlength')" class="error-message">
+              La contraseña debe tener al menos ocho caracteres.
+            </div>
+          </div>
+          <div>
+            <label for="confirmPassword">Confirmar nueva contraseña:</label>
+            <input
+              id="confirmPassword"
               type="password"
               formControlName="confirmPassword"
-              >
+              placeholder="Confirme su nueva contraseña"
+            />
+            <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid" class="error-message">
+              Confirmación de contraseña requerida.
             </div>
-            <div *ngIf="profileForm.get('confirmPassword')?.invalid && profileForm.get('confirmPassword')?.dirty"
-                class="error-message"
-                role="alert"
-                aria-live="assertive"
-            > contraseña no valida </div>
-
-            <button type="submit" [disabled]="!passwordForm.valid || ( !passwordsMatch() && !prevPasswordsMatch() )">
-              Cambiar Contraseña </button>
-          </form>
-        </section>
-
-
-
-        </div>
+          </div>
+          <div *ngIf="passwordForm.dirty && !passwordsMatch()" class="error-message">
+            Las contraseñas no coinciden.
+          </div>
+          <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
+        </form>
+      </section>
     </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,7 @@ export class NewTravelComponent {
     name: '',
     location: '',
     startDate: '',
+    endDate: '',
     services: []
   };
 
@@ -36,18 +37,32 @@ export class NewTravelComponent {
     this.travelForm = this.fb.group({
       name: ['', Validators.required],
       startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
       location: ['', Validators.required]
     });
   }
 
   async onSubmit() {
     if (this.travelForm.valid) {
+      const { startDate, endDate } = this.travelForm.value;
+
+      // Validación de rango de fechas
+      if (new Date(endDate) <= new Date(startDate)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'La fecha de fin debe ser posterior a la fecha de inicio.'
+        });
+        return;
+      }
+
       try {
         // Crear un objeto de viaje con los datos del formulario
         this.travelDetails = {
           name: this.travelForm.value.name,
           location: this.travelForm.value.location,
           startDate: this.travelForm.value.startDate,
+          endDate: this.travelForm.value.endDate,
           services: [] // Por ahora no tiene servicios
         };
 
@@ -58,7 +73,7 @@ export class NewTravelComponent {
             this.saveToDB(user);
           },
           error: (err) => console.error('Error al obtener el perfil del usuario:', err)
-        }); // Guarda en la base de datos
+        });
 
         // Mostrar mensaje de éxito
         Swal.fire({
@@ -80,7 +95,7 @@ export class NewTravelComponent {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Por favor, completa los datos!'
+        text: 'Por favor, completa todos los datos!'
       });
     }
   }
@@ -100,7 +115,7 @@ export class NewTravelComponent {
       next: (updatedUser) => {
         console.log('Usuario actualizado en el servidor:', updatedUser);
         console.log(updatedUser.travel);
-        console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '')
+        console.log(updatedUser.travel ? updatedUser.travel[updatedUser.travel.length - 1]?.name : '');
         // Redirigir al componente de viajes, pasando la información actualizada
         this.router.navigate(['/menu_travel/travel_assistant/list_travels']);
       },

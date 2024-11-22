@@ -245,6 +245,126 @@
               "rooms": 0
             }
           ]
+        },
+        {
+          "name": "Visitar a Enzo",
+          "location": "Rosario",
+          "startDate": "2000-02-02",
+          "services": [
+            {
+              "duration": 75,
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            }
+          ]
+        },
+        {
+          "name": "Chiara y Mili, un viaje de amigas",
+          "location": "ChiarMiliLand",
+          "startDate": "2000-12-12",
+          "services": [
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|816&area=FLTCenterColumn|1|1|ItinList|3|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4687&totalPricePerPassenger=45.97"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T06:45:00+01:00",
+              "returnDate": "2024-11-28T08:00:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 401,
+              "operatingCarrier": "Iberia",
+              "marketingCarrier": "Iberia",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|438&area=FLTCenterColumn|1|1|ItinList|4|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4688&totalPricePerPassenger=56.97"
+            },
+            {
+              "id": 5419112,
+              "type": "restaurant",
+              "name": "Cantábrico",
+              "location": "Mar del Plata",
+              "qualification": 4.5,
+              "cuisine": [
+                "Seafood",
+                "Mediterranean",
+                "Spanish",
+                "Argentinean",
+                "Basque"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/6e/25/8f/caption.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 10031454,
+              "type": "restaurant",
+              "name": "Yin & Toni",
+              "location": "Mar del Plata",
+              "qualification": 5,
+              "cuisine": [
+                "African",
+                "Middle Eastern",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/55/a9/e0/global-nomads.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 8093257,
+              "type": "restaurant",
+              "name": "A La Que Te Criaste",
+              "location": "Mar del Plata",
+              "qualification": 4.5,
+              "cuisine": [
+                "Spanish",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            }
+          ]
         }
       ]
     },
@@ -378,13 +498,222 @@
       ]
     },
     {
-      "id": "0329",
-      "name": "Enzo",
-      "email": "enzo@mail.com",
-      "password": "CCgNAv3xnL6ezy9DQRVi4MDlhXj0+r9DAQ3x2l9tKSY2nrYV5g==",
+      "id": "0824",
+      "name": "Juanma nuevo",
+      "email": "juancho@gmail.com",
+      "password": "7k5uSg8jaFtoLrpKEMMSzghL1Lmk9jZ17gXseFC12VSRpY32Bg==",
       "role": "usuario",
       "active": true,
-      "travel": []
+      "travel": [
+        {
+          "name": "Bandit",
+          "location": "aca",
+          "startDate": "2024-11-10",
+          "services": [
+            {
+              "id": 8093257,
+              "type": "restaurant",
+              "name": "A La Que Te Criaste",
+              "location": "Mar del Plata",
+              "price": "$$ - $$$",
+              "qualification": 4.5,
+              "distance": "Desconocido",
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/1e/1c/10/paella-valenciana-de.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "duration": 75,
+              "type": "flight",
+              "originAirportCode": "MAD",
+              "destinationAirportCode": "BCN",
+              "travelDate": "2024-11-28T22:35:00+01:00",
+              "returnDate": "2024-11-28T23:50:00+01:00",
+              "scale": 0,
+              "class": "ECONOMY",
+              "flightNumber": 1009,
+              "operatingCarrier": "Vueling",
+              "marketingCarrier": "Vueling",
+              "amenities": [],
+              "isInternational": false,
+              "purchaseLink": "https://www.tripadvisor.com/CheapFlightsPartnerHandoff?searchHash=bf33399d40375a50061942e9db9a7044&provider=Kayak|1|513&area=FLTCenterColumn|1|1|ItinList|2|Meta_CombinedFarePrice&resultsServlet=CheapFlightsSearchResults&handoffPlatform=desktop&impressionId=b4761d2c-4500-483c-b6d2-19e391a52590.4686&totalPricePerPassenger=45.97"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f461",
+      "name": "Juan",
+      "email": "juancho2@gmail.com",
+      "password": "pOWn6pqZzv5xy/QkJBtJerdMh4Qkm1EEYsrk+gIY3gtR0Ve6Ow==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Sysakar07",
+          "location": "aca",
+          "startDate": "2024-11-27",
+          "endDate": "2024-11-30",
+          "services": [
+            {
+              "id": 15104522,
+              "type": "restaurant",
+              "name": "Rufino ",
+              "location": "Buenos Aires",
+              "qualification": 4.5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Contemporary",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/96/ed/1d/el-clasico-morron-con.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 26322909,
+              "type": "restaurant",
+              "name": "Criolla Cooking & Wine",
+              "location": "Buenos Aires",
+              "qualification": 5,
+              "cuisine": [
+                "Grill",
+                "Healthy",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/4d/51/87/caption.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 15325004,
+              "type": "restaurant",
+              "name": "Fogón Asado",
+              "location": "Buenos Aires",
+              "qualification": 5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/33/1e/59/fogon.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 305499,
+              "type": "hotel",
+              "name": "4. Hotel Costa Galana",
+              "location": "Free breakfast available",
+              "price": 292,
+              "qualification": 4.5,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            },
+            {
+              "id": 308183,
+              "type": "hotel",
+              "name": "10. Bristol Apart Hotel",
+              "location": "Free breakfast available",
+              "price": 85,
+              "qualification": 4,
+              "checkIn": 0,
+              "checkOut": 0,
+              "rooms": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5ff",
+      "name": "Roque",
+      "email": "roque@roque.com",
+      "password": "ClZcRDEs63UQXHutAqO7iMpMWhon/HjXlEepdHGs11EOqjzHig==",
+      "role": "usuario",
+      "active": true,
+      "travel": [
+        {
+          "name": "Juana Ciardi",
+          "location": "París",
+          "startDate": "2024-11-22",
+          "endDate": "2024-12-05",
+          "services": [
+            {
+              "id": 7134739,
+              "type": "restaurant",
+              "name": "Chinchibira",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Bar",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/a0/a8/b0/chinchibira.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 9985525,
+              "type": "restaurant",
+              "name": "Excalibur",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Mediterranean",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/90/b1/18/salon.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 10813906,
+              "type": "restaurant",
+              "name": "Ceviche Rosario",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Japanese",
+                "Peruvian",
+                "Seafood",
+                "Sushi",
+                "Fusion"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/0f/74/fb/cevicherosario.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 3317235,
+              "type": "restaurant",
+              "name": "Monreal",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Bar",
+                "Pub",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/9e/40/ae/monreal.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            },
+            {
+              "id": 7809942,
+              "type": "restaurant",
+              "name": "Chicharra Asador a Las Brasas",
+              "location": "Rosario",
+              "qualification": 4.5,
+              "cuisine": [
+                "Steakhouse",
+                "Barbecue",
+                "Grill",
+                "Argentinean"
+              ],
+              "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/91/96/21/la-esquina-de-pichincha.jpg?w=200&h=200&s=1",
+              "review": "Sin reseña disponible"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

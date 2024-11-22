@@ -1,32 +1,58 @@
 <div class="main-parent-container">
     <div class="profile-container main-child-container">
-        <h2>✨ Nuevo viaje ✨</h2>
-        <p>Comencemos con algunos datos básicos. Luego podrás editarlos.</p>
-        <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="name">Nombre del viaje:</label>
-                <input id="name" type="text" formControlName="name" class="form-control">
-                <p *ngIf="travelForm.get('name')?.touched && travelForm.get('name')?.invalid" class="text-danger">
-                    Este campo es requerido
-                </p>
-            </div>
-            
-            <div class="form-group">
-                <label for="startDate">Fecha de inicio:</label>
-                <input id="startDate" type="date" formControlName="startDate" class="form-control">
-                <p *ngIf="travelForm.get('startDate')?.touched && travelForm.get('startDate')?.invalid" class="text-danger">
-                    Este campo es requerido
-                </p>
-            </div>
-
-            <div class="form-group">
-                <label for="location">Ubicación principal:</label>
-                <input id="location" type="text" formControlName="location" class="form-control">
-                <p *ngIf="travelForm.get('location')?.touched && travelForm.get('location')?.invalid" class="text-danger">
-                    Este campo es requerido
-                </p>
-            </div>
-            <button [disabled]="!travelForm.valid" type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+      <h2>✨ Nuevo viaje ✨</h2>
+      <p>Completa los detalles para crear tu próximo viaje.</p>
+      <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nombre del viaje:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Ejemplo: Viaje a la playa"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="startDate">Fecha de inicio:</label>
+          <input
+            id="startDate"
+            type="date"
+            formControlName="startDate"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="endDate">Fecha de fin:</label>
+          <input
+            id="endDate"
+            type="date"
+            formControlName="endDate"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="location">Ubicación principal:</label>
+          <input
+            id="location"
+            type="text"
+            formControlName="location"
+            class="form-control"
+            placeholder="Ejemplo: París, Francia"
+          />
+        </div>
+  
+        <button
+          [disabled]="!travelForm.valid"
+          type="submit"
+          class="btn btn-primary submit-button"
+        >
+          Guardar viaje
+        </button>
+      </form>
     </div>
-</div>
+  </div>
+

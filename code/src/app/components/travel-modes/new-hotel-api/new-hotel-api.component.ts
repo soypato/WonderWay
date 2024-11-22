@@ -12,7 +12,7 @@ import { Hotel } from '../../../interface/hotel.interface';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './new-hotel-api.component.html',
-  styleUrls: ['./new-hotel-api.component.css']
+  styleUrls: ['../new-service.css', './new-hotel-api.component.css']
 })
 export class NewHotelApi implements OnInit {
   // Formulario para la búsqueda
@@ -60,10 +60,21 @@ export class NewHotelApi implements OnInit {
   
   // Fetch de la API
   onSubmit(): void {
+    const checkIn = this.freemodeForm.get('checkIn')?.value;
+    const checkOut = this.freemodeForm.get('checkOut')?.value;
+  
+    // Convierte las fechas a formato 'YYYY-MM-DD'
+    const formattedCheckIn = checkIn ? new Date(checkIn).toISOString().split('T')[0] : '';
+    const formattedCheckOut = checkOut ? new Date(checkOut).toISOString().split('T')[0] : '';
+  
+    console.log('CheckIn:', formattedCheckIn);
+    console.log('CheckOut:', formattedCheckOut);
+  
     if (this.freemodeForm.get('ciudad')?.value) {
       this.apiService.getHotelGeoId(this.freemodeForm.get('ciudad')?.value).subscribe({
         next: (data) => {
           this.geoId = data.data[0].geoId;
+          console.log(this.geoId);
           if (this.geoId) {
             // Busca los hoteles en la ciudad usando el geoId
             this.apiService.searchHotels(this.geoId, this.freemodeForm.get('checkIn')?.value, this.freemodeForm.get('checkOut')?.value).subscribe({
@@ -85,7 +96,9 @@ export class NewHotelApi implements OnInit {
     } else {
       console.warn('Ciudad no especificada.');
     }
+    
   }
+  
 
   agregarViaje(hotel : any) : void
   {  
@@ -98,7 +111,9 @@ export class NewHotelApi implements OnInit {
     
     // Guardo el servicio[] en una variable aparte (tiene referencia a la anterior)
     const arrServiceDetail = travelDetail.services;
-    
+    // (es el arr de servicios)
+
+
     // Guardo el nuevo hotel y tengo el arr listo
     arrServiceDetail.push(hotelComoInterfaz);
 

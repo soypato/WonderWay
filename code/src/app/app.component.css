@@ -1,0 +1,37 @@
+*
+{
+    font-size: 1.5rem;
+}
+
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+/* Estilos de texto */
+h1 {
+    font-size: 4rem;
+}
+
+/* Estilos generales de botones */
+.button-main {
+    color: #fff;
+    border-radius: 1rem;
+    background-color: var(--color-button-bg);
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.button-main:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+/* Estilos de imagen */
+.landscape-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-image);
+}

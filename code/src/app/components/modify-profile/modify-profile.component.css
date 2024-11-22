@@ -1,125 +1,137 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+/* Fondo oscuro translúcido con imagen de fondo */
+.main-parent-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-
-.background-container {
-  position: fixed; /* En lugar de absolute */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /*background-image: url();*/
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.7);
-  z-index: -1; /* Para asegurar que esté detrás del contenido */
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+  margin: 0;
+  overflow: hidden; /* Evita que el contenido desborde */
 }
 
+input::placeholder {
+  color: #888; /* Cambia el color del placeholder */
+  font-style: italic; /* Opcional: estilo en cursiva */
+}
+
+/* Contenedor principal */
 .container {
   width: 100%;
-  max-width: 400px;
+  max-width: 600px; /* Ajusta el ancho máximo */
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco translúcido */
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra para destacar */
+  text-align: center;
+  z-index: 2; /* Asegura que esté sobre el fondo */
 }
 
-.card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
+/* Cabecera de la tarjeta */
 .card-header {
   padding: 20px;
   text-align: center;
 }
 
+/* Título de la tarjeta */
 .card-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 24px; /* Ajuste del tamaño */
   color: #333;
+  font-weight: bold;
 }
 
+/* Descripción de la tarjeta */
 .card-description {
-  margin: 10px 0 0;
+  margin: 10px 0;
   color: #666;
+  font-size: 14px;
 }
 
+/* Contenido de la tarjeta */
 .card-content {
   padding: 20px;
+  text-align: left; /* Ajusta el texto dentro de la tarjeta */
 }
 
-.form-group {
-  margin-bottom: 20px;
+/* Formulario */
+form {
+  margin-top: 15px;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
   color: #333;
-}
-
-.input-icon {
-  position: relative;
-}
-
-.input-icon input {
-  width: 100%;
-  padding: 10px 10px 10px 30px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   font-size: 16px;
+  font-weight: 500;
 }
 
-.input-icon .icon-plane,
-.input-icon .icon-lock {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.btn-primary {
+/* Inputs */
+input {
   width: 100%;
-  padding: 10px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Mensajes de error */
+.error-message {
+  color: #f44336;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Botón primario */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+button[type="submit"]:disabled {
+  background-color: #cccccc; /* Botón deshabilitado */
+  cursor: not-allowed;
 }
 
-.card-footer {
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid #eee;
+button[type="submit"]:hover:enabled {
+  background-color: #0056b3; /* Color de hover */
 }
 
-.link {
-  color: #007bff;
-  text-decoration: none;
-}
+/* Responsividad */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
 
-.link:hover {
-  text-decoration: underline;
-}
+  .card-title {
+    font-size: 20px;
+  }
 
-.text-center {
-  text-align: center;
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #666;
-}
+  input {
+    font-size: 13px;
+  }
 
+  button[type="submit"] {
+    font-size: 14px;
+  }
+}
