@@ -1,4 +1,4 @@
-<div class="main-parent-container">
+<div class="main-parent-container freemode-container">
     <div class="profile-container main-child-container">
       <h2>Buscar hoteles</h2>
   
@@ -44,9 +44,9 @@
         </table>
       </div>
   
-      <div *ngIf="isLoading" class="results-section">
-        <p>Cargando resultados...</p>
-      </div>
+      <div *ngIf="isLoading">
+        <span class="loader"></span>
+    </div>
   
       <div *ngIf="errorMessage" class="results-section">
         <p class="error">{{ errorMessage }}</p>

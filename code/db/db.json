@@ -392,6 +392,30 @@
                 "postalcode": "",
                 "address_string": "Madrid Spain"
               }
+            },
+            {
+              "location_id": "190146",
+              "type": "hotel",
+              "name": "Royal Palace of Madrid",
+              "address_obj": {
+                "street1": "Calle de Bailen s/n",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28071",
+                "address_string": "Calle de Bailen s/n, 28071 Madrid Spain"
+              }
+            },
+            {
+              "location_id": "7309373",
+              "type": "hotel",
+              "name": "The Principal Madrid",
+              "address_obj": {
+                "street1": "Calle Marques De Valdeiglesias, 1",
+                "city": "Madrid",
+                "country": "Spain",
+                "postalcode": "28004",
+                "address_string": "Calle Marques De Valdeiglesias, 1, 28004 Madrid Spain"
+              }
             }
           ]
         }
