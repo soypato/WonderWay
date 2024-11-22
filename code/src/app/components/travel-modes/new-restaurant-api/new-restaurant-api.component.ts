@@ -4,6 +4,8 @@ import { TripadvisorService } from '../../../services/tripadvisor.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
 import { CurrentUser } from '../../../services/current-user.service';
+import Swal from 'sweetalert2';
+import { Award } from '../../../interface/restaurant.interface';	
 
 @Component({
   selector: 'app-new-restaurant-api',
@@ -115,48 +117,140 @@ export class NewRestaurantApiComponent implements OnInit {
       };
     }
 
-    // Función para obtener detalles de un restaurante seleccionado
-  verDetalles(locationId: string): void {
-    console.log(locationId);
-    this.tripAdvisorService.searchDetails(locationId).subscribe({
-      next: (data) => {
-        console.log('Detalles del restaurante:', data);
-        this.selectedRestaurantDetails = data; // Guardar los detalles
-      },
-      error: (error) => {
-        console.error('Error al buscar detalles del restaurante:', error);
-        this.errorMessage = 'No se pudieron obtener los detalles del restaurante.';
-      }
-    });
-  }
+    
+    verDetalles(locationId: string): void {
+      this.tripAdvisorService.searchDetails(locationId).subscribe({
+        next: (data) => {
+          // Verificar si la descripción existe
+          const description = data.description ? data.description.slice(0, 200) + '...' : 'Descripción no disponible';
+    
+          // Obtenemos los premios y sus imágenes
+          const awards = data.awards || [];
+          let awardImagesHtml = 'No tiene premios';
+    
+          if (awards.length > 0) {
+            awardImagesHtml = ''; // Limpiamos el mensaje si existen premios
+            awards.forEach((award: Award) => {
+              if (award.images && award.images.small) {
+                awardImagesHtml += `
+                  <div>
+                    <img src="${award.images.small}" alt="Premio: ${award.display_name}" style="width: 50px; height: auto; margin-right: 10px;">
+                    <strong>${award.display_name}</strong> (${award.year})
+                  </div>
+                `;
+              }
+            });
+          }
+    
+          const message = `
+            <h4>${data.name}</h4>
+            <p><strong>Descripción:</strong> ${description}</p>
+            <p><strong>Ubicación:</strong> ${data.address_obj?.address_string}, ${data.address_obj?.city}</p>
+            <p><strong>Ranking:</strong> ${data.ranking_data?.ranking_string}</p>
+            <p><strong>Puntuación:</strong> ${data.rating} / 5</p>
+            <p><strong>Reseñas:</strong> ${data.num_reviews}</p>
+            <p><strong>Premios:</strong><br>${awardImagesHtml}</p>
+          `;
+    
+          Swal.fire({
+            title: 'Detalles del Hotel',
+            html: message,
+            icon: 'info',
+            confirmButtonText: 'Aceptar',
+          });
+        },
+        error: (error) => {
+          Swal.fire({
+            title: 'Error',
+            text: 'No se pudieron obtener los detalles del hotel.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+          });
+          console.error('Error al buscar detalles:', error);
+        },
+      });
+    }
+    
+    
+    
 
-  // Función para obtener imágenes de un restaurante seleccionado
-  verImagenes(locationId: string): void {
-    this.tripAdvisorService.searchImages(locationId).subscribe({
-      next: (data) => {
-        console.log('Imágenes del restaurante:', data);
-        this.selectedRestaurantImages = data.data; // Guardar las imágenes
-      },
-      error: (error) => {
-        console.error('Error al buscar imágenes del restaurante:', error);
-        this.errorMessage = 'No se pudieron obtener las imágenes del restaurante.';
-      }
-    });
-  }
+    verImagenes(locationId: string): void {
+      // Llamamos al servicio para obtener las imágenes del restaurante
+      this.tripAdvisorService.searchImages(locationId).subscribe({
+        next: (data) => {
+          console.log('Imágenes del restaurante:', data);
+          this.selectedRestaurantImages = data.data; // Guardamos las imágenes obtenidas
+    
+          // Ahora mostramos las imágenes en un alert
+          let imagesHtml = 'No hay imágenes disponibles';
+    
+          if (this.selectedRestaurantImages.length > 0) {
+            imagesHtml = ''; // Limpiamos el mensaje si hay imágenes
+            this.selectedRestaurantImages.forEach((image: any) => {
+              const imageUrl = image.images?.small?.url || image.images?.medium?.url; // Usamos la imagen pequeña o mediana
+              imagesHtml += `
+                <div>
+                  <img src="${imageUrl}" alt="${image.caption}" style="width: 150px; height: auto; margin-right: 10px;">
+                  <strong>${image.caption}</strong> <em>(${image.album})</em>
+                </div>
+              `;
+            });
+          }
+    
+          // Mostrar el alert con las imágenes
+          Swal.fire({
+            title: 'Imágenes del Restaurante',
+            html: imagesHtml,
+            icon: 'info',
+            confirmButtonText: 'Aceptar',
+          });
+        },
+        error: (error) => {
+          console.error('Error al buscar imágenes del restaurante:', error);
+          this.errorMessage = 'No se pudieron obtener las imágenes del restaurante.';
+        }
+      });
+    }
 
-  // Función para obtener reseñas de un restaurante seleccionado
-  verOpiniones(locationId: string): void {
-    this.tripAdvisorService.searchReviews(locationId).subscribe({
-      next: (data) => {
-        console.log('Reseñas del restaurante:', data);
-        this.selectedRestaurantReviews = data.data; // Guardar las reseñas
-      },
-      error: (error) => {
-        console.error('Error al buscar reseñas del restaurante:', error);
-        this.errorMessage = 'No se pudieron obtener las reseñas del restaurante.';
-      }
-    });
-  }
+    // Función para obtener reseñas de un restaurante seleccionado y mostrarlas en un SweetAlert
+    verOpiniones(locationId: string): void {
+      this.tripAdvisorService.searchReviews(locationId).subscribe({
+        next: (data) => {
+          console.log('Reseñas del restaurante:', data);
+    
+          // Crear el contenido HTML para mostrar todas las reseñas
+          let reviewsHtml = '';
+          data.data.forEach((review: any) => {
+            reviewsHtml += `
+              <div style="margin-bottom: 20px;">
+                <h5>${review.title}</h5>
+                <p><strong>Rating:</strong> <img src="${review.rating_image_url}" alt="Rating" /> (${review.rating} stars)</p>
+                <p><strong>Review by:</strong> ${review.user.username}</p>
+                <p><strong>Review:</strong> ${review.text}</p>
+                <a href="${review.url}" target="_blank">Read more</a>
+                <hr />
+              </div>
+            `;
+          });
+    
+          // Mostrar SweetAlert con todas las reseñas
+          Swal.fire({
+            title: 'Reseñas del Restaurante',
+            html: reviewsHtml,
+            showCloseButton: true,
+            showConfirmButton: false,
+            width: '80%',
+            heightAuto: true
+          });
+          
+        },
+        error: (error) => {
+          console.error('Error al buscar reseñas del restaurante:', error);
+          this.errorMessage = 'No se pudieron obtener las reseñas del restaurante.';
+        }
+      });
+    }
+    
 
   // Método para manejar el clic en un restaurante de la lista
   onSelectRestaurant(locationId: string): void {
