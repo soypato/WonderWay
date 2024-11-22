@@ -714,6 +714,15 @@
           ]
         }
       ]
+    },
+    {
+      "id": "0bcb",
+      "name": "VScode1313",
+      "email": "VScode1313@gmail.com",
+      "password": "hKvcWftZRIaqJZsfAiak6zRAajqQJtUV73dMH7hQ9CuFKP3RlkI=",
+      "role": "usuario",
+      "active": true,
+      "travel": []
     }
   ]
 }

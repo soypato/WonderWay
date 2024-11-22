@@ -95,17 +95,16 @@
                          aria-live="assertive">
                         La contraseña es requerida o es invalida.
                     </div>
-                    <div *ngIf="
+                    <div *ngIf=" registerForm.get('confirmPassword')?.touched &&
                     (registerForm.get('password')?.value !== registerForm.get('confirmPassword')?.value  )"
                          class="error-message"
                          role="alert"
                          aria-live="assertive">
                         Las contraseñas no coindicen.
                     </div>
-
                 </div>
                 <button type="submit" class="button-main" [attr.aria-disabled]="registerForm.invalid"
-                [disabled]="registerForm.invalid || passwordMatchValidator() ">
+                [disabled]="registerForm.invalid || !passwordMatchValidator() ">
                     Registrarse
                 </button>
             </form>
