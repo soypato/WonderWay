@@ -1,6 +1,8 @@
 
 # WonderWay
 
+![WonderWay pic](./code/public/img/WonderWay.jpg)
+
 **WonderWay** is a travel management tool designed to help you discover and organize visits to hotels, attractions, and restaurants efficiently. We use the Tripadvisor API and a local server based on `json-server` to provide a fast and reliable experience.
 
 ## Team Members
@@ -25,6 +27,16 @@
 
 1. **Prepare the project environment**:
    - Place the file `tripKey.ts` one folder above the repository. This file contains the access token required to interact with the Tripadvisor API.
+
+   Your file should look like this:
+
+   ```typescript
+   export const tripkey  = {
+    production: true,
+    token: 'token'
+  };   ```
+  
+  
 
 2. **Install dependencies**:
    ```bash
