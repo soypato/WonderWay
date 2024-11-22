@@ -16,7 +16,7 @@ import { environment } from '../../../environments/environments';
 })
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;
-  serviceUser = inject(UserService);
+  userService = inject(UserService);
   currentUser = inject(CurrentUser);
   router = inject(Router);
 
@@ -40,7 +40,7 @@ export class FormLoginComponent implements OnInit {
   private async verifyUser(): Promise<void> {
     const email = this.loginForm.get('email')?.value;
 
-    this.serviceUser.verificarCorreo(email).subscribe(
+    this.userService.verificarCorreo(email).subscribe(
       async (usuario) => {
         if (usuario) {
           await this.checkAttributes(usuario);
@@ -58,7 +58,7 @@ export class FormLoginComponent implements OnInit {
   private async checkAttributes(usuario: any): Promise<void> {
     try {
       const enteredPassword = this.loginForm.get('password')?.value;
-      const isPasswordValid = await this.verifyPassword(enteredPassword, usuario.password);
+      const isPasswordValid = await this.userService.verifyPassword(enteredPassword, usuario.password);
 
       if (isPasswordValid) {
         if (usuario.active) {
@@ -73,38 +73,6 @@ export class FormLoginComponent implements OnInit {
     } catch (error) {
       console.error('Error al verificar contraseña:', error);
       this.showError('No se pudo verificar la contraseña');
-    }
-  }
-
-  // Método para verificar contraseñas desencriptando
-  private async verifyPassword(enteredPassword: string, storedPassword: string): Promise<boolean> {
-    const encoder = new TextEncoder();
-    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
-    const storedBuffer = Uint8Array.from(atob(storedPassword), (c) => c.charCodeAt(0));
-
-    const iv = storedBuffer.slice(0, 12); // Extrae el IV almacenado
-    const encryptedData = storedBuffer.slice(12); // Datos encriptados almacenados
-
-    try {
-      const key = await crypto.subtle.importKey(
-        'raw',
-        fixedKey,
-        { name: 'AES-GCM' },
-        false,
-        ['decrypt']
-      );
-
-      const decryptedData = await crypto.subtle.decrypt(
-        { name: 'AES-GCM', iv },
-        key,
-        encryptedData
-      );
-
-      const decodedPassword = new TextDecoder().decode(decryptedData);
-      return decodedPassword === enteredPassword;
-    } catch (error) {
-      console.error('Error al desencriptar la contraseña:', error);
-      throw new Error('Error al desencriptar');
     }
   }
 

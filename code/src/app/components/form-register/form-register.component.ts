@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environments';
+import { CurrentUser } from '../../services/current-user.service';
+
 
 @Component({
   selector: 'app-form-register',
@@ -18,16 +20,18 @@ export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;
   userService = inject(UserService);
   router = inject(Router);
+  currentUser = inject(CurrentUser);
 
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group(
       {
         nombre: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', [Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/)]  ],
         password: ['', [Validators.required, Validators.minLength(8)]],
-        confirmPassword: ['', Validators.required],
+        confirmPassword: ['', [Validators.required]  ],
       },
-      { validators: FormRegisterComponent.passwordMatchValidator }
+      // { validators: FormRegisterComponent.passwordMatchValidator }
     );
   }
 
@@ -38,61 +42,31 @@ export class FormRegisterComponent implements OnInit {
     }
   }
 
-  static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
+  // static passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+  //   const password = control.get('password');
+  //   const confirmPassword = control.get('confirmPassword');
 
-    if (!password || !confirmPassword) {
-      return null;
+  //   if (!password || !confirmPassword) {
+  //     return null;
+  //   }
+
+  //   return password.value === confirmPassword.value ? { mismatch: false } : null;
+  // }
+
+  passwordMatchValidator(){
+    const pass = this.registerForm.value.password;
+    const confirm = this.registerForm.value.confirmPassword;
+
+    if (  pass && confirm  ) {
+      if( pass === confirm ){
+        return true
+      };
     }
 
-    return password.value === confirmPassword.value ? null : { mismatch: true };
+    return false;
   }
 
-  // Método para convertir ArrayBuffer a Base64
-  private arrayBufferToBase64(buffer: ArrayBuffer): string {
-    const bytes = new Uint8Array(buffer);
-    let binary = '';
-    bytes.forEach((byte) => (binary += String.fromCharCode(byte)));
-    return btoa(binary);
-  }
 
-  // Método para encriptar contraseñas
-  async encryptPassword(password: string): Promise<string> {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-
-    // Ajusta la clave a una longitud válida (32 bytes para AES-256)
-    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
-
-    try {
-      const key = await crypto.subtle.importKey(
-        'raw',
-        fixedKey,
-        { name: 'AES-GCM' },
-        false,
-        ['encrypt']
-      );
-
-      const iv = crypto.getRandomValues(new Uint8Array(12));
-      const encryptedData = await crypto.subtle.encrypt(
-        { name: 'AES-GCM', iv },
-        key,
-        data
-      );
-
-      // Combina IV y datos encriptados en un solo ArrayBuffer
-      const encryptedArray = new Uint8Array(encryptedData);
-      const result = new Uint8Array(iv.length + encryptedArray.length);
-      result.set(iv);
-      result.set(encryptedArray, iv.length);
-
-      return this.arrayBufferToBase64(result.buffer);
-    } catch (error) {
-      console.error('Error durante la encriptación:', error);
-      throw new Error('Encriptación fallida');
-    }
-  }
 
   async onSubmit(): Promise<void> {
     if (this.registerForm.valid) {
@@ -101,7 +75,7 @@ export class FormRegisterComponent implements OnInit {
       const password = this.registerForm.get('password')?.value;
 
       try {
-        const encryptedPassword = await this.encryptPassword(password);
+        const encryptedPassword = await this.userService.encryptPassword(password);
 
         this.userService.verificarCorreo(email).subscribe(
           (usuario) => {
@@ -123,9 +97,10 @@ export class FormRegisterComponent implements OnInit {
               };
 
               this.userService.addUser(nuevoUsuario).subscribe({
-                next: () => {
+                next: (data) => {
+                  this.currentUser.setUsuario(String(data.id))
                   Swal.fire('Registro exitoso', '¡Bienvenido!', 'success');
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/profile']);
                 },
                 error: (error) => {
                   console.error('Error al registrar usuario:', error);
@@ -148,4 +123,7 @@ export class FormRegisterComponent implements OnInit {
       Swal.fire('Formulario inválido', 'Revisa los campos ingresados', 'error');
     }
   }
+
+
+
 }
