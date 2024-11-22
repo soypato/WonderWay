@@ -1,13 +1,12 @@
-export interface Hotel{
-    id?: number,
-    type?: string,
-    name: string,
-    location: string,
-    price: number,
-    qualification: number,
-    checkIn: number,
-    checkOut: number,
-    rooms: number
+export interface Hotel {
+    location_id: string;
+    type: string,
+    name: string;
+    address_obj: {
+        street1: string;
+        city: string;
+        country: string;
+        postalcode: string;
+        address_string: string;
+    };
 }
-
-  

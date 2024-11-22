@@ -22,10 +22,9 @@
         <!-- Hoteles -->
         <div *ngIf="isHotel(serv)">
           <h3>🏨 Hotel | {{ serv.name }}</h3>
-          <p>📌 Ubicación | {{ serv.location }}</p>
-          <p>💰 Precio: ${{ serv.price }}</p>
-          <p>⭐ Calificación: {{ serv.qualification }} estrellas</p>
-
+          <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+          <p>🌍 País | {{ serv.address_obj.country }}</p>
+          <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
         </div>
 
         <!-- Vuelos -->
