@@ -10,6 +10,7 @@
       <section>
         <h2>Cambio de Información</h2>
         <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
+        <!--Nombre-->
           <div>
             <label for="name">Nombre:</label>
             <input
@@ -23,6 +24,7 @@
               Nombre no válido.
             </div>
           </div>
+          <!--mail-->
           <div>
             <label for="email">Email:</label>
             <input
@@ -36,6 +38,7 @@
               Correo no válido.
             </div>
           </div>
+          <!--contra-->
           <div>
             <label for="currentPassword">Contraseña actual:</label>
             <input
@@ -43,12 +46,14 @@
               type="password"
               formControlName="currentPassword"
               placeholder="Ingrese su contraseña actual"
+              aria-required="true"
             />
             <div *ngIf="profileForm.get('currentPassword')?.dirty && profileForm.get('currentPassword')?.invalid" class="error-message">
               La contraseña es requerida.
             </div>
           </div>
           <button type="submit" [disabled]="!profileForm.valid">Guardar Cambios</button>
+          <!-- es posible que saque o meta el  " || ( !prevPasswordsMatch() )  "   -->
         </form>
       </section>
 
@@ -58,6 +63,7 @@
       <section>
         <h2>Cambio de Contraseña</h2>
         <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
+          <!--contra actual-->
           <div>
             <label for="currentPassword">Contraseña actual:</label>
             <input
@@ -70,6 +76,7 @@
               Contraseña requerida.
             </div>
           </div>
+          <!--new pass-->
           <div>
             <label for="newPassword">Nueva contraseña:</label>
             <input
@@ -85,6 +92,7 @@
               La contraseña debe tener al menos ocho caracteres.
             </div>
           </div>
+          <!--confirm new pass-->
           <div>
             <label for="confirmPassword">Confirmar nueva contraseña:</label>
             <input

@@ -27,7 +27,7 @@ export class ModifyProfileComponent implements OnInit {
   ) {
     this.profileForm = this.fb.group({
       name: [''],
-      email: ['', [Validators.email]],
+      email: ['', [  Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/)  ]  ],
       currentPassword: ['', [Validators.required]],
     });
 
@@ -52,32 +52,33 @@ export class ModifyProfileComponent implements OnInit {
       });
     }
   }
+
   async prevPasswordsMatch(): Promise<boolean> {
 
-
-    if (!this.passwordForm.value.currentPassword || !this.currentUser?.password) {
-      return false; // Verificar si ambos valores están presentes
+    if(!this.currentUser || !this.profileForm.valid || !this.passwordForm.valid ){
+      return false;
     }
-  
+
     // Llamar a verifyPassword para comparar las contraseñas
-    return await this.verifyPassword(
-      this.passwordForm.value.currentPassword,
-      this.currentUser.password
-    );
+
+    if(  this.profileForm.valid  ){
+      return await this.verifyPassword( this.profileForm.value.currentPassword , this.currentUser.password );
+
+    }else if(  this.passwordForm.valid  ){
+      return await this.verifyPassword( this.passwordForm.value.currentPassword , this.currentUser.password );
+    }
+
+    return false;
   }
-  
 
   passwordsMatch(): boolean {
-    return (
-      this.passwordForm.value.newPassword ===
-      this.passwordForm.value.confirmPassword
-    );
+    return (  this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword  );
   }
-  
+
   async onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
       const passwordValid = await this.prevPasswordsMatch();
-  
+
       if (!passwordValid) {
         Swal.fire({
           icon: 'error',
@@ -86,19 +87,19 @@ export class ModifyProfileComponent implements OnInit {
         });
         return;
       }
-  
+
       const updatedUser: Partial<User> = { ...this.currentUser };
-  
+
       // Solo actualizamos el nombre si el campo no está vacío y es diferente al actual
       if (this.profileForm.value.name.trim() && this.profileForm.value.name !== this.currentUser.name) {
         updatedUser.name = this.profileForm.value.name;
       }
-  
+
       // Solo actualizamos el email si el campo no está vacío y es diferente al actual
       if (this.profileForm.value.email.trim() && this.profileForm.value.email !== this.currentUser.email) {
         updatedUser.email = this.profileForm.value.email;
       }
-  
+
       // Validación: Si no hay cambios, salimos del método
       if (!updatedUser.name && !updatedUser.email) {
         Swal.fire({
@@ -108,7 +109,7 @@ export class ModifyProfileComponent implements OnInit {
         });
         return;
       }
-  
+
       // Realizamos la actualización en el servidor
       this.userService.updateUser(updatedUser as User).subscribe({
         next: () => {
@@ -131,14 +132,14 @@ export class ModifyProfileComponent implements OnInit {
       });
     }
   }
-  
+
 
   async onPasswordSubmit() {
     if (this.passwordForm.valid && this.currentUser) {
       try {
         // Verificar si la contraseña actual coincide
         const passwordValid = await this.prevPasswordsMatch();
-        
+
         if (!passwordValid) {
           Swal.fire({
             icon: 'error',
@@ -147,7 +148,7 @@ export class ModifyProfileComponent implements OnInit {
           });
           return;
         }
-  
+
         // Verificar si las nuevas contraseñas coinciden
         if (!this.passwordsMatch()) {
           Swal.fire({
@@ -157,16 +158,16 @@ export class ModifyProfileComponent implements OnInit {
           });
           return;
         }
-  
+
         // Encriptar la nueva contraseña antes de enviarla
         const encryptedPassword = await this.encryptPassword(this.passwordForm.value.newPassword);
-  
+
         // Preparar el objeto con los nuevos datos del usuario
         const updatedUser: User = {
           ...this.currentUser,
           password: encryptedPassword, // Asignar la contraseña encriptada
         };
-  
+
         // Actualizar la contraseña en la base de datos
         this.userService.updateUser(updatedUser).subscribe({
           next: () => {
@@ -204,23 +205,21 @@ export class ModifyProfileComponent implements OnInit {
       });
     }
   }
-  
-  
+
+
   // TODO: PASARLA A UNA INYECCIÓN DE DEPENDENCIAS
 
-  async verifyPassword(
-    enteredPassword: string,
-    storedPassword: string
-  ): Promise<boolean> {
+  // verificar contraseñas mediante desencripcion
+  async verifyPassword( enteredPassword: string, storedPassword: string ): Promise<boolean> {
+
     const encoder = new TextEncoder();
-    const fixedKey = encoder
-      .encode(environment.keyPass.padEnd(32, '0'))
-      .slice(0, 32);
-    const storedBuffer = Uint8Array.from(
-      atob(storedPassword),
-      (c) => c.charCodeAt(0)
-    );
+
+    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
+
+    const storedBuffer = Uint8Array.from(atob(storedPassword),(c) => c.charCodeAt(0));
+
     const iv = storedBuffer.slice(0, 12);
+
     const encryptedData = storedBuffer.slice(12);
 
     try {
