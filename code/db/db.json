@@ -416,6 +416,18 @@
                 "postalcode": "28004",
                 "address_string": "Calle Marques De Valdeiglesias, 1, 28004 Madrid Spain"
               }
+            },
+            {
+              "location_id": "1657848",
+              "type": "hotel",
+              "name": "Holiday Inn Express Rosario, an IHG Hotel",
+              "address_obj": {
+                "street1": "Salta 1950",
+                "city": "Rosario",
+                "country": "Argentina",
+                "postalcode": "S2000AIR",
+                "address_string": "Salta 1950, Rosario S2000AIR Argentina"
+              }
             }
           ]
         }

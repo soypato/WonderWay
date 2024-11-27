@@ -92,6 +92,14 @@ export class NewAttractionApiComponent implements OnInit {
     // Guardo el nuevo hotel y tengo el arr listo
     arrServiceDetail.push(atraccionComoInterfaz);
 
+    // Mostrar SweetAlert
+    Swal.fire({
+      title: '¡Atracción agregada!',
+      text: 'Ahora puedes agregar otras atracciones',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+    });
+
     // Como trabajamos por referencia desde el principio, queda guardado tamb en travel detail
     // Ahora sólo queda actualizarlo en el usuario, en usuarioActual tenemos el obj del usuario actual
 
