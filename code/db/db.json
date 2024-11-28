@@ -5,7 +5,7 @@
       "name": "Juanma Ciardi",
       "email": "juanmaciardi@gmail.com",
       "password": "d2bSpGj7su/ghHjKSB69Zc1iAmrgYnkXxJ19m+RmndYbZ3j8WA==",
-      "role": "usuario",
+      "role": "admin",
       "active": true,
       "travel": [
         {
@@ -438,7 +438,7 @@
       "name": "Juan Pagani",
       "email": "juan@pagani.com",
       "password": "XS1sPPfWOKqaXD1VOapKuZ2h3HVsm6OMLGVRekka7guEs6FRNw==",
-      "role": "usuario",
+      "role": "admin",
       "active": true,
       "travel": [
         {
@@ -964,6 +964,15 @@
           ]
         }
       ]
+    },
+    {
+      "id": "0352",
+      "name": "admin",
+      "email": "admin@wonderway.com.ar",
+      "password": "eaYnl+DSmFlzv0Yp61asFzwTAgQw2Cfi2RsrcMmft43wBV3SjmGS",
+      "role": "admin",
+      "active": true,
+      "travel": []
     }
   ]
 }
