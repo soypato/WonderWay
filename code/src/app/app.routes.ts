@@ -17,6 +17,8 @@ import { ListOneTravelComponent } from './components/travel-modes/list-one-trave
 import { NewAttractionApiComponent } from './components/travel-modes/new-attraction-api/new-attraction-api.component';
 import { NewHotelApiComponent } from './components/travel-modes/new-hotel-api/new-hotel-api.component';
 import { NewRestaurantApiComponent } from './components/travel-modes/new-restaurant-api/new-restaurant-api.component';
+import { AdminUserComponent } from './components/admin-user/admin-user.component';
+import { AdminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -96,6 +98,11 @@ export const routes: Routes = [
         path: 'new_restaurant_api',
         component: NewRestaurantApiComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin_panel',
+        component: AdminUserComponent,
+        canActivate: [AdminGuard]
     },
     {
         path: '**', // el resto: AL FINAL POR FAVOR

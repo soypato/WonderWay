@@ -1,0 +1,25 @@
+h1
+{
+    font-size: 5rem;
+    text-align: center;
+    margin: 4rem 0 3rem 0;
+    color: var(--text-brand-colors);
+    font-weight: 600;
+}
+h2{
+    font-size: 3rem;
+    margin: 4rem 0;
+}
+
+article
+{
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+#print
+{
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}

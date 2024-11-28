@@ -1,0 +1,36 @@
+<div class="main-parent-container">
+    <div class="profile-container main-child-container">
+      <h1>Listado de usuarios</h1>
+      <section>
+        <h2>Usuarios activos</h2>
+        <div *ngFor="let user of users" id="service-list">
+          <article *ngIf="user.active">
+            <h3>🥪 Nombre | {{ user.name }}</h3>
+            <p>📌 Correo | {{ user.email }}</p>
+            <p>⭐ Rol | {{ user.role }}</p>
+            <p>📖 Cantidad de viajes creados: {{ user.travel?.length }}</p>
+            <div class="menu-buttons vertical">
+                <button *ngIf="user.role === 'usuario'" class="button-main" (click)="makeAdmin(user)">🛡️ Hacer administrador</button>
+                <button *ngIf="user.role === 'usuario'" class="button-main delete" (click)="toggleBan(user)">🗑️ Banear</button>
+            </div>
+          </article>
+        </div>
+      </section>
+  
+      <hr>
+  
+      <section>
+        <h2>Usuarios baneados</h2>
+        <ng-container *ngFor="let user of users">
+            <article *ngIf="!user.active" class="service-list">
+                <h3>🥪 Nombre | {{ user.name }}</h3>
+            <p>📌 Correo | {{ user.email }}</p>
+            <p>⭐ Rol | {{ user.role }}</p>
+            <p>📖 Cantidad de viajes creados: {{ user.travel?.length }}</p>
+            <button class="button-main delete" (click)="toggleBan(user)">🛢️ Desbanear</button>
+          </article>
+        </ng-container>
+      </section>
+    </div>
+  </div>
+  
