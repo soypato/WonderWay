@@ -99,8 +99,8 @@ export class NewRestaurantApiComponent implements OnInit {
 
       // Mostrar SweetAlert
       Swal.fire({
-        title: '¡Atracción agregada!',
-        text: 'Ahora puedes agregar otras atracciones',
+        title: '¡Restaurante agregado!',
+        text: 'Ahora puedes agregar otros restaurantes',
         icon: 'success',
         confirmButtonText: 'Aceptar',
       });

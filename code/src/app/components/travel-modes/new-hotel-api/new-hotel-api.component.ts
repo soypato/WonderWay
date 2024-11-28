@@ -98,8 +98,8 @@ export class NewHotelApiComponent implements OnInit {
 
       // Mostrar SweetAlert
       Swal.fire({
-        title: '¡Atracción agregada!',
-        text: 'Ahora puedes agregar otras atracciones',
+        title: '¡Hotel agregado!',
+        text: 'Ahora puedes agregar otros hoteles',
         icon: 'success',
         confirmButtonText: 'Aceptar',
       });
