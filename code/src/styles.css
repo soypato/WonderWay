@@ -68,6 +68,9 @@ h1 {
     text-decoration:none;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button-main:hover {

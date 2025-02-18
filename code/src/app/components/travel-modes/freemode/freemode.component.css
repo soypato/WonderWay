@@ -1,31 +1,7 @@
 .freemode-container {
-    position: relative;
-    text-align: center;
-    padding: 4rem 2rem;
+
     background-image: url('/img/imgBotesito.webp'); 
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    z-index: 1;
   }
-  
-  /* Capa de oscurecimiento */
-  .freemode-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según el efecto deseado */
-    z-index: -1;
-  }
-  
   .freemode-container h2 {
     font-size: 2.5rem;
     color: #ffffff;

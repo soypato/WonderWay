@@ -1,9 +1,6 @@
 /* Contenedor principal - Ahora aplica la capa oscura a toda la pantalla */
 .main-parent-container {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background-image: url('/img/imgPaisaje2.webp');
   background-size: cover;
