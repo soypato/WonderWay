@@ -47,3 +47,6 @@ Thumbs.db
 .env.*.local
 
 code/src/app/environments/
+
+# Node modules
+code/node_modules/
