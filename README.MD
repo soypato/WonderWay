@@ -1,9 +1,10 @@
-
 # WonderWay
 
-![WonderWay pic](./code/public/img/WonderWay.jpg)
+![WonderWay](./code/public/img/WonderWay.jpg)
 
-**WonderWay** is a travel management tool designed to help you discover and organize visits to hotels, attractions, and restaurants efficiently. We use the Tripadvisor API and a local server based on `json-server` to provide a fast and reliable experience.
+**WonderWay** is a travel planning tool that helps you explore and organize visits to hotels, attractions, and restaurants with ease. It integrates the **Tripadvisor API** and uses a lightweight **local backend** powered by `json-server`, delivering a fast and seamless experience.
+
+---
 
 ## Team Members
 
@@ -15,74 +16,93 @@
 
 ---
 
-## Main Features
+## Key Features
 
-- **Search hotels, restaurants, and attractions**: Detailed and real-time information provided by the Tripadvisor API.
-- **Local management**: Data stored and handled using `json-server`.
-- **User-friendly interface**: Designed for a simple and direct user experience.
+- 🔍 **Search hotels, restaurants, and attractions** with real-time data from the Tripadvisor API.  
+- 💾 **Local data handling** through a fast mock backend powered by `json-server`.  
+- 🖥️ **Clean and user-friendly UI** built with Angular.
 
 ---
 
-## Installation and Usage Instructions
+## Prerequisites
 
-1. **Prepare the project environment**:  
-   Place the file `tripKey.ts` one folder above the repository. This file contains the access token required to interact with the Tripadvisor API.
+Before installing, ensure you have the following installed globally:
 
-   TripKey is like .env file.
+- **[Node.js](https://nodejs.org/)** (v16+ recommended)
+- **[Angular CLI](https://angular.io/cli)**
+- **[json-server](https://www.npmjs.com/package/json-server)**
 
-   Your file should look like this:
+Install them (if needed) using:
 
-   ```typescript
+```bash
+npm install -g @angular/cli json-server
+```
+
+---
+
+## Getting Started
+
+Follow these steps to get WonderWay up and running:
+
+1. **Add the Tripadvisor API Key file**:  
+   Create a file named `tripKey.ts` **in the parent folder** of the main project directory.  
+   This acts like a `.env` file to store your access token securely.
+
+   Example content:
+
+   ```ts
    export const tripkey = {
      production: true,
-     token: 'token'
+     token: 'your_tripadvisor_token_here'
    };
    ```
 
-2. **Install dependencies**:
+2. **Install project dependencies**:
 
    ```bash
    npm install
    ```
 
-3. **Navigate to the code directory**:
+3. **Navigate to the Angular project folder**:
+
    ```bash
    cd code
    ```
 
-4. **Start the Angular server**:
+4. **Start the Angular development server**:
+
    ```bash
-   ng s -o
+   ng serve -o
    ```
 
-5. **Start the JSON server**:
-   - Open a new terminal and navigate again to the code directory:
-     ```bash
-     cd code
-     ```
-   - Run the following command:
-     ```bash
-     json-server db/db.json
-     ```
+5. **Start the JSON backend server**:  
+   Open a new terminal window, navigate to the `code` folder again:
 
-6. Done! Now you can explore **WonderWay** in your browser.
+   ```bash
+   cd code
+   json-server db/db.json
+   ```
+
+6. 🎉 That’s it! Open your browser and start exploring **WonderWay**.
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 - **Frontend**: Angular
-- **Backend**: JSON-Server
-- **Data API**: Tripadvisor
+- **Backend (Mock API)**: json-server
+- **External Data Source**: Tripadvisor API
 
 ---
 
-## Contributions
+## Contributing
 
-This project was developed to learn, collaborate, and provide a useful tool. If you have suggestions or want to contribute, feel free to contact us or create a pull request.
+WonderWay is a collaborative project created for learning and fun.  
+Feel free to fork, suggest improvements, or open a pull request. We welcome feedback and contributions!
 
 ---
 
 ## License
 
-This project is not currently under any specific license. If you have any questions about its use, please contact any of the team members listed above.
+This project does not currently use a formal license. If you'd like to use or adapt it, please contact any of the team members listed above.
+
