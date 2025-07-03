@@ -50,3 +50,6 @@ code/src/app/environments/
 
 # Node modules
 code/node_modules/
+
+# Angular settings
+code/.angular/
