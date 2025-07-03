@@ -25,20 +25,22 @@
 
 ## Installation and Usage Instructions
 
-1. **Prepare the project environment**:
-   - Place the file `tripKey.ts` one folder above the repository. This file contains the access token required to interact with the Tripadvisor API.
+1. **Prepare the project environment**:  
+   Place the file `tripKey.ts` one folder above the repository. This file contains the access token required to interact with the Tripadvisor API.
+
+   TripKey is like .env file.
 
    Your file should look like this:
 
    ```typescript
-   export const tripkey  = {
-    production: true,
-    token: 'token'
-  };   ```
-  
-  
+   export const tripkey = {
+     production: true,
+     token: 'token'
+   };
+   ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
