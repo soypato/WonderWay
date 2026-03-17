@@ -27,7 +27,7 @@
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "json-server": "^1.0.0-beta.3",
-    "jspdf": "^4.1.0",
+    "jspdf": "^4.2.1",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.22.4",
     "tslib": "^2.3.0",
