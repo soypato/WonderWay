@@ -2,60 +2,67 @@
   <div class="profile-container main-child-container">
     <h1>{{travelData.name}}</h1>
     <hr>
-    <article id="introduction-data">
-      <p>📌 Ubicación | {{travelData.location}}</p>
-      <p>📅 Fecha de inicio | {{travelData.startDate}}</p>
-      <p>📅 Fecha de fin | {{travelData.endDate}}</p> <!-- Nueva línea para mostrar la fecha de fin -->
-    </article>
-    <hr>
-    <h2>Servicios</h2>
-    <main *ngFor="let serv of travelData.services">
-      <article *ngIf="isService(serv)" id="service-list">
-        <!-- Restaurantes -->
-        <div *ngIf="isRestaurant(serv)">
-          <h3>🥪 Restaurant | {{ serv.name }}</h3>
-          <p>📌 Ubicación | {{ serv.street }}</p>
-          <p>⭐ País | {{ serv.country }}</p>
-          <p>📖 Código postal: {{ serv.postalCode }}</p>
-        </div>
-
-        <!-- Atracciones -->
-          <div *ngIf="isAttraction(serv)">
-            <h3>🏨 Atracción | {{ serv.name }}</h3>
-            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
-            <p>🌍 País | {{ serv.address_obj.country }}</p>
-            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
-          </div>
-
-        <!-- Hoteles -->
-          <div *ngIf="isHotel(serv)">
-            <h3>🏨 Hotel | {{ serv.name }}</h3>
-            <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
-            <p>🌍 País | {{ serv.address_obj.country }}</p>
-            <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
-          </div>
-
-        <article class="menu-buttons vertical">
-          <a (click)="deleteService(serv)" class="button-main danger">
-            <i class="fas fa-trash-alt"></i> Eliminar
-          </a>
-        </article>
+      <article id="introduction-data">
+        <p>📌 Ubicación | {{travelData.location}}</p>
+        <p>📅 Fecha de inicio | {{travelData.startDate}}</p>
+        <p>📅 Fecha de fin | {{travelData.endDate}}</p> <!-- Nueva línea para mostrar la fecha de fin -->
       </article>
-    </main>
+      <hr>
+        <h2>Servicios</h2>
+        @for (serv of travelData.services; track serv) {
+          <main>
+            @if (isService(serv)) {
+              <article id="service-list">
+                <!-- Restaurantes -->
+                @if (isRestaurant(serv)) {
+                  <div>
+                    <h3>🥪 Restaurant | {{ serv.name }}</h3>
+                    <p>📌 Ubicación | {{ serv.street }}</p>
+                    <p>⭐ País | {{ serv.country }}</p>
+                    <p>📖 Código postal: {{ serv.postalCode }}</p>
+                  </div>
+                }
+                <!-- Atracciones -->
+                @if (isAttraction(serv)) {
+                  <div>
+                    <h3>🏨 Atracción | {{ serv.name }}</h3>
+                    <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+                    <p>🌍 País | {{ serv.address_obj.country }}</p>
+                    <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
+                  </div>
+                }
+                <!-- Hoteles -->
+                @if (isHotel(serv)) {
+                  <div>
+                    <h3>🏨 Hotel | {{ serv.name }}</h3>
+                    <p>📌 Ciudad | {{ serv.address_obj.city }}</p>
+                    <p>🌍 País | {{ serv.address_obj.country }}</p>
+                    <p>📍 Dirección | {{ serv.address_obj.address_string }}</p>
+                  </div>
+                }
+                <article class="menu-buttons vertical">
+                  <a (click)="deleteService(serv)" class="button-main danger">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </a>
+                </article>
+              </article>
+            }
+          </main>
+        }
 
-    <div class="menu-buttons vertical">
-      <button (click)="addService('hotel')" class="button-main">
-        <i class="fas fa-hotel"></i> Agregar hotel
-      </button>
-      <button (click)="addService('restaurant')" class="button-main">
-        <i class="fas fa-utensils"></i> Agregar restaurant
-      </button>
-      <button (click)="addService('attraction')" class="button-main">
-        <i class="fas fa-person"></i> Agregar atracción
-      </button>
+        <div class="menu-buttons vertical">
+          <button (click)="addService('hotel')" class="button-main">
+            <i class="fas fa-hotel"></i> Agregar hotel
+          </button>
+          <button (click)="addService('restaurant')" class="button-main">
+            <i class="fas fa-utensils"></i> Agregar restaurant
+          </button>
+          <button (click)="addService('attraction')" class="button-main">
+            <i class="fas fa-person"></i> Agregar atracción
+          </button>
+        </div>
+        <button (click)="print()" class="button-main" id="print">
+          <i class="fas fa-print"></i> Imprimir / PDF
+        </button>
+      </div>
     </div>
-    <button (click)="print()" class="button-main" id="print">
-      <i class="fas fa-print"></i> Imprimir / PDF
-    </button>
-  </div>
-</div>

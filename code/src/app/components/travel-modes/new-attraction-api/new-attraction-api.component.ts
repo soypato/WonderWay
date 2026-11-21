@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TripadvisorService } from '../../../services/tripadvisor.service';
-import { CommonModule } from '@angular/common';
+
 import { UserService } from '../../../services/user.service';
 import { CurrentUser } from '../../../services/current-user.service';
 import Swal from 'sweetalert2';
@@ -9,7 +9,7 @@ import { Award } from '../../../interface/restaurant.interface';
 
 @Component({
     selector: 'app-new-restaurant-api',
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [ReactiveFormsModule],
     templateUrl: './new-attraction-api.component.html',
     styleUrls: ['../new-service.css', './new-attraction-api.component.css']
 })

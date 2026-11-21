@@ -10,7 +10,7 @@
       <section>
         <h2>Cambio de Información</h2>
         <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
-        <!--Nombre-->
+          <!--Nombre-->
           <div>
             <label for="name">Nombre:</label>
             <input
@@ -19,106 +19,122 @@
               formControlName="name"
               placeholder="Ingrese su nuevo nombre o dejar vacío"
               aria-describedby="nameHelp"
-            />
-            <div *ngIf="profileForm.get('name')?.dirty && profileForm.get('name')?.invalid" class="error-message">
-              Nombre no válido.
+              />
+              @if (profileForm.get('name')?.dirty && profileForm.get('name')?.invalid) {
+                <div class="error-message">
+                  Nombre no válido.
+                </div>
+              }
             </div>
-          </div>
-          <!--mail-->
-          <div>
-            <label for="email">Email:</label>
-            <input
-              id="email"
-              type="email"
-              formControlName="email"
-              placeholder="Ingrese su nuevo correo o dejar vacío"
-              aria-describedby="emailHelp"
-            />
-            <div *ngIf="profileForm.get('email')?.dirty && profileForm.get('email')?.invalid" class="error-message">
-              Correo no válido.
-            </div>
-          </div>
-          <!--contra-->
-          <div>
-            <label for="currentPassword">Contraseña actual:</label>
-            <input
-              id="currentPassword"
-              type="password"
-              formControlName="currentPassword"
-              placeholder="Ingrese su contraseña actual"
-              aria-required="true"
-            />
-            <div *ngIf="profileForm.get('currentPassword')?.dirty && profileForm.get('currentPassword')?.invalid" class="error-message">
-              La contraseña es requerida.
-            </div>
-          </div>
-          <button type="submit" [disabled]="!profileForm.valid || !passwordsMatch() ">Guardar Cambios</button>
-        </form>
-      </section>
+            <!--mail-->
+            <div>
+              <label for="email">Email:</label>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                placeholder="Ingrese su nuevo correo o dejar vacío"
+                aria-describedby="emailHelp"
+                />
+                @if (profileForm.get('email')?.dirty && profileForm.get('email')?.invalid) {
+                  <div class="error-message">
+                    Correo no válido.
+                  </div>
+                }
+              </div>
+              <!--contra-->
+              <div>
+                <label for="currentPassword">Contraseña actual:</label>
+                <input
+                  id="currentPassword"
+                  type="password"
+                  formControlName="currentPassword"
+                  placeholder="Ingrese su contraseña actual"
+                  aria-required="true"
+                  />
+                  @if (profileForm.get('currentPassword')?.dirty && profileForm.get('currentPassword')?.invalid) {
+                    <div class="error-message">
+                      La contraseña es requerida.
+                    </div>
+                  }
+                </div>
+                <button type="submit" [disabled]="!profileForm.valid || !passwordsMatch() ">Guardar Cambios</button>
+              </form>
+            </section>
 
-      <hr />
+            <hr />
 
-      <!-- Sección para cambiar contraseña -->
-      <section>
-        <h2>Cambio de Contraseña</h2>
-        <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
-          <!--contra actual-->
-          <div>
-            <label for="currentPassword">Contraseña actual:</label>
-            <input
-              id="currentPasswordPassword"
-              type="password"
-              formControlName="currentPassword"
-              placeholder="Ingrese su contraseña actual"
-            />
-            <div *ngIf="passwordForm.get('currentPassword')?.dirty && passwordForm.get('currentPassword')?.invalid" class="error-message">
-              Contraseña requerida.
-            </div>
-          </div>
-          <!--new pass-->
-          <div>
-            <label for="newPassword">Nueva contraseña:</label>
-            <input
-              id="newPassword"
-              type="password"
-              formControlName="newPassword"
-              placeholder="Ingrese su nueva contraseña"
-            />
-            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('required')" class="error-message">
-              La nueva contraseña es requerida.
-            </div>
-            <div *ngIf="passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('minlength')" class="error-message">
-              La contraseña debe tener al menos ocho caracteres.
-            </div>
-          </div>
-          <!--confirm new pass-->
-          <div>
-            <label for="confirmPassword">Confirmar nueva contraseña:</label>
-            <input
-              id="confirmPassword"
-              type="password"
-              formControlName="confirmPassword"
-              placeholder="Confirme su nueva contraseña"
-            />
-            <div *ngIf="passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid"
-              class="error-message"
-              role="alert"
-              aria-live="assertive">
-              Confirmación de contraseña requerida.
-            </div>
+            <!-- Sección para cambiar contraseña -->
+            <section>
+              <h2>Cambio de Contraseña</h2>
+              <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
+                <!--contra actual-->
+                <div>
+                  <label for="currentPassword">Contraseña actual:</label>
+                  <input
+                    id="currentPasswordPassword"
+                    type="password"
+                    formControlName="currentPassword"
+                    placeholder="Ingrese su contraseña actual"
+                    />
+                    @if (passwordForm.get('currentPassword')?.dirty && passwordForm.get('currentPassword')?.invalid) {
+                      <div class="error-message">
+                        Contraseña requerida.
+                      </div>
+                    }
+                  </div>
+                  <!--new pass-->
+                  <div>
+                    <label for="newPassword">Nueva contraseña:</label>
+                    <input
+                      id="newPassword"
+                      type="password"
+                      formControlName="newPassword"
+                      placeholder="Ingrese su nueva contraseña"
+                      />
+                      @if (passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('required')) {
+                        <div class="error-message">
+                          La nueva contraseña es requerida.
+                        </div>
+                      }
+                      @if (passwordForm.get('newPassword')?.dirty && passwordForm.get('newPassword')?.hasError('minlength')) {
+                        <div class="error-message">
+                          La contraseña debe tener al menos ocho caracteres.
+                        </div>
+                      }
+                    </div>
+                    <!--confirm new pass-->
+                    <div>
+                      <label for="confirmPassword">Confirmar nueva contraseña:</label>
+                      <input
+                        id="confirmPassword"
+                        type="password"
+                        formControlName="confirmPassword"
+                        placeholder="Confirme su nueva contraseña"
+                        />
+                        @if (passwordForm.get('confirmPassword')?.dirty && passwordForm.get('confirmPassword')?.invalid) {
+                          <div
+                            class="error-message"
+                            role="alert"
+                            aria-live="assertive">
+                            Confirmación de contraseña requerida.
+                          </div>
+                        }
 
-            <div *ngIf="  passwordForm.get('newPassword')?.value !== passwordForm.get('confirmPassword')?.value    "
-              class="error-message"
-              role="alert"
-              aria-live="assertive">
-              Confirmación de contraseña no coindides.
+                        @if (  passwordForm.get('newPassword')?.value !== passwordForm.get('confirmPassword')?.value    ) {
+                          <div
+                            class="error-message"
+                            role="alert"
+                            aria-live="assertive">
+                            Confirmación de contraseña no coindides.
+                          </div>
+                        }
+
+
+                      </div>
+                      <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
+                    </form>
+                  </section>
+                </div>
+              </div>
             </div>
-
-
-          </div>
-          <button type="submit" [disabled]="!passwordForm.valid || !passwordsMatch()">Cambiar Contraseña</button>
-        </form>
-      </section>
-    </div>
-  </div>
-</div>

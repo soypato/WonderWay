@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripadvisorService } from '../../../services/tripadvisor.service';
 import { debounceTime, switchMap } from 'rxjs';
@@ -15,7 +15,7 @@ import { User } from '../../../interface/user.interface';
     selector: 'app-new-travel',
     templateUrl: './new-travel.component.html',
     styleUrls: ['./new-travel.component.css'],
-    imports: [CommonModule, ReactiveFormsModule]
+    imports: [ReactiveFormsModule]
 })
 export class NewTravelComponent {
   travelForm: FormGroup;

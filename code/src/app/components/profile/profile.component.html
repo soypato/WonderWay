@@ -1,23 +1,29 @@
 <div class="main-parent-container">
   <div class="profile-container main-child-container">
-      <div class="profile-info" *ngIf="user">
+    @if (user) {
+      <div class="profile-info">
         <h1>¡Hola, {{ user.name }}!</h1>
         <p>📥 Tu correo es: {{ user.email }}</p>
-        <p *ngIf="user.travel?.length > 0">
-          <span>🦆 Tenés {{ user.travel.length }} viajes creados.</span>
-        </p>
-        <p *ngIf="user.travel?.length === 0">
-          <span>🦆 ¿Vamos a crear un viaje?</span>
-        </p>
+        @if (user.travel?.length > 0) {
+          <p>
+            <span>🦆 Tenés {{ user.travel.length }} viajes creados.</span>
+          </p>
+        }
+        @if (user.travel?.length === 0) {
+          <p>
+            <span>🦆 ¿Vamos a crear un viaje?</span>
+          </p>
+        }
       </div>
-      <div class="menu-buttons">
-        <a href="/admin_panel" class="button-main">🛠️ Panel de administradores</a>
-        <a href="/menu_travel" class="button-main">✈️ Menú de viajes</a>
-        <a href="/modifyprofile" class="button-main">🖊️ Editar perfil</a>
-        <a href="#" (click)="logout()" class="button-main delete">🚪 Cerrar sesión</a>
-  
-      </div>
-      <!-- Esto cuando tengan ya la URL de edición -->
+    }
+    <div class="menu-buttons">
+      <a href="/admin_panel" class="button-main">🛠️ Panel de administradores</a>
+      <a href="/menu_travel" class="button-main">✈️ Menú de viajes</a>
+      <a href="/modifyprofile" class="button-main">🖊️ Editar perfil</a>
+      <a href="#" (click)="logout()" class="button-main delete">🚪 Cerrar sesión</a>
+
     </div>
-</div>  
+    <!-- Esto cuando tengan ya la URL de edición -->
+  </div>
+</div>
 

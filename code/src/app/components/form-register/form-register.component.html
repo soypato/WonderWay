@@ -1,118 +1,128 @@
 <div class="background-container"></div>
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title" id="form-title">Crear una cuenta</h1>
-            <p class="card-description">Regístrate para comenzar tu aventura de viajes</p>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="registro-form" aria-labelledby="form-title">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo <span class="required">*</span></label>
-                    <div class="input-icon">
-                        <i class="icon-user" aria-hidden="true">👤</i>
-                        <input
-                            type="text"
-                            id="nombre"
-                            formControlName="nombre"
-                            placeholder="Tu nombre completo"
-                            required
-                            aria-required="true"
-                            aria-describedby="nombreHelp"
-                        >
-                    </div>
-                    <div id="nombreHelp" class="sr-only">Ingresa tu nombre completo.</div>
-                    <div *ngIf="registerForm.get('nombre')?.invalid && (registerForm.get('nombre')?.touched || registerForm.get('nombre')?.dirty)"
-                         class="error-message"
-                         role="alert"
-                         aria-live="assertive">
-                        El nombre es obligatorio.
-                    </div>
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title" id="form-title">Crear una cuenta</h1>
+      <p class="card-description">Regístrate para comenzar tu aventura de viajes</p>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="registro-form" aria-labelledby="form-title">
+        <div class="form-group">
+          <label for="nombre">Nombre completo <span class="required">*</span></label>
+          <div class="input-icon">
+            <i class="icon-user" aria-hidden="true">👤</i>
+            <input
+              type="text"
+              id="nombre"
+              formControlName="nombre"
+              placeholder="Tu nombre completo"
+              required
+              aria-required="true"
+              aria-describedby="nombreHelp"
+              >
+            </div>
+            <div id="nombreHelp" class="sr-only">Ingresa tu nombre completo.</div>
+            @if (registerForm.get('nombre')?.invalid && (registerForm.get('nombre')?.touched || registerForm.get('nombre')?.dirty)) {
+              <div
+                class="error-message"
+                role="alert"
+                aria-live="assertive">
+                El nombre es obligatorio.
+              </div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico <span class="required">*</span></label>
+            <div class="input-icon">
+              <i class="icon-plane" aria-hidden="true">✈️</i>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="tu@email.com"
+                required
+                aria-required="true"
+                aria-describedby="emailHelp"
+                >
+              </div>
+              <div id="emailHelp" class="sr-only">Ingresa tu correo electrónico.</div>
+              @if (registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)) {
+                <div
+                  class="error-message"
+                  role="alert"
+                  aria-live="assertive">
+                  Correo electrónico no válido.
                 </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico <span class="required">*</span></label>
-                    <div class="input-icon">
-                        <i class="icon-plane" aria-hidden="true">✈️</i>
-                        <input
-                            type="email"
-                            id="email"
-                            formControlName="email"
-                            placeholder="tu@email.com"
-                            required
-                            aria-required="true"
-                            aria-describedby="emailHelp"
-                        >
-                    </div>
-                    <div id="emailHelp" class="sr-only">Ingresa tu correo electrónico.</div>
-                    <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)"
-                         class="error-message"
-                         role="alert"
-                         aria-live="assertive">
-                        Correo electrónico no válido.
-                    </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña <span class="required">*</span></label>
+              <div class="input-icon">
+                <i class="icon-lock" aria-hidden="true">🔒</i>
+                <input
+                  type="password"
+                  id="password"
+                  formControlName="password"
+                  placeholder="Mínimo 8 caracteres"
+                  required
+                  aria-required="true"
+                  aria-describedby="passwordHelp"
+                  >
                 </div>
-                <div class="form-group">
-                    <label for="password">Contraseña <span class="required">*</span></label>
-                    <div class="input-icon">
-                        <i class="icon-lock" aria-hidden="true">🔒</i>
-                        <input
-                            type="password"
-                            id="password"
-                            formControlName="password"
-                            placeholder="Mínimo 8 caracteres"
-                            required
-                            aria-required="true"
-                            aria-describedby="passwordHelp"
-                        >
+                <div id="passwordHelp" class="sr-only">Ingresa una contraseña de al menos 8 caracteres.</div>
+                @if (registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)) {
+                  <div
+                    class="error-message"
+                    role="alert"
+                    aria-live="assertive">
+                    La contraseña debe tener al menos 8 caracteres.
+                  </div>
+                }
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirmar contraseña <span class="required">*</span></label>
+                <div class="input-icon">
+                  <i class="icon-lock" aria-hidden="true">🔒</i>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    formControlName="confirmPassword"
+                    placeholder="Repite tu contraseña"
+                    required
+                    aria-required="true"
+                    aria-describedby="confirmPasswordHelp"
+                    >
+                  </div>
+                  <div id="confirmPasswordHelp" class="sr-only">Confirma tu contraseña.</div>
+                  @if (registerForm.get('confirmPassword')?.invalid &&
+                    (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)) {
+                    <div
+                      class="error-message"
+                      role="alert"
+                      aria-live="assertive">
+                      La contraseña es requerida o es invalida.
                     </div>
-                    <div id="passwordHelp" class="sr-only">Ingresa una contraseña de al menos 8 caracteres.</div>
-                    <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)"
-                         class="error-message"
-                         role="alert"
-                         aria-live="assertive">
-                        La contraseña debe tener al menos 8 caracteres.
+                  }
+                  @if ( registerForm.get('confirmPassword')?.touched &&
+                    (registerForm.get('password')?.value !== registerForm.get('confirmPassword')?.value  )) {
+                    <div
+                      class="error-message"
+                      role="alert"
+                      aria-live="assertive">
+                      Las contraseñas no coindicen.
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirmar contraseña <span class="required">*</span></label>
-                    <div class="input-icon">
-                        <i class="icon-lock" aria-hidden="true">🔒</i>
-                        <input
-                            type="password"
-                            id="confirm-password"
-                            formControlName="confirmPassword"
-                            placeholder="Repite tu contraseña"
-                            required
-                            aria-required="true"
-                            aria-describedby="confirmPasswordHelp"
-                        >
-                    </div>
-                    <div id="confirmPasswordHelp" class="sr-only">Confirma tu contraseña.</div>
-                    <div *ngIf="registerForm.get('confirmPassword')?.invalid &&
-                    (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)"
-                         class="error-message"
-                         role="alert"
-                         aria-live="assertive">
-                        La contraseña es requerida o es invalida.
-                    </div>
-                    <div *ngIf=" registerForm.get('confirmPassword')?.touched &&
-                    (registerForm.get('password')?.value !== registerForm.get('confirmPassword')?.value  )"
-                         class="error-message"
-                         role="alert"
-                         aria-live="assertive">
-                        Las contraseñas no coindicen.
-                    </div>
+                  }
                 </div>
                 <button type="submit" class="button-main" [attr.aria-disabled]="registerForm.invalid"
-                [disabled]="registerForm.invalid || !passwordMatchValidator() ">
-                    Registrarse
+                  [disabled]="registerForm.invalid || !passwordMatchValidator() ">
+                  Registrarse
                 </button>
-            </form>
-        </div>
-        <div class="card-footer">
-            <p class="text-center">
+              </form>
+            </div>
+            <div class="card-footer">
+              <p class="text-center">
                 ¿Ya tienes una cuenta? <a href="/login" class="link">Inicia sesión</a>
-            </p>
+              </p>
+            </div>
+          </div>
         </div>
-    </div>
-</div>

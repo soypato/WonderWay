@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../../../interface/restaurant.interface';
@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-list-one-travel',
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [ReactiveFormsModule],
     templateUrl: './list-one-travel.component.html',
     styleUrls: ['./list-one-travel.component.css']
 })

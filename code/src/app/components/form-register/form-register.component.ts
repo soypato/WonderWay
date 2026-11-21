@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -12,7 +12,7 @@ import { CurrentUser } from '../../services/current-user.service';
     selector: 'app-form-register',
     templateUrl: './form-register.component.html',
     styleUrls: ['./form-register.component.css'],
-    imports: [ReactiveFormsModule, NgIf, SweetAlert2Module]
+    imports: [ReactiveFormsModule, SweetAlert2Module]
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;

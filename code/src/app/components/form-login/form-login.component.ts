@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
     selector: 'app-form-login',
     templateUrl: './form-login.component.html',
     styleUrls: ['./form-login.component.css'],
-    imports: [ReactiveFormsModule, CommonModule]
+    imports: [ReactiveFormsModule]
 })
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;

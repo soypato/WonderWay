@@ -2,12 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CurrentUser } from '../../services/current-user.service';
 import { Unsubscribable } from 'rxjs';
 import { User } from '../../interface/user.interface';
-import { CommonModule } from '@angular/common';
+
 import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-navbar',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css'
 })

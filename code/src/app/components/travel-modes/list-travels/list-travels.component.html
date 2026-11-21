@@ -1,35 +1,39 @@
 <div class="main-parent-container">
-    <div class="overlay"></div> <!-- Capa oscurecida -->
-    <div class="profile-container main-child-container">
-        <h2>Viajes de {{serverUser?.name}} ✈️</h2>
-        <main *ngIf="serverUser?.travel">
-            <article class="user-travels" *ngFor="let i of serverUser?.travel">
-                <h3>{{i.name}}</h3>
-                <div id="introduction-data">
-                    <p>📌 Ubicación | {{i.location}}</p>
-                    <p>📅 Fecha de inicio | {{i.startDate}}</p>
-                    <p>📅 Fecha de fin | {{i.endDate}}</p> <!-- Nueva línea para mostrar la fecha de fin -->
-                </div>
-                <article class="menu-buttons">
-                    <a (click)="moreInfoTravel(i.name)" class="button-main">
-                        <i class="fas fa-info-circle"></i> Más información
-                    </a>
-                    <a (click)="editTravel(i.name)" class="button-main">
-                        <i class="fas fa-edit"></i> Editar
-                    </a>
-                    <a (click)="deleteTravel(i.name)" class="button-main danger">
-                        <i class="fas fa-trash-alt"></i> Eliminar
-                    </a>
-                </article>
-            </article>    
-            <article class="menu-buttons action-buttons">
-                <a href="/new_travel" class="button-main create">
-                    <i class="fas fa-plus-circle"></i> Crear
-                </a>
-                <button (click)="reload()" class="button-main update">
-                    <i class="fas fa-sync-alt"></i> Actualizar
-                </button>
+  <div class="overlay"></div> <!-- Capa oscurecida -->
+  <div class="profile-container main-child-container">
+    <h2>Viajes de {{serverUser?.name}} ✈️</h2>
+    @if (serverUser?.travel) {
+      <main>
+        @for (i of serverUser?.travel; track i) {
+          <article class="user-travels">
+            <h3>{{i.name}}</h3>
+            <div id="introduction-data">
+              <p>📌 Ubicación | {{i.location}}</p>
+              <p>📅 Fecha de inicio | {{i.startDate}}</p>
+              <p>📅 Fecha de fin | {{i.endDate}}</p> <!-- Nueva línea para mostrar la fecha de fin -->
+            </div>
+            <article class="menu-buttons">
+              <a (click)="moreInfoTravel(i.name)" class="button-main">
+                <i class="fas fa-info-circle"></i> Más información
+              </a>
+              <a (click)="editTravel(i.name)" class="button-main">
+                <i class="fas fa-edit"></i> Editar
+              </a>
+              <a (click)="deleteTravel(i.name)" class="button-main danger">
+                <i class="fas fa-trash-alt"></i> Eliminar
+              </a>
             </article>
-        </main>
-    </div>  
+          </article>
+        }
+        <article class="menu-buttons action-buttons">
+          <a href="/new_travel" class="button-main create">
+            <i class="fas fa-plus-circle"></i> Crear
+          </a>
+          <button (click)="reload()" class="button-main update">
+            <i class="fas fa-sync-alt"></i> Actualizar
+          </button>
+        </article>
+      </main>
+    }
+  </div>
 </div>

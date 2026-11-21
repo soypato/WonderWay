@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-modify-profile',
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [ReactiveFormsModule],
     templateUrl: './modify-profile.component.html',
     styleUrls: ['./modify-profile.component.css']
 })

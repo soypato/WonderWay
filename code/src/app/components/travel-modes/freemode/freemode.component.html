@@ -11,65 +11,72 @@
           formControlName="searchQuery"
           placeholder="Escribe la ciudad"
           required
-        />
-        <select name="categoria" id="categoria" formControlName="categoria">
-          <option value="" disabled selected>Seleccione un servicio</option>
-          <option value="restaurants">Restaurantes</option>
-          <option value="hotels">Hoteles</option>
-          <option value="attractions">Atracciones</option>
-        </select>
-        <button class="button-main" type="submit" [disabled]="searchForm.invalid">
-          <i class="fas fa-search"> Buscar</i>
-        </button>
+          />
+          <select name="categoria" id="categoria" formControlName="categoria">
+            <option value="" disabled selected>Seleccione un servicio</option>
+            <option value="restaurants">Restaurantes</option>
+            <option value="hotels">Hoteles</option>
+            <option value="attractions">Atracciones</option>
+          </select>
+          <button class="button-main" type="submit" [disabled]="searchForm.invalid">
+            <i class="fas fa-search"> Buscar</i>
+          </button>
+        </div>
+      </form>
+
+      @if (services.length > 0) {
+        <div class="results-section" id="restaurants-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>País</th>
+                <th>Ver detalles</th>
+                <th>Ver imagenes</th>
+                <th>Ver opiniones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (service of services; track service) {
+                <tr>
+                  <td>{{ service.name }}</td>
+                  <td>{{ service.address_obj.street1 }}</td>
+                  <td>{{ service.address_obj.city }}</td>
+                  <td>{{ service.address_obj.country }}</td>
+                  <td>
+                    <button class="button-main" (click)="verDetalles(service.location_id)">
+                      <i class="fas fa-plus"></i> Detalles
+                    </button>
+                    <td>
+                      <button class="button-main" (click)="verImagenes(service.location_id)">
+                        <i class="fas fa-plus"></i> Imágenes
+                      </button>
+                    </td>
+                    <td>
+                      <button class="button-main" (click)="verOpiniones(service.location_id)">
+                        <i class="fas fa-plus"></i> Opiniones
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+
+        @if (isLoading) {
+          <div>
+            <span class="loader"></span>
+          </div>
+        }
+
+        @if (errorMessage) {
+          <div class="results-section">
+            <p class="error">{{ errorMessage }}</p>
+          </div>
+        }
       </div>
-    </form>
-
-    <div class="results-section" *ngIf="services.length > 0" id="restaurants-list">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Ciudad</th>
-            <th>País</th>
-            <th>Ver detalles</th>
-            <th>Ver imagenes</th>
-            <th>Ver opiniones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let service of services">
-            <td>{{ service.name }}</td>
-            <td>{{ service.address_obj.street1 }}</td>
-            <td>{{ service.address_obj.city }}</td>
-            <td>{{ service.address_obj.country }}</td>
-            <td>
-              <button class="button-main" (click)="verDetalles(service.location_id)">
-                <i class="fas fa-plus"></i> Detalles
-              </button>
-              <td>
-                <button class="button-main" (click)="verImagenes(service.location_id)">
-                  <i class="fas fa-plus"></i> Imágenes
-                </button>
-                </td>
-                <td>
-                  <button class="button-main" (click)="verOpiniones(service.location_id)">
-                    <i class="fas fa-plus"></i> Opiniones
-                  </button>
-                  </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
-    <div *ngIf="isLoading">
-      <span class="loader"></span>
-  </div>
-
-    <div *ngIf="errorMessage" class="results-section">
-      <p class="error">{{ errorMessage }}</p>
-    </div>
-  </div>
-</div>
-
-  

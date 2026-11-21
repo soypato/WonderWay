@@ -1,65 +1,69 @@
 <div class="background-container"></div>
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title" id="form-title">Iniciar sesión</h1>
-            <p class="card-description">Ingresa a tu cuenta para explorar nuevos destinos</p>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form" aria-labelledby="form-title">
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <div class="input-icon">
-                        <i class="icon-plane" aria-hidden="true">✈️</i>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            formControlName="email" 
-                            placeholder="tu@email.com" 
-                            required 
-                            aria-required="true" 
-                            aria-describedby="emailHelp"
-                        >
-                    </div>
-                    <div id="emailHelp" class="sr-only">Ingresa tu correo electrónico.</div>
-                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" 
-                         class="error-message" 
-                         role="alert" 
-                         aria-live="assertive">
-                        Correo electrónico no válido.
-                    </div>
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title" id="form-title">Iniciar sesión</h1>
+      <p class="card-description">Ingresa a tu cuenta para explorar nuevos destinos</p>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form" aria-labelledby="form-title">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <div class="input-icon">
+            <i class="icon-plane" aria-hidden="true">✈️</i>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="tu@email.com"
+              required
+              aria-required="true"
+              aria-describedby="emailHelp"
+              >
+            </div>
+            <div id="emailHelp" class="sr-only">Ingresa tu correo electrónico.</div>
+            @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+              <div
+                class="error-message"
+                role="alert"
+                aria-live="assertive">
+                Correo electrónico no válido.
+              </div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="input-icon">
+              <i class="icon-lock" aria-hidden="true">🔒</i>
+              <input
+                type="password"
+                id="password"
+                formControlName="password"
+                required
+                aria-required="true"
+                aria-describedby="passwordHelp"
+                placeholder="*******"
+                >
+              </div>
+              <div id="passwordHelp" class="sr-only">Ingresa tu contraseña.</div>
+              @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                <div
+                  class="error-message"
+                  role="alert"
+                  aria-live="assertive">
+                  La contraseña es obligatoria.
                 </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <div class="input-icon">
-                        <i class="icon-lock" aria-hidden="true">🔒</i>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            formControlName="password" 
-                            required 
-                            aria-required="true"
-                            aria-describedby="passwordHelp"
-                            placeholder="*******"
-                        >
-                    </div>
-                    <div id="passwordHelp" class="sr-only">Ingresa tu contraseña.</div>
-                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" 
-                         class="error-message" 
-                         role="alert" 
-                         aria-live="assertive">
-                        La contraseña es obligatoria.
-                    </div>
-                </div>
-                <button type="submit" class="button-main" [attr.aria-disabled]="loginForm.invalid" [disabled]="loginForm.invalid">
-                    Iniciar sesión
-                </button>
-            </form>
+              }
+            </div>
+            <button type="submit" class="button-main" [attr.aria-disabled]="loginForm.invalid" [disabled]="loginForm.invalid">
+              Iniciar sesión
+            </button>
+          </form>
         </div>
         <div class="card-footer">
-            <p class="text-center">
-                ¿No tienes una cuenta? <a href="/register" class="link">Regístrate</a>
-            </p>
+          <p class="text-center">
+            ¿No tienes una cuenta? <a href="/register" class="link">Regístrate</a>
+          </p>
         </div>
+      </div>
     </div>
-</div>

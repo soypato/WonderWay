@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CurrentUser } from '../../../services/current-user.service';
 import { Travel } from '../../../interface/travel.interface';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../interface/user.interface';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-list-travels',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './list-travels.component.html',
     styleUrls: ['./list-travels.component.css']
 })

@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interface/user.interface';
 import Swal from 'sweetalert2';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-admin-user',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './admin-user.component.html',
     styleUrl: './admin-user.component.css'
 })
