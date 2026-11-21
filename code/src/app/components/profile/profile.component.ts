@@ -6,11 +6,10 @@ import { User } from '../../interface/user.interface';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'] 
+    selector: 'app-profile',
+    imports: [CommonModule],
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
 
 export class ProfileComponent implements OnInit {

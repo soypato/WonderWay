@@ -12,11 +12,10 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../interface/user.interface';
 
 @Component({
-  selector: 'app-new-travel',
-  templateUrl: './new-travel.component.html',
-  styleUrls: ['./new-travel.component.css'],
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+    selector: 'app-new-travel',
+    templateUrl: './new-travel.component.html',
+    styleUrls: ['./new-travel.component.css'],
+    imports: [CommonModule, ReactiveFormsModule]
 })
 export class NewTravelComponent {
   travelForm: FormGroup;

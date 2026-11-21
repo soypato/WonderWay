@@ -8,11 +8,10 @@ import Swal from 'sweetalert2';
 import { Award } from '../../../interface/restaurant.interface';
 
 @Component({
-  selector: 'app-example',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './freemode.component.html',
-  styleUrls: ['../new-service.css','./freemode.component.css']
+    selector: 'app-example',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './freemode.component.html',
+    styleUrls: ['../new-service.css', './freemode.component.css']
 })
 export class FreeMode{
   searchForm: FormGroup;

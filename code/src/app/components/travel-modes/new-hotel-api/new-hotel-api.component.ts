@@ -8,11 +8,10 @@ import Swal from 'sweetalert2';
 import { Award } from '../../../interface/restaurant.interface';
 
 @Component({
-  selector: 'app-new-restaurant-api',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './new-hotel-api.component.html',
-  styleUrls: ['../new-service.css', './new-hotel-api.component.css'],
+    selector: 'app-new-restaurant-api',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './new-hotel-api.component.html',
+    styleUrls: ['../new-service.css', './new-hotel-api.component.css']
 })
 export class NewHotelApiComponent implements OnInit {
   searchForm: FormGroup;

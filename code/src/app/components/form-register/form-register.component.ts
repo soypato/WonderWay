@@ -9,11 +9,10 @@ import { CurrentUser } from '../../services/current-user.service';
 
 
 @Component({
-  selector: 'app-form-register',
-  templateUrl: './form-register.component.html',
-  styleUrls: ['./form-register.component.css'],
-  standalone: true,
-  imports: [ReactiveFormsModule, NgIf, SweetAlert2Module],
+    selector: 'app-form-register',
+    templateUrl: './form-register.component.html',
+    styleUrls: ['./form-register.component.css'],
+    imports: [ReactiveFormsModule, NgIf, SweetAlert2Module]
 })
 export class FormRegisterComponent implements OnInit {
   registerForm: FormGroup;

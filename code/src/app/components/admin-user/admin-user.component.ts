@@ -5,11 +5,10 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-admin-user',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './admin-user.component.html',
-  styleUrl: './admin-user.component.css'
+    selector: 'app-admin-user',
+    imports: [CommonModule],
+    templateUrl: './admin-user.component.html',
+    styleUrl: './admin-user.component.css'
 })
 export class AdminUserComponent {
   userService = inject(UserService);

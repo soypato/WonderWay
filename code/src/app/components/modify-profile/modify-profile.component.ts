@@ -7,11 +7,10 @@ import { User } from '../../interface/user.interface';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-modify-profile',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './modify-profile.component.html',
-  styleUrls: ['./modify-profile.component.css'],
+    selector: 'app-modify-profile',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './modify-profile.component.html',
+    styleUrls: ['./modify-profile.component.css']
 })
 export class ModifyProfileComponent implements OnInit {
   profileForm!: FormGroup;

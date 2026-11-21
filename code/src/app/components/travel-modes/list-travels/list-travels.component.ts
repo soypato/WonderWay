@@ -8,11 +8,10 @@ import { User } from '../../../interface/user.interface';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-list-travels',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './list-travels.component.html',
-  styleUrls: ['./list-travels.component.css']
+    selector: 'app-list-travels',
+    imports: [CommonModule],
+    templateUrl: './list-travels.component.html',
+    styleUrls: ['./list-travels.component.css']
 })
 export class ListTravelsComponent implements OnInit {
   currentUserId: string | null = inject(CurrentUser).getUsuario();

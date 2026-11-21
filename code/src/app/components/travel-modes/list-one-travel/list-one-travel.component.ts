@@ -9,11 +9,10 @@ import Swal from 'sweetalert2';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-list-one-travel',
-  imports: [CommonModule, ReactiveFormsModule],
-  standalone: true,
-  templateUrl: './list-one-travel.component.html',
-  styleUrls: ['./list-one-travel.component.css']
+    selector: 'app-list-one-travel',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './list-one-travel.component.html',
+    styleUrls: ['./list-one-travel.component.css']
 })
 
 export class ListOneTravelComponent implements OnInit {

@@ -7,11 +7,10 @@ import { CurrentUser } from '../../services/current-user.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-form-login',
-  standalone: true,
-  templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.css'],
-  imports: [ReactiveFormsModule, CommonModule],
+    selector: 'app-form-login',
+    templateUrl: './form-login.component.html',
+    styleUrls: ['./form-login.component.css'],
+    imports: [ReactiveFormsModule, CommonModule]
 })
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;
