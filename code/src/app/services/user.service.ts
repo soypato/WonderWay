@@ -54,11 +54,11 @@ export class UserService {
     return btoa(binary);
   }
 
-  private base64ToBytes(base64: string): Uint8Array {
+  private base64ToBytes(base64: string): Uint8Array<ArrayBuffer> {
     return Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
   }
 
-  private async deriveHash(password: string, salt: Uint8Array, iterations: number): Promise<Uint8Array> {
+  private async deriveHash(password: string, salt: Uint8Array<ArrayBuffer>, iterations: number): Promise<Uint8Array> {
     const baseKey = await crypto.subtle.importKey(
       'raw',
       new TextEncoder().encode(password),
