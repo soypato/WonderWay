@@ -5,7 +5,6 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
-import { environment } from '../../../environments/environments';
 import { CurrentUser } from '../../services/current-user.service';
 
 
@@ -73,7 +72,7 @@ export class FormRegisterComponent implements OnInit {
       const password = this.registerForm.get('password')?.value;
 
       try {
-        const encryptedPassword = await this.userService.encryptPassword(password);
+        const hashedPassword = await this.userService.hashPassword(password);
 
         this.userService.verificarCorreo(email).subscribe(
           (usuario) => {
@@ -88,7 +87,7 @@ export class FormRegisterComponent implements OnInit {
               const nuevoUsuario = {
                 name: this.registerForm.get('nombre')?.value,
                 email: email,
-                password: encryptedPassword,
+                password: hashedPassword,
                 role: 'usuario',
                 active: true,
                 travel: []

@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { UserService } from '../../services/user.service';
 import { CurrentUser } from '../../services/current-user.service';
 import { User } from '../../interface/user.interface';
-import { environment } from '../../../environments/environments';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -61,62 +60,6 @@ export class ModifyProfileComponent implements OnInit {
     }
   }
 
-  // Verificar contraseñas desencriptadas
-  async verifyPassword(enteredPassword: string, storedPassword: string): Promise<boolean> {
-    if (!storedPassword) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'La contraseña almacenada no es válida.',
-      });
-      return false;
-    }
-
-    const encoder = new TextEncoder();
-    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
-    const storedBuffer = Uint8Array.from(atob(storedPassword), (c) => c.charCodeAt(0));
-    const iv = storedBuffer.slice(0, 12);
-    const encryptedData = storedBuffer.slice(12);
-
-    try {
-      const key = await crypto.subtle.importKey('raw', fixedKey, { name: 'AES-GCM' }, false, ['decrypt']);
-      const decryptedData = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, encryptedData);
-      const decodedPassword = new TextDecoder().decode(decryptedData);
-      return decodedPassword === enteredPassword;
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al verificar la contraseña actual.',
-      });
-      return false;
-    }
-  }
-
-  // Encriptar contraseñas
-  async encryptPassword(password: string): Promise<string> {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const fixedKey = encoder.encode(environment.keyPass.padEnd(32, '0')).slice(0, 32);
-
-    try {
-      const key = await crypto.subtle.importKey('raw', fixedKey, { name: 'AES-GCM' }, false, ['encrypt']);
-      const iv = crypto.getRandomValues(new Uint8Array(12));
-      const encryptedData = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, data);
-      const result = new Uint8Array(iv.length + encryptedData.byteLength);
-      result.set(iv);
-      result.set(new Uint8Array(encryptedData), iv.length);
-      return btoa(String.fromCharCode(...result));
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al encriptar la contraseña.',
-      });
-      throw error;
-    }
-  }
-
   // Verificar coincidencia entre contraseñas
   passwordsMatch(): boolean {
     const { newPassword, confirmPassword } = this.passwordForm.value;
@@ -125,7 +68,7 @@ export class ModifyProfileComponent implements OnInit {
 
   async onProfileSubmit() {
     if (this.profileForm.valid && this.currentUser) {
-      const passwordValid = await this.verifyPassword(
+      const passwordValid = await this.userService.verifyPassword(
         this.profileForm.value.currentPassword,
         this.currentUser.password
       );
@@ -177,7 +120,7 @@ export class ModifyProfileComponent implements OnInit {
 
   async onPasswordSubmit() {
     if (this.passwordForm.valid && this.currentUser) {
-      const passwordValid = await this.verifyPassword(
+      const passwordValid = await this.userService.verifyPassword(
         this.passwordForm.value.currentPassword,
         this.currentUser.password
       );
@@ -201,8 +144,8 @@ export class ModifyProfileComponent implements OnInit {
       }
 
       try {
-        const encryptedPassword = await this.encryptPassword(this.passwordForm.value.newPassword);
-        const updatedUser: User = { ...this.currentUser, password: encryptedPassword };
+        const hashedPassword = await this.userService.hashPassword(this.passwordForm.value.newPassword);
+        const updatedUser: User = { ...this.currentUser, password: hashedPassword };
 
         this.userService.updateUser(updatedUser).subscribe({
           next: () => {

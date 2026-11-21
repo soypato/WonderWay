@@ -4,7 +4,7 @@
       "id": "fc96",
       "name": "Juanma Ciardi",
       "email": "juanmaciardi@gmail.com",
-      "password": "d2bSpGj7su/ghHjKSB69Zc1iAmrgYnkXxJ19m+RmndYbZ3j8WA==",
+      "password": "pbkdf2-sha256$600000$Xsyvli0PYVgKBP5zrWLwpw==$uQpfDYdo3uTeSvYRhUi3jTcVK9yB5CpwOONRhN092vk=",
       "role": "admin",
       "active": true,
       "travel": [
@@ -437,7 +437,7 @@
       "id": "3a51",
       "name": "Juan Pagani",
       "email": "juan@pagani.com",
-      "password": "XS1sPPfWOKqaXD1VOapKuZ2h3HVsm6OMLGVRekka7guEs6FRNw==",
+      "password": "pbkdf2-sha256$600000$kK9hZ6isad8xQ+dGVPNKVA==$+Mfmrk5Um2VDysY6A8q1RGtMLjgXW75wVJDptoVwQqk=",
       "role": "admin",
       "active": true,
       "travel": [
@@ -566,7 +566,7 @@
       "id": "0824",
       "name": "Juanma nuevo",
       "email": "juancho@gmail.com",
-      "password": "7k5uSg8jaFtoLrpKEMMSzghL1Lmk9jZ17gXseFC12VSRpY32Bg==",
+      "password": "pbkdf2-sha256$600000$GNpryZMz1OZqX1vkBe9D+Q==$VOgr+GsGa4McWMm9r0E5f75oicJF5/IGNFDtYT393Fc=",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -610,7 +610,7 @@
       "id": "f461",
       "name": "Juan",
       "email": "juancho2@gmail.com",
-      "password": "pOWn6pqZzv5xy/QkJBtJerdMh4Qkm1EEYsrk+gIY3gtR0Ve6Ow==",
+      "password": "pbkdf2-sha256$600000$kkjCzVgFJGcZ88lQQ8hXbg==$11+ss3ipgWgg/AhbXAOaw5mJXKTkRpccLxkc0V1+0uY=",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -684,7 +684,7 @@
       "id": "c5ff",
       "name": "Roque",
       "email": "roque@roque.com",
-      "password": "ClZcRDEs63UQXHutAqO7iMpMWhon/HjXlEepdHGs11EOqjzHig==",
+      "password": "pbkdf2-sha256$600000$DCDQS0jVOgGrtWG5asId3w==$ckS+mg2jllRxWSWCBq4jaHU1w+caZd2XUlryXRGx2pc=",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -773,7 +773,7 @@
       "id": "180b",
       "name": "Juan Manuel Ciardi",
       "email": "juanmaaciardi@gmail.com",
-      "password": "bDHgx6gTQ6VGXE9oihdQhpGkw7nsOiOoEV9vd9b/R+OmeST01w==",
+      "password": "pbkdf2-sha256$600000$/pcM94GaC1tI8AmK5N9mVg==$4vUtMcMtXQrDsSFnVTtx4xSUX7YLSMO+jYRG28Oa/nE=",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -839,7 +839,7 @@
       "id": "2381",
       "name": "Alejandro",
       "email": "alejandro@alealejandro.com",
-      "password": "fnUhTv0/CnogJ/WIpDtXDnD8+li/1uty0yaYOYuyO7jFET2T",
+      "password": "pbkdf2-sha256$600000$gQWJ1Yfhfm/nDrlaijdB0g==$dmUT22Dm7kf2kPCO3jusC1MBYv3AM0pRws5tzynR8/w=",
       "role": "usuario",
       "active": true,
       "travel": [
@@ -969,7 +969,7 @@
       "id": "0352",
       "name": "admin",
       "email": "admin@wonderway.com.ar",
-      "password": "eaYnl+DSmFlzv0Yp61asFzwTAgQw2Cfi2RsrcMmft43wBV3SjmGS",
+      "password": "pbkdf2-sha256$600000$0gTDIOa3ACkX0VSj4+PClw==$dKjsz/AiumyenffdaFa/1SaCJomvl3vxK+nU3evUxNQ=",
       "role": "admin",
       "active": true,
       "travel": []

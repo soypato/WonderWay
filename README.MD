@@ -57,29 +57,25 @@ Follow these steps to get WonderWay up and running:
    };
    ```
 
-2. **Add the environment file**:  
-   Copy `code/src/environments/environments.example.ts` to `code/src/environments/environments.ts` and set your own `keyPass`.  
-   This file is git-ignored, so the key never gets committed.
-
-3. **Install project dependencies**:
+2. **Install project dependencies**:
 
    ```bash
    npm install
    ```
 
-4. **Navigate to the Angular project folder**:
+3. **Navigate to the Angular project folder**:
 
    ```bash
    cd code
    ```
 
-5. **Start the Angular development server**:
+4. **Start the Angular development server**:
 
    ```bash
    ng serve -o
    ```
 
-6. **Start the JSON backend server**:  
+5. **Start the JSON backend server**:  
    Open a new terminal window, navigate to the `code` folder again:
 
    ```bash
@@ -87,7 +83,7 @@ Follow these steps to get WonderWay up and running:
    json-server db/db.json
    ```
 
-7. 🎉 That’s it! Open your browser and start exploring **WonderWay**.
+6. 🎉 That’s it! Open your browser and start exploring **WonderWay**.
 
 ---
 

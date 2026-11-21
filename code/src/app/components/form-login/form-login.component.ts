@@ -5,7 +5,6 @@ import { UserService } from '../../services/user.service';
 import Swal from 'sweetalert2';
 import { CurrentUser } from '../../services/current-user.service';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environments';
 
 @Component({
   selector: 'app-form-login',
