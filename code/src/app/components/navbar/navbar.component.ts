@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CurrentUser } from '../../services/current-user.service';
 import { Unsubscribable } from 'rxjs';
 import { User } from '../../interface/user.interface';
@@ -9,6 +9,7 @@ import { UserService } from '../../services/user.service';
     selector: 'app-navbar',
     imports: [],
     templateUrl: './navbar.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit{

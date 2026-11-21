@@ -1,5 +1,5 @@
 
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../../../interface/restaurant.interface';
 import { Hotel } from '../../../interface/hotel.interface';
@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     selector: 'app-list-one-travel',
     imports: [ReactiveFormsModule],
     templateUrl: './list-one-travel.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./list-one-travel.component.css']
 })
 

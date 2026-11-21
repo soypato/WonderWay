@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CurrentUser } from '../../../services/current-user.service';
 import { Travel } from '../../../interface/travel.interface';
 
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
     selector: 'app-list-travels',
     imports: [],
     templateUrl: './list-travels.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./list-travels.component.css']
 })
 export class ListTravelsComponent implements OnInit {

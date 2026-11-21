@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 import { CurrentUser } from '../../services/current-user.service';
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
     selector: 'app-profile',
     imports: [],
     templateUrl: './profile.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./profile.component.css']
 })
 

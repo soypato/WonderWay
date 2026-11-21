@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TripadvisorService } from '../../../services/tripadvisor.service';
 
@@ -11,6 +11,7 @@ import { Award } from '../../../interface/restaurant.interface';
     selector: 'app-new-restaurant-api',
     imports: [ReactiveFormsModule],
     templateUrl: './new-restaurant-api.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['../new-service.css', './new-restaurant-api.component.css']
 })
 export class NewRestaurantApiComponent implements OnInit {

@@ -1,5 +1,5 @@
 
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { CurrentUser } from '../../services/current-user.service';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
     selector: 'app-modify-profile',
     imports: [ReactiveFormsModule],
     templateUrl: './modify-profile.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./modify-profile.component.css']
 })
 export class ModifyProfileComponent implements OnInit {

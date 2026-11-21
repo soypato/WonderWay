@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interface/user.interface';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
     selector: 'app-admin-user',
     imports: [],
     templateUrl: './admin-user.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './admin-user.component.css'
 })
 export class AdminUserComponent {

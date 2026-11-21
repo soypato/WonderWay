@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { User } from '../../../interface/user.interface';
     selector: 'app-new-travel',
     templateUrl: './new-travel.component.html',
     styleUrls: ['./new-travel.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [ReactiveFormsModule]
 })
 export class NewTravelComponent {
