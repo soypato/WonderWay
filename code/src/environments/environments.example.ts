@@ -1,5 +1,4 @@
 export const environment = {
     production: false,
-    keyPass: 'e23erf423e4r4ewf34rt45y56nrfbniu98'
+    keyPass: 'your_encryption_key_here'
   };
-  
